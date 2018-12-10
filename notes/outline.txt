@@ -1,0 +1,29 @@
+1. Introduction
+
+2. Physics/Standard Model
+
+3. CERN/ATLAS detector
+- emphasis on ID and tracking/track reconstruction
+
+4. ID Alignment
+- overview of method
+- alignment constants and how they work
+- sagitta bias monitoring/corrections
+
+5. WZ Analysis
+- (brief?) overview of analysis & results
+
+6. 13 TeV ssWW Analysis
+- Theory/motivation
+- Previous results + goals for this analysis
+- Overview of analysis & results
+- Details on fake backgrounds
+
+7. ssWW upgrade study
+- Introduction to major changes from 13 TeV (detector, lumi, etc)
+- Previous results + motivations for this study
+- Overview of analysis
+- Details on optimization
+- Future prospects/looking forward
+
+8. Summary/Wrap up
