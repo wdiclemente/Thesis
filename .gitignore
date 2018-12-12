@@ -1,3 +1,5 @@
+Papers
+
 *.log
 
 *.d
@@ -11,3 +13,11 @@
 *~
 **/*~
 **/**/*~
+
+thesis.bbl
+thesis.blg
+thesis.brf
+thesis.lof
+thesis.lot
+thesis.out
+thesis.toc
