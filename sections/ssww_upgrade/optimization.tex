@@ -66,26 +66,44 @@ In order to train the RGS, signal and background samples were prepared from even
 The signal sample was chosen to be the longitudinally polarized \ssww EWK events, and the transverse and mixed polarizations were treated as background along with \ssww events from QCD interactions and the traditional backgrounds listed in Section~\ref{sswwupgrade:background}.
 Splitting the inclusive \ssww EWK events by polarization allows the optimization to favor the longitunally polarized events as much as possible, even though they both contribute to the EWK signal.
 
-The following six variables were chosen for optimization:
+The following variables were chosen for optimization:
 \begin{itemize}
 \item Leading lepton $\pt$
 \item Dilepton invariant mass ($\mll$)
-\item Leading jet $\pt$
-\item Subleading jet $\pt$
+\item Leading and subleading jet $\pt$
 \item Dijet invariant mass ($\mjj$)
 \item Lepton-jet centrality ($\zeta$)
 \end{itemize}
-Subleading lepton $\pt$ is omitted due to the fact that it is particularly sensitive to the longitudinal polarization and thus would like to be kept as low as possible.
+Subleading lepton $\pt$ was omitted as it is desirable to keep the cut value as low as possible due to its sensitivity to the longitudinal polarization (as discussed in Section~\ref{sec:sswwupgrade_longitudinal_sens}).
+Additionally, the dijet separation $\detajj$ was included in the optimization originally, however it was dropped from the list due to the cut value being motivated by differences between EWK and QCD produced \ssww events.
 
-\TODO{talk about constraints to optimization, statistical limitations from fakes resulting in using simplified Z}
-Two constraints were applied to the optimization in order to
+Two additional constraints were imposed when selecting the optimal cut point:
+\begin{enumerate}
+\item At least 1000 signal events must survive in order to prevent the optimization from being too aggressive and unnecssarily reducing signal statistics.
+\item The dijet invariant mass may only vary within a 50~GeV range of the default value (from 450-550~GeV) due to the cut being physically motivated by the VBS event topology (\TODO{ reference where this is discussed in the 13TeV section }).
+\end{enumerate}
+
+Lastly, the decision was made to use calculate the signal significance without taking into account the uncertainty of the background using Equation~\ref{eq:significance_without_error}.
+This was due to the fact that the statistical uncertainties of the fake electron and charge-misID backgrounds were quite large, and if Equation~\ref{eq:significance_with_error} were used instead, the optimization would cut unreasonably hard against these backgrounds.
+Since Monte Carlo statistics is not expected to be a limiting factor when this analysis is performed at the HL-LHC, it is more realistic to simply ignore these large statistical uncertainties for the purpose of the selection optimization.
 
 %------------------------------------------------------------------------------------------------------
 %
 %------------------------------------------------------------------------------------------------------
 \subsection{Results of the optimization}\label{sswwupgrade:opt_results}
+Ultimately, the random grid was constructed from over 38,000 LL-polarized \ssww events in the variables listed above.
+After applying the constraints, an optimal cut point was chosen which reduced the total background from 9900 to 2310 while reducing the signal from 3489 to 2958.
+This corresponds to an increase in signal significance from $Z = 33.26$ to $Z = 52.63$ as calculated by Equation~\ref{eq:significance_without_error}.
+The updates to the event selection are listed in Table~\ref{tab:sswwupgrade_optimized_selection}. %, and plots of the optimized variables are found in Figures~\ref{fig:optimized_lep0pt}-\ref{fig:optimized_centrality}.
 
+The large reduction in the background is primarily a result of the increase in the leading and subleading jet $\pt$ from 30~GeV to 90~GeV and 45~GeV, respectively.
+As can be seen in Figure~\ref{fig:optimized_jetpt}, this increase removes a significant portion of the backgrounds from jets faking electrons and charge mis-ID.
+Additionally, the loosening of the lepton-jet centrality cut $\zeta$ allows more signal events to survive the event selection (see Figure~\ref{fig:optimized_centrality}).
+Other changes to the event selection are minor and do not individually have a large impact on the signal or background yields.
 
+The full event yields after optimization as well as the cross section measurement are detailed alongside those using the default selection in Section~\ref{sswwupgrade:results}.
+
+\TODO{It's a bit awkward to reference the results of the default/optimized before they're properly presented. Maybe move the sections around? not sure...}
 
 \begin{table}[htb]
   \centering
@@ -114,19 +132,17 @@ Two constraints were applied to the optimization in order to
   \label{tab:sswwupgrade_optimized_selection}
 \end{table}
 
-The results of the optimization including the event yields as well as the cross section measurement are detailed alongside those using the default selection in Section~\ref{sswwupgrade:results}.
-
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/optimization_plots/lep0pt}
-  \caption{Leading lepton $\pt$ distribution.  The default and optimized cuts are represented by the red and green dashed lines, respectively.  The \ssww EWK signal (black points) is normalized to the same area as the sum of the backgrounds (colored histogram).}
+  \caption{Leading lepton $\pt$ distribution.  The default and optimized cuts are represented by the red and green dashed lines, respectively.  The \ssww EWK signal (black points) is normalized to the same area as the sum of the backgrounds (colored histogram). \TODO{Move to appendix or omit}}
   \label{fig:optimized_lep0pt}
 \end{figure}
 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/optimization_plots/mll}
-  \caption{Dilepton invariant mass distribution.  The default and optimized cuts are represented by the red and green dashed lines, respectively.  The \ssww EWK signal (black points) is normalized to the same area as the sum of the backgrounds (colored histogram).}
+  \caption{Dilepton invariant mass distribution.  The default and optimized cuts are represented by the red and green dashed lines, respectively.  The \ssww EWK signal (black points) is normalized to the same area as the sum of the backgrounds (colored histogram). \TODO{Move to appendix or omit}}
   \label{fig:optimized_mll}
 \end{figure}
 
@@ -141,7 +157,7 @@ The results of the optimization including the event yields as well as the cross 
 \begin{figure}[htp]
   \centering
   \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/optimization_plots/mjj}
-  \caption{Dijet invariant mass distribution.  The default and optimized cuts are represented by the red and green dashed lines, respectively.  The \ssww EWK signal (black points) is normalized to the same area as the sum of the backgrounds (colored histogram).}
+  \caption{Dijet invariant mass distribution.  The default and optimized cuts are represented by the red and green dashed lines, respectively.  The \ssww EWK signal (black points) is normalized to the same area as the sum of the backgrounds (colored histogram). \TODO{Move to appendix or omit}}
   \label{fig:optimized_mjj}
 \end{figure}
 

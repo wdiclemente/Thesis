@@ -1,31 +1,21 @@
-Hello world!
+%\subsection{Signal event definition}
+The experimental signature of interest here is identical to the 13~TeV analysis detailed in Chapter~\ref{ch:ssww13tev}: two prompt leptons (electrons or muons) with the same charge, missing transverse energy, and two jets.
+Once again the two leading jets are required to have a large angular separation and a high combined invariant mass to enhance the EWK VBS production.
 
-\TODO{Add table for full lepton (pre-)selection, full jet (pre-)selection, and then finally the overall event selection}
-\begin{table}[htb]
-  \centering
-  \begin{tabular}{l|c}
-    Selection requirement              & Selection value \\
-    \hline\hline
-    \multirow{2}{*}{Lepton kinematics} & $\pt > 25$~GeV \\
-                                       & $|\eta| \le 4.0$ \\
-    \multirow{2}{*}{Jet kinematics}    & $\pt > 30$~GeV for $|\eta| \le 4.5$ \\
-                                       & $\pt > 70$~GeV for $|\eta| > 3.8$ \\
-    \hline
-    Dilepton charge                    & Exactly two signal leptons with same charge\\
-    Dilepton separation                & $\Delta R_{l,l} \ge 0.3$ \\
-    Dilepton mass                      & $m_{ll} > 20$~GeV\\
-    $Z$ boson veto                     & $|m_{ee} - m_Z| > 10$~GeV ($ee$-channel only) \\
-    $\met$                             & $\met > 40$~GeV \\
-    Jet selection                      & At least two jets with $\Delta R_{l,j} > 0.3$\\
-    $b$ jet veto                       & $N_{\textrm{b-jet}} = 0$\\
-    Dijet separation                   & $\Delta\eta_{j,j} > 2.5$\\
-    Trilepton veto                     & No additional preselected leptons\\
-    Dijet mass                         & $m_{jj} > 500$~GeV\\
-    Lepton-jet centrality\footnote{$\zeta = \min [\min (\eta_{\ell1}, \eta_{\ell2} )-\min(\eta_{j1},\eta_{j2}), \max(\eta_{j1},\eta_{j2})-\max(\eta_{\ell1},\eta_{\ell2}) ]$}                                    & $\zeta > 0$\\
-    \hline
-  \end{tabular}
-  \caption{derp}
-  \label{tab:sswwupgrade_event_selection}
-\end{table}
 
 \subsection{Sensitivity to longitudinal polarization}\label{sec:sswwupgrade_longitudinal_sens}
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/polarization/lepton0_pt_pass9}\\
+  \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/polarization/lepton1_pt_pass9}
+  \caption{Comparison of the leading (top) and subleading (bottom) lepton $\pt$ distributions for purely longitudinal (LL, black) and mixed polarization (LT+TT, cyan) \ssww events.  Plots from \cite{2018.ssww-upgrade-support}.}
+  \label{fig:polarization_leppt}
+\end{figure}
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/polarization/dijet_absdphijj_pass9}
+  \caption{Comparison of the azimuthal dijet separation ($|\dphijj|$) for purely longitudinal (LL, black) and mixed polarization (LT+TT, cyan) \ssww events.  Plot from \cite{2018.ssww-upgrade-support}.}
+  \label{fig:polarization_dphijj}
+\end{figure}
