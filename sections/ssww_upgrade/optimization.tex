@@ -2,8 +2,11 @@
 As mentioned earlier, the HL-LHC will feature forward tracking, an increase in center of mass energy, and a higher integrated luminosity.
 Therefore, this study is an excellent time to see if there are new optimizations to the signal event selection that can improve the signal to background ratio.
 
+%------------------------------------------------------------------------------------------------------
+%
+%------------------------------------------------------------------------------------------------------
 \subsection{Random grid search algorithm}\label{sswwupgrade:opt_rgs}
-The chosen algorithm for optimizing the event selection is known as the Random Grid Search (RGS) \cite{2018.rgs-paper}.
+The chosen method for optimizing the event selection is a cut-based algorithm known as the Random Grid Search (RGS) \cite{2018.rgs-paper}.
 Consider a simple case of two variables $x$ and $y$ chosen to differentiate the signal from the background.
 In order to be considered a signal event, a given event would be required to pass a \emph{cut point} $c = \{x > x_c, y > y_c\}$.
 A simple method to choose the optimal cut point (i.e. the ``best'' values of the cuts $x_c$ and $y_c$) would be to construct an $n\times m$ rectangular grid in $x$ and $y$ consisting of points $(x_0,y_0), (x_1,y_1), ..., (x_n,y_m)$, as in Figure~\ref{fig:rgs_square_grid}.
@@ -55,13 +58,15 @@ Z = \sqrt{2\bigg(b\big[(1+s/b)\ln(1+s/b)-s/b\big]\bigg)}
 \end{equation}
 which further reduces to the familiar $Z = s/\sqrt{b}$ for the case when $s << b$.
 
+%------------------------------------------------------------------------------------------------------
+%
+%------------------------------------------------------------------------------------------------------
 \subsection{Inputs to the optimization}\label{sswwupgrade:opt_inputs}
+In order to train the RGS, signal and background samples were prepared from events passing the event selection outlined in Table~\ref{tab:sswwupgrade_event_selection} up through the $b$-jet veto.
+The signal sample was chosen to be the longitudinally polarized \ssww EWK events, and the transverse and mixed polarizations were treated as background along with \ssww events from QCD interactions and the traditional backgrounds listed in Section~\ref{sswwupgrade:background}.
+Splitting the inclusive \ssww EWK events by polarization allows the optimization to favor the longitunally polarized events as much as possible, even though they both contribute to the EWK signal.
 
-The RGS algorithm was trained on the sample of LL-polarized \ssww events, and the TX-polarized sample was treated as a background for the purpose of the optimization even though it is a subset of the \ssww electroweak signal in order to enhance the longitunal polarization as much as possible.
-
-The random grid was constructed from nearly 40,000 LL signal events and 
-
-The variables chosen for optimization are:
+The following six variables were chosen for optimization:
 \begin{itemize}
 \item Leading lepton $\pt$
 \item Dilepton invariant mass ($\mll$)
@@ -70,8 +75,46 @@ The variables chosen for optimization are:
 \item Dijet invariant mass ($\mjj$)
 \item Lepton-jet centrality ($\zeta$)
 \end{itemize}
+Subleading lepton $\pt$ is omitted due to the fact that it is particularly sensitive to the longitudinal polarization and thus would like to be kept as low as possible.
 
+\TODO{talk about constraints to optimization, statistical limitations from fakes resulting in using simplified Z}
+Two constraints were applied to the optimization in order to
+
+%------------------------------------------------------------------------------------------------------
+%
+%------------------------------------------------------------------------------------------------------
 \subsection{Results of the optimization}\label{sswwupgrade:opt_results}
+
+
+
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{l|c}
+    Selection requirement              & Selection value \\
+    \hline\hline
+    Lepton kinematics                  & $\pt > 28$~GeV (leading lepton only) \\
+    %                                   & $\pt > 25$~GeV (subleading lepton) \\
+    \multirow{2}{*}{Jet kinematics}    & $\pt > 90$~GeV (leading jet) \\
+                                       & $\pt > 45$~GeV (subleading jet) \\
+    \hline
+    %Dilepton charge                    & Exactly two signal leptons with same charge\\
+    %Dilepton separation                & $\Delta R_{l,l} \ge 0.3$ \\
+    Dilepton mass                      & $m_{ll} > 28$~GeV \\
+    %$Z$ boson veto                     & $|m_{ee} - m_Z| > 10$~GeV ($ee$-channel only) \\
+    %$\met$                             & $\met > 40$~GeV \\
+    %Jet selection                      & At least two jets with $\Delta R_{l,j} > 0.3$\\
+    %$b$ jet veto                       & $N_{\textrm{b-jet}} = 0$\\
+    %Dijet separation                   & $\Delta\eta_{j,j} > 2.5$\\
+    %Trilepton veto                     & No additional preselected leptons\\
+    Dijet mass                         & $m_{jj} > 520$~GeV \\
+    Lepton-jet centrality              & $\zeta > -0.5$ \\
+    \hline
+  \end{tabular}
+  \caption{Updates to the \ssww event selection criteria after optimization.  Cuts not listed remain unchanged from the default selection in Table~\ref{tab:sswwupgrade_event_selection}.}
+  \label{tab:sswwupgrade_optimized_selection}
+\end{table}
+
+The results of the optimization including the event yields as well as the cross section measurement are detailed alongside those using the default selection in Section~\ref{sswwupgrade:results}.
 
 \begin{figure}[htp]
   \centering
