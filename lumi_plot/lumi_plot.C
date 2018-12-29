@@ -365,8 +365,8 @@ TLegend* makeLegend(vector<string> legendNames, vector<TObject*> legendObjects, 
   leg->SetShadowColor(0);
   leg->SetBorderSize(0);
   leg->SetNColumns(cols);
-  //gStyle->SetLegendTextSize(0.025);
-  gStyle->SetLegendTextSize(0.045);
+  //gStyle->SetLegendTextSize(0.045);
+  leg->SetTextSize(0.045);
 
   for(size_t i = 0; i < legendObjects.size(); i++)
   {
@@ -381,7 +381,8 @@ TLegend* makeLegend(vector<string> legendNames, vector<TObject*> legendObjects, 
   leg->SetMargin(leg->GetNColumns()*h/(leg->GetNRows()*w));
   if(cols == 1)
   {
-    gStyle->SetLegendTextSize(0.050);
+    //gStyle->SetLegendTextSize(0.050);
+    leg->SetTextSize(0.050);
     leg->SetMargin(0.25);
   }
   return leg;
