@@ -1,6 +1,34 @@
-\TODO{Add table for full lepton (pre-)selection, full jet (pre-)selection, and then finally the overall event selection}
+\subsection{Object selection}\label{sswwupgrade:object_selection}
+Electrons and muons are preselected to have $\pt > 7$ and 6~GeV, respectively, and $|\eta| \le 4.0$.
+The likelihood of a given lepton to pass the trigger or identification requirements is estimated by estimating an efficiency dependent on the $\pt$ and $\eta$ of the lepton.
+The leptons are also required to pass the isolation criteria detailed in Table~\ref{tab:truth_iso_definition}.
+Jets that have been tagged as a fake electron by the functions described earlier in Section~\ref{sswwupgrade:background} are treated as electrons for the purpose of the object selection and are subject to the same criteria.
+In order to be considered a signal lepton, an additional requirement of $\pt > 25$~GeV is applied on top of the preselection.
+The two highest $\pt$ leptons passing this selection are chosen to be the leading and subleading signal leptons.
 
-The impact of the forward tracking on the lepton and jet selection was studied previously in \cite{2017.ssww-upgrade} and the results are used here.
+Jets are clustered using the anti-$k_t$ algorithm~\cite{2008.antikt} from final-state particles within a radius of $\deltar = 0.4$ (excluding muons and neutrinos).
+Jets are required to have $\pt > 30$~GeV and lie within $|\eta| < 4.5$, with an additional cut of $\pt > 70$~GeV for jets above $|\eta| \ge 3.8$ in order to suppress jets from pileup interactions.
+Jets overlapping with a preselected electron within $\deltar_{e,j} < 0.05$ are removed in order to prevent double counting.
+The two highest $\pt$ jets are defined as the leading and subleading \emph{tag jets}.
+% do i talk about jet vertex fraction?
+
+%To study the expected impact of the upgraded detector's forward tracking, several different combinations of jet and lepton $\eta$ ranges were tested in \cite{2017.ssww-upgrade} and the results are used here.
+
+\subsection{Event selection}\label{sswwupgrade:event_selection}
+The default event selection is summarized in Table~\ref{tab:sswwupgrade_event_selection} and described here.
+Exactly two signal leptons are required with the same electric charge and separated from each other by 0.3 in $\deltar$.
+In order to suppress contributions from Drell-Yan backgrounds, the two signal leptons must have an invariant mass $m_{ll}$ greater than 20~GeV.
+Additionally, if both signal leptons are electrons, their mass must be at least 10~GeV from the $Z$-boson mass in order to reduce background from $Z$-boson decays\footnote{The electron charge mis-ID rate is high enough that contributions from $Z\rightarrow ee$ backgrounds are non-negligible.}.
+The event is required to have at least 40~GeV of missing transverse energy ($\met$) to account for the two neutrinos from the $W$ decays.
+Events with additional preselected leptons are vetoed, which greatly reduces $WZ$ and $ZZ$ backgrounds.
+Both tag jets are required to not overlap with the signal leptons, and there is a veto on events with one or more $b$-jets.
+In order to preferentially select VBS production, the tag jets are also required to have a large separation between them and a large invariant mass.
+Finally, a cut on the lepton centrality, $\zeta$, defined in Equation~\ref{eq:lepton_jet_centrality} enhances the EWK \ssww signal.
+
+\begin{equation}
+\zeta = \min [\min (\eta_{\ell1}, \eta_{\ell2} )-\min(\eta_{j1},\eta_{j2}), \max(\eta_{j1},\eta_{j2})-\max(\eta_{\ell1},\eta_{\ell2}) ]
+\label{eq:lepton_jet_centrality}
+\end{equation}
 
 \begin{table}[htb]
   \centering
@@ -22,9 +50,9 @@ The impact of the forward tracking on the lepton and jet selection was studied p
     Dijet separation                   & $\detajj > 2.5$\\
     Trilepton veto                     & No additional preselected leptons\\
     Dijet mass                         & $m_{jj} > 500$~GeV\\
-    Lepton-jet centrality\footnote{$\zeta = \min [\min (\eta_{\ell1}, \eta_{\ell2} )-\min(\eta_{j1},\eta_{j2}), \max(\eta_{j1},\eta_{j2})-\max(\eta_{\ell1},\eta_{\ell2}) ]$}                                    & $\zeta > 0$\\
+    Lepton-jet centrality              & $\zeta > 0$\\
     \hline
   \end{tabular}
-  \caption{derp}
+  \caption{Summary of the signal event selection.}
   \label{tab:sswwupgrade_event_selection}
 \end{table}

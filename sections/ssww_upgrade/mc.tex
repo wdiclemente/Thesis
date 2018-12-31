@@ -8,7 +8,6 @@ The signal sample consists of both VBS and non-VBS electroweak (EWK) \ssww produ
 To study the longitudinal polarization more directly, two additional \mcatnlo \ssww samples are used: one containing only the longitudinal contribution (LL) and a second containing the transverse (TT) and mixed (LT) contributions.
 
 %background
-\TODO{Here we talk about things that mimic the experimental signature before we formally state what the signal is...}
 There are many other processes that can produce the same final state as the \ssww and must also be accounted for using MC simulations.
 $WZ$ events are generated using \sherpav{2.2.0} \cite{2009.Sherpa, 2008.CS_Shower, 2009.METS}, which includes up to one parton at next-to-leading order (NLO) in the strong coupling constant $\alpha_s$ and up to three additional partons at leading order (LO).  
 Both EWK and QCD production are included in these samples.
@@ -19,6 +18,7 @@ $Z$+jets events are generated using \powhegbox \cite{2010.powhegbox} and the \ct
 Finally, $t\bar{t}$ and single-top events are generated using \powhegbox with showering from \pythiav{6}.
 
 Since the MC samples used in the analysis are generated at particle-level and have not been run through the typical full simulation of the ATLAS detector, smearing functions are instead used to estimate detector effects.
-These are derived from a \tt{GEANT4} simulation of the detector \cite{2003.GEANT4}.
+These are derived from a \tt{GEANT4} simulation of the upgraded ATLAS detector \cite{2003.GEANT4}.
+In addition, pileup events are fully simulated.
 %All MC samples are generated at particle-level, and detector effects are estimated using smearing functions derived from a full simulation of the ATLAS detector in \tt{GEANT4} \cite{2003.GEANT4}.
 %Pileup events are fully simulated.

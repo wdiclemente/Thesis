@@ -1,3 +1,37 @@
-\TODO{MC samples, what we estimate directly from MC, Charge flip, fakes, and isolation}
+In this analysis, all background contributinos are estimated using MC simulations.
+Backgrounds such as electron charge misidentification and fake electrons from jets--which are traditionally estimated using data-driven techniques--are estimated using a set of parameterization functions applied to the MC.
+These functions calculate the probability that an electron is assigned the wrong charge or a jet is mis-reconstructed as an electron parameterized by the $\pt$ and $\eta$ of the electron or jet.
+The probabilites are derived from studies on expected electron performance with the upgraded ATLAS detector~\cite{2016.upgrade-electron-performance}.
 
-\subsection{Truth based isolation}\label{sec:sswwupgrade_isolation}
+Processes involving two $W$ and $Z$ bosons are grouped together as \emph{diboson} backgrounds, with the exception of \ssww events produced via QCD interactions, which are kept separate.
+Similarly, all backgrounds with three vector bosons are combined and labeled as \emph{triboson}.
+Any $W$+jets or top events that pass selection and do not contain a fake electron, as well as any $Z$+jets events without an electron identifed as having its charge misidentified are combined as \emph{other non-prompt} backgrounds.
+
+\subsection{Truth-based isolation}\label{sswwupgrade:isolation}
+Since the MC samples used in this analysis have not been run through a full detector simulation, they lack any kind of particle isolation variables (since they require, for example, information on the calorimeter response).
+Generally, this is not a large concern, as at truth-level, high $\pt$ signal leptons tend to be well isolated to begin with.
+However, isolation is one of the most powerful tools for rejecting leptons from non-prompt sources such as top events, which are produced in association with additional nearby particles from $b$ and $c$ quark decays.
+In the absence of any sort of isolation requirement, contributions from top backgrounds (including single top, $t\bar{t}$ and $t\bar{t}+V$) were more than an order of magnitude higher than expected.
+
+As a result, it was necessary to create an analogue to the isolation information that is available in fully-simulated samples.
+Track- and calorimeter-based isolation variables were constructed by summing the momentum and energy, respectively, of stable truth particles with $\pt > 1~\textrm{GeV}$ within a specified radius of each signal lepton.
+For the track-based isolation, only charged truth particles were used; both charged and neutral particles (excluding neutrinos) were included for the calorimeter-based isolation.
+Ultimately, a set of isolation cuts were chosen that are similar to those recommended by ATLAS for Run 2 analyses.
+The truth-based isolation requirements are listed in Table~\ref{tab:truth_iso_definition}.
+
+\begin{table}[htp]
+  \centering
+  \begin{tabular}{l|c|c}
+    ~       &   Electron Isolation & Muon Isolation \\
+    \hline\hline
+    Track-based isolation cone size   	    &   $\deltar < 0.2$          & $\deltar < 0.3$ \\
+    Track-based isolation requirement       &   $\sum\pt/\pt^{e} <  0.06$ & $\sum\pt/\pt^{\mu} <  0.04$	\\
+    Calorimeter-based isolation cone size   &   $\deltar < 0.2$	         & $\deltar < 0.2$\\
+    Calorimeter-based isolation requirement &   $\sum\et/\pt^{e} <  0.06$ & $\sum\et/\pt^{\mu} <  0.15$	\\
+    \hline
+  \end{tabular}
+  \caption{Truth-based isolation requirements for electrons and muons.} 
+  \label{tab:truth_iso_definition}
+\end{table}
+
+The truth-based isolation requirement reduced the top background by over 99\% and reduced the contribution of top events to the total background from 83\% to 2\%.  Additional details on the truth-based isolation studies are presented in Appendix~\ref{app:truth_isolation}.
