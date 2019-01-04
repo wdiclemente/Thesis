@@ -9,6 +9,9 @@ For events surviving the trilepton veto, the two signal leptons were removed, an
 Between 40-50\% of these leptons fell outside of the eta acceptance of the analysis (see Figure~\ref{fig:ssww13tev_wzveto_truthlepeta}) and were unrecoverable.
 The second largest source of leptons failing the preselection was the overlap removal (OR). \TODO{Make sure to define overlap removal in the event selection section!}
 The standard OF procedure appeared to be too aggressive in removing leptons in favor of jets, causing many three lepton events to ``lose'' their third lepton and pass the trilepton veto.
+Therefore a \emph{Custom OR} was investigated which would replace the standard OR in the preselection and allow for better $WZ$ rejection by removing fewer third leptons.
+
+\TODO{Mention how the extra leptons in the \ssww are background leptons since there are only 2 from the main decay}
 
 \begin{figure}[htbp]
   \centering
@@ -18,31 +21,67 @@ The standard OF procedure appeared to be too aggressive in removing leptons in f
   \label{fig:ssww13tev_wzveto_truthlepeta}
 \end{figure}
 
-Two quantities were chosen to construct a ``custom'' OR that would 
+In order to construct a ``custom'' OR, a new quantity is defined between a lepton ($l$) and a nearby jet ($j$)
+\begin{equation}
+  \ptratio(l,j) = \frac{{\pt}_l}{{\pt}_j}%\pt(l)/\pt(j)
+  \label{eq:ssww13tev_ptratio}
+\end{equation}
+which, along with $\deltar(l,j)$, will allow for more third leptons to pass the preselection.
+The idea behind including $\ptratio$ is to be able to preferentially remove background leptons originating from jets (i.e. those that carry a low percentage of the total jet momentum) instead of removing \emph{any} lepton near to jet.
+The distributions of $\ptratio$ and the associated efficiency curves for muons and electrons can be found in Figures~\ref{fig:ssww13tev_ptratio_muon} and \ref{fig:ssww13tev_ptratio_elec}, respectively, and the distributions for $\deltar(\mu,j)$ for muons can be found in Figure~\ref{fig:ssww13tev_drlj_muon}.
+Since all electrons have an associated jet in the calorimeters, the $\deltar(e,j)$ variable is not a good quantity to use for this custom OR.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=.48\textwidth]{figs/ssww_13tev/custom_or/VetoMuonPtRatiolj}
-  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/custom_or/ROC_VetoMuonPtRatiolj}\\
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/custom_or/ROC_VetoMuonPtRatiolj}
+  \caption{Distributions of $\ptratio(\mu,j)$ for EWK and QCD \ssww signal (black) and $WZ$ background (teal) for truth-matched third muons in events that pass the trilepton veto.  Both distributions are normalized to unit area.  The associated efficiency curves are on the right where efficiency is defined as the percentage of total events that would pass a cut on $\ptratio(\mu,j)$ at a given value on the $x$-axis.}
+  \label{fig:ssww13tev_ptratio_muon}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering      
   \includegraphics[width=.48\textwidth]{figs/ssww_13tev/custom_or/veto_muon_VetoDRlj}
   \includegraphics[width=.48\textwidth]{figs/ssww_13tev/custom_or/ROC_veto_muon_VetoDRlj}\\
-  \caption{Stuff}
-  \label{fig:ssww13tev_customor_muon}
+  \caption{Distributions of $\deltar(\mu,j)$ for EWK and QCD \ssww signal (black) and $WZ$ background (teal) for truth-matched third muons in events that pass the trilepton veto.  Both distributions are normalized to unit area.  The associated efficiency curves are on the right where efficiency is defined as the percentage of total events that would pass a cut on $\deltar(\mu,j)$ at a given value on the $x$-axis.}
+  \label{fig:ssww13tev_drlj_muon}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=.48\textwidth]{figs/ssww_13tev/custom_or/VetoElecPtRatiolj}
   \includegraphics[width=.48\textwidth]{figs/ssww_13tev/custom_or/ROC_VetoElecPtRatiolj}
-  \caption{Stuff}
-  \label{fig:ssww13tev_customor_elec}
+  \caption{Distributions of $\ptratio(e,j)$ for EWK and QCD \ssww signal (black) and $WZ$ background (teal) for truth-matched third electrons in events that pass the trilepton veto.  Both distributions are normalized to unit area.  The associated efficiency curves are on the right where efficiency is defined as the percentage of total events that would pass a cut on $\ptratio(e,j)$ at a given value on the $x$-axis.}
+  \label{fig:ssww13tev_ptratio_elec}
 \end{figure}
+
+A workingpoint for the Custom OR was chosen by requiring 90\% signal retention for muons and 90\% background rejection for electrons.
+The cut on electrons was allowed to be much tighter because the number of signal events with a third electron is considerably smaller than for muons.
+It should be re-emphasized the signal events that are present in Figures~\ref{fig:ssww13tev_ptratio_muon}-\ref{fig:ssww13tev_ptratio_elec} do not represent the full set of signal events, but only those with a real third lepton (which must come from some source other than the signal \ssww process).
+For muons, an or of $\ptratio(\mu,j)$ and $\deltar(\mu,j)$ is used to maximize the third lepton acceptance due to correlations between the quantities, as shown in Figure~\ref{fig:ssww13tev_customor_muon_2d}; for electrons, only a cut on $\ptratio(e,j)$ is used.
+The Custom OR workingpoint is outlined in Table~\ref{tab:custom_or_definition}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l | c}
+    \multicolumn{2}{c}{Custom OR Definition} \\
+    \hline\hline
+    Muons     & $\ptratio(\mu,j) > 0.40$ or $\deltar(\mu,j) > 0.15$\\
+    Electrons & $\ptratio(e,j) > 0.18$ \\
+    \hline
+  \end{tabular}
+  \caption{Custom OR definition.  Leptons must pass this selection in order to be counted for the trilepton veto.}
+  \label{tab:custom_or_definition}
+\end{table}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=.48\textwidth]{figs/ssww_13tev/custom_or/sig_Muon_DR_PtRatio_edited}
   \includegraphics[width=.48\textwidth]{figs/ssww_13tev/custom_or/bkg_Muon_DR_PtRatio_edited}
-  \caption{Stuff}
+  \caption{Two-dimensional plots of $\ptratio(\mu,j)$ vs $\deltar(\mu,j)$ for truth-matched third muons in events that pass the trilepton veto for EWK and QCD \ssww signal (left) and $WZ$ background (right).  The blue overlay indicates the area in which the third leptons will pass the custom OR and result in the event failing the trilepton veto.}
   \label{fig:ssww13tev_customor_muon_2d}
 \end{figure}
 
+Tests of the performance of the Custom OR looked promising, with approximately 20\% reduction in $WZ$ background compared to less than 2\% signal loss in the signal region.
+Unfortunately, due to differences between the primary analysis framework and the one used for testing, in practice the gains in $WZ$ rejection were not nearly as substantial, and ultimately the Custom OR was dropped from the final analysis.
+However, it is still a potentially useful tool for improving background rejection via lepton number vetoes in analyses with overly aggressive OR procedures.
