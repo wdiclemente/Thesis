@@ -14,6 +14,7 @@
 % The difference is the hyperlinks for references, citations, footnotes, etc.
 \newboolean{boolVersionForPenn}
 \setboolean{boolVersionForPenn}{false}
+%\setboolean{boolVersionForPenn}{true}
 \newboolean{isDraft}
 
 

@@ -9,12 +9,12 @@ To study the longitudinal polarization more directly, two additional \mcatnlo \s
 
 %background
 There are many other processes that can produce the same final state as the \ssww and must also be accounted for using MC simulations.
-$WZ$ events are generated using \sherpav{2.2.0} \cite{2009.Sherpa, 2008.CS_Shower, 2009.METS}, which includes up to one parton at next-to-leading order (NLO) in the strong coupling constant $\alpha_s$ and up to three additional partons at leading order (LO).  
+$WZ$ events are generated using \sherpav{2.2.0} \cite{2009.Sherpa, 2008.CS_Shower, 2009.METS}, which includes up to one parton at NLO in the strong coupling constant $\alpha_s$ and up to three additional partons at LO.  
 Both EWK and QCD production are included in these samples.
-$ZZ$ events are generated using \sherpav{2.2.2} with up to two additional partons in the final state.
-Triboson backgrounds $VVV, V = W, Z$ where the bosons can decay leptonically or hadronically are simulated with \sherpav{2.2.2} with up to two additional partons in the final state.
+$ZZ$ and triboson $VVV$ ($V = W,Z$) events are generated using \sherpav{2.2.2} with up to two additional partons in the final state.
+For the triboson backgrounds, the bosons can decay leptonically or hadronically.
 $W$+jets backgrounds are generated for electron, muon, and tau final states are generated at LO with \mcatnlo and the \nnpdf set with showering from \pythiav{8}.
-$Z$+jets events are generated using \powhegbox \cite{2010.powhegbox} and the \ctten PDF set \cite{2010.ct10} interfaced with \pythiav{8}.
+$Z$+jets events are generated using \powhegbox{2}~\cite{2010.powhegbox} and the \ctten PDF set \cite{2010.ct10} interfaced with \pythiav{8}.
 Finally, $t\bar{t}$ and single-top events are generated using \powhegbox with showering from \pythiav{6}.
 
 Since the MC samples used in the analysis are generated at particle-level and have not been run through the typical full simulation of the ATLAS detector, smearing functions are instead used to estimate detector effects.
