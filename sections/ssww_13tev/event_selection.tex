@@ -1,3 +1,61 @@
-\subsection{Object selection}
+This section details the selection criteria for objects used in the analysis as well as the selection for signal events.
 
-\subsection{Event selection}
+\subsection{Object selection}\label{ssww13tev:object_selection}
+For leptons, a loose, baseline selection is defined (called the \emph{preselection}), which all leptons must pass in order to be considered for the analysis.
+Signal leptons are then required to satisfy a much tighter \emph{signal selection}.
+A third set of lepton selection criteria (called the \emph{loose selection}) is defined to enrich the sample in non-prompt leptons for use in the fake factor method for estimating the non-prompt background, which is discussed in detail in Section~\ref{ssww13tev:fake_factor}.
+These selections are summarized in Table~\ref{tab:ssww13tev_muon_selection} for muons and in Table~\ref{tab:ssww13tev_elec_selection} for electrons.
+
+\TODO{Muon selection words}
+
+\input{tables/ssww_13tev_muon_selection.tex}
+
+\TODO{Electron selection words}
+
+\input{tables/ssww_13tev_elec_selection.tex}
+
+\TODO{Jets and jet table}
+
+\subsubsection{Treatment of overlapping objects}\label{ssww13tev:overlap_removal}
+In the event that one or more objects are reconstructed very close to each other, there is the possiblity for double-counting if both originated from the same object.
+The procedure by which this ambiguity is resolved is called \emph{overlap removal} (OR).
+The standard ATLAS recommendation for OR is implemented in this analysis~\cite{2014.atlas-overlap-removal, 2018.atlas-wboson-top} and is summarized in Table~\ref{tab:ssww13tev_or}.
+
+Since electrons leave a shower in the EM calorimeter, every electron has a jet associated with it.
+Therefore, any jets close to an electron (within $\deltar(e,j) < 0.2$) are rejected due to the high probability that they are the same object.
+On the other hand, when jets and electrons overlap within a large radius of $0.2 < \deltar(e,j) < 0.4$, it is likely that the electron and jet both are part of a heavy-flavor decay, and the electron is rejected.
+
+High energy muons can produce photons via bremsstrahlung radiation or collinear final state radiation which results in a nearby energy deposit in the calorimeters.
+Non-prompt muons from hadronic decays produce a similar signature; however, in this case the jet has a higher track multiplicity in the ID.
+It is possible to address both cases by rejecting the jet when the ID track multiplicity is less than three and otherwise rejecting the muon for jets and muons within $\deltar(\mu,j) < 0.4$.
+
+In addition to the case above where muon bremsstrahlung results in a nearby reconstructed jet, the ID track from the muon and the calorimeter energy deposit can lead to it bein reconstructed as an electron.
+In this case, if both a muon and an electron share a track in the ID, the muon is kept and the electron is rejected, unless the muon is calorimeter-tagged\footnote{A calorimeter-tagged (CT) muon is a muon that is identified by matching an ID track to a calorimeter energy deposit.  CT muons have relatively low reconstruction efficiency compared to those measured by the MS, but can be used to recover acceptance in regions of the detector where the MS does not have full coverage~\cite{2016.muon-reconstruction-13tev}.}, in which case the muon is removed in favor of the electron.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l l l}
+    Overlap         & Check & Result (remove $\rightarrow$ keep) \\
+    \hline\hline
+    \multirow{2}{*}{Electron \& Jet}  & $\deltar(e,j) < 0.2$       & Jet $\rightarrow$ electron \\
+                                      & $0.2 < \deltar(e,j) < 0.4$ & Electron $\rightarrow$ jet \\
+    \hline
+    \multirow{2}{*}{Muon \& Jet}      & $\deltar(\mu,j) < 0.4$ and Jet $N_{\textrm{ID\ tracks}} < 3$
+                                                                   & Jet $\rightarrow$ muon \\
+                                      & $\deltar(\mu,j) < 0.4$ and Jet $N_{\textrm{ID\ tracks}} \ge 3$
+                                                                   & Muon $\rightarrow$ jet \\
+    \hline
+    \multirow{2}{*}{Electron \& Muon} & Shared ID track            & Electron $\rightarrow$ muon \\
+                                      & Shared ID track \& muon is calo-tagged
+                                                                   & Muon $\rightarrow$ electron \\
+    \hline
+  \end{tabular}
+  \caption{Summary of the overlap removal procedure used in the analysis.  If the criteria in the ``check'' column is met, in the ``result'' column, the object on the left of the arrow is removed in favor of the object on the right.}
+  \label{tab:ssww13tev_or}
+\end{table}
+
+\subsection{Event selection}\label{ssww13tev:event_selection}
+\TODO{Vertex}
+\TODO{Triggers}
+\TODO{MET}
+\TODO{Selection}

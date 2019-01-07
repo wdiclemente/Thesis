@@ -1,0 +1,43 @@
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l l}
+    \multicolumn{2}{c}{Muon preselection} \\ 
+    \hline\hline
+    Momentum cut                  & $\pt > 6~\textrm{GeV}$ \\
+    Angular acceptance            & $|\eta| < 2.7$ \\
+    Longitudinal impact parameter & $|z_0\times\sin\theta| < 0.5~\textrm{mm}$ \\
+    Transverse impact parameter   & $d_0/\sigma_{d_{0}} < 10$ \\
+    Particle identification       & \tt{Loose} \\
+    \hline
+  \end{tabular}
+
+  \vspace{8mm}
+
+  \begin{tabular}{l l}
+    \multicolumn{2}{c}{Muon signal selection} \\ 
+    \hline\hline
+    Momentum cut                  & $\pt > 27~\textrm{GeV}$ \\
+    Angular acceptance            & $|\eta| < 2.5$ \\
+    Longitudinal impact parameter & $|z_0\times\sin\theta| < 0.5~\textrm{mm}$ \\
+    Transverse impact parameter   & $d_0/\sigma_{d_{0}} < 3$ \\
+    Particle identification       & \tt{Medium} \\
+    Particle isolation            & \tt{Gradient}\\
+    \hline
+  \end{tabular}
+
+  \vspace{8mm}
+
+  \begin{tabular}{l l}
+    \multicolumn{2}{c}{Muon loose selection} \\ 
+    \hline\hline
+    Momentum cut                  & $\pt > 27~\textrm{GeV}$ \\
+    Angular acceptance            & $|\eta| < 2.5$ \\
+    Longitudinal impact parameter & $|z_0\times\sin\theta| < 0.5~\textrm{mm}$ \\
+    Transverse impact parameter   & $d_0/\sigma_{d_{0}} < 10$ \\
+    Particle identification       & \tt{Medium} \\
+    \multicolumn{2}{c}{Fail signal transverse impact parameter and/or isolation cuts} \\
+    \hline
+  \end{tabular}
+  \caption{Muon selection criteria.  All muons are required to pass the preselection (top), and then either the signal (middle) or loose (bottom) criteria is applied to the preselected electrons.}
+  \label{tab:ssww13tev_muon_selection}
+\end{table}

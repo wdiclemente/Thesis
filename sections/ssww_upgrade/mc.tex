@@ -1,7 +1,9 @@
 As no real HL-LHC data will be available for many years, all processes in this prospects study must be simulated using Monte Carlo (MC) generators. 
 Signal and background processes were generated at \com{14}, and the event yields scaled to the anticipated HL-LHC integrated luminosity of $\mathcal{L}=3000~\textrm{fb}^{-1}$.
-
-\TODO{Consider putting all this in a table}
+The MC samples used in the analysis are generated at particle-level and have not been run through the typical full simulation of the ATLAS detector
+Smearing functions derived from a \tt{GEANT4} simulation of the upgraded ATLAS detector \cite{2003.GEANT4} are used to estimate detector effects such as momentum resolution.
+In addition, pileup events are fully simulated.
+The MC samples used in this analysis are summarized in Table~\ref{tab:ssww13upgrade_mcsamples}.
 
 %signal
 The signal sample consists of both VBS and non-VBS electroweak (EWK) \ssww production, and it is sumulated with the \mcatnlo generator \cite{2014.madgraph_mcnlo} using the \nnpdf PDF set \cite{2015.NNPDF3} and interfaced with \pythiav{8} \cite{2015.pythia82} for hadronization and parton showering.
@@ -15,10 +17,33 @@ $ZZ$ and triboson $VVV$ ($V = W,Z$) events are generated using \sherpav{2.2.2} w
 For the triboson backgrounds, the bosons can decay leptonically or hadronically.
 $W$+jets backgrounds are generated for electron, muon, and tau final states are generated at LO with \mcatnlo and the \nnpdf set with showering from \pythiav{8}.
 $Z$+jets events are generated using \powhegbox{2}~\cite{2010.powhegbox} and the \ctten PDF set \cite{2010.ct10} interfaced with \pythiav{8}.
-Finally, $t\bar{t}$ and single-top events are generated using \powhegbox with showering from \pythiav{6}.
+Finally, $t\bar{t}$ and single-top events are generated using \tt{POWHEG-BOX} with showering from \pythiav{6}.
 
-Since the MC samples used in the analysis are generated at particle-level and have not been run through the typical full simulation of the ATLAS detector, smearing functions are instead used to estimate detector effects.
-These are derived from a \tt{GEANT4} simulation of the upgraded ATLAS detector \cite{2003.GEANT4}.
-In addition, pileup events are fully simulated.
 %All MC samples are generated at particle-level, and detector effects are estimated using smearing functions derived from a full simulation of the ATLAS detector in \tt{GEANT4} \cite{2003.GEANT4}.
 %Pileup events are fully simulated.
+
+\begin{table}
+  \centering
+  \begin{tabular}{l l l}
+    Process & Generator & Comments\\
+    \hline\hline
+    \ssww (EWK)   & \mcatnlo & Signal sample \\
+    \ssww (QCD)   & \mcatnlo & \\
+    \ssww (LL)    & \mcatnlo & Pure longitudinal polarization sample \\
+    \ssww (TT+LT) & \mcatnlo & Mixed and transverse polarization sample \\
+    \hline
+    \multirow{2}{*}{Diboson} & \sherpav{2.2.0} & $WZ$ events \\
+                             & \sherpav{2.2.2} & $ZZ$ events \\
+    Triboson                 & \sherpav{2.2.2} & \\
+    \hline
+    $W$+jets           & \mcatnlo      & \\
+    $Z$+jets           & \powhegbox{2} & \\
+    \hline
+    %$t\bar{t}V$ & \mcatnlo        & \\
+    $t\bar{t}$  & \tt{POWHEG-BOX}   & \\
+    Single top  & \tt{POWHEG-BOS}   & \\
+    \hline
+  \end{tabular}
+  \caption{Summary of MC samples used in the analysis.}
+  \label{tab:ssww13upgrade_mcsamples}
+\end{table}

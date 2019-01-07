@@ -1,0 +1,43 @@
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l l}
+    \multicolumn{2}{c}{Electron preselection} \\ 
+    \hline\hline
+    Momentum cut                  & $\pt > 6~\textrm{GeV}$ \\
+    Angular acceptance            & $|\eta| < 2.47$ \\
+    Longitudinal impact parameter & $|z_0\times\sin\theta| < 0.5~\textrm{mm}$ \\
+    Transverse impact parameter   & $d_0/\sigma_{d_{0}} < 5$ \\
+    Particle identification       & \tt{LooseLH} + $b$-layer ID hit \\
+    \hline
+  \end{tabular}
+
+  \vspace{8mm}
+
+  \begin{tabular}{l l}
+    \multicolumn{2}{c}{Electron signal selection} \\ 
+    \hline\hline
+    Momentum cut                  & $\pt > 27~\textrm{GeV}$ \\
+    Angular acceptance            & $|\eta| < 2.47$, excluding $1.37 \le |\eta| \le 1.52$ \\
+    Longitudinal impact parameter & $|z_0\times\sin\theta| < 0.5~\textrm{mm}$ \\
+    Transverse impact parameter   & $d_0/\sigma_{d_{0}} < 5$ \\
+    Particle identification       & \tt{TightLH} \\
+    Particle isolation            & \tt{Gradient}\\
+    \hline
+  \end{tabular}
+
+  \vspace{8mm}
+
+  \begin{tabular}{l l}
+    \multicolumn{2}{c}{Electron loose selection} \\ 
+    \hline\hline
+    Momentum cut                  & $\pt > 27~\textrm{GeV}$ \\
+    Angular acceptance            & $|\eta| < 2.47$, excluding $1.37 \le |\eta| \le 1.52$ \\
+    Longitudinal impact parameter & $|z_0\times\sin\theta| < 0.5~\textrm{mm}$ \\
+    Transverse impact parameter   & $d_0/\sigma_{d_{0}} < 5$ \\
+    Particle identification       & \tt{Medium} \\
+    \multicolumn{2}{c}{Fail signal identification and/or isolation cuts} \\
+    \hline
+  \end{tabular}
+  \caption{Electron selection criteria.  All electrons are required to pass the preselection (top), and then either the signal (middle) or loose (bottom) criteria is applied to the preselected electrons.}
+  \label{tab:ssww13tev_elec_selection}
+\end{table}
