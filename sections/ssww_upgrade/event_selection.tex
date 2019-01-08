@@ -1,13 +1,13 @@
 \subsection{Object selection}\label{sswwupgrade:object_selection}
-Electrons and muons are preselected to have $\pt > 7$ and 6~GeV, respectively, and $|\eta| \le 4.0$.
+Electrons and muons are preselected to have $\pt > 7$ and $6\gev$, respectively, and $|\eta| \le 4.0$.
 The likelihood of a given lepton to pass the trigger or identification requirements is estimated by estimating an efficiency dependent on the $\pt$ and $\eta$ of the lepton.
 The leptons are also required to pass the isolation criteria detailed in Table~\ref{tab:truth_iso_definition}.
 Jets that have been tagged as a fake electron by the functions described earlier in Section~\ref{sswwupgrade:background} are treated as electrons for the purpose of the object selection and are subject to the same criteria.
-In order to be considered a signal lepton, an additional requirement of $\pt > 25$~GeV is applied on top of the preselection.
+In order to be considered a signal lepton, an additional requirement of $\pt > 25\gev$ is applied on top of the preselection.
 The two highest $\pt$ leptons passing this selection are chosen to be the leading and subleading signal leptons.
 
 Jets are clustered using the anti-$k_t$ algorithm~\cite{2008.antikt} from final-state particles within a radius of $\deltar = 0.4$ (excluding muons and neutrinos).
-Jets are required to have $\pt > 30$~GeV and lie within $|\eta| < 4.5$, with an additional cut of $\pt > 70$~GeV for jets above $|\eta| \ge 3.8$ in order to suppress jets from pileup interactions.
+Jets are required to have $\pt > 30\gev$ and lie within $|\eta| < 4.5$, with an additional cut of $\pt > 70\gev$ for jets above $|\eta| \ge 3.8$ in order to suppress jets from pileup interactions.
 Jets overlapping with a preselected electron within $\deltar_{e,j} < 0.05$ are removed in order to prevent double counting.
 The two highest $\pt$ jets are defined as the leading and subleading \emph{tag jets}.
 % do i talk about jet vertex fraction?
@@ -17,9 +17,9 @@ The two highest $\pt$ jets are defined as the leading and subleading \emph{tag j
 \subsection{Event selection}\label{sswwupgrade:event_selection}
 The default event selection is summarized in Table~\ref{tab:sswwupgrade_event_selection} and described here.
 Exactly two signal leptons are required with the same electric charge and separated from each other by 0.3 in $\deltar$.
-In order to suppress contributions from Drell-Yan backgrounds, the two signal leptons must have an invariant mass $m_{ll}$ greater than 20~GeV.
-Additionally, if both signal leptons are electrons, their mass must be at least 10~GeV from the $Z$-boson mass in order to reduce background from $Z$-boson decays\footnote{The electron charge mis-ID rate is high enough that contributions from $Z\rightarrow ee$ backgrounds are non-negligible.}.
-The event is required to have at least 40~GeV of missing transverse energy ($\met$) to account for the two neutrinos from the $W$ decays.
+In order to suppress contributions from Drell-Yan backgrounds, the two signal leptons must have an invariant mass $m_{ll}$ greater than $20\gev$.
+Additionally, if both signal leptons are electrons, their mass must be at least $10\gev$ from the $Z$-boson mass in order to reduce background from $Z$-boson decays\footnote{The electron charge mis-ID rate is high enough that contributions from $Z\rightarrow ee$ backgrounds are non-negligible.}.
+The event is required to have at least $40\gev$ of missing transverse energy ($\met$) to account for the two neutrinos from the $W$ decays.
 Events with additional preselected leptons are vetoed, which greatly reduces $WZ$ and $ZZ$ backgrounds.
 Both tag jets are required to not overlap with the signal leptons, and there is a veto on events with one or more $b$-jets.
 In order to preferentially select VBS production, the tag jets are also required to have a large separation between them and a large invariant mass.
@@ -35,21 +35,21 @@ Finally, a cut on the lepton centrality, $\zeta$, defined in Equation~\ref{eq:le
   \begin{tabular}{l|c}
     Selection requirement              & Selection value \\
     \hline\hline
-    \multirow{2}{*}{Lepton kinematics} & $\pt > 25$~GeV \\
+    \multirow{2}{*}{Lepton kinematics} & $\pt > 25\gev$ \\
                                        & $|\eta| \le 4.0$ \\
-    \multirow{2}{*}{Jet kinematics}    & $\pt > 30$~GeV for $|\eta| \le 4.5$ \\
-                                       & $\pt > 70$~GeV for $|\eta| > 3.8$ \\
+    \multirow{2}{*}{Jet kinematics}    & $\pt > 30\gev$ for $|\eta| \le 4.5$ \\
+                                       & $\pt > 70\gev$ for $|\eta| > 3.8$ \\
     \hline
     Dilepton charge                    & Exactly two signal leptons with same charge\\
     Dilepton separation                & $\Delta R_{l,l} \ge 0.3$ \\
-    Dilepton mass                      & $m_{ll} > 20$~GeV\\
-    $Z$ boson veto                     & $|m_{ee} - m_Z| > 10$~GeV ($ee$-channel only) \\
-    $\met$                             & $\met > 40$~GeV \\
+    Dilepton mass                      & $m_{ll} > 20\gev$\\
+    $Z$ boson veto                     & $|m_{ee} - m_Z| > 10\gev$ ($ee$-channel only) \\
+    $\met$                             & $\met > 40\gev$ \\
     Jet selection                      & At least two jets with $\Delta R_{l,j} > 0.3$\\
     $b$ jet veto                       & $N_{\textrm{b-jet}} = 0$\\
     Dijet separation                   & $\detajj > 2.5$\\
     Trilepton veto                     & No additional preselected leptons\\
-    Dijet mass                         & $m_{jj} > 500$~GeV\\
+    Dijet mass                         & $m_{jj} > 500\gev$\\
     Lepton-jet centrality              & $\zeta > 0$\\
     \hline
   \end{tabular}

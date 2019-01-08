@@ -80,7 +80,7 @@ Additionally, the dijet separation $\detajj$ was included in the optimization or
 Two additional constraints were imposed when selecting the optimal cut point:
 \begin{enumerate}
 \item At least 1000 signal events must survive in order to prevent the optimization from being too aggressive and unnecssarily reducing signal statistics.
-\item The dijet invariant mass may only vary within a 50~GeV range of the default value (from 450-550~GeV) due to the cut being physically motivated by the VBS event topology (\TODO{ reference where this is discussed in the 13TeV section }).
+\item The dijet invariant mass may only vary within a $50\gev$ range of the default value (from $450-550\gev$) due to the cut being physically motivated by the VBS event topology (\TODO{ reference where this is discussed in the $13\tev$ section }).
 \end{enumerate}
 
 Lastly, the decision was made to use calculate the signal significance without taking into account the uncertainty of the background using Equation~\ref{eq:significance_without_error}.
@@ -96,7 +96,7 @@ After applying the constraints, an optimal cut point was chosen which reduced th
 This corresponds to an increase in signal significance from $Z = 33.26$ to $Z = 52.63$ as calculated by Equation~\ref{eq:significance_without_error}.
 The updates to the event selection are listed in Table~\ref{tab:sswwupgrade_optimized_selection}. %, and plots of the optimized variables are found in Figures~\ref{fig:optimized_lep0pt}-\ref{fig:optimized_centrality}.
 
-The large reduction in the background is primarily a result of the increase in the leading and subleading jet $\pt$ from 30~GeV to 90~GeV and 45~GeV, respectively.
+The large reduction in the background is primarily a result of the increase in the leading and subleading jet $\pt$ from $30\gev$ to $90\gev$ and $45\gev$, respectively.
 As can be seen in Figure~\ref{fig:optimized_jetpt}, this increase removes a significant portion of the backgrounds from jets faking electrons and charge mis-ID.
 Additionally, the loosening of the lepton-jet centrality cut $\zeta$ allows more signal events to survive the event selection (see Figure~\ref{fig:optimized_centrality}).
 Other changes to the event selection are minor and do not individually have a large impact on the signal or background yields.
@@ -110,21 +110,21 @@ The full event yields after optimization as well as the cross section measuremen
   \begin{tabular}{l|c}
     Selection requirement              & Selection value \\
     \hline\hline
-    Lepton kinematics                  & $\pt > 28$~GeV (leading lepton only) \\
-    %                                   & $\pt > 25$~GeV (subleading lepton) \\
-    \multirow{2}{*}{Jet kinematics}    & $\pt > 90$~GeV (leading jet) \\
-                                       & $\pt > 45$~GeV (subleading jet) \\
+    Lepton kinematics                  & $\pt > 28\gev$ (leading lepton only) \\
+    %                                   & $\pt > 25\gev$ (subleading lepton) \\
+    \multirow{2}{*}{Jet kinematics}    & $\pt > 90\gev$ (leading jet) \\
+                                       & $\pt > 45\gev$ (subleading jet) \\
     \hline
     %Dilepton charge                    & Exactly two signal leptons with same charge\\
     %Dilepton separation                & $\Delta R_{l,l} \ge 0.3$ \\
-    Dilepton mass                      & $m_{ll} > 28$~GeV \\
-    %$Z$ boson veto                     & $|m_{ee} - m_Z| > 10$~GeV ($ee$-channel only) \\
-    %$\met$                             & $\met > 40$~GeV \\
+    Dilepton mass                      & $m_{ll} > 28\gev$ \\
+    %$Z$ boson veto                     & $|m_{ee} - m_Z| > 10\gev$ ($ee$-channel only) \\
+    %$\met$                             & $\met > 40\gev$ \\
     %Jet selection                      & At least two jets with $\Delta R_{l,j} > 0.3$\\
     %$b$ jet veto                       & $N_{\textrm{b-jet}} = 0$\\
     %Dijet separation                   & $\Delta\eta_{j,j} > 2.5$\\
     %Trilepton veto                     & No additional preselected leptons\\
-    Dijet mass                         & $m_{jj} > 520$~GeV \\
+    Dijet mass                         & $m_{jj} > 520\gev$ \\
     Lepton-jet centrality              & $\zeta > -0.5$ \\
     \hline
   \end{tabular}
