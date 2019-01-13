@@ -1,22 +1,21 @@
-As no real HL-LHC data will be available for many years, all processes in this prospects study must be simulated using Monte Carlo (MC) generators. 
-Signal and background processes were generated at \com{14}, and the event yields scaled to the anticipated HL-LHC integrated luminosity of $\mathcal{L}=3000~\textrm{fb}^{-1}$.
-The MC samples used in the analysis are generated at particle-level and have not been run through the typical full simulation of the ATLAS detector
-Smearing functions derived from a \tt{GEANT4} simulation of the upgraded ATLAS detector \cite{2003.GEANT4} are used to estimate detector effects such as momentum resolution.
+As no real HL-LHC data will be available for many years, all signal and background processes are modeled using MC simulations generated at \com{14}, with the event yields scaled to the anticipated HL-LHC integrated luminosity of $\mathcal{L}=3000~\textrm{fb}^{-1}$.
+The MC samples used in the analysis are generated at particle-level and have not been run through the typical full simulation of the ATLAS detector.
+Instead, smearing functions derived from a \tt{GEANT4} simulation of the upgraded ATLAS detector are used to estimate detector effects such as momentum resolution.
 In addition, pileup events are fully simulated.
 The MC samples used in this analysis are summarized in Table~\ref{tab:ssww13upgrade_mcsamples}.
 
 %signal
-The signal sample consists of both VBS and non-VBS electroweak (EWK) \ssww production, and it is sumulated with the \mcatnlo generator \cite{2014.madgraph_mcnlo} using the \nnpdf PDF set \cite{2015.NNPDF3} and interfaced with \pythiav{8} \cite{2015.pythia82} for hadronization and parton showering.
+The signal sample consists of both VBS and non-VBS electroweak (EWK) \ssww production, and it is sumulated with the \mcatnlo generator using the \nnpdf PDF set and interfaced with \pythiav{8} \cite{2015.pythia82} for hadronization and parton showering.
 To study the longitudinal polarization more directly, two additional \mcatnlo \ssww samples are used: one containing only the longitudinal contribution (LL) and a second containing the transverse (TT) and mixed (LT) contributions.
 
 %background
 There are many other processes that can produce the same final state as the \ssww and must also be accounted for using MC simulations.
-$WZ$ events are generated using \sherpav{2.2.0} \cite{2009.Sherpa, 2008.CS_Shower, 2009.METS}, which includes up to one parton at NLO in the strong coupling constant $\alpha_s$ and up to three additional partons at LO.  
+$WZ$ events are generated using \sherpav{2.2.0}, which includes up to one parton at NLO in the strong coupling constant and up to three additional partons at LO.  
 Both EWK and QCD production are included in these samples.
 $ZZ$ and triboson $VVV$ ($V = W,Z$) events are generated using \sherpav{2.2.2} with up to two additional partons in the final state.
 For the triboson backgrounds, the bosons can decay leptonically or hadronically.
-$W$+jets backgrounds are generated for electron, muon, and tau final states are generated at LO with \mcatnlo and the \nnpdf set with showering from \pythiav{8}.
-$Z$+jets events are generated using \powhegbox{2}~\cite{2010.powhegbox} and the \ctten PDF set \cite{2010.ct10} interfaced with \pythiav{8}.
+$W$+jets backgrounds are generated for electron, muon, and tau final states at LO with \mcatnlo and the \nnpdf set with showering from \pythiav{8}.
+$Z$+jets events are produced using \powhegbox{2} and the \ctten PDF set interfaced with \pythiav{8}.
 Finally, $t\bar{t}$ and single-top events are generated using \tt{POWHEG-BOX} with showering from \pythiav{6}.
 
 %All MC samples are generated at particle-level, and detector effects are estimated using smearing functions derived from a full simulation of the ATLAS detector in \tt{GEANT4} \cite{2003.GEANT4}.

@@ -1,27 +1,26 @@
 %The \ssww upgrade study is a good opportunity to try to optimize the signal event selection.
-As mentioned earlier, the HL-LHC will feature forward tracking, an increase in center of mass energy, and a higher integrated luminosity.
-Therefore, this study is an excellent time to see if there are new optimizations to the signal event selection that can improve the signal to background ratio.
+An upgraded detector along with an increase in center of mass energy and integrated luminosity provides an opportunity to study whether the event selection can be optimized to improve the signal to background ratio.
 
 %------------------------------------------------------------------------------------------------------
 %
 %------------------------------------------------------------------------------------------------------
 \subsection{Random grid search algorithm}\label{sswwupgrade:opt_rgs}
 The chosen method for optimizing the event selection is a cut-based algorithm known as the Random Grid Search (RGS) \cite{2018.rgs-paper}.
-Consider a simple case of two variables $x$ and $y$ chosen to differentiate the signal from the background.
-In order to be considered a signal event, a given event would be required to pass a \emph{cut point} $c = \{x > x_c, y > y_c\}$.
+Consider a simple case of two variables $x$ and $y$ chosen to differentiate signal from background.
+In order to be considered a signal event, a given event would be required to pass a set of selection criteria, called a \emph{cut point}: $c = \{x > x_c, y > y_c\}$.
 A simple method to choose the optimal cut point (i.e. the ``best'' values of the cuts $x_c$ and $y_c$) would be to construct an $n\times m$ rectangular grid in $x$ and $y$ consisting of points $(x_0,y_0), (x_1,y_1), ..., (x_n,y_m)$, as in Figure~\ref{fig:rgs_square_grid}.
 One can then choose a cut point $c_k = \{x > x_i, y > y_j\}$ that maximizes the signal significance as measured by a chosen metric.
-This would be considered a \emph{regular} or \emph{rectangular} grid search.
+This would be considered a \emph{rectangular grid search}.
 
-While effective in principle, this rectangular grid search comes with two major drawbacks:
+While effective in principle, a rectangular grid search comes with two major drawbacks:
 \begin{enumerate}
-\item The algorithm does not scale well as the number of variables to be optimized--the dimensionality of the grid--increases.  In the case of a square grid with $N$ bins per variable $v$, the number of cut points to be evaluated grows as $N^v$.
+\item The algorithm scales exponentially as the number of variables to be optimized increases, as this is effectively increasing the dimensionality of the grid.  In the simple case of a square grid with $N$ bins per variable $v$, the number of cut points to be evaluated grows as $N^v$.
 \item Signal and background samples are rarely evenly distributed over the entire grid, resulting in many cut points being sub-optimal and evaluating them would be a waste of computing resources.
 \end{enumerate}
 
 To combat these limitations, the RGS algorithm constructs a grid of cut points directly from the signal sample itself.
 In the two-dimensional example, this means that the variables $x_i$ and $y_j$ making up the cut point $c_k = \{x > x_i, y > y_j\}$ take their values directly from a given signal event.
-This has the benefit of creating a \emph{random grid} of cut points that is by construction  biased towards regions of high signal concentration.
+This has the benefit of creating a \emph{random grid} of cut points that is biased towards regions of high signal concentration by construction.
 This reduces the need for exponentially increasing numbers of cut points while ensuring that computing resources are not wasted in regions with few to no signal events.
 An example of the the two-dimensional random grid is shown in Figure~\ref{fig:rgs_random_grid}.
 
@@ -39,8 +38,8 @@ An example of the the two-dimensional random grid is shown in Figure~\ref{fig:rg
   \label{fig:rgs_random_grid}
 \end{figure}
 
-Once the random grid of cut points is constructed, the optimal cut point can be chosen using whatever metric the analyzer chooses, such as signal to background ratio.
-For the purpose of the \ssww upgrade study, the optimal cut point is the one that mazimizes the signal significance $Z$ defined as in Equation~\ref{eq:significance_with_error} \cite{2011.asimov-significance}.
+Once the random grid of cut points is constructed, the optimal cut point can be chosen using any number of metrics, such as signal to background ratio.
+For the purpose of the \ssww upgrade study, the optimal cut point is chosen to be the one that mazimizes the signal significance $Z$ as defined in Equation~\ref{eq:significance_with_error} \cite{2011.asimov-significance}.
 \begin{equation}
 Z = \sqrt{2{\bigg[}(s+b)\ln{\Big(}\frac{s+b}{b_0}{\Big)}+b_0-s-b{\bigg]}+\frac{(b-b_0)^2}{\sigma_b^2}}
 \label{eq:significance_with_error}
@@ -62,11 +61,11 @@ which further reduces to the familiar $Z = s/\sqrt{b}$ for the case when $s << b
 %
 %------------------------------------------------------------------------------------------------------
 \subsection{Inputs to the optimization}\label{sswwupgrade:opt_inputs}
-In order to train the RGS, signal and background samples were prepared from events passing the event selection outlined in Table~\ref{tab:sswwupgrade_event_selection} up through the $b$-jet veto.
-The signal sample was chosen to be the longitudinally polarized \ssww EWK events, and the transverse and mixed polarizations were treated as background along with \ssww events from QCD interactions and the traditional backgrounds listed in Section~\ref{sswwupgrade:background}.
+In order to train the RGS, signal and background samples are prepared from events passing the event selection outlined in Table~\ref{tab:sswwupgrade_event_selection} up through the $b$-jet veto.
+The signal sample is chosen to be the longitudinally polarized \ssww EWK events, and the transverse and mixed polarizations are treated as background along with \ssww events from QCD interactions and the traditional backgrounds listed in Section~\ref{sswwupgrade:background}.
 Splitting the inclusive \ssww EWK events by polarization allows the optimization to favor the longitunally polarized events as much as possible, even though they both contribute to the EWK signal.
 
-The following variables were chosen for optimization:
+The following variables are chosen for optimization:
 \begin{itemize}
 \item Leading lepton $\pt$
 \item Dilepton invariant mass ($\mll$)
@@ -74,7 +73,7 @@ The following variables were chosen for optimization:
 \item Dijet invariant mass ($\mjj$)
 \item Lepton-jet centrality ($\zeta$)
 \end{itemize}
-Subleading lepton $\pt$ was omitted as it is desirable to keep the cut value as low as possible due to its sensitivity to the longitudinal polarization (as discussed in Section~\ref{sec:sswwupgrade_longitudinal_sens}).
+Subleading lepton $\pt$ is omitted as it is desirable to keep the cut value as low as possible due to its sensitivity to the longitudinal polarization (as discussed in Section~\ref{sec:sswwupgrade_longitudinal_sens}).
 Additionally, the dijet separation $\detajj$ was included in the optimization originally, however it was dropped from the list due to the cut value being motivated by differences between EWK and QCD produced \ssww events.
 
 Two additional constraints were imposed when selecting the optimal cut point:
@@ -83,16 +82,17 @@ Two additional constraints were imposed when selecting the optimal cut point:
 \item The dijet invariant mass may only vary within a $50\gev$ range of the default value (from $450-550\gev$) due to the cut being physically motivated by the VBS event topology (see Section~\ref{ssww13tev:ssww_topology}).
 \end{enumerate}
 
-Lastly, the decision was made to use calculate the signal significance without taking into account the uncertainty of the background using Equation~\ref{eq:significance_without_error}.
-This was due to the fact that the statistical uncertainties of the fake electron and charge-misID backgrounds were quite large, and if Equation~\ref{eq:significance_with_error} were used instead, the optimization would cut unreasonably hard against these backgrounds.
-Since Monte Carlo statistics is not expected to be a limiting factor when this analysis is performed at the HL-LHC, it is more realistic to simply ignore these large statistical uncertainties for the purpose of the selection optimization.
+Lastly, the signal significance is calculated without taking into account the uncertainty of the background using Equation~\ref{eq:significance_without_error}.
+This is due to the fact that the statistical uncertainties of the fake electron and charge misidentification backgrounds are quite large, owing to poor MC statiscs in a few of the samples.
+If Equation~\ref{eq:significance_with_error} were used instead, the optimization will cut unreasonably hard against these backgrounds.
+Since Monte Carlo statistics is not expected to be a limiting factor when this analysis is performed at the HL-LHC, it is more realistic to simply ignore these large statistical uncertainties for the purpose of the optimization.
 
 %------------------------------------------------------------------------------------------------------
 %
 %------------------------------------------------------------------------------------------------------
 \subsection{Results of the optimization}\label{sswwupgrade:opt_results}
-Ultimately, the random grid was constructed from over 38,000 LL-polarized \ssww events in the variables listed above.
-After applying the constraints, an optimal cut point was chosen which reduced the total background from 9900 to 2310 while reducing the signal from 3489 to 2958.
+Ultimately, the random grid is constructed from over 38,000 LL-polarized \ssww events in the six variables listed above.
+After applying the constraints, the optimal cut point reduces the total background from 9900 to 2310 while reducing the signal from 3489 to 2958.
 This corresponds to an increase in signal significance from $Z = 33.26$ to $Z = 52.63$ as calculated by Equation~\ref{eq:significance_without_error}.
 The updates to the event selection are listed in Table~\ref{tab:sswwupgrade_optimized_selection}. %, and plots of the optimized variables are found in Figures~\ref{fig:optimized_lep0pt}-\ref{fig:optimized_centrality}.
 
