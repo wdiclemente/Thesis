@@ -1,14 +1,131 @@
-Hello world!
+The major sources of background events are summarized in Section~\ref{ssww13tev:background_overview}, and the methods used to estimate them are detailed in this section.  
+Prompt backgrounds from $ZZ$ and $t\bar{t}V$ are estimated directly from MC simulations.
+The shape of the $WZ$ and $V\gamma$ backgrounds are taken from MC, and the predicted yeilds are normalized to the data predictions in dedicated control regions, as outlined in Sections~\ref{ssww13tev:wz} and \ref{ssww13tev:wgamma}, respectively.
+Opposite sign events with a charge misidentified electron are estimated by a data-driven background method which is summarized in Section~\ref{ssww13tev:charge_misid}.
+Finally, a \emph{fake factor} method is used to estimate the contributions from non-prompt backgrounds and is the subject of Section~\ref{ssww13tev:fake_factor}.
 
-\TODO{Backgrounds estimated with MC}
-
-\TODO{A bit on WZ and $W\gamma$ normalization? I didn't work on this, but it should at least be mentioned.}
-
-\subsection{Estimation backgrounds from charge misidentification}\label{ssww13tev:charge_misid}
-\TODO{Brief overview of charge misID handling.  I didn't work on this either, but if i recall it was more involved than other backgrounds so it probably deserves its own section. This probably doesn't need to be too long, just explain the method and maybe throw in a plot of charge misID rates.  I think there are some good plots in the APS talk I gave.}
+\subsection{Estimation of the $WZ$ background}\label{ssww13tev:wz}
 
 \subsection{Reduction of $WZ$ background using custom overlap removal}\label{ssww13tev:custom_or}
 \input{sections/ssww_13tev/custom_or.tex}
 
-\subsection{Fake factor method}\label{ssww13tev:fake_factor}
+\subsection{Estimation of the $V\gamma$ background}\label{ssww13tev:wgamma}
+
+\subsection{Estimation of backgrounds from charge misidentification}\label{ssww13tev:charge_misid}
+%\TODO{Brief overview of charge misID handling.  I didn't work on this either, but if i recall it was more involved than other backgrounds so it probably deserves its own section. This probably doesn't need to be too long, just explain the method and maybe throw in a plot of charge misID rates.  I think there are some good plots in the APS talk I gave.}
+
+If an electron's charge is mis-reconstructed, it can lead to a real, opposite-sign lepton pair passing the same-sign requirement in the event selection.
+There are two primary reasons this can occur:
+\begin{enumerate}
+\item An electron emits a photon via bremsstrahlung which then converts into an electron-positron pair, and the conversion track with the wrong electric charge is matched to the original electron.
+This is the dominant process leading to charge flip, and it is highly dependent on the electron $\eta$ due to the different amount of detector material the electron passes through.
+\item The curvature of the electron's track is mismeasured, resulting in the wrong charge being assigned.
+This process is dependent on the momentum of the electron, as its track becomes more straight as the momentum of the electron increases.
+\end{enumerate}
+
+In order to estimate this background, the rate at which an electron's charge is misidentified is calculated from $Z\rightarrow e^{+}e^{-}$ MC simulation.
+It is known that the MC does not perfectly model the material effects leading to charge flip; as a result, scale factors are applied to the MC in order for it to to better reflect the real performance.
+These scale factors are obtained from the ratio of data and uncorrected MC charge mis-ID rates in~\cite{2018.ssww-13tev-atlas-support} following the method outlined in~\cite{2017.charge-flip-support}.
+Once the scale factors are applied, the charge misidentification rate $\varepsilon$ can be extracted by comparing the electron's reconstructed charge with the charge of its truth particle:
+\begin{equation}
+  \varepsilon(\eta,\pt) = \frac{N_{\textrm{wrong\ charge}}}{N_{\textrm{prompt\ electrons}}}
+\end{equation}
+The charge mis-ID rate is calculated in bins of electron $|\eta|$ and $\pt$ and varies from below $0.1\%$ in the central region of the detector up to $8\%$ in the forward regions for high $\pt$ (above $90\gev$) electrons.
+A two-dimensional plot of $\varepsilon$ can be found in Figure~\ref{fig:charge_flip_rates}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.75\textwidth]{figs/ssww_13tev/backgrounds/charge_flip/charge_flip_2d}
+  \caption{Charge misidentification rates for electrons as a function of $|\eta|$ and $\pt$.  Rates are calculated from $Z\rightarrow e^{+}e^{-}$ MC after applying sacle factors to approximate the charge mis-ID rates in data.}
+  \label{fig:charge_flip_rates}
+\end{figure}
+
+%The size of the charge mis-ID background in a given region (signal or control region) is estimated from events that pass the region's default event selection but with an opposite-sign lepton pair.
+Given the charge flip rate $\varepsilon(\eta,\pt)$, the rate at which an electron has its charge correctly reconstructed is $(1-\varepsilon)$.
+Thus there are three possible combinations of charge identification, assuming a two-electron event:
+\begin{enumerate}
+\item Both electrons are reconstructed correctly: $(1-\varepsilon)^2$
+\item Both electrons are mis-reconstructed: $\varepsilon^2$
+\item Only one electron is mis-reconstructed: $2\varepsilon(1-\varepsilon)$
+\end{enumerate}
+
+In order to estimate the size of the background from charge misidentification, opposite-sign events are selected using the default event selection for a given signal or control region with the same-sign requirement inverted.
+These events are then weighted by the probability for one of the electrons to be reconstructed with the wrong charge:
+\begin{equation}
+\omega = \frac{\varepsilon_1(1-\varepsilon_2)+\varepsilon_2(1-\varepsilon_1)}{(1-\varepsilon_1)(1-\varepsilon_2)+\varepsilon_1\varepsilon_2}
+\label{ssww13tev:ch_flip_weight}
+\end{equation}
+%\begin{equation}
+%\omega = \frac{\varepsilon_1(1-\varepsilon_2)+\varepsilon_2(1-\varepsilon_1)}{1-(\varepsilon_1+\varepsilon_2)+2\varepsilon_1\varepsilon_2}
+%\label{ssww13tev:ch_flip_weight2}
+%\end{equation}
+where the subscripts 1 and 2 refer to the leading and subleading electrons, respectively, and $\varepsilon_i$ is a function of the $\eta$ and $\pt$ of the $i^{\textrm{th}}$ electron.
+In the case of an event with only one electron and one muon, Equation~\ref{ssww13tev:ch_flip_weight} simplifies:
+\begin{equation}
+\omega = \frac{\varepsilon}{1-\varepsilon}
+\end{equation}
+This method assumes that there is little contamination from fake electrons in the opposite-sign sample, and this has been verified with MC simulation.
+
+Additionally, charge-flipped electrons tend to be reconstructed with lower energy when compared to electrons with the correct charge.
+This is due to energy loss from the material interactions that can cause the charge to be misidentified.
+A correction factor is calculated from MC simulations, comparing the $\pt$ of the truth electron to its reconstructed counterpart:
+\begin{equation}
+\alpha = \frac{\Big(\frac{\pt^{\textrm{reco}}}{\pt^{\textrm{truth}}}-1\Big)_{\textrm{correct charge}}}{\Big(\frac{\pt^{\textrm{reco}}}{\pt^{\textrm{truth}}}-1\Big)_{\textrm{wrong charge}}}
+\label{ssww13tev:ch_flip_alpha}
+\end{equation}
+The correction is then applied to the $\pt$ of the charge-flipped electron via
+\begin{equation}
+\pt = \pt^0/(1+\alpha)+dE
+\label{ssww13tev:ch_flip_energy_corr}
+\end{equation}
+where $\pt^0$ is the uncorrected $\pt$ of the electron and $dE$ is a gaussian smearing factor centered at zero with a width related to the energy resolution.
+Since which electron is misreconstructed is never determined in this method, in the case of a two-electron event, the energy correction is applied randomly to one of the two electrons based on the probabilities for them to be charge-flipped.
+This also determines the overall sign of the event; the charge of the electron that does not recieve the correction is taken to be the charge for both.
+
+Systematic uncertainties on the charge mis-ID rates are calculated by generating two additional sets of rates with the uncertainties on the scale factors varied up and down.
+The size of the estimated charge flip background without the energy correction applied is also taken as a systematic uncertainty.
+These systematic uncertainties are estimated to be approximately $\pm 15\%$.
+
+\subsubsection{Validation of the charge misidentification estimate}\label{ssww13tev:ssincl_vr}
+%The performance of the charge misidentification estimation is tested in $e^{\pm}e^{\pm}$ events with a di-electron invariant mass that lies within $15\gev$ of the $Z$ boson mass.
+%Disagreements between data and background at high $\pt$ and $\eta$ have been found to be due to backgrounds from misidentified leptons, which are not included due to unreliable modeling in this particular region.
+
+The performance of the charge misidentification estimation is tested in the same-sign inclusive validation region (VR), defined in Table~\ref{tab:ssww13tev_ssincl_vr_def}.
+For $ee$ events, the mass of the dilepton pair is required to lie within $15\gev$ of the $Z$ boson mass to increase the purity of the charge flip background.
+$t\bar{t}$ production, which can contribute to both the charge mis-ID and fake lepton backgrounds, is suppressed by the $b$-jet veto.
+The di-electron invariant mass is shown in Figure~\ref{fig:ssww13tev_ssincl_mll}, and distributions of the leading and subleading electron $\pt$ in the $ee$-channel are shown in Figure~\ref{fig:ssww13tev_ssincl_ptlep} with the $Z$ mass cut inverted.
+Agreement between data and prediction is seen within the total statistical and systematic uncertainties in the VR.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{c}
+    Same-sign inclusive VR \\
+    \hline\hline
+    Exactly 2 same-sign signal leptons\\
+    $\pt > 27\gev$ for both leptons \\
+    $m_{ll} > 20\gev$\\
+    $|m_{ee} - m_Z| > 15\gev$ ($ee$-channel only) \\
+    $N_{b\textrm{-jet}} = 0$\\
+    \hline
+  \end{tabular}
+  \caption{Selection criteria for the same-sign inclusive validation region.}
+  \label{tab:ssww13tev_ssincl_vr_def}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/backgrounds/charge_flip/ee-CutCRInclusiveSSZ-Mll_Zpeak-lin}
+  \caption{Dilepton invariant mass distribution $m_{ll}$ for the $ee$ channel in the same-sign inclusive VR.}
+  \label{fig:ssww13tev_ssincl_mll}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/backgrounds/charge_flip/ee-CutCRInclusiveSSZVeto-l0_pt-lin.pdf}
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/backgrounds/charge_flip/ee-CutCRInclusiveSSZVeto-l1_pt-lin.pdf}
+  \caption{$\pt$ distributions for the leading (left) and subleading (right) electron for the $ee$ channel in the same-sign inclusive VR.  In these plots, the cut requiring $m_{ee}$ to fall within the $Z$ mass window has been inverted in order to test the modelling away from the $Z$ peak.}
+  \label{fig:ssww13tev_ssincl_ptlep}
+\end{figure}
+
+\subsection{Estimation of non-prompt backgrounds with the fake factor method}\label{ssww13tev:fake_factor}
 \input{sections/ssww_13tev/fakefactor.tex}
