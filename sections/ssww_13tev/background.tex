@@ -5,10 +5,52 @@ Opposite sign events with a charge misidentified electron are estimated by a dat
 Finally, a \emph{fake factor} method is used to estimate the contributions from non-prompt backgrounds and is the subject of Section~\ref{ssww13tev:fake_factor}.
 
 \subsection{Estimation of the $WZ$ background}\label{ssww13tev:wz}
+The dominant background involving prompt leptons comes from $WZ$+jets events.
+The contribution is estimated from MC simulation and normalized to data in a control region enriched in $WZ$ events defined by the same event selection as Table~\ref{tab:ssww13tev_event_selection} for the signal region, with the following changes applied to increase the purity of the $WZ$ process:
+\begin{itemize}
+\item The third lepton veto is inverted, requiring a third lepton with $\pt > 15\gev$
+\item Two of the leptons must make a same-flavor opposite-sign pair. If more than one pair exists, the one with $m_{ll}$ closest to the $Z$ boson mass is chosen.
+\item The trilepton invariant mass is required to be $m_{lll} > 106\gev$ to reduce contributions from $Z\gamma$ and $Z$+jets
+\end{itemize}
 
-\subsection{Reduction of $WZ$ background using custom overlap removal}\label{ssww13tev:custom_or}
-\TODO{Maybe move this to the end since it didn't make it into the analysis}
-\input{sections/ssww_13tev/custom_or.tex}
+Once the event yields in the control region are calculated, they are propagated to the final signal region fit, detailed in Section~\ref{ssww13tev:xsec} \TODO{update reference with proper subsection once it's written}, in a single bin combining all the lepton channels.
+The systematic uncertainties of the $WZ$ background are also calculated at this time.
+The event yields for the $WZ$ control region are listed in Table~\ref{tab:ssww13tev_wzcr_yields}, and distributions of the leading lepton $\pt$ and $\eta$ as well as trilepton invariant mass $m_{lll}$ are found in Figures~\ref{fig:ssww13tev_wzcr_lep0} and \ref{fig:ssww13tev_wzcr_mlll}, respectively.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l r}
+    \multicolumn{2}{c}{Event yields in the $WZ$ control region} \\
+    \hline\hline
+    $WZ$     & $197.9\pm 1.4$ \\
+    $ZZ$     & $14.1\pm 0.3$ \\
+    Triboson & $1.26\pm 0.1$ \\
+    top      & $10.8\pm 1.1$ \\
+    $Z\gamma$& $3.1\pm 1.1$ \\
+    $Z$+jets & $2.5\pm 1.4$ \\
+    \hline
+    Total prediction & $229.7\pm 2.5$ \\
+    Data             & $201 \pm 14.2$ \\
+    \hline
+  \end{tabular}
+  \caption{Event yields in the $WZ$ control region before normalization.  All lepton flavor channels are combined.}
+  \label{tab:ssww13tev_wzcr_yields}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/backgrounds/wz/ll-CutCRWZ3Lep-l0_pt-lin}
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/backgrounds/wz/ll-CutCRWZ3Lep-l0_eta-lin}
+  \caption{Leading lepton $\pt$ (left) and $\eta$ (right) distributions in the $WZ$ control region before normalization.  All lepton channels are combined.}
+  \label{fig:ssww13tev_wzcr_mlll}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/backgrounds/wz/ll-CutCRWZ3Lep-Mlll-lin}
+  \caption{Trilepton invariant mass $m_{lll}$ distribution in the $WZ$ control region before normalization.  All lepton channels are combined.}
+  \label{fig:ssww13tev_wzcr_lep0}
+\end{figure}
 
 \subsection{Estimation of the $V\gamma$ background}\label{ssww13tev:wgamma}
 Events from $V\gamma$ processes can pass selection if the photon converts into an $e^{+}e^{-}$ pair and one of the electrons passes the selection criteria.
@@ -37,7 +79,8 @@ Overlap between the two samples are removed based to avoid double counting.
 Events with final state photons at truth level are checked to ensure that the photon did not originate from a hadronic decay.
 Cuts on $\pt^\gamma > 10\gev$ and $\deltar(\gamma,l) > 0.1$ are then applied at generator level, and $Z\gamma$ events that fail and $Z$+jets events that pass this additional selection are removed.
 
-The event yields in the $V\gamma$ control region are listed in Table~\ref{tab:ssww13tev_vgamma_numbers} from which the normalization factor is determined to be $1.77$.
+The normalization factor is calculated directly from the event yields in the $V\gamma$ control region rather than in the signal fit, as is done for the $WZ$ background.
+The event yields are listed in Table~\ref{tab:ssww13tev_vgamma_numbers}, and the normalization factor is determined to be $1.77$.
 No MC events from $Z\gamma$ processes survive the full event selection; thus, the scaling is only applied to the $W\gamma$ background in the signal region.
 A systematic uncertainty of 44\% is assigned to the background based off of the uncertainties in the calculation of the normalization factor.
 
@@ -51,7 +94,7 @@ A systematic uncertainty of 44\% is assigned to the background based off of the 
     diboson + triboson & $6.7\pm 0.3$ \\
     top       &  $1.5\pm 0.5$ \\
     \hline
-    Total background & $35.8\pm 3.7$ \\
+    Total prediction & $35.8\pm 3.7$ \\
     Data             & $57 \pm 7.6$ \\
     %\hline
     %Data - prediction & $21.2\pm 8.4$ \\
@@ -83,7 +126,7 @@ A two-dimensional plot of $\varepsilon$ can be found in Figure~\ref{fig:charge_f
 
 \begin{figure}
   \centering
-  \includegraphics[width=.75\textwidth]{figs/ssww_13tev/backgrounds/charge_flip/charge_flip_2d}
+  \includegraphics[width=.7\textwidth]{figs/ssww_13tev/backgrounds/charge_flip/charge_flip_2d}
   \caption{Charge misidentification rates for electrons as a function of $|\eta|$ and $\pt$.  Rates are calculated from $Z\rightarrow e^{+}e^{-}$ MC after applying sacle factors to approximate the charge mis-ID rates in data.}
   \label{fig:charge_flip_rates}
 \end{figure}
@@ -177,3 +220,6 @@ Agreement between data and prediction is seen within the total statistical and s
 
 \subsection{Estimation of non-prompt backgrounds with the fake factor method}\label{ssww13tev:fake_factor}
 \input{sections/ssww_13tev/fakefactor.tex}
+
+\subsection{Reduction of $WZ$ background using custom overlap removal}\label{ssww13tev:custom_or}
+\input{sections/ssww_13tev/custom_or.tex}
