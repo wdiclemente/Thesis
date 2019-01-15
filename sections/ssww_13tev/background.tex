@@ -7,13 +7,61 @@ Finally, a \emph{fake factor} method is used to estimate the contributions from 
 \subsection{Estimation of the $WZ$ background}\label{ssww13tev:wz}
 
 \subsection{Reduction of $WZ$ background using custom overlap removal}\label{ssww13tev:custom_or}
+\TODO{Maybe move this to the end since it didn't make it into the analysis}
 \input{sections/ssww_13tev/custom_or.tex}
 
 \subsection{Estimation of the $V\gamma$ background}\label{ssww13tev:wgamma}
+Events from $V\gamma$ processes can pass selection if the photon converts into an $e^{+}e^{-}$ pair and one of the electrons passes the selection criteria.
+The background is estimated from MC simulations which are then scaled by a normalization factor calculated from a control region enriched in $Z(\mu^{+}\mu^{-})\gamma$ events.
+This control region selects two opposite-sign muons and an additional electron that is assumed to come from the photon conversion.
+The full event selection is detailed in Table~\ref{tab:ssww13tev_vgamma_cr}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{c}
+    $V\gamma$ control region \\
+    \hline\hline
+    Exactly two muons with $\pt > 27\gev$ and $\pt > 20\gev$ \\
+    Exactly one additional electron with $\pt > 15\gev$ \\
+    Remove overlap between $Z$+jets and $Z\gamma$ \\
+    Di-muon + photon invariant mass $75 < M_{\mu\mu\gamma} < 100\gev$ \\
+    $\met < 30\gev$ \\
+    \hline
+  \end{tabular}
+  \caption{Selection criteria for the $V\gamma$ control region.}
+  \label{tab:ssww13tev_vgamma_cr}
+\end{table}
+
+The $Z\gamma$ MC samples available do not cover the full range of $\pt^\gamma$ and $\deltar(\gamma,l)$; thus, additional Drell-Yan samples ($Z$+jets) are used to fill out the phase space.
+Overlap between the two samples are removed based to avoid double counting.
+Events with final state photons at truth level are checked to ensure that the photon did not originate from a hadronic decay.
+Cuts on $\pt^\gamma > 10\gev$ and $\deltar(\gamma,l) > 0.1$ are then applied at generator level, and $Z\gamma$ events that fail and $Z$+jets events that pass this additional selection are removed.
+
+The event yields in the $V\gamma$ control region are listed in Table~\ref{tab:ssww13tev_vgamma_numbers} from which the normalization factor is determined to be $1.77$.
+No MC events from $Z\gamma$ processes survive the full event selection; thus, the scaling is only applied to the $W\gamma$ background in the signal region.
+A systematic uncertainty of 44\% is assigned to the background based off of the uncertainties in the calculation of the normalization factor.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l r}
+    \multicolumn{2}{c}{Event yields in the $V\gamma$ control region} \\
+    \hline\hline
+    $Z\gamma$ & $24.6\pm 3.3$ \\
+    $Z$+jets  &  $3.0\pm 1.5$ \\
+    diboson + triboson & $6.7\pm 0.3$ \\
+    top       &  $1.5\pm 0.5$ \\
+    \hline
+    Total background & $35.8\pm 3.7$ \\
+    Data             & $57 \pm 7.6$ \\
+    %\hline
+    %Data - prediction & $21.2\pm 8.4$ \\
+    \hline
+  \end{tabular}
+  \caption{Event yields in the $V\gamma$ control region.  The $V\gamma$ scale factor of 1.77 is calculated by scaling up the $Z\gamma$ and $Z$+jets backgrounds to account for the difference between the data and predicted total background.}
+  \label{tab:ssww13tev_vgamma_numbers}
+\end{table}
 
 \subsection{Estimation of backgrounds from charge misidentification}\label{ssww13tev:charge_misid}
-%\TODO{Brief overview of charge misID handling.  I didn't work on this either, but if i recall it was more involved than other backgrounds so it probably deserves its own section. This probably doesn't need to be too long, just explain the method and maybe throw in a plot of charge misID rates.  I think there are some good plots in the APS talk I gave.}
-
 If an electron's charge is mis-reconstructed, it can lead to a real, opposite-sign lepton pair passing the same-sign requirement in the event selection.
 There are two primary reasons this can occur:
 \begin{enumerate}
@@ -25,7 +73,7 @@ This process is dependent on the momentum of the electron, as its track becomes 
 
 In order to estimate this background, the rate at which an electron's charge is misidentified is calculated from $Z\rightarrow e^{+}e^{-}$ MC simulation.
 It is known that the MC does not perfectly model the material effects leading to charge flip; as a result, scale factors are applied to the MC in order for it to to better reflect the real performance.
-These scale factors are obtained from the ratio of data and uncorrected MC charge mis-ID rates in~\cite{2018.ssww-13tev-atlas-support} following the method outlined in~\cite{2017.charge-flip-support}.
+These scale factors are obtained from the ratio of charge mis-ID rates in data and uncorrected MC in~\cite{2018.ssww-13tev-atlas-support} following the method outlined in~\cite{2017.charge-flip-support}.
 Once the scale factors are applied, the charge misidentification rate $\varepsilon$ can be extracted by comparing the electron's reconstructed charge with the charge of its truth particle:
 \begin{equation}
   \varepsilon(\eta,\pt) = \frac{N_{\textrm{wrong\ charge}}}{N_{\textrm{prompt\ electrons}}}
