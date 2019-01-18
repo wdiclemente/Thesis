@@ -1,1 +1,78 @@
-Hello world!
+The \ssww EWK cross section is extracted from the signal region using a maximum-likelihod fit applied simultaneously to four $m_{jj}$ bins in the signal region as well as to the low-$m_{jj}$ and $WZ$ control regions.
+For the cross section extraction, the signal region is defined as in Table~\ref{tab:ssww13tev_event_selection} with the dijet invariant mass requirement raised to $m_{jj} > 500\gev$.
+The low-$m_{jj}$ region is defined to mirror the signal region exactly with the dijet invariant mass inverted to $200 < m_{jj} < 500\gev$, and the $WZ$ control region is defined previously in Section~\ref{ssww13tev:wz}.
+
+The signal and low-$m_{jj}$ regions are split into six channels based on the flavor and charge of the dilepton pair: $\mmp$, $\mmm$, $\mep$, $\mem$, $\eep$, and $\eem$.
+This split by charge increases the sensitivity of the measurement due to the $W^{+}/W^{-}$ charge asymmetry at hadron colliders favoring the production of $W^{+}$ bosons~\cite{2010.w-charge-asymmetry}.
+Since the signal events contain two $W$ bosons, the signal strength compared to charge-symmetric backgrounds is much greater in the $++$ channels for both charges combined.
+The $WZ$ control region is included in the fit as a single bin ($l^{\pm}l^{\pm}l^{\pm}$).
+
+The maximum likelihood fit is outlined in Section~\ref{ssww13tev:xsec_fit_method} and the cross section extraction method in Section~\ref{ssww13tev:xsec_method}.
+
+\subsection{Maximum likelihood fit}\label{ssww13tev:xsec_fit_method}
+\TODO{This section is very similar to what is written in the support note... May need to put some work into flushing it out so it's not so close to copy-paste}
+The number of predicted signal events in each channel $c$ and $m_{jj}$ bin $b$ can be calculated from the SM predicted fiducial signal cross section $\sigma^{\textrm{fid}}$, the total integrated luminosity $\mathcal{L}$, the signal acceptance $\mathcal{A}_b$, and the efficiency corrections $\mathcal{C}(\theta)$, where $\theta$ represents the set of nuisance parameters that parameterize the effects of each systematic uncertainty on the signal and background expectations.
+\begin{equation}
+  N_{cb}^{\textrm{sig}}(\theta) = \sigma^{\textrm{fid}}\mathcal{A}_b\mathcal{C}_{b}(\theta)\mathcal{L}
+  \label{eq:ssww13tev_xsec_nsig}
+\end{equation}
+A signal strength parameter $\mu$ is defined as the ratio of the measured cross section to the SM predicted cross section.
+%it seems like $\mu$ is the main thing we're extracting from the fit, and we calculate the cross section by measuring $\mu$ and solving for $\sigma_obs$, maybe put some words about this in
+The expected number of events in a given channel and bin can then be expressed as the sum of the estimated background ($N_{cb}^{\textrm{bkg}}(\theta)$) and the number of predicted signal events scaled by $\mu$:
+\begin{equation}
+  \begin{aligned}
+    N_{cb}^{\textrm{exp}}(\theta) &= \mu N_{cb}^{\textrm{sig}}(\theta) + N_{cb}^{\textrm{bkg}}(\theta) \\
+                              &= \mu \sigma^{\textrm{fid}}\mathcal{A}_b\mathcal{C}_{b}(\theta)\mathcal{L} + N_{cb}^{\textrm{bkg}}(\theta)
+  \end{aligned}
+  \label{eq:ssww13tev_xsec_nexp}
+\end{equation}
+
+The nuisance parameters are constrained by Gaussian probability distribution functions, and the normalization of the $WZ$ background mentioned in Section~\ref{ssww13tev:wz} is included in the fit as a free parameter.
+The expected yields for signal and background processes are adjusted by the set of nuisance parameters within the constraints of the systematic uncertainties.
+The yields after the fit correspond to the value that best matches the observed data.
+
+The expected number of events per channel and bin can be written as a sum of the predicted event yields for each sample $s$:
+\begin{equation}
+  \nu_{cb}(\phi,\theta,\gamma_{cb}) = \gamma_{cb}\sum\limits_{s}\big[\eta_{cs}(\theta)\phi_{cs}(\theta)\lambda\big] h_{cbs}(\theta)
+  \label{eq:ssww13tev_xsec_nexp_fit}
+\end{equation}
+In this equation, the expected number of events in a given channel and bin is obtained by weighting the histogram of predicted yields $h_{cbs}$ by the product of a given luminosity $\lambda$ and any normalization factors $\phi_{cs}$ that may be given for each channel and sample.
+The input histogram and the normalization factors may depend on the nuisance parameters $\theta$ taking into account sources of systematic uncertainty.
+Uncertainties on the normalization factors $\eta_{cs}(\theta)$ are also included.
+Finally, bin-by-bin scale factors $\gamma_{cb}$ are included to parameterize the statistical uncertainties of the MC predictions.
+
+The binned likelihood function is given by a product of Gaussian functions for the luminosity and for the background uncertainties and a product of Poisson functions for the number of observed events in each bin and channel:
+\begin{equation}
+  L(\mu|\theta) = \mathcal{G}(\mathcal{L}|\theta_{\mathcal{L}},\sigma_{\mathcal{L}})\cdot \prod\limits_{c}\prod\limits_{b}\mathcal{P}(N_{\textrm{cb}}^{\textrm{meas.}}|\nu_{cb}(\mu))\prod\limits_{p}\mathcal{G}(\theta_{p}^{0}|\theta_{p})
+\end{equation}
+where $\mathcal{G}$ and $\mathcal{P}$ are the Gaussian and Poisson functions, respectively.
+As before, $\mathcal{L}$ represents the integrated luminosity with uncertainty $\sigma_{\mathcal{L}}$ and associated nuisance parameter $\theta_{\mathcal{L}}$.
+The number of measured events in a given bin and channel is represented by $N_{cb}^{\textrm{meas.}}$, and $\nu_{cb}(\mu)$ is the predicted number of events defined in Equation~\ref{eq:ssww13tev_xsec_nexp_fit} expressed as a function of the signal strength $\mu$.
+Finally, the set of nuisance parameters $\theta$ and any auxiliary measurements used to constrain them $\theta^0$ are multiplied for each parameter $p$.
+
+The profile likelihood ratio is defined as
+\begin{equation}
+  q_{\mu} = -2\ln\frac{L(\mu,\hat{\hat{\theta}}_{\mu})}{L(\hat{\mu},\hat{\theta})}
+  \label{dq:ssww13tev_xsec_test_statistic}
+\end{equation}
+with $\hat{\mu}$ and $\hat{\theta}$ as the unconditional maximum likelihood estimates and $\hat{\hat{\theta}}$ as the conditional maximum likelihood estimate for a given value of $\mu$.
+%basically the idea here is that the unconditional maximum is just the best value of \theta and \mu.  the conditional maximum is the best value of \theta GIVEN a particular \mu (i.e. the best value of \theta is conditional upon the choice of \mu)
+%Since $q_{\mu}$ is asymptotically $\chi^2$ distributed according to Wilks' theorem~\cite{}
+The fitted signal strength $\hat{\mu}$ is obtained by maximizing the likelihood function with respect to all parameters.
+The compatibility of the observed data with the background-only hypothesis can then be calculated by setting $\mu=0$.
+Observation of the \ssww EWK process is claimed if the data is found to be inconsistent with the background-only hypothesis by more than $5\sigma$.
+The observed signal strength $\mu_{\textrm{obs}}$ is obtained by using the real data yields in each input bin to the fit; calculating the expected signal strength $\mu_{\textrm{exp}}$ follows the same method but with the data replaced by the predictions from simulation and data-driven estimations.
+
+\subsection{Cross section extraction}\label{ssww13tev:xsec_method}
+\TODO{support note 9.9 p 164}
+
+\subsubsection{Fiducial region definition}\label{ssww13tev:fiducial_def}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{c}
+    
+  \end{tabular}
+  \caption{Definition of the fiducial volume.}
+  \label{tab:ssww13tev_fiducial_vol}
+\end{table}
