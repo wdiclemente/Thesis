@@ -8,8 +8,8 @@ In this analysis, a new modification to the fake factor is used involving the pa
 %
 %---------------------------------------------------------------------------------------------
 \subsubsection{Overview of the default fake factor method}\label{ssww13tev:ff_method_default}
-The goal of the fake factor method is to measure the fake rate in a region enriched in fake leptons and use it to estimate the size of the fake lepton background in a chosen signal or control region.
-This is done by creating two samples of leptons: 
+The goal of the fake factor method is to measure the fake rate from real collision events in a region enriched in fake leptons and use it to estimate the size of the fake lepton background in a chosen signal or control region.
+This is done by creating two samples using different lepton definitions: 
 \begin{enumerate}
 \item The \emph{nominal} sample is made up of leptons passing the signal selection.
 \item The \emph{loose} sample is made up of leptons that fail the signal selection while still passing a loosened set of criteria.  This sample is enriched in fake leptons and is orthogonal to the set of signal leptons.
@@ -19,12 +19,13 @@ Using the sets of nominal and loose leptons, a fake factor $f$ can be calculated
 f = \frac{N_{\textrm{nominal}}}{N_{\textrm{loose}}}
 \label{eq:ssww13tev_ff_default_unbinned}
 \end{equation}
-Since the fake rate is not expected to be constant over the entire phase space, the fake factor can be divided into bins in a chosen quantity:
+Since the fake rate is not expected to be constant over the entire phase space, the fake factor can be divided into bins:
 \begin{equation}
 f(b) = \frac{N_{\textrm{nominal}}(b)}{N_{\textrm{loose}}(b)}
 \label{eq:ssww13tev_ff_default_binned}
 \end{equation}
 where $b$ represents the bin number.
+In this analysis, the fake factor is binned in lepton $\pt$.
 
 In order to estimate the fake background contribution in a given signal or control region, the fake factor is applied to a second control region with a selection identical to the region of interest with one of the leptons required to satisfy the loose criteria.
 The region for which the background is estimated contains two nominal leptons and is referred to as \emph{nominal+nominal} ($NN$), and the associated control region where the fake factor is applied contains one nominal and one loose lepton and is referred to as \emph{nominal+loose} ($NL$).
@@ -52,7 +53,7 @@ Due to the isolation cut applied to the nominal leptons, they typically carry a 
 This discrepancy in the underlying jet momentum fraction can cause problems in the calculation of the fake factor $f$.
 Consider the case where two separate events have jets of identical momentum, but one produces a non-prompt lepton that passes the nominal selection, and the other produces a non-prompt lepton that passes the loose selection.
 The loose lepton on average will have lower $\pt$ than the nominal lepton despite both originating from jets with the same momentum.
-This can be seen explicitly when comparing the $\pt$ of a muon to its associated jet:
+This can be seen explicitly when comparing the $\pt$ of a muon to its associated truth jet:
 \begin{equation}
 \Delta\pt(\mu,j) = \frac{\pt(j)-\pt(\mu)}{\pt(j)+\pt(\mu)}
 \label{eq:ssww13tev_ff_deltapt}
@@ -64,42 +65,84 @@ The $\Delta\pt$ distributions for nominal and loose muons in $t\bar{t}$ MC event
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=.6\textwidth]{figs/ssww_13tev/backgrounds/ff/deltapt_ttbar}
-  \caption{$\Delta\pt$ distributions for nominal (blue) and loose (red) muons in simulated $t\bar{t}$ events.  Each muon has been matched to a truth-level jet within a cone of $\deltar < 0.4$.  Both distributions are normalized to unit area.}
+  \caption{$\Delta\pt$ distributions for nominal (blue) and loose (red) muons in simulated $t\bar{t}$ events.  Each muon has been matched to a truth-level jet.  Both distributions are normalized to unit area.}
   \label{fig:ssww13tev_ff_deltapt}
 \end{figure}
 
-Since the default fake factor defined in Equation~\ref{eq:ssww13tev_ff_default_binned} is typically binned in lepton $\pt$, within a given bin, the underlying jet $\pt$ spectrum can differ substantially between the numerator and the denominator.
+Since the default fake factor defined in Equation~\ref{eq:ssww13tev_ff_default_binned} is binned in lepton $\pt$, within a given bin, the underlying jet $\pt$ spectrum can differ substantially between the numerator and the denominator.
 Additionally, these differences can vary depending on the process producing the non-prompt leptons or on the specific kinematic selections of the signal or control regions where the fake factor is applied.
 
 Fortunately, the majority of the jet momentum not carried by the non-prompt lepton (excluding neutrinos) can be recovered using isolation variables.
 A track-based isolation is chosen, referred to as $\ptcone$, and it contains the sum of the $\pt$ of all particle tracks originating from the primary vertex within a cone of $\deltar < 0.3$ around the lepton.
-\TODO{Start here tomorrow -- finish up adding the $\ptptcone$ denominator explanation, add the dpt plots and one showing that $\ptcone$ is negligible for numerator etc}
-Thus, the denominator of the fake factor is binned in $\ptptcone$ is chosen to represent the loose lepton
-
+Thus, the sample of loose leptons in the denominator of the fake factor calculation is binned in $\ptptcone$ rather than simply lepton $\pt$.
+Adding the isolation cone greatly reduces the difference in the fraction of the underlying jet momentum carried by the nominal and loose leptons.
+To check this, a new $\Delta\pt$ is calculated between a lepton and its matched truth jet, where the truth jet $\pt$ has been corrected to include all muons within a cone of $\deltar < 0.4$:
 \begin{equation}
-%f_b = \frac{N_{\textrm{nominal}}^b(\pt)}{N_{\textrm{loose}}^b(\ptptcone)}
-f_b = \frac{N_{\textrm{nominal}}^{b(\pt)}}{N_{\textrm{loose}}^{b(\ptptcone)}}
-\label{eq:ssww13tev_ff_ptcone_binned}
+\pt(j) = \pt(j_{\textrm{truth}})+\sum\limits_{\deltar < 0.4}\pt(\mu_{\textrm{truth}})
+\label{eq:ssww13tev_ff_jet_corr}
 \end{equation}
-
-%---------------------------------------------------------------------------------------------
-%
-%---------------------------------------------------------------------------------------------
-\subsubsection{Implementation of the fake factor}\label{ssww13tev:ff_implementation}
-The fake factor itself is measured from a sample of dijet events containing exactly one lepton and one $b$-jet that is approximately back-to-back with the lepton.
-This $b$-jet requirement serves to enhance non-prompt lepton contributions while suppressing contributions from processes involving $W$ and $Z$ bosons.
+The $\Delta\pt$ distributions comparing $\pt$ and $\ptptcone$ for nominal and loose leptons using the corrected jet $\pt$ are found in Figure~\ref{fig:ssww13tev_ff_deltapt_ptcone}, and better agreement is seen between the numerator (nominal) and denominator (loose with $\ptptcone$) distributions.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.95\textwidth]{figs/ssww_13tev/backgrounds/ff/apply_ff}
-  \caption{Graphical representation of the fake factor application using $\ptptcone$.  The value of $\ptptcone$ for the loose lepton is used to ``look up'' the fake factor weight which is then applied to the event.  The loose lepton's $\pt$ becomes $\ptptcone$ for the purpose of the fake background estimation.}
-  \label{fig:ssww13tev_ff_application}
+  \includegraphics[width=.6\textwidth]{figs/ssww_13tev/backgrounds/ff/dpt_muon_ttbar}\\
+  \includegraphics[width=.6\textwidth]{figs/ssww_13tev/backgrounds/ff/dpt_elec_ttbar}
+  \caption{$\Delta\pt$ distributions for muons (top) and electrons (bottom) in simulated $t\bar{t}$ events.  Each lepton has been matched to a truth-level jet, and that truth jet has had its $\pt$ corrected to include all truth muons within a cone of $\deltar < 0.4$.  The nominal leptons are in black. $\Delta\pt$ is calculated for the loose leptons using $\pt$ (red) and $\ptptcone$ (blue).}
+  \label{fig:ssww13tev_ff_deltapt_ptcone}
+\end{figure}
+
+The numerator remains binned in lepton $\pt$, due to the fact that it is meant to mirror the signal region as closely as possible, and the signal lepton selection does not use $\ptptcone$.
+The impact of this is expected to be negligible due to the $\ptcone$ isolation being small for signal leptons, as shown for muons in Figure~\ref{fig:ssww13tev_ff_ptcone_muons}.
+Finally, the fake factor $f$ becomes:
+
+\begin{equation}
+%f_b = \frac{N_{\textrm{nominal}}^b(\pt)}{N_{\textrm{loose}}^b(\ptptcone)}
+f(b) = \frac{N_{\textrm{nominal}}\big(b(\pt)\big)}{N_{\textrm{loose}}\big(b(\ptptcone)\big)}
+\label{eq:ssww13tev_ff_ptcone_binned}
+\end{equation}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.6\textwidth]{figs/ssww_13tev/backgrounds/ff/ptcone_muon_ttbar}
+  \caption{Distributions of $\ptcone/\pt$ for nominal (black) and loose (red) muons in simulated $t\bar{t}$ events.}
+  \label{fig:ssww13tev_ff_ptcone_muons}
 \end{figure}
 
 %---------------------------------------------------------------------------------------------
 %
 %---------------------------------------------------------------------------------------------
-\subsubsection{Results of the fake factor}\label{ssww13tev:ff_results}
+\subsubsection{Application of the fake factor}\label{ssww13tev:ff_implementation}
+The fake factor itself is measured from a sample data events passing a dijet selection requiring exactly one lepton (either passing the nominal or loose selections) and at least one jet.
+The leading jet must also be $b$-tagged and approximately back-to-back with the lepton in order to enhance non-prompt lepton contributions while reducing contributions from processes involving $W$ and $Z$ bosons.
+$W$ boson events are further suppressed by requiring the sum of the $\met$ and the transverse mass of the lepton and $\met$ to be less than $50\gev$.
+The full event selection for the dijet region is summarized in Table~\ref{tab:ssww13tev_dijet_cr}.
+
+\begin{table}[hbtp]
+  \centering
+  \begin{tabular}{c}
+    Dijet event selection \\
+    \hline\hline
+    Event preselection\\
+    Exactly one lepton with $\pt > 15\gev$\\
+    $N_{\textrm{jet}} > 0$ \\
+    Leading jet is $b$-tagged \\
+    $\pt^{\textrm{lead.\ jet}} > 25\gev$\\
+    $\pt^{\textrm{lead.\ jet}} > 30\gev$ if $|\eta_j| > 2.5$ \\
+    $|\Delta\phi(l,\textrm{lead.\ jet})| > 2.8$ \\
+    $m_{\textrm{T}}(l,\met) + \met < 50\gev$ \\
+    \hline
+  \end{tabular}
+  \caption{Event selection for the dijet region used for calculating the fake factor. The selected lepton can pass either the nominal (signal) or loose selections.  In the case of the nominal leptons, the $\pt > 27\gev$ requirement is replaced with $\pt > 15\gev$.}
+  \label{tab:ssww13tev_dijet_cr}
+\end{table}
+
+The numerator sample is constructed from dijet events in which the lepton passes the nominal (signal) selection and is binned in the lepton $\pt$.
+Similarly, the denominator sample is made up of the remaining dijet events where the lepton passes the loose selection and is binned in the lepton $\ptptcone$.
+The nominal and loose leptons pass the signal selection\footnote{The $\pt > 27\gev$ cut in the signal lepton selection is dropped in favor of the $\pt > 15\gev$ requirement in the dijet selection.} and loose selection, respectively, defined earlier in Table~\ref{tab:ssww13tev_muon_selection} for muons and Table~\ref{tab:ssww13tev_elec_selection} for electrons.
+Backgrounds from $W$+jets, $Z$+jets, $t\bar{t}$, and single top processes are estimated from MC simulations requiring one lepton to be prompt using the truth information; these contributions are subtracted from the dijet data.
+The fake factor is then calculated using Equation~\ref{eq:ssww13tev_ff_ptcone_binned} for muons and for central and forward electrons separately.
+The muon fake factor is shown in Figure~\ref{fig:ssww13tev_ff_muon}, and the two electron fake factors are shown in Figure~\ref{fig:ssww13tev_ff_elec}.
+The numerical values of the fake factors, including their systematic uncertainties which will be discussed in Section~\ref{ssww13tev:ff_systematics}, are listed in Table~\ref{tab:ssww13tev_ff}.
 
 \begin{figure}[htbp]
   \centering
@@ -115,9 +158,38 @@ This $b$-jet requirement serves to enhance non-prompt lepton contributions while
   \label{fig:ssww13tev_ff_elec}
 \end{figure}
 
-\subsubsection{Test of fake factor in validation regions}\label{ssww13tev:ff_vr}
+In order to properly account for the denominator being binned in $\ptptcone$, special care needs to be taken when estimating the fake background from the $NL$ regions.
+For the purposes of the fake factor calculation, it is perhaps more intuitive to consider a loose \emph{object} with $\pt=\ptptcone$ instead of simply a loose \emph{lepton}, as the lepton and the underlying jet are treated as a whole with this method.
+When the lepton $\pt$ cuts required by a particular signal or control region are applied to nominal and loose leptons, the cut is applied to the $\pt$ of the nominal lepton and to the $\ptptcone$ of the loose object.
+Similarly, when looking up the fake factor weight for a given $NL$ event, the value taken from the bin corresponding to the $\ptptcone$ of the loose object.
+Finally, when applying the weight to the event, $\ptptcone$ is assigned as the $\pt$ of the loose object.
+Figure~\ref{fig:ssww13tev_ff_application} contains a graphical representation of this procedure.
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.95\textwidth]{figs/ssww_13tev/backgrounds/ff/apply_ff}
+  \caption{Graphical representation of the fake factor application using $\ptptcone$.  The value of $\ptptcone$ for the loose lepton is used to ``look up'' the fake factor weight which is then applied to the event.  The loose lepton's $\pt$ becomes $\ptptcone$ for the purpose of the fake background estimation.}
+  \label{fig:ssww13tev_ff_application}
+\end{figure}
+
+Finally, it should be noted that the addition of $\ptcone$ to the loose object may cause the loose leptons in the denominator sample to migrate into higher bins.
+This results in an overall decrease in the number of loose objects in the lower $\ptptcone$ bins due to there not being additional leptons at lower $\pt$ to replace them.
+Since the fake factor is a ratio of the number of events in a bin, this effect causes the first few bins of the fake factor to increase, as can be seen clearly in Figure~\ref{fig:ssww13tev_ff_muon}.
+However, the signal and control regions (and their corresponding $NL$ regions) contain a $\pt > 27\gev$ cut that prevents these migrations from negatively impacting the fake estimation.
+
+%---------------------------------------------------------------------------------------------
+%
+%---------------------------------------------------------------------------------------------
 \subsubsection{Systematic uncertainties}\label{ssww13tev:ff_systematics}
+Four sources of systematic uncertainty are considered: the dijet event selection, the prompt background subtraction, the jet flavor composition, and residual dependence on the underlying jet $\pt$ spectrum.
+In order to measure the impact of these systematics, new fake factors are computed with each of the systematic variations and the differences from the nominal values are taken as the uncertainty.
+\begin{enumerate}
+\item In order to estimate uncertainties due to the dijet selection, the cut on $M_{\textrm{T}}+MET$ is varied by $\pm5\gev$, $\Delta\phi(l,j)$ by $\pm 0.1$, and the jet $\pt$ cut by $+5\gev$.
+\item To estimate the systematic uncertainty on the prompt background subtraction, the MC prediction in a $W$+jets control region is compared to data.  The discrepancy between data and MC is found to be approximately 10\%~\cite{2018.ssww-13tev-atlas-support}.  Therefore, the prompt background used for the subtraction is scaled up and down by $\pm 10\%$.
+\item The difference in the jet flavor composition between the dijet events and the events in the $NL$ regions can affect the accuracy of the fake background estimation.  The dijet sample is dominated by light jets, while the $NL$ regions tend to be dominated by heavy flavor from $t\bar{t}$.  To account for this, the fake factor is computed with a $b$-jet veto.
+\item To measure any residual dependence on the underlying jet $\pt$ spectrum, the leading jet $\pt$ distribution is reweighted to match the $\pt$ spectrum of truth jets that produce fake leptons in MC simulations.  This results in an increase in the number of nominal and loose leptons at high momentum~\cite{2018.ssww-13tev-atlas-support}.
+\end{enumerate}
+%An overall uncertainty of 50\% is assigned to the fake background estimation in $\mu^{\pm}\mu^{\pm}$ events, and between 40\% to 90\% for $e^{\pm}e^{\pm}$ and $\mu^{\pm}e^{\pm}$ events, including both statistical and systematic effects.
 
 \begin{figure}[htbp]
   \centering
@@ -133,3 +205,70 @@ This $b$-jet requirement serves to enhance non-prompt lepton contributions while
   \caption{Systematic variations in the fake factor as a function of electron $\ptptcone$ in the central ($|\eta|<1.37$, top) and forward ($|\eta| > 1.37$, bottom) regions of the detector.  The individual fake factors obtained for each systematic variation are displayed with their statistical uncertainties.}
   \label{fig:ssww13tev_ff_elec_sys}
 \end{figure}
+
+\input{tables/fake_factors_sys.tex}
+
+%---------------------------------------------------------------------------------------------
+%
+%---------------------------------------------------------------------------------------------
+\subsubsection{Results of the fake factor}\label{ssww13tev:ff_results}
+The fake background contribution in the signal region is estimated by applying the fake factors to the equivalent $NL$ region using Equation~\ref{eq:ssww13tev_ff_bkg}, where the fake factor used corresponds to the flavor of the loose lepton in the event.
+As usual, the prompt background is subtracted from the $NL$ events using MC simulation.
+Charge misidentification is handled using the same method as in Section~\ref{ssww13tev:charge_misid}, with an additional set of charge flip rates calculated for loose leptons.
+The fake background yields in the signal region are listed in Table~\ref{tab:ssww13tev_ff_signal_region}.
+An overall uncertainty of 50\% is assigned to the fake background estimation in $\mu^{\pm}\mu^{\pm}$ events, and between 40\% to 90\% for $e^{\pm}e^{\pm}$ and $\mu^{\pm}e^{\pm}$ events, including both statistical and systematic effects.
+
+\begin{table}[hbtp]
+\centering
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{ l | r| r  r  r  r |r  r  r  r }
+  & estimated yield & $f_e$ stat.\ up & $f_e$ stat.\ dn & $f_e$ syst.\ up & $f_e$ syst.\ dn & $f_\mu$ stat.\ up & $f_\mu$ stat.\ dn & $f_\mu$ syst.\ up & $f_\mu$ syst.\ dn\\
+\hline\hline
+$\ee$ & $11.42\pm 3.13$ & $1.69$ & $-1.69$ & $1.67$ & $-5.56$ & --- & --- & --- & ---\\
+%\hline
+$\mm$ & $4.82\pm 0.77$ & ---  & ---  & ---  & ---  & $0.65$ & $-0.65$ & $3.64$ & $-0.61$\\
+%\hline
+$\me$ & $37.08\pm 5.16$ & $4.90$ & $-4.90$ & $5.59$ & $-14.34$ & $1.39$ & $-1.39$ & $16.10$ & $-1.98$\\
+\hline
+\end{tabular}
+}
+\caption{Estimated yields for the fake lepton background. The estimated yield is shown in the first column together with the statistical uncertainty followed by the systematic uncertainties from variations of the the fake factors within their statistical (stat.) and systematic (syst.) uncertainties. The labels $f_e$ and $f_\mu$ indicate the fake factors for electrons and muons, respectively.}
+  \label{tab:ssww13tev_ff_signal_region}
+\end{table}
+
+\subsubsection{Validation of the fake factor}\label{ssww13tev:ff_vr}
+The accuracy of the fake factor method is tested in several validation regions, the most sensitive of which is the same-sign top fakes VR (SS top VR), defined in Table~\ref{tab:ssww13tev_topfakes_vr_def}.
+This region inverts the signal region's $b$-jet veto to accept events with exactly one $b$-jet.
+Due to this requirement, the dominant source of events comes from the $t\bar{t}$ process where a $b$-jet fakes an isolated lepton.
+The distribution of the subleading lepton $\pt$ in this VR is shown in Figure~\ref{fig:ssww13tev_ff_fakes_vr} for all lepton flavor combinations.
+There is good agreement between the data and the prediction, even when only taking into account the statistical uncertainty and not the large systematic uncertainties assigned to the fake estimation.
+%The subleading lepton is most likely to be the fake.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{c}
+    Same-sign inclusive VR \\
+    \hline\hline
+    Exactly 2 same-sign signal leptons\\
+    $\pt > 27\gev$ for both leptons \\
+    $m_{ll} > 20\gev$\\
+    $|m_{ee} - m_Z| > 15\gev$ ($\ee$-channel only) \\
+    $N_{b\textrm{-jet}} = 1$\\
+    $N_{\textrm{jet}} \ge 2$ \\
+    Leading jet $\pt > 65\gev$ \\
+    Subleading jet $\pt > 35\gev$ \\
+    \hline
+  \end{tabular}
+  \caption{Selection criteria for the same-sign top fakes validation region.}
+  \label{tab:ssww13tev_topfakes_vr_def}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/backgrounds/ff/fakes_vr/mm-CutCRTopFakesSSZVeto-l1_pt-lin}
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/backgrounds/ff/fakes_vr/ee-CutCRTopFakesSSZVeto-l1_pt-lin}\\
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/backgrounds/ff/fakes_vr/emme-CutCRTopFakesSSZVeto-l1_pt-lin}
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/backgrounds/ff/fakes_vr/ll-CutCRTopFakesSSZVeto-l1_pt-lin}
+  \caption{Distributions of the subleading lepton $\pt$ in the same-sign top fakes VR for  $\mm$ events (top right), $\ee$ events (top left), $\me$ events (bottom left), and all events combined (bottom right).  All errors are statistical only.}
+  \label{fig:ssww13tev_ff_fakes_vr}
+\end{figure} 
