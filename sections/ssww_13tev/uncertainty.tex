@@ -1,0 +1,137 @@
+Systematic uncertainties enter the final fit as nuisance parameters which can impact the estimated signal and background yields and the shapes of the $m_{jj}$ distributions.
+These uncertainties can arise from the experimental methods or from the theoretical calculations used in the analysis.
+This section summarizes the systematic uncertainties; the experimental uncertainties are detailed in Section~\ref{ssww13tev:experimental_uncert}, and the theoretical uncertainties are covered in Section~\ref{ssww13tev:theory_uncert}.
+
+\subsection{Experimental uncertainties}\label{ssww13tev:experimental_uncert}
+Experimental uncertainties include detector effects as well as uncertainties on the background estimation methods.
+Sources of systematic uncertainty on the measurement of physics objects are listed in Table~\ref{tab:ssww13tev_uncert_exp_uncert}, grouped by the relevant object type.
+For backgrounds estimated from MC simulations, variations in these sources of uncertainty are propagated through the analysis to obtain the corresponding uncertainties on the event yields.
+Additional experimental uncertainties include the integrated luminosity, the photon conversion rate from Section~\ref{ssww13tev:wgamma}, and the data driven charge misidentification and fake lepton background estimations from Sections~\ref{ssww13tev:charge_misid} and \ref{ssww13tev:ff_results}, respectively.
+
+The largest sources of experimental uncertainty on the MC estimations come from the jet-related uncertainties and the $b$-tagging efficiency, while the largest uncertainty on the background estimation comes from the fake factor.
+The effects of the uncertainties on the \ssww EWK signal and the dominant MC estimated background, $WZ$, are listed in Tables~\ref{tab:ssww13tev_uncert_exp_wwewk} and \ref{tab:ssww13tev_uncert_exp_wz}, respectively.
+Since the overall contributions from other processes estimated with MC are small, the uncertainties on these backgrounds have a lesser impact on the final measurement; these tables can be found in Appendix~\ref{app:ssww13tev_exp_uncert}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l | l}
+    \multicolumn{2}{c}{Experimental uncertainties}\\
+    \hline\hline
+    \multirow{6}{*}{Electrons} & Energy resolution \\
+    & Energy scale \\
+    & Identification efficiency \\
+    & Isolation efficiency \\
+    & Reconstruction efficiency \\
+    & Trigger efficiency \\
+    \hline
+    \multirow{5}{*}{Muons} & Energy scale \\
+    & Identification efficiency  \\
+    & Inner detector track resolution \\
+    & Muon spectrometer resolution \\
+    & Trigger efficiency \\
+    \hline
+    \multirow{2}{*}{$\met$} & Resolution \\
+    & Scale \\
+    \hline
+    \multirow{5}{*}{Jets} & Energy resolution \\
+    & Energy scale \\
+    & JVT cut efficiency \\
+    & $b$-tagging efficiency \\
+    & Jets from pileup \\
+    \hline
+  \end{tabular}
+  \caption{List of sources of experimental uncertainties on the reconstruction of physics objects.}
+  \label{tab:ssww13tev_uncert_exp_uncert}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l|ccc}
+    \ssww EWK & $\ee$ \% Yield & $\me$ \% Yield & $\mm$ \% Yield \\
+    \hline\hline
+    Jet-related Uncertainties & \ensuremath{2.28} & \ensuremath{2.22} & \ensuremath{2.28}\\
+    b-tagging efficiency & \ensuremath{1.81} & \ensuremath{1.76} & \ensuremath{1.74}\\
+    Pile-up & \ensuremath{0.48} & \ensuremath{0.97} & \ensuremath{2.42}\\
+    Trigger efficiency & \ensuremath{0.02} & \ensuremath{0.08} & \ensuremath{0.47}\\
+    Lepton reconstruction/ID & \ensuremath{1.45} & \ensuremath{1.14} & \ensuremath{1.83}\\
+    MET reconstruction & \ensuremath{0.26} & \ensuremath{0.17} & \ensuremath{0.21}\\
+    \hline
+  \end{tabular}
+  \caption{Impact of experimental uncertainties for the \ssww EWK processes in all channels.}
+  \label{tab:ssww13tev_uncert_exp_wwewk}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l|ccc}
+    $WZ$  & $\ee$ \% Yield & $\me$ \% Yield & $\mm$ \% Yield \\
+    \hline\hline
+    Jet-related Uncertainties & \ensuremath{9.58} & \ensuremath{5.03} & \ensuremath{8.45}\\
+    b-tagging efficiency & \ensuremath{2.49} & \ensuremath{2.23} & \ensuremath{2.40}\\
+    Pile-up & \ensuremath{2.99} & \ensuremath{3.49} & \ensuremath{3.33}\\
+    Trigger efficiency & \ensuremath{0.03} & \ensuremath{0.09} & \ensuremath{0.43}\\
+    Lepton reconstruction/ID & \ensuremath{1.52} & \ensuremath{1.24} & \ensuremath{3.07}\\
+    MET reconstruction & \ensuremath{0.93} & \ensuremath{0.79} & \ensuremath{1.63}\\
+    \hline
+  \end{tabular}
+  \caption{Impact of experimental uncertainties for the $WZ$ process in all channels.}
+  \label{tab:ssww13tev_uncert_exp_wz}
+\end{table}
+
+\subsection{Theoretical uncertainties}\label{ssww13tev:theory_uncert}
+It is also necessary to consider uncertainties on the theoretical predictions in the fiducial region.
+They include the choice of PDF set, the value of the strong coupling constant $\alpha_s$, the renormalization scale $\mu_R$, the factorization scale $\mu_F$, and the parton showering.
+The size of these uncertainties are measured by generating new samples with variations in a chosen parameters and comparing them to samples using the nominal choice of the parameter.
+Internal variations on the PDF sets or using a different set entirely results in a relative uncertainty of up to $2.25\%$ on the nominal sample.
+The impact from varying $\alpha_s$ is very small, on the order of $<0.01\%$.
+The factorization and renormalization scales are independently varied between $0.5$-$2.0$ from their nominal values of $1.0$.
+This results in relative uncertainties on the prediction of up to $15\%$.
+Finally, varying the parameters in the parton showering results in up to $8\%$ uncertainty.
+% mention NLO corrections? ~\cite{2017.ssww-nlo-corrections}
+
+\subsubsection{Uncertainties from EWK-QCD interference}\label{ssww13tev:interference}
+As mentioned in Section~\ref{ssww13tev:vbs_theory}, \ssww production consists of both EWK processes.
+The two production modes cannot be naively separated due to cross terms in the matrix element calculation.
+These cross terms are referred to as \emph{interference} terms.
+Since the \ssww EWK production is the focus of the analysis, and the signal region is designed to preferentially select those events, it is important to measure the size of the EWK-QCD interference contributions.
+
+The interference effects are estimated using the \tt{MadGraph} MC generator, as it has a feature that allows direct modelling of the interference term.
+This allows four samples to be generated:
+\begin{enumerate}
+\item Inclusive: All available diagrams are used in the matrix element calculation
+\item EWK only: Only EWK diagrams ($\mathcal{O}(\alpha_{\textrm{EWK}}) = 4$) are used
+\item QCD only: Only QCD diagrams ($\mathcal{O}(\alpha_s) = 2 \otimes \mathcal{O}(\alpha_{\textrm{EWK}}) = 2$) are used
+\item Interference: Only the interference terms are used
+\end{enumerate}
+A minimal set of generator level cuts, listed in Table~\ref{tab:ssww13tev_uncert_int_cuts}, is applied in order to avoid biasing the sample towards either production mode.
+The cross sections for each of the four channels can be found in Table~\ref{tab:ssww13tev_uncert_int_xsec}
+The size of the interference is found to be approximately $6\%$ of the total cross section and is taken as a systematic uncertainty.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{c}
+    Generator level cuts\\
+    \hline\hline
+    $\Delta\eta_{jj} < 10$ \\
+    Jet $\pt > 20\gev$ \\
+    $M_{jj} > 10\gev$ \\
+    \hline
+  \end{tabular}
+  \caption{The set of generator level cuts used for generating the interference samples with \tt{MadGraph}.}
+  \label{tab:ssww13tev_uncert_int_cuts}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l | c}
+    Sample & $\sigma$ (fb) \\
+    \hline\hline
+    Inclusive    & $3.646\pm 0.0012$ \\
+    EWK only     & $2.132\pm 0.0005$ \\
+    QCD only     & $1.371\pm 0.0008$ \\
+    Interference & $0.227\pm 0.0002$ \\
+    \hline
+  \end{tabular}
+  \caption{Cross sections for each different \ssww production mode (inclusive, EWK only, QCD only, and interference only) generated using \tt{MadGraph}.  The cross sections are calculated using a minimal set of generator level cuts from events where the $W$ decays to a muon.}
+  \label{tab:ssww13tev_uncert_int_xsec}
+\end{table}
