@@ -8,11 +8,19 @@ In order to accurately measure the track of the particle, it is necessary to kno
 If one of these elements is \emph{misaligned}, or displaced relative to its position in the known detector geometry, the assumed location of the corresponding hit will not match its actual location, resulting in an incorrect track fit.
 These misalignments can occur for any number of reasons, including but not limited to elements shifting during maintenance periods or cycles in ATLAS's magnetic field, or small movements during normal detector operations.
 %These misalignments in the ID result in poor track reconstruction quality and ultimately degrade the overall detector resolution.
+The effect of a misaligned detector element on the track reconstruction and the resulting track-hit residuals is shown in Figure~\ref{fig:alignment_effects_misalign}. \TODO{ there has to be a better way to introduce this figure -- i haven't talked about residuals yet}
 
 In order to correct the misalignments, the ID alignment procedure is applied to accurately determine the physical position and orientation of each detector element.
 The baseline accuracy of the alignment is required to be such that the track parameter resolutions are not degraded by more than 20\% with respect to those derived from a perfect detector geometry\footnote{The so-called \emph{perfect geometry} refers to the description of the ATLAS detector in which every sensor precisely matches its design specifications.  The perfect geometry contains no misalignments, and the position of each sensor is known exactly.}
 This corresponds to a precision of better than $10\mum$ in the positioning of the elements of the silicon detectors~\cite{TDR-ID1}.
 This chapter outlines the ID alignment procedure, the alignment of the detector during the 2015 data taking period, and the steps taken to monitor the performance of the alignment.  
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.8\textwidth]{figs/alignment/misalignment}
+  \caption{Graphical representation of the effect of a misaligned detector element.  The reconstructed particle track (dashed arrow) differs from the actual trajectory of the particle (solid arrow) due to the shift in one of the detector elements.  The cyan lines represent the track-to-hit residuals.}
+  \label{fig:alignment_effects_misalign}
+\end{figure}
 
 %In order for the subdetectors of the ID to operate at their designed precisions, it is essential that the locations of the sensors be known as precisely as possible.
 %Differences between the expected and actual positions of a sensor can result in displaced particle hits and degrade track reconstruction quality.
