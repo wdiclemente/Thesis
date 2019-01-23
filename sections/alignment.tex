@@ -3,23 +3,37 @@
 \chapter[Alignment of the ATLAS Inner Detector][Alignment of the ATLAS Inner Detector]{Alignment of the ATLAS Inner Detector}
 \label{ch:alignment}
 
-In order for the subdetectors of the ID to operate at their designed precisions, it is essential that the locations of the sensors be known as precisely as possible.
-Differences between the expected and actual positions of a sensor can result in displaced particle hits and degrade track reconstruction quality.
-These misalignments can occur for any number of reasons, including but not limited to elemnts shifting during maintenance periods or cycles in ATLAS's magnetic field, or simply small movements during normal detector operations.
-Since it is not practical to physically realign hundreds of thousands of detector elements to $\mu$m precision by hand, an iterative track-based alignment algorithm is used to determine the physical positions and orientations of these elements \cite{2011.alignment-7tev}. 
-The effects of misalignments and the steps taken to correct and monitor them are detailed in this chapter.
+When a charged particle passes through the ATLAS ID, it leaves hits in the sensors along its path.
+In order to accurately measure the track of the particle, it is necessary to know where these hits occured as precisely as possible, which in turn requires knowledge of the physical location of the element that registered the hit.
+If one of these elements is \emph{misaligned}, or displaced relative to its position in the known detector geometry, the assumed location of the corresponding hit will not match its actual location, resulting in an incorrect track fit.
+These misalignments can occur for any number of reasons, including but not limited to elements shifting during maintenance periods or cycles in ATLAS's magnetic field, or small movements during normal detector operations.
+%These misalignments in the ID result in poor track reconstruction quality and ultimately degrade the overall detector resolution.
 
-\section{Effects of Misalignment}\label{align:effects}
-\input{sections/alignment/effects.tex}
+In order to correct the misalignments, the ID alignment procedure is applied to accurately determine the physical position and orientation of each detector element.
+The baseline accuracy of the alignment is required to be such that the track parameter resolutions are not degraded by more than 20\% with respect to those derived from a perfect detector geometry\footnote{The so-called \emph{perfect geometry} refers to the description of the ATLAS detector in which every sensor precisely matches its design specifications.  The perfect geometry contains no misalignments, and the position of each sensor is known exactly.}
+This corresponds to a precision of better than $10\mum$ in the positioning of the elements of the silicon detectors~\cite{TDR-ID1}.
+This chapter outlines the ID alignment procedure, the alignment of the detector during the 2015 data taking period, and the steps taken to monitor the performance of the alignment.  
+
+%In order for the subdetectors of the ID to operate at their designed precisions, it is essential that the locations of the sensors be known as precisely as possible.
+%Differences between the expected and actual positions of a sensor can result in displaced particle hits and degrade track reconstruction quality.
+%These misalignments can occur for any number of reasons, including but not limited to elements shifting during maintenance periods or cycles in ATLAS's magnetic field, or simply small movements during normal detector operations.
+%Since it is not practical to physically correct the positions of hundreds of thousands of detector elements to micron-level precision by hand, the alignment instead updates a database containing the best-known positions of each sensor.
+%The effects of misalignments and the steps taken to correct and monitor them are detailed in this chapter.
+
+%\section{Introduction to ID Alignment}\label{align:introduction}
+%\input{sections/alignment/introduction.tex}
 
 \section{The Alignment Method}\label{align:method}
 \input{sections/alignment/method.tex}
 
+\section{Early 2015 alignment of the ATLAS detector}\label{align:2015}
+\input{sections/alignment/align2015.tex}
+
+%\section{Alignment of the IBL}\label{align:ibl} % does this need a dedicated section? Perhaps a subsection of alignment method
+%\input{sections/alignment/ibl_distortion.tex}
+
 \section{Momentum Bias Corrections}\label{align:bias}
 \input{sections/alignment/momentum_bias.tex}
-
-\section{Alignment of the IBL}\label{align:ibl} % does this need a dedicated section? Perhaps a subsection of alignment method
-\input{sections/alignment/ibl_distortion.tex}
 
 \section{Alignment Monitoring}\label{align:monitoring}
 \input{sections/alignment/alignment_monitoring.tex}
