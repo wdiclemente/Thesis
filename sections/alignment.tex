@@ -11,9 +11,10 @@ These misalignments can occur for any number of reasons, including but not limit
 The effect of a misaligned detector element on the track reconstruction and the resulting track-hit residuals is shown in Figure~\ref{fig:alignment_effects_misalign}. \TODO{ there has to be a better way to introduce this figure -- i haven't talked about residuals yet}
 
 In order to correct the misalignments, the ID alignment procedure is applied to accurately determine the physical position and orientation of each detector element.
-The baseline accuracy of the alignment is required to be such that the track parameter resolutions are not degraded by more than 20\% with respect to those derived from a perfect detector geometry\footnote{The so-called \emph{perfect geometry} refers to the description of the ATLAS detector in which every sensor precisely matches its design specifications.  The perfect geometry contains no misalignments, and the position of each sensor is known exactly.}
+The baseline accuracy of the alignment is required to be such that the track parameter resolutions are not degraded by more than 20\% with respect to those derived from a perfect detector geometry\footnote{The so-called \emph{perfect geometry} refers to the description of the ATLAS detector in which every sensor precisely matches its design specifications.  The perfect geometry contains no misalignments, and the position of each sensor is known exactly.}.
 This corresponds to a precision of better than $10\mum$ in the positioning of the elements of the silicon detectors~\cite{TDR-ID1}.
-This chapter outlines the ID alignment procedure, the alignment of the detector during the 2015 data taking period, and the steps taken to monitor the performance of the alignment.  
+
+This chapter outlines the ID alignment procedure, the alignment of the detector during the 2015 data taking period, and the steps taken to measure momentum biases in the alignment.  
 
 \begin{figure}[htbp]
   \centering
@@ -40,8 +41,8 @@ This chapter outlines the ID alignment procedure, the alignment of the detector 
 %\section{Alignment of the IBL}\label{align:ibl} % does this need a dedicated section? Perhaps a subsection of alignment method
 %\input{sections/alignment/ibl_distortion.tex}
 
-\section{Momentum Bias Corrections}\label{align:bias}
+\section{Momentum Bias Corrections and Monitoring}\label{align:bias}
 \input{sections/alignment/momentum_bias.tex}
 
-\section{Alignment Monitoring}\label{align:monitoring}
-\input{sections/alignment/alignment_monitoring.tex}
+%\section{Alignment Monitoring}\label{align:monitoring}
+%\input{sections/alignment/alignment_monitoring.tex}

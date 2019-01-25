@@ -82,7 +82,7 @@ The residuals are calculated, the alignment matrix is built and inverted, and a 
 The convergence of the alignment can be checked by:
 \begin{enumerate}
 \item Measure the $\Delta\chi^2$ with the previous iteration. If it is near zero, then the $\chi^2$ is approaching its minimum.
-\item Looking at the residual distributions for different alignable structures. A well aligned detector will have a mean residual of zero.
+\item Looking at the residual distributions for different alignable structures. A well aligned detector will have a mean residual of zero with a width approximating the intrinsic resolution of the detector.
 \end{enumerate}
 If the above checks are satisfied, the process is finished and the final alignment constants are read out; if not, another iteration is performed.
 A visual representation of the alignment chain is shown in Figure~\ref{fig:alignment_chain}.
@@ -98,6 +98,17 @@ Since a $\chi^2$ minimization is used to align the detector, if there is a syste
 These misalignments are referred to as \emph{weak modes}, and special care is taken to remove them~\cite{2014.alignment-performance-8tev}.
 One potential impact of weak modes is a bias in the track momentum of reconstructed particles.
 This particular effect is the subject of Section~\ref{align:bias}.
+
+In practice, the detector is aligned both in ``real-time'' as data is collected, and during dedicated offline alignment campaigns.
+The real-time alignment is run in ATLAS's so-called \emph{calibration loop}, which comprises the first stage in the preparation of data for physics analysis.
+The calibration loop requires the alignment as well as various other detector calibrations to be available within 48 hours for initial data processing.
+A fast, coarse-grained alignment\footnote{The calibration loop runs up to a Level 2 alignment in the silicon detectors, which involves treating each layer of sensors as a single object, defined in greater detail in Table~\ref{tab:align_levels}.} is run on a subset of the available data containing full tracking information, and the results are propagated to the reconstruction of that particular run~\cite{2015.alignment-run-2-proceedings}.
+Due to the time constraints of the calibration loop, a full sensor-by-sensor alignment is not possible.
+
+The more thorough and finely tuned alignments are reserved for the dedicated alignment campaigns.
+These generally occur early in data taking campaigns, typically once a sufficient amount of data is collected after a detector shutdown, in order to obtain a good baseline alignment for use in the remainder of the data collection period.
+Once data taking is complete, another campaign determines an improved set of alignment constants (divided into several ``blocks'' to account for time-dependent misalignments), and the full data is reprocessed using the newly derived detector geometry.
+The initial offline alignment of the ATLAS detector at the beginning of Run 2 in 2015 is the subject of Section~\ref{align:2015}.
 
 \subsection{Alignment levels}\label{align:levels}
 The alignment of the detector is performed at several levels of increasing granularity.
@@ -154,3 +165,20 @@ In a typical alignment job, L1 and L2 contain few enough degrees of freedom that
   \caption{The four alignment levels for each of the detector subsystems. The total number of alignable structures and degrees of freedom (DoF) to be aligned are given for each level.}
   \label{tab:align_levels}
 \end{table}
+
+\subsection{Alignment coordinate systems}\label{align:coords}
+The global coordinate system ($x$, $y$, $z$) used by the ID alignment matches that of the ATLAS detector in general, as detailed in Section~\ref{sec:atlas} \TODO{update with actual location of figure when it's in...}.
+The positions and orientations of individual detector modules of the ID are defined by a right-handed local coordinate system ($x'$, $y'$, $z'$) where the origin is defined as the geometrical center of the module.
+The $x'$-axis for each silicon module is defined to point along the most sensitive direction of the module, the $y'$-axis is oriented along the long side of the module, and the $z'$-axis is orthogonal to the ($x'$, $y'$) plane.
+For the TRT straws, the $x'$-axis is perpendicular to both the wire and the radial direction, defined from the origin of the global frame to the straw center, the $y'$-axis points along the straw, and once again the $z'$-axis is orthogonal to the ($x'$, $y'$) plane.
+A depiction of the global and local coordinate systems for the ID is shown in Figure~\ref{fig:align_coords}.
+
+When considering the alignment degrees of freedom listed earlier in Section~\ref{align:levels}, grouped collections of modules, layers, or entire subdetectors use the global coordinate system; individual modules use their respective local coordinate systems.
+The translations $T_i$ are with respect to the origin of the given reference frame, and the rotations $R_i$ are taken about the Cartesian axes.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.8\textwidth]{figs/alignment/ReferenceFrame}
+  \caption{A schematic representation of the Inner Detector in the longitudinal plane with the global coordinate system overlaid on top.  The Pixel detector and IBL are shown in blue, the SCT in green, and the TRT in red.  The local coordinates for each subdetector module are inset on the right.  Image taken from~\cite{2015.alignment-2015-cosmic}.}
+  \label{fig:align_coords}
+\end{figure}
