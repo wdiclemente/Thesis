@@ -1,2 +1,44 @@
-﻿Modern particle physics is generally interpreted in terms of the Standard Model (SM).
-This is a quantum field theory which encapsulates our understanding of the electromagnetic, weak, and strong interactions...
+﻿%Modern particle physics is generally interpreted in terms of the Standard Model (SM).
+%This is a quantum field theory which encapsulates our understanding of the electromagnetic, weak, and strong interactions...
+
+The Standard Model of particle physics serves as a mathematical description of the fundamental particles of the universe and their interactions.
+It has been developed over the course of the past century, incorporating both predictions from theory and results from experiments.
+All in all, the SM has proven remarkably successful in accurately describing particle interactions seen in experiments.
+
+The SM is a quantum field theory (QFT)~\cite{1995.Weinberg, 1995.Peskin} in which the fundamental particles are represented as excited states of their corresponding fields.
+The spin-$\frac{1}{2}$ fermionic fields give rise to the quarks and leptons comprising ordinary matter, the spin-1 fields correspond to the electroweak bosons and the gluon which mediate the electroweak and strong forces, respectively, and finally the scalar Higgs field is responsible for electroweak symmetry breaking.
+The excitations and interactions of the fields are governed by the SM Lagrangian, which is invariant under local transformations of the group $SU(3)\times SU(2)\times U(1)$.
+\TODO{need more detail/refinement here}
+
+The first quantum field theory to be developed is quantum electrodynamics (QED)~\cite{1950.Feynman.QED}, which describes the electromagnetic interaction.
+The theory predicts the existence of a $U(1)$ gauge field that interacts with the electrically charged fermions.
+This field corresponds to the photon.
+A key aspect of QED is that it is perturbative.
+The coupling constant $\alpha = e^2/4\pi$ is small, where $e$ is electrical charge of the field, allowing for the use of perturbation theory in calculations.
+In this case, calculations can be written as a power series in $\alpha$, where successive higher order terms contribute less to the final result.
+\TODO{renormalizability here?}
+
+Similar to QED, the strong interaction has also been described using QFT as quantum chromodynamics (QCD).
+QCD is the theory of quarks and the associated strong force-carrier the gluon.
+The symmetry group for QCD is $SU(3)$, and its eight generators correspond to the eight differently charged, massless gluons~\cite{1965.Han-Nambu.Propose-color}.
+Unlike in QED, which has two charges, the strong force has three---called ``colors''.
+Color charge combined with the non-Abelian nature of $SU(3)$, which allows the gluons to interact with each other, result in the most well-known property of QCD: color confinement.
+In order to increase the separation between two color-charged particles, the amount of energy required increases until it becomes energetically favorable to pair-produce a new quark-antiquark pair, which then bind to the original quarks.
+The end result of this is that only color-neutral objects exist in isolation. % and it is responsible for the hadronic jets in experiments.
+A second important property of the QCD is that, unlike in QED, the coupling constant $\alpha_s$ is large at low energies where confinement occurs, and thus it cannot be described accurately using perturbation theory.
+Fortunately, $\alpha_s$ ``runs'', or decreases at higher energy scales~\cite{1973.asymptotically-free-i, 1974.asymptotically-free-ii}; this allows QCD to be calculated perturbatively~\cite{1973.strong-perturbation} at energies accessible by collider experiments including the LHC.
+
+The final force is the weak interaction.
+It has an $SU(2)$ symmetry corresponding to three gauge bosons.
+Ultimately, the weak and QED gauge fields mix and form the $SU(2)\times U(1)$ \emph{electroweak} interaction with four total bosons: three massive weak bosons ($W^\pm$ and $Z$) and the massless photon.
+
+
+%\begin{itemize}
+%  \item intro: theory+experimental motivation, four forces, blah
+%  \item paragraph about what QFT is
+%  \item Gauge invariance, renormalizibility of lagrangian (useful for the WW stuff later)
+%  \item Electromagnetism - QED, $\alpha$, perturbation theory
+%  \item Electroweak - mixing with EM, W/Z/$\gamma$, self-interacting is important for T/QGC, left handed
+%  \item Strong - confinement, asymptotic freedom
+%  \item Higgs - introduce it here w/ separate section after, source of mass for fermion/boson, discovery reference
+%\end{itemize}
