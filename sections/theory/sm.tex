@@ -7,32 +7,68 @@ All in all, the SM has proven remarkably successful in accurately describing par
 
 The SM is a quantum field theory (QFT)~\cite{1995.Weinberg, 1995.Peskin} in which the fundamental particles are represented as excited states of their corresponding fields.
 The spin-$\frac{1}{2}$ fermionic fields give rise to the quarks and leptons comprising ordinary matter, the spin-1 fields correspond to the electroweak bosons and the gluon which mediate the electroweak and strong forces, respectively, and finally the scalar Higgs field is responsible for electroweak symmetry breaking.
-The excitations and interactions of the fields are governed by the SM Lagrangian, which is invariant under local transformations of the group $SU(3)\times SU(2)\times U(1)$.
+The excitations and interactions of the fields are governed by the SM Lagrangian, which is invariant under local transformations of the group $\gtsu{3}\times\gtsu{2}\times\gtu{1}$.
 \TODO{need more detail/refinement here}
 
 The first quantum field theory to be developed is quantum electrodynamics (QED)~\cite{1950.Feynman.QED}, which describes the electromagnetic interaction.
-The theory predicts the existence of a $U(1)$ gauge field that interacts with the electrically charged fermions.
+The theory predicts the existence of a $\gtu{1}$ gauge field that interacts with the electrically charged fermions.
 This field corresponds to the photon.
 A key aspect of QED is that it is perturbative.
 The coupling constant $\alpha = e^2/4\pi$ is small, where $e$ is electrical charge of the field, allowing for the use of perturbation theory in calculations.
 In this case, calculations can be written as a power series in $\alpha$, where successive higher order terms contribute less to the final result.
 \TODO{renormalizability here?}
 
-Similar to QED, the strong interaction has also been described using QFT as quantum chromodynamics (QCD).
-QCD is the theory of quarks and the associated strong force-carrier the gluon.
-The symmetry group for QCD is $SU(3)$, and its eight generators correspond to the eight differently charged, massless gluons~\cite{1965.Han-Nambu.Propose-color}.
-Unlike in QED, which has two charges, the strong force has three---called ``colors''.
+The strong interaction---the theory of quarks and gluons---has also been described using QFT as quantum chromodynamics (QCD).
+%QCD is the theory of quarks and the associated strong force-carrier the gluon.
+The symmetry group for QCD is $\gtsu{3}$, and its eight generators correspond to the eight differently charged, massless gluons~\cite{1965.Han-Nambu.Propose-color}.
+Unlike in QED, which has positive and negative charges, the strong force has three ``colors''.
 Color charge combined with the non-Abelian nature of $SU(3)$, which allows the gluons to interact with each other, result in the most well-known property of QCD: color confinement.
-In order to increase the separation between two color-charged particles, the amount of energy required increases until it becomes energetically favorable to pair-produce a new quark-antiquark pair, which then bind to the original quarks.
+In order to increase the separation between two color-charged quarks, the amount of energy required increases until it becomes energetically favorable to pair-produce a new quark-antiquark pair, which then bind to the original quarks.
 The end result of this is that only color-neutral objects exist in isolation. % and it is responsible for the hadronic jets in experiments.
-A second important property of the QCD is that, unlike in QED, the coupling constant $\alpha_s$ is large at low energies where confinement occurs, and thus it cannot be described accurately using perturbation theory.
-Fortunately, $\alpha_s$ ``runs'', or decreases at higher energy scales~\cite{1973.asymptotically-free-i, 1974.asymptotically-free-ii}; this allows QCD to be calculated perturbatively~\cite{1973.strong-perturbation} at energies accessible by collider experiments including the LHC.
+What this means for the strong coupling constant $\alpha_s$ is that its value at the low energies where confinement occurs is large, on the order of $\alpha_s\sim 1$.
+The consequense of this is that perturbation theory cannot be used to accurately approximate interactions.
+While this appears at first to be a critical problem for predictions, fortunately it turns out that $\alpha_s$ ``runs'', or decreases in magnitude at higher energy~\cite{1973.asymptotically-free-i, 1974.asymptotically-free-ii}.
+This so-called ``asymptotic freedom'' allows QCD to be calcualted perturbatively~\cite{1973.strong-perturbation} at energies accessible by collider experiments including the LHC.
+%A second important property of the QCD is that, unlike in QED, the coupling constant $\alpha_s$ is large at low energies where confinement occurs, and thus it cannot be described accurately using perturbation theory.
+%Fortunately, $\alpha_s$ ``runs'', or decreases at higher energy scales~\cite{1973.asymptotically-free-i, 1974.asymptotically-free-ii}; this allows QCD to be calculated perturbatively~\cite{1973.strong-perturbation} at energies accessible by collider experiments including the LHC.
 
-The final force is the weak interaction.
-It has an $SU(2)$ symmetry corresponding to three gauge bosons.
-Ultimately, the weak and QED gauge fields mix and form the $SU(2)\times U(1)$ \emph{electroweak} interaction with four total bosons: three massive weak bosons ($W^\pm$ and $Z$) and the massless photon.
+The last gauge field corresponds to the weak interaction.
+Ultimately, the weak $\gtsu{2}$ and the electromagnetic $\gtu{1}$ mix to form the $\gtsu{2}\times\gtu{1}$ \emph{electroweak} (EWK) interaction~\cite{1959.Salam.electroweak, 1959.Glashow.vector-mesons}.
+A more detailed description of the mixing will be discussed in conjunction with electroweak symmetry breaking (EWSB) in Section~\ref{sec:theory_higgs}; however, a summary of the resulting EWK interaction is presented here, at the risk of some repeated information to follow.
+There are three weak isospin bosons arising from the $\gtsu{2}$ group ($W_{\mu}^1$, $W_{\mu}^2$, and $W_{\mu}^3$) and one weak hypercharge boson from the $\gtu{1}$ group ($B_{\mu}$).
+The $W_3$ and $B$ bosons mix according to the weak mixing angle $\theta_W$ to form the $Z$ boson and the photon according to:
+\begin{equation}
+  \begin{pmatrix}
+  \gamma\\
+  Z
+  \end{pmatrix}
+  = 
+  \begin{pmatrix}
+  \cos{\theta_W} & \sin{\theta_W} \\
+  -\sin{\theta_W} & \cos{\theta_W}
+  \end{pmatrix}
+  \begin{pmatrix}
+  B_{\mu} \\
+  W_{\mu}^3
+  \end{pmatrix}
+  \label{eq:weak_mixing}
+\end{equation}
+The value of $\theta_W$ is not predicted by the SM; it is one example of an experimental input to the theory, measured to be $\sin^2{\theta_W} = 0.23153\pm0.00016$~\cite{2006.weak-mixing}.
+The charged $W^{\pm}$ bosons are a mixture of the remaining $W_{\mu}^1$ and $W_{\mu}^2$ bosons:
+\begin{equation}
+  W^{\pm} = \frac{1}{\sqrt{2}}(W_{\mu}^1 \mp iW_{\mu}^2)
+  \label{eq:w_mixing}
+\end{equation}
+Unlike the photon (and the gluon of QCD), the $W^\pm$ and $Z$ bosons are massive.
+This means that even though $\gtsu{2}$ is non-Abelian, the range of interaction is short and confinement does not occur.
+Lastly, the EWK interaction is chiral, only coupling to the left-handed component of the fermion fields
+
+One final field remains within the SM: the scalar Higgs field.
+It was originally proposed in the 1960's to explain the masses of the $W^{\pm}$ and $Z$ bosons~\cite{1964.Englert.symmetry_breaking, 1964.Higgs.Broken_Symmetries_1, 1964.Higgs.Broken_Symmetries_2} and is the mechanism for the EWSB process.
+The particle associated with the field is a massive scalar boson, which was at last discovered by ATLAS and CMS in 2012~\cite{HIGG-2012-27, CMS-HIG-12-028} with a mass of $125\gev$.
 
 
+%\subsection{Electroweak mixing}\label{theory:ewk_mixing}
 %\begin{itemize}
 %  \item intro: theory+experimental motivation, four forces, blah
 %  \item paragraph about what QFT is
