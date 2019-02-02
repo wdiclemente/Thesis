@@ -1,7 +1,44 @@
 \chapter{Preface}
-%\addcontentsline{toc}{chapter}{Preface}
+\addcontentsline{toc}{chapter}{Preface}
 
-This is the preface. It's optional, but it's nice to give some context for the reader and stuff.
+This thesis presents the major highlights of my work with the ATLAS experiment as a graduate student at the University of Pennsylvania from Fall of 2013 until early Spring of 2019.
+
+The first step of working on the experiment is to complete a \emph{qualification task} in order to be included on the author list of ATLAS publications.
+These tasks are an opportunity to contribute to the experiment as a whole, such as maintaining detector hardware or monitoring physics performance.
+For my qualification task, I worked with the Inner Detector Alignment group which works to make sure we have accurate knowledge of the locations of each and every sensor in the detector.
+My qualification task involved investigating a possible momentum bias in the Monte Carlo (MC) simulated data.
+The MC is supposed to be reconstructed with a perfect detector geometry which should in principle be free of any momentum biases.
+Ultimately I determined that the size of the biases were small enough to be negligible compared to what is seen in the real data, and that they could be corrected for if necessary.
+
+My work with the alignment group would continue for the duration of my time here at Penn.
+In early 2015, at the start of the LHC's second data-taking run (Run 2), I worked assisted in validating the first set of alignment constants using \com{8} proton-proton collision data.
+At this point I took over the responsibility of alignment of the TRT subdetector.
+The TRT was aligned to high accuracy in Run 1, and over the course of my time working on alignment, the TRT never required a straw-by-straw alignment; however it did require a module-level alignment at the end of 2015.
+My final responsibility in the alignment group was monitoring momentum biases using the energy-momentum ratio ($E/p$) of electrons.
+For the large data reprocessing, the $E/p$ method served as a cross check to a similar method using $Z$ boson events for monitoring and aligning out momentum biases in the detector.
+The results from both methods were also used in the uncertainties for the tracking measurements.
+
+On the analysis side, I had previous experience in Standard Model (SM) electroweak physics from my time as an undergraduate at Duke University, and it remained a point of interest for me in graduate school.
+As such, I was happy to work with fellow Penn students on the cross section measurement of SM $WZ$ diboson production with the early \com{13} ATLAS data.
+My contribution to the analysis was primarily on the software side, as I maintained and updated the analysis framework.
+While the $WZ$ measurement is not covered by this thesis, it provided me with invaluable analysis experience in electroweak physics, as well as a detailed undertanding of a major background to many diboson processes.
+The results for this analysis can be found published in Physics Letters B in 2016~\cite{2016.wz-13tev-physlett}.
+
+The final two analyses I worked on involve the scattering of same-sign $W$ bosons, and they make up the majority of this thesis.
+The first analysis is a measurement of the \ssww cross section at \com{13}.
+This measurement along with that of the CMS collaboration represent the first observation of the \ssww scattering process.
+My primary contribution to the analysis is in the esimation of the fake lepton background, where we implemented a brand new version of the fake factor method using particle isolation variables.
+I also did a preliminary study of the interference between electroweak and strong production of \ssww events, assisted in the production of private data samples for use with the analysis framework, and used my familiarity with the $WZ$ process to optimize the rejection of the background.
+Ultimately the majority of the $WZ$ rejection was not included in the final result; however, it is still covered in the thesis in the hopes that it will be useful for similar analyses in the future.
+The formal publication for this measurement will likely be coming out within the next few months.
+
+The second \ssww analysis is a study on the prospects for a measurement of the process at the upgraded High-Luminosity LHC, scheduled to begin operation in 2026.
+Here my main contribution was an optimization of the event selection using a Random Grid Search algorithm.
+Through the optimization we expect to take advantage of the higher center of mass energy and greater volume of data and tighten certen selection cuts to increase the strength of the \ssww signal.
+In addition, I once again maintained and updated the analysis framework and produced the group's data samples, and I also developed a truth-based particle isolation criteria in order to redue contributions from backgrounds involving the top quark.
+The results of this prospects study will be published as a part of the annual Yellow Report for the High-Luminosity LHC.
+
+
 
 \vspace{0.05\textheight}
 
