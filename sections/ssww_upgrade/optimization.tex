@@ -8,7 +8,7 @@ An upgraded detector along with an increase in center of mass energy and integra
 The chosen method for optimizing the event selection is a cut-based algorithm known as the Random Grid Search (RGS) \cite{2018.rgs-paper}.
 Consider a simple case of two variables $x$ and $y$ chosen to differentiate signal from background.
 In order to be considered a signal event, a given event would be required to pass a set of selection criteria, called a \emph{cut point}: $c = \{x > x_c, y > y_c\}$.
-A simple method to choose the optimal cut point (i.e. the ``best'' values of the cuts $x_c$ and $y_c$) would be to construct an $n\times m$ rectangular grid in $x$ and $y$ consisting of points $(x_0,y_0), (x_1,y_1), ..., (x_n,y_m)$, as in Figure~\ref{fig:rgs_square_grid}.
+A simple method to choose the optimal cut point (i.e. the ``best'' values of the cuts $x_c$ and $y_c$) would be to construct an $n\times m$ rectangular grid in $x$ and $y$ consisting of points $(x_0,y_0), (x_1,y_1), ..., (x_n,y_m)$, as in the left plot of Figure~\ref{fig:rgs_grids}.
 One can then choose a cut point $c_k = \{x > x_i, y > y_j\}$ that maximizes the signal significance as measured by a chosen metric.
 This would be considered a \emph{rectangular grid search}.
 
@@ -22,21 +22,22 @@ To combat these limitations, the RGS algorithm constructs a grid of cut points d
 In the two-dimensional example, this means that the variables $x_i$ and $y_j$ making up the cut point $c_k = \{x > x_i, y > y_j\}$ take their values directly from a given signal event.
 This has the benefit of creating a \emph{random grid} of cut points that is biased towards regions of high signal concentration by construction.
 This reduces the need for exponentially increasing numbers of cut points while ensuring that computing resources are not wasted in regions with few to no signal events.
-An example of the the two-dimensional random grid is shown in Figure~\ref{fig:rgs_random_grid}.
+An example of a two-dimensional random grid is shown in the right-hand plot in Figure~\ref{fig:rgs_grids}.
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.48\textwidth]{figs/ssww_upgrade/rgs/figures_cuts_regulargrid}
-  \caption{A visual representation of a rectangular grid search algorithm.  The signal events are the blue triangles, and the red circles are the background events. \TODO{replace with own figure}}   
-  \label{fig:rgs_square_grid}
+  \includegraphics[width=0.48\textwidth]{figs/ssww_upgrade/rgs/square_grid}
+  \includegraphics[width=0.48\textwidth]{figs/ssww_upgrade/rgs/random_grid}
+  \caption{A visual representation of a two-dimensional rectangular grid (left) and a random grid (right) in variables $x$ and $y$.  The signal events are the black circles, and the red squares are the background events.  Each intersection of gray dashed lines represents a cut point to be evaluated by the optimization.}
+  \label{fig:rgs_grids}
 \end{figure}
 
-\begin{figure}[htp]
-  \centering
-  \includegraphics[width=0.48\textwidth]{figs/ssww_upgrade/rgs/figures_cuts_randomgrid}
-  \caption{A visual representation of a random grid search algorithm.  The signal events are the blue triangles, and the red circles are the background events.  \TODO{replace with own figure}}   
-  \label{fig:rgs_random_grid}
-\end{figure}
+%\begin{figure}[htp]
+%  \centering
+%  \includegraphics[width=0.48\textwidth]{figs/ssww_upgrade/rgs/figures_cuts_randomgrid}
+%  \caption{A visual representation of a random grid search algorithm.  The signal events are the blue triangles, and the red circles are the background events.  \TODO{replace with own figure}}   
+%  \label{fig:rgs_random_grid}
+%\end{figure}
 
 Once the random grid of cut points is constructed, the optimal cut point can be chosen using any number of metrics, such as signal to background ratio.
 For the purpose of the \ssww upgrade study, the optimal cut point is chosen to be the one that mazimizes the signal significance $Z$ as defined in Equation~\ref{eq:significance_with_error} \cite{2011.asimov-significance}.
@@ -99,11 +100,9 @@ The updates to the event selection are listed in Table~\ref{tab:sswwupgrade_opti
 The large reduction in the background is primarily a result of the increase in the leading and subleading jet $\pt$ from $30\gev$ to $90\gev$ and $45\gev$, respectively.
 As can be seen in Figure~\ref{fig:optimized_jetpt}, this increase removes a significant portion of the backgrounds from jets faking electrons and charge mis-ID.
 Additionally, the loosening of the lepton-jet centrality cut $\zeta$ allows more signal events to survive the event selection (see Figure~\ref{fig:optimized_centrality}).
-Other changes to the event selection are minor and do not individually have a large impact on the signal or background yields.
+Other changes to the event selection are minor and do not individually have a large impact on the signal or background yields; similar distributions of these variables are shown in Appendix~\ref{app:sswwupgrade_optimization_plots}.
 
 The full event yields after optimization as well as the cross section measurement are detailed alongside those using the default selection in Section~\ref{sswwupgrade:results}.
-
-\TODO{It's a bit awkward to reference the results of the default/optimized before they're properly presented. Maybe move the sections around? not sure...}
 
 \begin{table}[htb]
   \centering
@@ -134,36 +133,15 @@ The full event yields after optimization as well as the cross section measuremen
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/optimization_plots/lep0pt}
-  \caption{Leading lepton $\pt$ distribution.  The default and optimized cuts are represented by the red and green dashed lines, respectively.  The \ssww EWK signal (black points) is normalized to the same area as the sum of the backgrounds (colored histogram). \TODO{Move to appendix or omit}}
-  \label{fig:optimized_lep0pt}
-\end{figure}
-
-\begin{figure}[htp]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/optimization_plots/mll}
-  \caption{Dilepton invariant mass distribution.  The default and optimized cuts are represented by the red and green dashed lines, respectively.  The \ssww EWK signal (black points) is normalized to the same area as the sum of the backgrounds (colored histogram). \TODO{Move to appendix or omit}}
-  \label{fig:optimized_mll}
-\end{figure}
-
-\begin{figure}[htp]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/optimization_plots/jet0pt}\\
-  \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/optimization_plots/jet1pt}
+  \includegraphics[width=0.6\textwidth]{figs/ssww_upgrade/optimization_plots/jet0pt}\\
+  \includegraphics[width=0.6\textwidth]{figs/ssww_upgrade/optimization_plots/jet1pt}
   \caption{Leading (top) and subleading (bottom) jet $\pt$ distributions.  The default and optimized cuts are represented by the red and green dashed lines, respectively.  The \ssww EWK signal (black points) is normalized to the same area as the sum of the backgrounds (colored histogram).}
   \label{fig:optimized_jetpt}
 \end{figure}
 
 \begin{figure}[htp]
   \centering
-  \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/optimization_plots/mjj}
-  \caption{Dijet invariant mass distribution.  The default and optimized cuts are represented by the red and green dashed lines, respectively.  The \ssww EWK signal (black points) is normalized to the same area as the sum of the backgrounds (colored histogram). \TODO{Move to appendix or omit}}
-  \label{fig:optimized_mjj}
-\end{figure}
-
-\begin{figure}[htp]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figs/ssww_upgrade/optimization_plots/centrality}
+  \includegraphics[width=0.6\textwidth]{figs/ssww_upgrade/optimization_plots/centrality}
   \caption{Lepton-jet centrality distribution.  The default and optimized cuts are represented by the red and green dashed lines, respectively.  The \ssww EWK signal (black points) is normalized to the same area as the sum of the backgrounds (colored histogram).}
   \label{fig:optimized_centrality}
 \end{figure}

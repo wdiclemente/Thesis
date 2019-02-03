@@ -114,8 +114,9 @@ The rate uncertainties for the background processes are halved from the $13\tev$
 
 \subsection{Cross section measurement}\label{sswwupgrade:results_xsec}
 
-The cross section is calculated using the same method as in the $13\tev$ analysis, detailed in Chapter~\ref{ch:ssww13tev}. \TODO{update from chapter reference to subsection reference (once it's written)...}
-Once again, each of the four lepton flavor channels is further split by charge (i.e. $\mu\mu\rightarrow\mu^+\mu^++\mu^-\mu^-$), as this increases the sensitivity of the analysis.
+The cross section is calculated using the same method as in the $13\tev$ analysis, detailed in Section~\ref{ssww13tev:xsec}.
+Unlike the previous analysis, however, eight lepton channels are used here instead of six.
+The $\mu e$ and $e\mu$ channels remain separated in addition to the $\mu\mu$ and $ee$ channels, and each lepton flavor channel is further split by charge (i.e. $\mu\mu\rightarrow\mu^+\mu^++\mu^-\mu^-$), as this increases the sensitivity of the analysis.
 Each channel's $m_{jj}$ distribution is combined in a profile likelihood fit to extract the EWK \ssww production cross section.
 The expected cross section calculated using the default event selection is:
 \begin{equation}
@@ -142,11 +143,10 @@ However, the total uncertainty is expected to reduce by less than a percent with
 \end{figure}
 
 \subsection{Longitudinal scattering significance}\label{sswwupgrade:results_longitudinal_sig}
-\TODO{get some details on how this was all done...}
-The longitudinal scattering significance is extracted from the $|\dphijj|$ distribution using a simultaneous binned likelihood fit.
-In order to increase sensitivity, the $|\dphijj|$ distribution was split into two bins in $m_{jj}$, and an additional cut on the pseudorapidity of the subleading lepton was applied ($|\eta| < 2.5$) to reduce background from fake and charge misidentification.
+The longitudinal scattering significance is extracted in much the same way as the cross section, this time using a binned likelihood fit on the $|\dphijj|$ distribution.
+In order to increase sensitivity, the $|\dphijj|$ distribution is split into two bins in $m_{jj}$, and an additional cut on the pseudorapidity of the subleading lepton is applied ($|\eta| < 2.5$) to reduce background from fake and charge misidentification.
 The $|\dphijj|$ distributions used in the fit are shown in Figure~\ref{fig:sswwupgrade_dphijj_LL}.
-Due to limited statistics, the four lepton flavor channels were not split by charge.
+Due to limited statistics, the four lepton flavor channels are not split by charge.
 The expected significance of the \sswwll process is $1.8\sigma$ with a precision of $47\%$ on the measurement.
 Projections of the expected significance as a function of integrated luminosity is shown in Figure~\ref{fig:sswwupgrade_LL_significance_projection}.
 %\TODO{Ask Karolos how the expected significance vs luminosity plot was made!}

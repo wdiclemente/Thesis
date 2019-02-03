@@ -8,10 +8,8 @@ Events with three truth leptons were selected, and each was matched to its recon
 For events surviving the trilepton veto, the two signal leptons were removed, and the remaining leptons represent real leptons that failed to be selected for the veto.
 Between 40-50\% of these leptons fell outside of the eta acceptance of the analysis (see Figure~\ref{fig:ssww13tev_wzveto_truthlepeta}) and were unrecoverable.
 The second largest source of leptons failing the preselection was the OR, defined in Section~\ref{ssww13tev:overlap_removal}.
-The standard OF procedure appeared to be too aggressive in removing leptons in favor of jets, causing many three lepton events to ``lose'' their third lepton and pass the trilepton veto.
-Therefore a \emph{Custom OR} was investigated which would replace the standard OR in the preselection and allow for better $WZ$ rejection by removing fewer third leptons.
-
-\TODO{Mention how the extra leptons in the \ssww are background leptons since there are only 2 from the main decay}
+The standard OR procedure appeared to be too aggressive in removing leptons in favor of jets, causing many three lepton events to ``lose'' their third lepton and pass the trilepton veto.
+Therefore a \emph{custom OR} was investigated which would replace the standard OR in the preselection and allow for better $WZ$ rejection by removing fewer third leptons.
 
 \begin{figure}[htbp]
   \centering
@@ -21,13 +19,13 @@ Therefore a \emph{Custom OR} was investigated which would replace the standard O
   \label{fig:ssww13tev_wzveto_truthlepeta}
 \end{figure}
 
-In order to construct a ``custom'' OR, a new quantity is defined between a lepton ($l$) and a nearby jet ($j$)
+In order to construct this custom OR, a new quantity is defined between a lepton ($l$) and a nearby jet ($j$)
 \begin{equation}
   \ptratio(l,j) = \frac{{\pt}_l}{{\pt}_j}%\pt(l)/\pt(j)
   \label{eq:ssww13tev_ptratio}
 \end{equation}
 which, along with $\deltar(l,j)$, will allow for more third leptons to pass the preselection.
-The idea behind including $\ptratio$ is to be able to preferentially remove background leptons originating from jets (i.e. those that carry a low percentage of the total jet momentum) instead of removing \emph{any} lepton near to jet.
+The idea behind including $\ptratio$ is to be able to preferentially remove background leptons originating from jets (i.e. those that carry a low percentage of the total jet momentum) instead of removing \emph{any} lepton near a jet.
 The distributions of $\ptratio$ and the associated efficiency curves for muons and electrons can be found in Figures~\ref{fig:ssww13tev_ptratio_muon} and \ref{fig:ssww13tev_ptratio_elec}, respectively, and the distributions for $\deltar(\mu,j)$ for muons can be found in Figure~\ref{fig:ssww13tev_drlj_muon}.
 Since all electrons have an associated jet in the calorimeters, the $\deltar(e,j)$ variable is not a good quantity to use for this custom OR.
 
@@ -57,8 +55,8 @@ Since all electrons have an associated jet in the calorimeters, the $\deltar(e,j
 
 A workingpoint for the Custom OR was chosen by requiring 90\% signal retention for muons and 90\% background rejection for electrons.
 The cut on electrons was allowed to be much tighter because the number of signal events with a third electron is considerably smaller than for muons.
-It should be re-emphasized the signal events that are present in Figures~\ref{fig:ssww13tev_ptratio_muon}-\ref{fig:ssww13tev_ptratio_elec} do not represent the full set of signal events, but only those with a real third lepton (which must come from some source other than the signal \ssww process).
-For muons, an or of $\ptratio(\mu,j)$ and $\deltar(\mu,j)$ is used to maximize the third lepton acceptance due to correlations between the quantities, as shown in Figure~\ref{fig:ssww13tev_customor_muon_2d}; for electrons, only a cut on $\ptratio(e,j)$ is used.
+It should be emphasized that the signal events present in Figures~\ref{fig:ssww13tev_ptratio_muon}-\ref{fig:ssww13tev_ptratio_elec} do not represent the full set of signal events, but only those with a real third lepton (which must come from some source other than the signal \ssww process).
+For muons, a logical `or' of $\ptratio(\mu,j)$ and $\deltar(\mu,j)$ is used to maximize the third lepton acceptance due to correlations between the quantities, as shown in Figure~\ref{fig:ssww13tev_customor_muon_2d}; for electrons, only a cut on $\ptratio(e,j)$ is used.
 The Custom OR workingpoint is outlined in Table~\ref{tab:custom_or_definition}.
 
 \begin{table}[htbp]
