@@ -1,5 +1,65 @@
 \section{Truth isolation}\label{app:truth_isolation}
+As mentioned in Section~\ref{sswwupgrade:isolation}, the size of the background contribution from top processes are much larger than expected when no isolation is applied.
+The event yields using an earlier version of the event selection with no truth-based isolation requirement are listed in Table~\ref{tab:truth_iso_noiso}.
+Here, top events make up nearly 90\% of the total background, and the contributions from fake and charge-flipped electrons are also large.
+The event yields using the same event selection with the truth-based isolation included are shown in Figure~\ref{tab:truth_iso_tightiso}.
+When comparing the two tables, the considerable reduction in the top background can be clearly seen.
 \input{tables/app_isolation_noiso.tex}
 \input{tables/app_isolation_tightiso.tex}
 
 \TODO{Add tables for tight vs loose working point, information on the necessity of TRUTH1++}
+\FloatBarrier
+
+\subsection{\tt{TRUTH1++} derivations}
+The ATLAS standard \tt{TRUTH1} derivations used for this analysis contain a slimmed truth particle container in order to reduce the file size.
+As a result, many of the truth particles that would be included in the isolation variables are missing, and the truth-based isolation will not accurately model the reconstruction-level isolation variables.
+In order to recover the performance of the truth-based isolation in the top MC samples (where it is most needed), a custom derivation was produced privately that duplicated the default \tt{TRUTH1} data structure but includes the full truth particle record.
+The reduced size of the truth particle information in the \tt{TRUTH1} derivation compared to the \tt{TRUTH1++} derivation is shown in Figure~\ref{fig:truth_iso_truth1}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.48\textwidth]{figs/ssww_upgrade/isolation/truth1_nearbytp}
+  \includegraphics[width=.48\textwidth]{figs/ssww_upgrade/isolation/truth1pp_nearbytp}
+  \caption{Number of truth particles within $\deltar < 0.4$ of a selected muon or electron using the ATLAS standard \tt{TRUTH1} (left) and the custom \tt{TRUTH1++} (right) derivations in $t\bar{t}$ simulation. The complete truth record is stored in the \tt{TRUTH1++} derivation, and this is best seen in the first bin, where the lepton has no nearby truth particles.}
+  \label{fig:truth_iso_truth1}
+\end{figure}
+\FloatBarrier
+
+\subsection{Check of truth-based isolation}
+Since the isolation variables are constructed from truth particles, there is an expectation that the efficiency of the isolation selection will be higher than what would be seen in the full simulation.
+In order to test this, a truth-level $13\tev$ $t\bar{t}$ MC sample was run through a selection altered to mimic the 13~TeV \ssww measurement as closely as possible.
+The results were compared to the $t\bar{t}$ background in the $13\tev$ analysis extrapolated to $14\tev$ and $3000~\textrm{fb}^{-1}$, and the truth-based isolation reduces the expected events by a factor of approximately 4.
+However, the statistics in the $13\tev$ truth-level sample are low, and it is therefore difficult to measure precisely how much the truth-based isolation overperforms.
+
+\subsection{Loose isolation working point}
+As another check on the truth-based isolation, a second isolation working point was constructed to match the official ATLAS Fixed Cut Loose isolation working point.
+The definition of this loose isolation are found in Table~\ref{tab:isolation_cuts_loose}.
+
+The primary impact of loosening the isolation is a substantial increase in the non-prompt backround from top processes, and a moderate increase in the charge mis-ID and fake backgrounds.
+Backgrounds from prompt leptons only did not see major changes.
+As a result, the tight working point is chosen for the analysis.
+The event yields by sample and by background type using the loose working point are in Table~\ref{tab:EY_loose}, and Table~\ref{tab:EY_tight} has the numbers using the tight working point (defined in Table~\ref{tab:truth_iso_definition}) for comparison.
+
+\begin{table}[htbp]\renewcommand{\arraystretch}{1.2}
+  \begin{center}
+ % \scalebox{0.75}{
+  \begin{tabular}{l|c|c}
+    \hline\hline
+				~               &   Electron Isolation & Muon Isolation \\
+\hline\hline
+Track-based isolation cone size   		&   $\deltar < 0.2$         & $\deltar < 0.3$ \\
+Track-based isolation requirement    		&   $\sum\pt/\pt^{e} < 0.15$ & $\sum\pt/\pt^{\mu} < 0.15$ \\
+Calorimeter-based isolation cone size   	&   $\deltar < 0.2$	    & $\deltar < 0.2$\\
+Calorimeter-based isolation requirement    	&   $\sum\et/\pt^{e} <  0.2$ & $\sum\et/\pt^{\mu} <  0.3$	\\
+\hline
+ \end{tabular}
+  %}
+  \end{center}
+  \caption{Electron and muon isolation requirements for the loose working point.} 
+  \label{tab:isolation_cuts_loose}
+\end{table}
+
+\input{tables/EventYields_LooseIso.tex}
+\input{tables/EventYields_TightIso.tex}
+
+\FloatBarrier

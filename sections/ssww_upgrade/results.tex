@@ -83,7 +83,7 @@ However, given proper MC statistics, it is still expected that the optimization 
 \TODO{Ask for details on how some of these uncertainties were calculated -- specifically the fakes and charge mis-ID}
 The uncertainties considered for the analysis are summarized in Table~\ref{tab:sswwupgrade_uncertainties}.
 Values for experimental systematics on the trigger efficiency, lepton and jet reconstruction, and flavor tagging are taken directly from the $13\tev$ analysis \cite{2018.ssww-13tev-atlas-conf}.
-The rate uncertainties for the background processes are halved from the $13\tev$ values.
+The rate uncertainties for the background processes are halved from the $13\tev$ values according to ATLAS recommendations.
 
 \begin{table}[htbp]
   \centering
@@ -118,19 +118,19 @@ The cross section is calculated using the same method as in the $13\tev$ analysi
 Unlike the previous analysis, however, eight lepton channels are used here instead of six.
 The $\mu e$ and $e\mu$ channels remain separated in addition to the $\mu\mu$ and $ee$ channels, and each lepton flavor channel is further split by charge (i.e. $\mu\mu\rightarrow\mu^+\mu^++\mu^-\mu^-$), as this increases the sensitivity of the analysis.
 Each channel's $m_{jj}$ distribution is combined in a profile likelihood fit to extract the EWK \ssww production cross section.
-The expected cross section calculated using the default event selection is:
+Using the default event selection, the expected cross section calculated to be:
 \begin{equation}
   \sigma_{W^\pm W^\pm jj}^{\textrm{expected}} = 16.89 \pm 0.36 \textrm{\ (stat)} \pm 0.53 \textrm{\ (theory)} \pm 0.84 \textrm{\ (syst)}~\textrm{fb}
   \label{eq:sswwupgrade_xsec_default}
 \end{equation}
-
-The expected cross section calculated using the optimized event selection is:
+and with the optimized event selection:
 \begin{equation}
     \sigma_{W^\pm W^\pm jj}^{\textrm{expected}} = 16.94 \pm 0.36 \textrm{\ (stat)} \pm 0.53 \textrm{\ (theory)} \pm 0.78 \textrm{\ (syst)}~\textrm{fb}
   \label{eq:sswwupgrade_xsec_optimized}
 \end{equation}
 The optimized selection should not change the measured value of the cross section, and indeed both are consistent with within uncertainties.
 The sytematic uncertainty is reduced by approximately 7\% with the optimized selection.
+
 Projections of the total uncertainty on the cross section as a function of integrated luminosity made by \TODO{how was this made?} is shown in Figure~\ref{fig:sswwupgrade_uncertainty_projection}.
 As the integrated luminosity increases past $\mathcal{L} > 3000~\textrm{fb}^{-1}$, the statistical uncertainty reduces faster than the systematic uncertainties.
 However, the total uncertainty is expected to reduce by less than a percent with increased luminosity past the planned $3000~\textrm{fb}^{-1}$.
@@ -153,8 +153,8 @@ Projections of the expected significance as a function of integrated luminosity 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.8\textwidth]{figs/ssww_upgrade/results/plots_optimisedLL_all_pass9_dijet_absdphijj_lowmjj}\\
-  \includegraphics[width=.8\textwidth]{figs/ssww_upgrade/results/plots_optimisedLL_all_pass9_dijet_absdphijj_highmjj}
+  \includegraphics[width=.6\textwidth]{figs/ssww_upgrade/results/plots_optimisedLL_all_pass9_dijet_absdphijj_lowmjj}\\
+  \includegraphics[width=.6\textwidth]{figs/ssww_upgrade/results/plots_optimisedLL_all_pass9_dijet_absdphijj_highmjj}
   \caption{Dijet azimuthal separation ($|\dphijj|$) for the low $m_{jj}$ region ($520 < m_{jj} < 1100\gev$, top) and the high $m_{jj}$ region ($m_{jj} > 1100\gev$, bottom).  The purely longitudinal (LL, gray) is plotted separately from the mixed and transverse (LT+TT, cyan) polarizations.}
   \label{fig:sswwupgrade_dphijj_LL}
 \end{figure}
