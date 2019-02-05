@@ -11,7 +11,7 @@ These selections are detailed in the following sections and summarized in Table~
 
 \subsubsection{Muon candidate selection}
 Cuts on muon $\pt$ serve to reject low momentum leptons from background processes and additional collisions from pileup events.
-Preselected muons must have $\pt > 6\gev$ and signal muons $\pt > 27\gev$.
+Preselected muons must have transverse momentum $\pt > 6\gev$, and the signal muons must pass $\pt > 27\gev$.
 The $\pt$ requirement for loose muons is lower than for signal muons, $\pt > 15\gev$, for reasons that are discussed in Section~\ref{ssww13tev:fake_factor}.
 Muons are required to fall within the detector's $\eta$ acceptance: $|\eta| < 2.7$ for preselected muons, which is tightened to $|\eta| < 2.5$ for the signal muons.
 
@@ -20,7 +20,7 @@ The preselection and the loose selection both have looser requirements on the tr
 
 Finally, the muon candidates are required to pass a particle identification and an isolation criteria as defined in~\cite{2016.muon-reconstruction-13tev}.
 The methods used in constructing the identification and isolation workingpoints are described in more detail in Section~\ref{detector:muon_reconstruction}.
-The muon identification serves to select prompt muons with high efficiency and well measured momenta.% via the techniques detailed in Section~\ref{sec:reconstruction}.
+The muon identification serves to select prompt muons with high efficiency and well measured momenta. % via the techniques detailed in Section~\ref{sec:reconstruction}.
 This analysis uses two different workingpoints, \tt{Loose} for preselected muons and \tt{Medium} for loose and signal muons, where \tt{Medium} muons are a tighter subset of those that pass the \tt{Loose} requirement.
 Muon isolation is a measurement of detector activity around the muon candidate, and it is measured with both track-based and calorimeter-based variables.
 The isolation workingpoint used for the signal muons, \tt{Gradient}, is defined such that there is 90\% or better background rejection efficiency for $25\gev$ muons, and 99\% efficiency at $60\gev$.
@@ -88,17 +88,17 @@ In this case, if both a muon and an electron share a track in the ID, the muon i
   \begin{tabular}{l l l}
     Overlap         & Check & Result (remove $\rightarrow$ keep) \\
     \hline\hline
-    \multirow{2}{*}{Electron \& Jet}  & $\deltar(e,j) < 0.2$       & Jet $\rightarrow$ electron \\
-                                      & $0.2 < \deltar(e,j) < 0.4$ & Electron $\rightarrow$ jet \\
+    \multirow{2}{*}{Electron \& Jet}  & $\deltar(e,j) < 0.2$       & Jet $\rightarrow$ Electron \\
+                                      & $0.2 < \deltar(e,j) < 0.4$ & Electron $\rightarrow$ Jet \\
     \hline
     \multirow{2}{*}{Muon \& Jet}      & $\deltar(\mu,j) < 0.4$ and Jet $N_{\textrm{ID\ tracks}} < 3$
-                                                                   & Jet $\rightarrow$ muon \\
+                                                                   & Jet $\rightarrow$ Muon \\
                                       & $\deltar(\mu,j) < 0.4$ and Jet $N_{\textrm{ID\ tracks}} \ge 3$
-                                                                   & Muon $\rightarrow$ jet \\
+                                                                   & Muon $\rightarrow$ Jet \\
     \hline
-    \multirow{2}{*}{Electron \& Muon} & Shared ID track            & Electron $\rightarrow$ muon \\
+    \multirow{2}{*}{Electron \& Muon} & Shared ID track            & Electron $\rightarrow$ Muon \\
                                       & Shared ID track \& muon is calo-tagged
-                                                                   & Muon $\rightarrow$ electron \\
+                                                                   & Muon $\rightarrow$ Electron \\
     \hline
   \end{tabular}
   \caption{Summary of the overlap removal procedure used in the analysis.  If the criteria in the ``check'' column is met, in the ``result'' column, the object on the left of the arrow is removed in favor of the object on the right.}

@@ -1,27 +1,18 @@
 \subsection{Experimental overview of vector boson scattering}\label{ssww13tev:vbs_theory}
 VBS processes are very important to understand due to their sensitivity to the EWSB mechanism.
-As explained in Section~\ref{sec:theory_vbs}, in the absence of a light SM Higgs boson, the scattering amplitude of longitudinally polarized vector bosons grows with center-of-mass energy.% and ultimately violates unitarity above \com{1} in the absence of a light SM Higgs boson~\cite{1977.ben-lee-weak-interactions, 2009.strong-gauge-boson-scattering}.
-However, once the Higgs is introduced, the divergences cancel and the cross section no longer grows unbounded.%, as can be seen in Figure~\ref{fig:ssww13tev_vbs_xsec_higgs}, which consists of plots from~\cite{2008.vbs-resonances-unitarity}.
-%This particular aspect of VBS theory will be covered in more detail in Section~\ref{sswwupgrade:theory} in the context of the future prospects of a \ssww measurement at the HL-LHC.
-
-%\begin{figure}[htbp]
-%  \centering
-%  \includegraphics[height=.25\textheight]{figs/ssww_13tev/introduction/vbs_xsec_nohiggs}
-%  \includegraphics[height=.25\textheight]{figs/ssww_13tev/introduction/vbs_xsec_higgs120}
-% 
-%  \caption[Cross sections in nanobarns for five different scattering processes of longitudinally polarized vector bosons as a function of center of mass energy $\sqrt{s}$.  Without a SM Higgs boson (left), the cross sections grow unbounded with $\sqrt{s}$; however with a $120\gev$ Higgs boson (right), the cross sections no longer diverge.]{Cross sections in nanobarns for five different scattering processes of longitudinally polarized vector bosons as a function of center of mass energy $\sqrt{s}$.  Without a SM Higgs boson (left), the cross sections grow unbounded with $\sqrt{s}$; however with a $120\gev$ Higgs boson (right), the cross sections no longer diverge.  Plots taken from~\cite{2008.vbs-resonances-unitarity}.}
-%  \label{fig:ssww13tev_vbs_xsec_higgs}
-%\end{figure}
+As explained in Section~\ref{sec:theory_vbs}, in the absence of a light SM Higgs boson, the scattering amplitude of longitudinally polarized vector bosons grows with center-of-mass energy. % and ultimately violates unitarity above \com{1} in the absence of a light SM Higgs boson.
+However, once the Higgs is introduced, the divergences cancel and the cross section no longer grows unbounded. %~\cite{1977.ben-lee-weak-interactions, 2009.strong-gauge-boson-scattering}. % i already cited these guys earlier when saying the same thing
 
 With the discovery of the Higgs boson in 2012~\cite{HIGG-2012-27, CMS-HIG-12-028}, the EWSB mechanism can now be directly studied.
-Due to the exchange of a Higgs in the $s$- and $t$-channel VBS diagrams (\ssww itself only contains the $t$-channel diagram), VBS processes are directly sensitive to properties of the Higgs.
+Due to the potential exchange of a Higgs boson in the VBS diagrams (\ssww itself does not contain the $s$-channel diagram), VBS processes are directly sensitive to properties of the Higgs.
 For example, the high-mass tail in the $VV$ scattering system allows an approximation of the effective coupling strength of the Higgs to vector bosons that is independent of any assumptions on the Higgs width~\cite{2015.higgs-constraints-from-vbs}.
 Additionally, the center of mass energy dependence of the $VV$ scattering can reveal whether the Higgs boson unitarizes the longitudinal scattering amplitude fully or only partially~\cite{2014.higgs-WW-scattering-theory}.
 
-VBS events are characterized by two quarks from the colliding protons each radiating a massive vector boson which then scatter and decay in the detector.
-The incoming quarks carry a large amount of momentum and only deflect a small amount upon radiating the vector boson; as a result, they often travel very close to the beam line.
-Ignoring the decay products of the bosons, these VBS events result in a final state of two vector bosons ($V$) and two jets ($j$) at high pseudorapidities (called \emph{forward jets}) from the outgoing quarks.
+VBS events are characterized by two quarks from the colliding protons each radiating a vector boson which then scatter and decay in the detector.
+The incoming quarks carry a large amount of momentum and only deflect a small amount upon emitting the vector boson; as a result, they often enter the calorimeters very close to the beam line.
+Ignoring the decay products of the scattered bosons for now, these VBS events result in a final state of two vector bosons ($V$) and two jets ($j$) at high pseudorapidities (called \emph{forward jets} or \emph{tag jets}) from the outgoing quarks.
 The shorthand $VVjj$ is used to represent this final state.
+%A visual representation of a typical event topology for a \ssww event can be seen in Figure~\ref{fig:ssww13tev_event_topology}.
 
 $VVjj$ events can be produced via two different physical processes.
 The first involves purely electroweak interactions in the tree-level diagrams, with $\mathcal{O}(\alpha_{\textrm{EWK}}) = 6$ %(including the decays of the bosons).
@@ -57,8 +48,8 @@ The tree-level Feynman diagrams for VBS EWK, non-VBS EWK, and QCD $VVjj$ product
 
 \subsection{Same-sign $W^{\pm}W^{\pm}$ scattering}\label{ssww13tev:ssww_topology}
 Same-sign \ssww scattering is considered to be one of the best channels for studying VBS at the LHC due to its favorable ratio of EWK to QCD production~\cite{2015.higgs-constraints-from-vbs}.
-Since the VBS events are the primary source of interest for an analysis, in practice the QCD production would be considered a background to the EWK signal.
-Therefore a higher EWK-to-QCD ratio results in better sensitivity to VBS.
+Since the VBS diagrams (which are a subset of the total EWK production) are the primary source of interest for an analysis, the QCD production would be considered a background in an analysis.
+Therefore a higher EWK-to-QCD ratio results in increased sensitivity to VBS.
 %This is due primarily to the ratio of the EWK to the QCD production, which matters a great deal due to the VBS events being a subset of the total EWK production.
 %In an analysis the EWK production would be conisdered the signal and the QCD production a background, so a favorable ratio of the two helps greatly when comparing the size of the signal to the backgrounds.
 A study at \com{8}~\cite{2013.ssww-8tev-atlas-support} was done using the \tt{SHERPA} Monte Carlo (MC) generator to calculate EWK and QCD production cross sections at leading order for a variety of $VVjj$ processes decaying to leptons and can be found in Table~\ref{tab:ssww13tev_qcd_vs_ewk}.
@@ -79,11 +70,11 @@ Despite its lower cross section compared to other $VVjj$ processes, the EWK to Q
     $ZZ$          & $l^{+}l^{-}l^{+}l^{-} jj$     & 1.5 fb  & 106 fb \\
     \hline
   \end{tabular}
-  \caption[Predicted cross sections for EQK and QCD production of diboson processes relevant to VBS at \com{8} using the \tt{SHERPA} MC generator.  Loose generator level cuts are applied on lepton $\pt > 5\gev$, dilepton invariant mass $m_{ll} > 4\gev$, and at least two jets with $m_{jj} > 10\gev$.]{Predicted cross sections for EQK and QCD production of diboson processes relevant to VBS at \com{8} using the \tt{SHERPA} MC generator.  Loose generator level cuts are applied on lepton $\pt > 5\gev$, dilepton invariant mass $m_{ll} > 4\gev$, and at least two jets with $m_{jj} > 10\gev$.  Numbers taken from~\cite{2013.ssww-8tev-atlas-support}.}
+  \caption[Predicted cross sections for EQK and QCD production of diboson processes relevant to VBS at \com{8} using the \tt{SHERPA} MC generator.  Loose generator level cuts are applied on lepton $\pt > 5\gev$, dilepton invariant mass $m_{ll} > 4\gev$, and at least two jets with $m_{jj} > 10\gev$.]{Predicted cross sections for EQK and QCD production of diboson processes relevant to VBS at \com{8} using the \tt{SHERPA} MC generator.  Loose, generator level cuts are applied on lepton $\pt > 5\gev$, dilepton invariant mass $m_{ll} > 4\gev$, and at least two jets with $m_{jj} > 10\gev$.  Numbers taken from~\cite{2013.ssww-8tev-atlas-support}.}
   \label{tab:ssww13tev_qcd_vs_ewk}
 \end{table}
 
-This analysis studies \ssww scattering where both $W$ bosons decay leptonically to $e\nu$ or $\mu\nu$\footnote{Throughout the rest of this chapter, $l$ denotes either electrons ($e$) or muons ($\mu$) unless stated otherwise.  Additionally, $e$, $\mu$, and $\nu$ (neutrino) with no charge or anti-particle designation refer interchangeably to either the particle or anti-particle.}.
+This analysis studies \ssww scattering where both $W$ bosons decay leptonically to $e\nu$ or $\mu\nu$\footnote{Throughout the rest of this chapter, unless stated otherwise, $l$ denotes either electrons ($e$) or muons ($\mu$), and $\nu$ denotes a neutrino.  Additionally, $e$, $\mu$, and $\nu$ with no charge or anti-particle designation refer interchangeably to either the particle or anti-particle.}.
 The \ssww VBS final state consists of two leptons with the same electric charge, two neutrinos, and two high energy forward jets with a large invariant mass.
 Tree-level Feynman diagrams of VBS \ssww production can be found in Figure~\ref{fig:ssww13tev_diagrams_vbs_ssww} and a visual representation of the VBS topology can be found in Figure~\ref{fig:ssww13tev_event_topology}.
 The two forward jets also serve as a powerful tool to suppress the QCD production mode.
@@ -97,7 +88,7 @@ An ATLAS event display of a real \ssww candidate event is shown in Figure~\ref{f
   \includegraphics[width=.32\textwidth]{figs/ssww_13tev/diagrams/vbs1}
   \includegraphics[width=.32\textwidth]{figs/ssww_13tev/diagrams/vbs2}
   \includegraphics[width=.32\textwidth]{figs/ssww_13tev/diagrams/vbs3}
-  \caption{Feynman diagrams for VBS EWK production of \ssww events. The leftmost diagram contains a quartic gauge coupling vertex, and the rightmost diagram contains an exchange of a Higgs boson.}
+  \caption{Leading order Feynman diagrams for VBS EWK production of \ssww events. The leftmost diagram contains a quartic gauge coupling vertex, and the rightmost diagram contains an exchange of a Higgs boson.}
   \label{fig:ssww13tev_diagrams_vbs_ssww}
 \end{figure}
 
@@ -134,7 +125,7 @@ Triboson events where one boson decays hadronically also contribute to this back
 
 The other dominant background comes from non-prompt, or ``fake'', leptons.
 Here one or more leptons originate from the decay of another particle unrelated to the signal process, such as a heavy-flavor decay or photon conversion, or come from a jet that is misidentified as a lepton.
-This background is mostly made up of events from $t\bar{t}$ and $W$+jets processes, with a much smaller contribution from $V\gamma$ events. \TODO{check whether $V\gamma$ really qualifies as non-prompt, we lump $Z\gamma$ in with the charge flip background in the paper...}
+This background is mostly made up of events from $t\bar{t}$ and $W$+jets processes, with a much smaller contribution from conversions in $V\gamma$ events. %\TODO{check whether $V\gamma$ really qualifies as non-prompt, we lump $Z\gamma$ in with the charge flip background in the paper...}
 
 Finally, opposite-sign lepton pairs can enter the signal region if one of the leptons is reconstructed with the wrong charge (called \emph{charge misidentification}\footnote{Charge misidentification is also referred to interchangeably as \emph{charge mis-ID} and \emph{charge flip}.}).
 In practice, this only affects events with electrons, as the charge misidentification rate for muons is negligible~\cite{2013.muon-flip}.

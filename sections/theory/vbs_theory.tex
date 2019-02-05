@@ -1,5 +1,3 @@
-% Two main interests: longitudinal & TGC/QGC
-
 Due to the non-Abelian nature of the EWK interaction, the associated gauge bosons are allowed to self-interact.
 This results in triple and quartic couplings of gauge bosons (TGCs and QGCs, respectively).
 The SM allowed TGCs are the $WW\gamma$ and $WWZ$ vertices, which can be measured experimentally via diboson production or through vector boson fusion (VBF).
@@ -17,13 +15,13 @@ The actual interaction between the incoming and outgoing vector bosons can be me
 \begin{figure}[htbp]
   \centering
   \includegraphics[height=.125\textheight]{figs/theory/vbs_ewk}
-  \caption{Leading order $VV\rightarrow VV$ Feynman diagrams involving EWK bosons, from right to left: $s$-channel, $t$-channel, $u$-channel, and the quartic gauge coupling.}
+  \caption{Leading order $VV\rightarrow VV$ Feynman diagrams involving EWK bosons. From left to right: $s$-channel, $t$-channel, $u$-channel, and the quartic gauge coupling.}
   \label{fig:theory_vbs_ewk}
 \end{figure}
 \begin{figure}[htbp]
   \centering
   \includegraphics[height=.125\textheight]{figs/theory/vbs_higgs}
-  \caption{Leading order $VV\rightarrow VV$ Feynman diagrams involving the exchange of a Higgs boson, from right to left: $s$-channel, $t$-channel, and $u$-channel.}
+  \caption{Leading order $VV\rightarrow VV$ Feynman diagrams involving the exchange of a Higgs boson. From left to right: $s$-channel, $t$-channel, and $u$-channel.}
   \label{fig:theory_vbs_higgs}
 \end{figure}
 
@@ -32,7 +30,7 @@ The Goldstone bosons are then ``eaten'' by the physical gauge bosons, giving the
 In fact, according to the Electroweak Equivalence Theorem, the high-energy interactions of longitudinal gauge bosons can be accurately described by the Goldstone bosons of the EWSB mechanism~\cite{1997.ewk-equivalence}.
 Thus, the scattering of the massive gauge bosons are inextricably linked to EWSB.
 
-It turns out that without a light SM Higgs boson, the scattering amplitude of longitudinally polarized vector bosons grows with center-of-mass energy and ultimately violates unitarity above $\sqrt{s}\approx 1.2$~\cite{1977.ben-lee-weak-interactions, 2009.strong-gauge-boson-scattering}.
+It turns out that without a light SM Higgs boson, the scattering amplitude of longitudinally polarized vector bosons grows with center-of-mass energy and ultimately violates unitarity above $\sqrt{s}\approx 1.2\tev$~\cite{1977.ben-lee-weak-interactions, 2009.strong-gauge-boson-scattering}.
 Writing down the equations for the transverse and longitudinal polarization vectors for a gauge boson of mass $M_V$~\cite{1990.strong-ww-scattering}:
 \begin{equation}
   \epsilon^{\mu}_{\pm} = \frac{1}{\sqrt{2}}(0,0,\pm i, 0)
@@ -51,19 +49,19 @@ Therefore, the dominant contribution to the VBS process at high energy comes fro
 The high-energy behavior of longitudinally polarized vector boson scattering can be explored in the case of opposite-sign $W^{+}W^{-}\rightarrow W^{+}W^{-}$ scattering.
 In the high-energy limit ($s >> M_W^2, M_H^2$), the amplitude of $W^{+}W^{-}$ scattering without considering the Higgs contributions (the relevant diagrams in Figure~\ref{fig:theory_vbs_ewk}) can be written as~\cite{2009.strong-gauge-boson-scattering}:
 \begin{equation}
-  \mathcal{M}_{\textrm{gauge}} = -\frac{g^2}{4M_W^2}u+\mathcal{O}(1) %\mathcal{O}(\frac{E}{M_W})
+  \mathcal{M}_{\textrm{gauge}} = -\frac{g^2}{4M_W^2}u+\mathcal{O}\Bigg(\bigg[\frac{E}{M_W}\bigg]^0\Bigg)
   \label{eq:theory_longitudinal_m_gauge}
 \end{equation}
 where $g$ is the EWK coupling and $u$ is one of the Mandelstam variables (the others being $s$ and $t$).
 The $\mathcal{O}(E^4)$ terms cancel out between the TGC and QGC diagrams~\cite{2012.vbs-thesis-oord}.
-What is left is an amplitude proportional to $E^2$ that diverges as $E/M_W\rightarrow\inf$. \TODO{what is the latex symbol for infinity}
+What is left is an amplitude proportional to $E^2$ that diverges as $E/M_W\rightarrow\infty$.
 However, the amplitude from the diagrams involving the Higgs boson (the relevant diagrams in Figure~\ref{fig:theory_vbs_higgs}) is:
 \begin{equation}
   \mathcal{M}_{\textrm{Higgs}} = -\frac{g^2}{4M_W^2}\bigg[\frac{(s-M_W^2)^2}{s-m_H^2}+\frac{(t-M_W^2)^2}{t-M_H^2}\bigg]
 \end{equation}
 which, in the high-energy limit, reduces to:
 \begin{equation}
-  \mathcal{M}_{\textrm{Higgs}} = \frac{g^2}{4M_W^2}u+\mathcal{O}(1)
+  \mathcal{M}_{\textrm{Higgs}} = \frac{g^2}{4M_W^2}u+\mathcal{O}\Bigg(\bigg[\frac{E}{M_W}\bigg]^0\Bigg)
   \label{eq:theory_longitudinal_m_higgs}
 \end{equation}
 Adding the two equations together cancels out the $E^2$ term and leaves only terms constant in energy.
@@ -75,6 +73,6 @@ Plots of the cross section of several $VV\rightarrow VV$ scattering processes ar
   \includegraphics[height=.25\textheight]{figs/ssww_13tev/introduction/vbs_xsec_nohiggs}
   \includegraphics[height=.25\textheight]{figs/ssww_13tev/introduction/vbs_xsec_higgs120}
  
-  \caption[Cross sections in nanobarns for five different scattering processes of longitudinally polarized vector bosons as a function of center of mass energy $\sqrt{s}$.  Without a SM Higgs boson (left), the cross sections grow unbounded with $\sqrt{s}$; however with a $120\gev$ Higgs boson (right), the cross sections no longer diverge.]{Cross sections in nanobarns for five different scattering processes of longitudinally polarized vector bosons as a function of center of mass energy $\sqrt{s}$.  Without a SM Higgs boson (left), the cross sections grow unbounded with $\sqrt{s}$; however with a $120\gev$ Higgs boson (right), the cross sections no longer diverge.  Plots taken from~\cite{2008.vbs-resonances-unitarity}.}
+  \caption[Cross sections in nanobarns for five different longitudinally polarized VBS processes as a function of center of mass energy $\sqrt{s}$.  Without a Higgs boson (left), the cross sections grow unbounded with $\sqrt{s}$. With a $120\gev$ Higgs boson (right), the cross sections no longer diverge.]{Cross sections in nanobarns for five different longitudinally polarized VBS processes as a function of center of mass energy $\sqrt{s}$.  Without a Higgs boson (left), the cross sections grow unbounded with $\sqrt{s}$. With a $120\gev$ Higgs boson (right), the cross sections no longer diverge.  Plots taken from~\cite{2008.vbs-resonances-unitarity}.}
   \label{fig:theory_vbs_xsec_higgs}
 \end{figure}
