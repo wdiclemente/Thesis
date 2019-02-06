@@ -52,32 +52,34 @@ Since the VBS diagrams (which are a subset of the total EWK production) are the 
 Therefore a higher EWK-to-QCD ratio results in increased sensitivity to VBS.
 %This is due primarily to the ratio of the EWK to the QCD production, which matters a great deal due to the VBS events being a subset of the total EWK production.
 %In an analysis the EWK production would be conisdered the signal and the QCD production a background, so a favorable ratio of the two helps greatly when comparing the size of the signal to the backgrounds.
-A study at \com{8}~\cite{2013.ssww-8tev-atlas-support} was done using the \tt{SHERPA} Monte Carlo (MC) generator to calculate EWK and QCD production cross sections at leading order for a variety of $VVjj$ processes decaying to leptons and can be found in Table~\ref{tab:ssww13tev_qcd_vs_ewk}.
-Despite its lower cross section compared to other $VVjj$ processes, the EWK to QCD ratio for \ssww is approximately one-to-one, whereas for opposite-sign \oswwjj the ratio is closer to 3\%.
+EWK and QCD cross sections at \com{13} for six leptonic $VVjj$ final states were calculated using the \tt{SHERPA} MC generator in a VBS-enriched fiducial phase space in~\cite{2014.ssww-thesis-gumpert}.
+Despite its relatively low total cross section compared to some other $VVjj$ processes, the EWK-to-QCD ratio for \ssww is 10-20 times higher than for other processes after applying VBS-enhancing selection criteria.
 
 %There are several advantages to studying the same-sign $WW$ process specifically.
 %The final state's net charge of $\pm 2$ helps considerably in reducing the number of background processes that can mimic the signal.
 
 \begin{table}[htbp]
   \centering
-  \begin{tabular}{l l r r}
-    Process & Final state & $\sigma_{\textrm{EWK}}$ & $\sigma_{\textrm{QCD}}$ \\
+  \begin{tabular}{l l r r r}%S[table-format=2.3] S[table-format=2.3] S[table-format=2.3]}
+    Final state & Process & $\sigma_{\textrm{EWK}}$ [fb] & $\sigma_{\textrm{QCD}}$ [fb] & $\sigma_{\textrm{EWK}}/\sigma_{\textrm{QCD}}$ \\
     \hline\hline
-    $W^{\pm}W^{\pm}$ & $l^{\pm}l^{\pm}\nu\nu jj$    & 19.5 fb & 18.8 fb \\
-    $W^{\pm}W^{\mp}$ & $l^{\pm}l^{\mp}\nu\nu jj$    & 91.3 fb & 3030 fb \\
-    $W^{\pm}Z$      & $l^{\pm}l^{\pm}l^{\mp}\nu jj$ & 30.2 fb & 687 fb  \\
-    $ZZ$          & $l^{+}l^{-}\nu\nu jj$        & 2.4 fb  & 162 fb  \\
-    $ZZ$          & $l^{+}l^{-}l^{+}l^{-} jj$     & 1.5 fb  & 106 fb \\
+    $l^{\pm}l^{\mp}l^{\pm}l^{\mp} jj$ & $ZZ$                 & 0.098  & 0.100 & 0.98\\
+    $l^{\pm}l^{\pm}l^{\mp}\nu jj$    & $W^{\pm}Z$            & 2.34   &  4.38 & 0.53\\
+    $l^{\pm}l^{\mp}\nu\nu jj$       & $W^{\pm}W^{\mp}$, $ZZ$ & 12.3   &  21.8 & 0.56\\
+    $\boldsymbol{l^{\pm}l^{\pm}\nu\nu jj}$       & \boldsymbol{$W^{\pm}W^{\pm}$}       & \bf{3.97}   & \bf{0.346} & \bf{11.47}\\
+    $l^{\pm}\nu\nu\nu jj$         & $W^{\pm}Z$             & 7.64   &  15.5 & 0.49\\
+    $\nu\nu\nu\nu jj$            & $ZZ$                 &  1.68  &  1.38 & 1.22 \\
     \hline
   \end{tabular}
-  \caption[Predicted cross sections for EQK and QCD production of diboson processes relevant to VBS at \com{8} using the \tt{SHERPA} MC generator.  Loose generator level cuts are applied on lepton $\pt > 5\gev$, dilepton invariant mass $m_{ll} > 4\gev$, and at least two jets with $m_{jj} > 10\gev$.]{Predicted cross sections for EQK and QCD production of diboson processes relevant to VBS at \com{8} using the \tt{SHERPA} MC generator.  Loose, generator level cuts are applied on lepton $\pt > 5\gev$, dilepton invariant mass $m_{ll} > 4\gev$, and at least two jets with $m_{jj} > 10\gev$.  Numbers taken from~\cite{2013.ssww-8tev-atlas-support}.}
+  \caption[Predicted cross sections for EQK and QCD production of diboson processes relevant to VBS at \com{13} using the \tt{SHERPA} MC generator.  The numbers for the \ssww process are bolded. Leptons are required to have $\pt \ge 25\gev$ and lie within $|\eta| \le 2.5$ with $m_{ll} > 20\gev$, and at least two jets are required with $\pt \ge 30\gev$ and $|\eta| < 4.5$.  The VBS contributions are enhanced by requiring the dijet invariant mass $m_{jj} > 500\gev$ and dijet separation $\Delta y_{jj} > 2.4$.]{Predicted cross sections for EQK and QCD production of diboson processes relevant to VBS at \com{13} using the \tt{SHERPA} MC generator.  The numbers for the \ssww process are bolded. Leptons are required to have $\pt \ge 25\gev$ and lie within $|\eta| \le 2.5$ with $m_{ll} > 20\gev$, and at least two jets are required with $\pt \ge 30\gev$ and $|\eta| < 4.5$.  The VBS contributions are enhanced by requiring the dijet invariant mass $m_{jj} > 500\gev$ and dijet separation $\Delta y_{jj} > 2.4$.  Numbers taken from~\cite{2014.ssww-thesis-gumpert}.}
   \label{tab:ssww13tev_qcd_vs_ewk}
 \end{table}
 
 This analysis studies \ssww scattering where both $W$ bosons decay leptonically to $e\nu$ or $\mu\nu$\footnote{Throughout the rest of this chapter, unless stated otherwise, $l$ denotes either electrons ($e$) or muons ($\mu$), and $\nu$ denotes a neutrino.  Additionally, $e$, $\mu$, and $\nu$ with no charge or anti-particle designation refer interchangeably to either the particle or anti-particle.}.
 The \ssww VBS final state consists of two leptons with the same electric charge, two neutrinos, and two high energy forward jets with a large invariant mass.
 Tree-level Feynman diagrams of VBS \ssww production can be found in Figure~\ref{fig:ssww13tev_diagrams_vbs_ssww} and a visual representation of the VBS topology can be found in Figure~\ref{fig:ssww13tev_event_topology}.
-The two forward jets also serve as a powerful tool to suppress the QCD production mode.
+
+The two tag jets in the characteristic VBS signature also serve as a powerful tool to suppress the QCD production mode.
 In EWK events, the two jets tend to have much higher separation and a larger combined invariant mass than the two leading jets in a QCD event.
 The two plots shown in Figure~\ref{fig:ssww13tev_dijet_comparison} highlight the differences in these dijet quantities between the two production modes.
 An ATLAS event display of a real \ssww candidate event is shown in Figure~\ref{fig:ssww13tev_event_display_mm}.
@@ -101,9 +103,9 @@ An ATLAS event display of a real \ssww candidate event is shown in Figure~\ref{f
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/introduction/Nm1_mjj}
-  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/introduction/Nm1_deltaY}
-  \caption[Generator level comparisons at \com{8} of dijet invariant mass ($m_{jj}$, left) and dijet rapidity ($\Delta y_{jj}$, right) in EWK (red) and QCD (blue) \ssww events.  Both data sets have been normalized to the same area.]{Generator level comparisons at \com{8} of dijet invariant mass ($m_{jj}$, left) and dijet rapidity ($\Delta y_{jj}$, right) in EWK (red) and QCD (blue) \ssww events.  Both data sets have been normalized to the same area.  Plots taken from~\cite{2013.ssww-8tev-atlas-support}.}
+  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/introduction/vbs_mjj}
+  \includegraphics[width=.4842\textwidth]{figs/ssww_13tev/introduction/vbs_dyjj}
+  \caption[Generator level comparisons at \com{7} of dijet invariant mass ($m_{jj}$, left) and dijet rapidity ($\Delta y_{jj}$, right) in EWK (red) and QCD (blue) \ssww events with no selection cuts applied.]{Generator level comparisons at \com{7} of dijet invariant mass ($m_{jj}$, left) and dijet rapidity ($\Delta y_{jj}$, right) in EWK (red) and QCD (blue) \ssww events with no selection cuts applied.  Plots taken from~\cite{2017.physics-opportunities-100tev}.}
   \label{fig:ssww13tev_dijet_comparison}
 \end{figure}
 
