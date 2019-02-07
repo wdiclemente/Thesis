@@ -103,8 +103,16 @@ An ATLAS event display of a real \ssww candidate event is shown in Figure~\ref{f
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.48\textwidth]{figs/ssww_13tev/introduction/vbs_mjj}
-  \includegraphics[width=.4842\textwidth]{figs/ssww_13tev/introduction/vbs_dyjj}
+  \begin{subfigure}[b]{.48\textwidth}
+    \includegraphics[width=\textwidth]{figs/ssww_13tev/introduction/vbs_mjj}
+    \caption{Dijet invariant mass}
+    \label{fig:ssww13tev_dijet_comparison_mjj}
+  \end{subfigure}
+  \begin{subfigure}[b]{.4842\textwidth}
+    \includegraphics[width=\textwidth]{figs/ssww_13tev/introduction/vbs_dyjj}
+    \caption{Dijet separation}
+    \label{fig:ssww13tev_dijet_comparison_dyjj}
+  \end{subfigure}
   \caption[Generator level comparisons at \com{7} of dijet invariant mass ($m_{jj}$, left) and dijet rapidity ($\Delta y_{jj}$, right) in EWK (red) and QCD (blue) \ssww events with no selection cuts applied.]{Generator level comparisons at \com{7} of dijet invariant mass ($m_{jj}$, left) and dijet rapidity ($\Delta y_{jj}$, right) in EWK (red) and QCD (blue) \ssww events with no selection cuts applied.  Plots taken from~\cite{2017.physics-opportunities-100tev}.}
   \label{fig:ssww13tev_dijet_comparison}
 \end{figure}
@@ -122,7 +130,7 @@ However, due to the $\pm 2$ final state charge, there is a considerable reductio
 
 One of the largest sources of background involves processes with prompt leptons\footnote{Prompt leptons are those that are produced in the primary collision and are a direct decay product of the process of interest.  Non-prompt leptons originate from some secondary process, such as a $b$-hadron decay, or are jets that get mis-reconstructed as a lepton.}.
 These are events that contain two leptons with the same electric charge and one or more additional leptons that are ``lost'', either by failing the selection criteria or falling outside of the detector's acceptance.
-The number of processes that can contribute is limited by the requirement of same-sign leptons, and as a result this background is dominated by processes involving two or more vector bosons, with the largest contribution coming from $WZ$ events and smaller contributions from $ZZ$ and $t\bar{t}V$ events.
+The number of processes that can contribute is limited by the requirement of same-sign leptons, and as a result this background is dominated by processes involving two or more vector bosons, with the largest contribution coming from $WZ$ events and smaller contributions from $ZZ$ and $t\bar{t}+V$ events.
 Triboson events where one boson decays hadronically also contribute to this background; however, the jets are generally softer and more central than in a typical VBS event, and the cuts applied on the forward jets suppress these contributions.
 
 The other dominant background comes from non-prompt, or ``fake'', leptons.

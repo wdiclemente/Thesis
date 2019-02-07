@@ -27,7 +27,7 @@ Triboson events, QCD \ssww, and other non-prompt sources make up approximately 5
 
 The event yields for the optimized selection detailed in Section~\ref{sswwupgrade:opt_results} are listed in Table~\ref{tab:sswwupgrade_yields_optimized}.
 After optimization, 2958 signal events and just 2310 background events are expected.
-Diboson events are now the primary source of background, as the optimization greatly reduces the fake and charge misidentification backgrounds.
+Diboson events are now the primary source of background, as the optimization greatly reduces the fake and charge mis-ID contributions.
 As discussed earlier, the increase in the leading and subleading jet $\pt$ cuts as well as the loosening of the centrality cut are most responsible for the changes in the signal and background yields; distributions of these quantities using the default and the optimized event selections can be found in Figures~\ref{fig:sswwupgrade_jet0pt_compare}, \ref{fig:sswwupgrade_jet1pt_compare}, and \ref{fig:sswwupgrade_centrality_compare}, respectively.
 
 \begin{table}[htbp]
@@ -52,38 +52,64 @@ As discussed earlier, the increase in the leading and subleading jet $\pt$ cuts 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.48\textwidth]{figs/ssww_upgrade/distributions/default/all_pass9_jet0_pt}
-  \includegraphics[width=.48\textwidth]{figs/ssww_upgrade/distributions/optimized/all_pass9_jet0_pt}
+  \begin{subfigure}[b]{.48\textwidth}
+    \includegraphics[width=\textwidth]{figs/ssww_upgrade/distributions/default/all_pass9_jet0_pt-cropped}
+    \caption{Default selection}
+    \label{fig:sswwupgrade_jet0pt_compare_d}
+  \end{subfigure}
+  \begin{subfigure}[b]{.474\textwidth}
+  \includegraphics[width=\textwidth]{figs/ssww_upgrade/distributions/optimized/all_pass9_jet0_pt-cropped}
+    \caption{Optimized selection}
+    \label{fig:sswwupgrade_jet0pt_compare_o}
+  \end{subfigure}
   \caption{$\pt$ distributions for the leading jet using the default (left) and optimized (right) event selections for all channels combined.}
   \label{fig:sswwupgrade_jet0pt_compare}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.48\textwidth]{figs/ssww_upgrade/distributions/default/all_pass9_jet1_pt}
-  \includegraphics[width=.48\textwidth]{figs/ssww_upgrade/distributions/optimized/all_pass9_jet1_pt}
+  \begin{subfigure}[b]{.48\textwidth}
+    \includegraphics[width=\textwidth]{figs/ssww_upgrade/distributions/default/all_pass9_jet1_pt-cropped}
+    \caption{Default selection}
+    \label{fig:sswwupgrade_jet1pt_compare_d}
+  \end{subfigure}
+  \begin{subfigure}[b]{.475\textwidth}
+  \includegraphics[width=\textwidth]{figs/ssww_upgrade/distributions/optimized/all_pass9_jet1_pt-cropped}
+    \caption{Optimized selection}
+    \label{fig:sswwupgrade_jet1pt_compare_o}
+  \end{subfigure}
   \caption{$\pt$ distributions for the subleading jet using the default (left) and optimized (right) event selections for all channels combined.}
   \label{fig:sswwupgrade_jet1pt_compare}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.48\textwidth]{figs/ssww_upgrade/distributions/default/all_pass9_lepjet_centrality}
-  \includegraphics[width=.48\textwidth]{figs/ssww_upgrade/distributions/optimized/all_pass9_lepjet_centrality}
+  \begin{subfigure}[b]{.48\textwidth}
+    \includegraphics[width=\textwidth]{figs/ssww_upgrade/distributions/default/all_pass9_lepjet_centrality-cropped}
+    \caption{Default selection}
+    \label{fig:sswwupgrade_centrality_compare_d}
+  \end{subfigure}
+  \begin{subfigure}[b]{.4792\textwidth}
+  \includegraphics[width=\textwidth]{figs/ssww_upgrade/distributions/optimized/all_pass9_lepjet_centrality-cropped}
+    \caption{Optimized selection}
+    \label{fig:sswwupgrade_centrality_compare_o}
+  \end{subfigure}
   \caption{$\pt$ distributions for lepton-jet centrality $\zeta$ using the default (left) and optimized (right) event selections for all channels combined.}
   \label{fig:sswwupgrade_centrality_compare}
 \end{figure}
 
 It is important to note, however, that the MC sample used to estimate $Z$+jets events suffers from poor statistics which results in large per-event weights once scaled to $\mathcal{L} = 3000~\textrm{fb}^{-1}$.
-This sample contributes heavily to the fake and charge misidentification backgrounds, and a handful of these events being cut out by the optimization contributes has a large effect on the dramatic reduction of these backgrounds.
-As a result, these particular optimized results are likely overly optimistic.
-However, given proper MC statistics, it is still expected that the optimization will outperform the default selection.
+This sample contributes heavily to the fake and charge misidentification backgrounds, and a handful of these events being cut out by the optimization is largely responsible for the dramatic reduction of the corresponding backgrounds.
+As a result, the optimized results presented here are likely overly optimistic.
+However, given proper MC statistics, it is still expected that this optimization will outperform the default selection.
 
 \subsection{Uncertainties}\label{sswwupgrade:results_uncertainties}
-\TODO{Ask for details on how some of these uncertainties were calculated -- specifically the fakes and charge mis-ID}
+%\TODO{Ask for details on how some of these uncertainties were calculated -- specifically the fakes and charge mis-ID}
 The uncertainties considered for the analysis are summarized in Table~\ref{tab:sswwupgrade_uncertainties}.
 Values for experimental systematics on the trigger efficiency, lepton and jet reconstruction, and flavor tagging are taken directly from the $13\tev$ analysis \cite{2018.ssww-13tev-atlas-conf}.
 The rate uncertainties for the background processes are halved from the $13\tev$ values according to ATLAS recommendations.
+The uncertainty on the fake electron estimation is also halved from the $13\tev$ analysis.
+Finally, a conservative estimate of the uncertainty on the charge flip background is used as the electron charge mis-ID rate due to material interactions is difficult to predict at this stage. 
 
 \begin{table}[htbp]
   \centering
@@ -130,10 +156,12 @@ and with the optimized event selection:
 \end{equation}
 The optimized selection should not change the measured value of the cross section, and indeed both are consistent with within uncertainties.
 The sytematic uncertainty is reduced by approximately 7\% with the optimized selection.
+The total uncertainty on the cross section measurement is approximately $6\%$, compared to approximately $20\%$ on the measured fiducial cross section of the $13\tev$ analysis reported in Equation~\ref{eq:ssww13tev_fiducial_xsec}.
 
-Projections of the total uncertainty on the cross section as a function of integrated luminosity made by \TODO{how was this made?} is shown in Figure~\ref{fig:sswwupgrade_uncertainty_projection}.
-As the integrated luminosity increases past $\mathcal{L} > 3000~\textrm{fb}^{-1}$, the statistical uncertainty reduces faster than the systematic uncertainties.
-However, the total uncertainty is expected to reduce by less than a percent with increased luminosity past the planned $3000~\textrm{fb}^{-1}$.
+Projections of each uncertainty type and the total uncertainty on the cross section as a function of integrated luminosity are shown in Figure~\ref{fig:sswwupgrade_uncertainty_projection}.
+The predictions are made by scaling the event yields by different luminosity values and re-running the fitting procedure.
+As the integrated luminosity increases past $\mathcal{L} > 3000~\textrm{fb}^{-1}$, the statistical uncertainty continues to reduce; however, the total uncertainty becomes limited by the systematics.
+Additionally, the total uncertainty is expected to reduce by less than a percent as the integrated luminosity increases past the planned $3000~\textrm{fb}^{-1}$.
 
 \begin{figure}[htbp]
   \centering
@@ -144,17 +172,25 @@ However, the total uncertainty is expected to reduce by less than a percent with
 
 \subsection{Longitudinal scattering significance}\label{sswwupgrade:results_longitudinal_sig}
 The longitudinal scattering significance is extracted in much the same way as the cross section, this time using a binned likelihood fit on the $|\dphijj|$ distribution.
-In order to increase sensitivity, the $|\dphijj|$ distribution is split into two bins in $m_{jj}$, and an additional cut on the pseudorapidity of the subleading lepton is applied ($|\eta| < 2.5$) to reduce background from fake and charge misidentification.
+In order to increase sensitivity, the $|\dphijj|$ distribution is split into two bins in $m_{jj}$, and an additional cut on the pseudorapidity of the subleading lepton is applied ($|\eta| < 2.5$) to reduce background contributions from fake electrons and charge flip.
 The $|\dphijj|$ distributions used in the fit are shown in Figure~\ref{fig:sswwupgrade_dphijj_LL}.
-Due to limited statistics, the four lepton flavor channels are not split by charge.
+Due to limited statistics in the LL events, the four lepton flavor channels are not split by charge.
 The expected significance of the \sswwll process is $1.8\sigma$ with a precision of $47\%$ on the measurement.
 Projections of the expected significance as a function of integrated luminosity is shown in Figure~\ref{fig:sswwupgrade_LL_significance_projection}.
 %\TODO{Ask Karolos how the expected significance vs luminosity plot was made!}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.6\textwidth]{figs/ssww_upgrade/results/plots_optimisedLL_all_pass9_dijet_absdphijj_lowmjj}\\
-  \includegraphics[width=.6\textwidth]{figs/ssww_upgrade/results/plots_optimisedLL_all_pass9_dijet_absdphijj_highmjj}
+  \begin{subfigure}[b]{.6\textwidth}
+    \includegraphics[width=\textwidth]{figs/ssww_upgrade/results/plots_optimisedLL_all_pass9_dijet_absdphijj_lowmjj-cropped}
+    \caption{Low $m_{jj}$ bin ($520 < m_{jj} < 1100\gev$)}
+    \label{fig:sswwupgrade_dphijj_LL_low}
+  \end{subfigure}
+  \begin{subfigure}[b]{.6\textwidth}
+    \includegraphics[width=\textwidth]{figs/ssww_upgrade/results/plots_optimisedLL_all_pass9_dijet_absdphijj_highmjj-cropped}
+    \caption{High $m_{jj}$ bin ($m_{jj} > 1100\gev$)}
+    \label{fig:sswwupgrade_dphijj_LL_high}
+  \end{subfigure}
   \caption{Dijet azimuthal separation ($|\dphijj|$) for the low $m_{jj}$ region ($520 < m_{jj} < 1100\gev$, top) and the high $m_{jj}$ region ($m_{jj} > 1100\gev$, bottom).  The purely longitudinal (LL, gray) is plotted separately from the mixed and transverse (LT+TT, cyan) polarizations.}
   \label{fig:sswwupgrade_dphijj_LL}
 \end{figure}

@@ -1,36 +1,23 @@
+The majority of the default object and event selections were determined in the preceeding $W^{\pm}W^{\pm}jj$ HL-LHC prospects study~\cite{2017.ssww-upgrade}, which focused on the impact of the upgraded detector's forward tracking capabilities.
+Several different combinations of lepton and jet $\eta$ ranges were tested, and the results are used in this study. 
+
 \subsection{Object selection}\label{sswwupgrade:object_selection}
-Electrons and muons are preselected to have $\pt > 7$ and $6\gev$, respectively, and $|\eta| \le 4.0$.
+Electrons and muons are preselected to have $\pt > 7$ and $6\gev$, respectively, and lie within $|\eta| \le 4.0$.
 The likelihood of a given lepton to pass the trigger and identification requirements is estimated by calculating an efficiency dependent on the $\pt$ and $\eta$ of the lepton.
 The leptons are also required to pass the isolation criteria detailed in Table~\ref{tab:truth_iso_definition}.
 Jets that have been tagged as a fake electron by the functions described in Section~\ref{sswwupgrade:background} are treated as electrons for the purpose of the object selection and are subject to the same criteria.
-In order to be considered a signal lepton, an additional requirement of $\pt > 25\gev$ is applied on top of the preselection.
+In order to be considered a signal lepton, the transverse momentum requirement is raised to $\pt > 25\gev$.
 The two highest $\pt$ leptons passing this selection are chosen to be the leading and subleading signal leptons.
 
-Jets are clustered using the anti-$k_t$ algorithm~\cite{2008.antikt} from final-state particles within a radius of $\deltar = 0.4$ (excluding muons and neutrinos).
-Jets are required to have $\pt > 30\gev$ and lie within $|\eta| < 4.5$, with an additional cut of $\pt > 70\gev$ for jets above $|\eta| \ge 3.8$ in order to suppress jets from pileup interactions.
-Jets overlapping with a preselected electron within $\deltar(e,j) < 0.05$ are removed in order to prevent double counting.
-The two highest $\pt$ jets are defined as the leading and subleading \emph{tag jets}.
+Jets are clustered using the anti-$k_t$ algorithm from final-state particles within a radius of $\deltar = 0.4$ (excluding muons and neutrinos).
+All jets are required to have $\pt > 30\gev$ and lie within $|\eta| < 4.5$; in order to suppress jets from pileup interactions, jets outside of $|\eta| \ge 3.8$ must pass an higher momentum cut of $\pt > 70\gev$.
+Jets overlapping a preselected electron within $\deltar(e,j) < 0.05$ are removed in order to prevent double counting.
+The two highest $\pt$ jets are defined as the leading and subleading tag jets.
 % do i talk about jet vertex fraction?
 
 %To study the expected impact of the upgraded detector's forward tracking, several different combinations of jet and lepton $\eta$ ranges were tested in \cite{2017.ssww-upgrade} and the results are used here.
 
 \subsection{Event selection}\label{sswwupgrade:event_selection}
-The default event selection is summarized in Table~\ref{tab:sswwupgrade_event_selection} and described here.
-Exactly two signal leptons are required with the same electric charge and separated from each other by $\deltar(ll) > 0.3$.
-In order to suppress contributions from Drell-Yan backgrounds, the two signal leptons must have an invariant mass $m_{ll}$ greater than $20\gev$.
-Additionally, if both signal leptons are electrons, their mass must be at least $10\gev$ from the $Z$-boson mass in order to reduce background from $Z$-boson decays\footnote{The electron charge misidentification rate in the upgraded ATLAS detector is estimated to be high enough that contributions from $Z\rightarrow ee$ backgrounds are non-negligible.}.
-The event is required to have at least $40\gev$ of missing transverse energy ($\met$) to account for the two neutrinos from the $W$ decays.
-Events with additional preselected leptons are vetoed, which greatly reduces $WZ$ and $ZZ$ backgrounds.
-
-Each event must have at least two jets, and both tag jets are required to not overlap with the signal leptons, and there is a veto on events with one or more $b$-jets.
-In order to preferentially select EWK production, the tag jets are also required to have a large separation between them and a large invariant mass.
-Finally, a cut on the lepton centrality\footnote{$\zeta$ is a measurement of whether the two signal leptons lie between the two tagging jets in $\eta$, as is preferred by the VBS topology.}, $\zeta$, defined in Equation~\ref{eq:lepton_jet_centrality} enhances the EWK \ssww signal.
-%$\zeta$ is a measurement of whether the two signal leptons lie between the two tagging jets in $\eta$, as is preferred by the VBS topology.
-
-\begin{equation}
-\zeta = \min [\min (\eta_{\ell1}, \eta_{\ell2} )-\min(\eta_{j1},\eta_{j2}), \max(\eta_{j1},\eta_{j2})-\max(\eta_{\ell1},\eta_{\ell2}) ]
-\label{eq:lepton_jet_centrality}
-\end{equation}
 
 \begin{table}[htbp]
   \centering
@@ -58,3 +45,21 @@ Finally, a cut on the lepton centrality\footnote{$\zeta$ is a measurement of whe
   \caption{Summary of the signal event selection.}
   \label{tab:sswwupgrade_event_selection}
 \end{table}
+
+The default event selection is summarized in Table~\ref{tab:sswwupgrade_event_selection} and described here.
+Exactly two signal leptons are required with the same electric charge and separated from each other by $\deltar(ll) > 0.3$.
+In order to suppress contributions from Drell-Yan backgrounds, the two signal leptons must have an invariant mass $m_{ll}$ greater than $20\gev$.
+Additionally, if both signal leptons are electrons, their mass must be at least $10\gev$ away from the $Z$-boson mass in order to reduce background from $Z$-boson decays\footnote{The electron charge misidentification rate in the upgraded ATLAS detector is estimated to be high enough that contributions from $Z\rightarrow ee$ backgrounds are non-negligible.}.
+The event is required to have at least $40\gev$ of missing transverse energy ($\met$) to account for the two final-state neutrinos.
+Events with additional preselected leptons are vetoed, which greatly reduces $WZ$ and $ZZ$ backgrounds.
+
+Each event must have at least two jets, and both tag jets are required to not overlap with the signal leptons.
+Events with one or more $b$-jets are vetoed to suppress backgrounds from heavy-flavor decays.
+In order to preferentially select EWK production, the tag jets are required to have a large separation between them and a large invariant mass.
+Finally, a cut on the lepton centrality\footnote{$\zeta$ is a measurement of whether the two signal leptons lie between the two tagging jets in $\eta$, as is preferred by the VBS topology.}, $\zeta$, defined in Equation~\ref{eq:lepton_jet_centrality} further enhances the EWK \ssww signal.
+%$\zeta$ is a measurement of whether the two signal leptons lie between the two tagging jets in $\eta$, as is preferred by the VBS topology.
+
+\begin{equation}
+\zeta = \min [\min (\eta_{\ell1}, \eta_{\ell2} )-\min(\eta_{j1},\eta_{j2}), \max(\eta_{j1},\eta_{j2})-\max(\eta_{\ell1},\eta_{\ell2}) ]
+\label{eq:lepton_jet_centrality}
+\end{equation}

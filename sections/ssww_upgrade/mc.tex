@@ -1,5 +1,6 @@
-As no real HL-LHC data will be available for many years, all signal and background processes are modeled using MC simulations generated at \com{14}, with the event yields scaled to the anticipated HL-LHC integrated luminosity of $\mathcal{L}=3000~\textrm{fb}^{-1}$.
-The MC samples used in the analysis are generated at particle-level and have not been run through the typical full simulation of the ATLAS detector.
+As this is a prospects study for a future collider, all signal and background processes are modeled using MC simulations.
+The samples are generated at the expected HL-LHC center of mass energy \com{14}, and the event yields are scaled to the anticipated integrated luminosity of $\mathcal{L}=3000~\textrm{fb}^{-1}$.
+The MC samples used in the analysis are generated at particle-level and have not been run through the full simulation of the ATLAS detector.
 Instead, smearing functions derived from a \tt{GEANT4} simulation of the upgraded ATLAS detector are used to estimate detector effects such as momentum resolution.
 In addition, pileup events are fully simulated.
 The MC samples used in this analysis are summarized in Table~\ref{tab:ssww13upgrade_mcsamples}.
@@ -14,7 +15,7 @@ $WZ$ events are generated using \sherpav{2.2.0}, which includes up to one parton
 Both EWK and QCD production are included in these samples.
 $ZZ$ and triboson $VVV$ ($V = W,Z$) events are generated using \sherpav{2.2.2} with up to two additional partons in the final state.
 For the triboson backgrounds, the bosons can decay leptonically or hadronically.
-$W$+jets backgrounds are generated for electron, muon, and tau final states at LO with \mcatnlo and the \nnpdf set with showering from \pythiav{8}.
+$W$+jets backgrounds are generated for electron, muon, and tau final states at LO with \mcatnlo and the \nnpdf PDF set with showering from \pythiav{8}.
 $Z$+jets events are produced using \powhegbox{2} and the \ctten PDF set interfaced with \pythiav{8}.
 Finally, $t\bar{t}$ and single-top events are generated using \tt{POWHEG-BOX} with showering from \pythiav{6}.
 
