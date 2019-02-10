@@ -1,12 +1,13 @@
 The major sources of background events are summarized in Section~\ref{ssww13tev:background_overview}, and the methods used to estimate them are detailed in this section.  
-Prompt backgrounds from $ZZ$ and $t\bar{t}V$ are estimated directly from MC simulations.
+Prompt backgrounds from $ZZ$ and $t\bar{t}+V$ are estimated directly from MC simulations.
 The shape of the $WZ$ and $V\gamma$ backgrounds are taken from MC, and the predicted yeilds are normalized to the data predictions in dedicated control regions, as outlined in Sections~\ref{ssww13tev:wz} and \ref{ssww13tev:wgamma}, respectively.
 Opposite sign events with a charge misidentified electron are estimated by a data-driven background method which is summarized in Section~\ref{ssww13tev:charge_misid}.
 Finally, a \emph{fake-factor} method is used to estimate the contributions from non-prompt backgrounds and is the subject of Section~\ref{ssww13tev:fake_factor}.
 
 \subsection{Estimation of the $WZ$ background}\label{ssww13tev:wz}
 The dominant background involving prompt leptons comes from $WZ$+jets events.
-The contribution is estimated from MC simulation and normalized to data in a control region enriched in $WZ$ events defined by the same event selection as Table~\ref{tab:ssww13tev_event_selection} for the signal region, with the following changes applied to increase the purity of the $WZ$ process:
+The contribution is estimated from MC simulation and normalized to data in a control region enriched in $WZ$ events.
+This region is defined by the same event selection as the signal region in Table~\ref{tab:ssww13tev_event_selection}, with the following changes applied to increase the purity of the $WZ$ process:
 \begin{itemize}
 \item The third lepton veto is inverted, requiring a third lepton with $\pt > 15\gev$
 \item Two of the leptons must make a same-flavor opposite-sign pair. If more than one pair exists, the one with $m_{ll}$ closest to the $Z$ boson mass is chosen.
@@ -76,8 +77,8 @@ The full event selection is detailed in Table~\ref{tab:ssww13tev_vgamma_cr}.
 
 The $Z\gamma$ MC samples available do not cover the full range of $\pt^\gamma$ and $\deltar(\gamma,l)$; thus, additional Drell-Yan samples ($Z$+jets) are used to fill out the phase space.
 Overlap between the two samples are removed based to avoid double counting.
-Events with final state photons at truth level are checked to ensure that the photon did not originate from a hadronic decay.
-Cuts on $\pt^\gamma > 10\gev$ and $\deltar(\gamma,l) > 0.1$ are then applied at generator level, and $Z\gamma$ events that fail and $Z$+jets events that pass this additional selection are removed.
+Events with final state photons are checked at truth level\footnote{Truth particles are the particles produced directly by the MC generator before being passed through the full detector simulation, at which point they are considered \emph{reconstruction-level} (or \emph{reco-level}) particles.} to ensure that the photon did not originate from a hadronic decay.
+Cuts on $\pt^\gamma > 10\gev$ and $\deltar(\gamma,l) > 0.1$ are then applied at generator level, and $Z\gamma$ events that fail this additional selection and $Z$+jets events that pass it are removed.
 
 The normalization factor is calculated directly from the event yields in the $V\gamma$ control region rather than in the signal fit, as is done for the $WZ$ background.
 The event yields are listed in Table~\ref{tab:ssww13tev_vgamma_numbers}, and the normalization factor is determined to be $1.77$.
@@ -105,12 +106,12 @@ A systematic uncertainty of 44\% is assigned to the background based off of the 
 \end{table}
 
 \subsection{Estimation of backgrounds from charge misidentification}\label{ssww13tev:charge_misid}
-If an electron's charge is mis-reconstructed, it can lead to a real, opposite-sign lepton pair passing the same-sign requirement in the event selection.
+If an electron's charge is mis-reconstructed, it can lead to a real opposite-sign lepton pair passing the same-sign requirement in the event selection.
 There are two primary reasons this can occur:
 \begin{enumerate}
 \item An electron emits a photon via bremsstrahlung which then converts into an electron-positron pair, and the conversion track with the wrong electric charge is matched to the original electron.
 This is the dominant process leading to charge flip, and it is highly dependent on the electron $\eta$ due to the different amount of detector material the electron passes through.
-\item The curvature of the electron's track is mismeasured, resulting in the wrong charge being assigned.
+\item The curvature of the electron's track is mis-measured, resulting in the wrong charge being assigned.
 This process is dependent on the momentum of the electron, as its track becomes more straight as the momentum of the electron increases.
 \end{enumerate}
 
@@ -121,7 +122,7 @@ Once the scale factors are applied, the charge misidentification rate $\varepsil
 \begin{equation}
   \varepsilon(\eta,\pt) = \frac{N_{\textrm{wrong\ charge}}}{N_{\textrm{prompt\ electrons}}}
 \end{equation}
-The charge mis-ID rate is calculated in bins of electron $|\eta|$ and $\pt$ and varies from below $0.1\%$ in the central region of the detector up to $8\%$ in the forward regions for high $\pt$ (above $90\gev$) electrons.
+The charge mis-ID rate is calculated in bins of electron $|\eta|$ and $\pt$, and it varies from below $0.1\%$ in the central region of the detector up to $8\%$ in the forward regions for high $\pt$ (above $90\gev$) electrons.
 A two-dimensional plot of $\varepsilon$ can be found in Figure~\ref{fig:charge_flip_rates}.
 
 \begin{figure}
@@ -158,7 +159,7 @@ In the case of an event with only one electron and one muon, Equation~\ref{ssww1
 This method assumes that there is little contamination from fake electrons in the opposite-sign sample, and this has been verified with MC simulation.
 
 Additionally, charge-flipped electrons tend to be reconstructed with lower energy when compared to electrons with the correct charge.
-This is due to energy loss from the material interactions that can cause the charge to be misidentified.
+This is due to energy loss from the material interactions that can cause the charge to be misidentified in the first place.
 A correction factor is calculated from MC simulations, comparing the $\pt$ of the truth electron to its reconstructed counterpart:
 \begin{equation}
 \alpha = \frac{\Big(\frac{\pt^{\textrm{reco}}}{\pt^{\textrm{truth}}}-1\Big)_{\textrm{correct charge}}}{\Big(\frac{\pt^{\textrm{reco}}}{\pt^{\textrm{truth}}}-1\Big)_{\textrm{wrong charge}}}

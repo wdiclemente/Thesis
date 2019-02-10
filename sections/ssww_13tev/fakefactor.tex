@@ -27,7 +27,7 @@ f(b) = \frac{N_{\textrm{nominal}}(b)}{N_{\textrm{loose}}(b)}
 where $b$ represents the bin number.
 In this analysis, the fake-factor is binned in lepton $\pt$.
 
-In order to estimate the fake background contribution in a given signal or control region, the fake-factor is applied to a second control region with a selection identical to the region of interest with one of the leptons required to satisfy the loose criteria.
+In order to estimate the fake background contribution in a given signal or control region, the fake-factor is applied to a second control region with a selection identical to the region of interest except one of the leptons required to satisfy the loose criteria.
 The region for which the background is estimated contains two nominal leptons and is referred to as \emph{nominal+nominal} ($NN$), and the associated control region where the fake-factor is applied contains one nominal and one loose lepton and is referred to as \emph{nominal+loose} ($NL$).
 The fake background in a $NN$ region can then be calculated as:
 \begin{equation}
@@ -49,7 +49,7 @@ N_{NN}^{\textrm{fake\ bkg.}} = \sum\limits_{b}f(b) \big(N_{NL}(b) - N_{NL}^{\tex
 \subsubsection{The fake-factor with $\ptcone$}\label{ssww13tev:ff_method_ptcone}
 When a jet produces a non-prompt lepton, that lepton only carries a fraction of the underlying jet's total momentum.
 Due to the isolation cut applied to the nominal leptons, they typically carry a much larger percentage of the underlying jet momentum than the loose leptons. %(which are allowed to fail this criteria). 
-Since the isolation essentially sets a limit on the amount of detector activity allowed around the lepton, if other nearby particles carried a significant portion of the jet's momentum, the lepton would likely fail this cut.
+Since the isolation essentially sets a limit on the amount of detector activity allowed around the lepton, if other nearby particles carried a significant amount of momentum, the lepton would likely fail this cut.
 
 This discrepancy in the underlying jet momentum fraction can cause problems in the calculation of the fake-factor $f$.
 Consider the case where two separate events have jets of identical momentum, but one produces a non-prompt lepton that passes the nominal selection, and the other produces a non-prompt lepton that passes the loose selection.
@@ -115,7 +115,7 @@ f(b) = \frac{N_{\textrm{nominal}}\big(b(\pt)\big)}{N_{\textrm{loose}}\big(b(\ptp
 \subsubsection{Application of the fake-factor}\label{ssww13tev:ff_implementation}
 The fake-factor itself is measured from a sample data events passing a dijet selection requiring exactly one lepton (either passing the nominal or loose selections) and at least one jet.
 The leading jet must also be $b$-tagged and approximately back-to-back with the lepton in order to enhance non-prompt lepton contributions while reducing contributions from processes involving $W$ and $Z$ bosons.
-$W$ boson events are further suppressed by requiring the sum of the $\met$ and the transverse mass of the lepton and $\met$ to be less than $50\gev$.
+$W$ boson events are further suppressed by requiring the sum of the $\met$ and the transverse mass of the lepton to be less than $50\gev$.
 The full event selection for the dijet region is summarized in Table~\ref{tab:ssww13tev_dijet_cr}.
 
 \begin{table}[hbtp]
@@ -185,7 +185,7 @@ However, the signal and control regions (and their corresponding $NL$ regions) c
 Four sources of systematic uncertainty are considered: the dijet event selection, the prompt background subtraction, the jet flavor composition, and residual dependence on the underlying jet $\pt$ spectrum.
 In order to measure the impact of these systematics, new fake-factors are computed with each of the systematic variations and the differences from the nominal values are taken as the uncertainty.
 \begin{enumerate}
-\item In order to estimate uncertainties due to the dijet selection, the cut on $M_{\textrm{T}}+\met$ is varied by $\pm5\gev$, $\Delta\phi(l,j)$ by $\pm 0.1$, and the jet $\pt$ cut by $+5\gev$.
+\item In order to estimate uncertainties due to the dijet selection, the cut on $M_{\textrm{T}}+\met$ is varied by $\pm5\gev$, the jet-lepton separation $\Delta\phi(l,j)$ by $\pm 0.1$, and the jet $\pt$ cut by $+5\gev$.
 \item To estimate the systematic uncertainty on the prompt background subtraction, the MC prediction in a $W$+jets control region is compared to data.  The discrepancy between data and MC is found to be approximately 10\%~\cite{2018.ssww-13tev-atlas-support}.  Therefore, the prompt background used for the subtraction is scaled up and down by $\pm 10\%$.
 \item The difference in the jet flavor composition between the dijet events and the events in the $NL$ regions can affect the accuracy of the fake background estimation.  The dijet sample is dominated by light jets, while the $NL$ regions tend to be dominated by heavy flavor from $t\bar{t}$.  To account for this, the fake-factor is computed with a $b$-jet veto.
 \item To measure any residual dependence on the underlying jet $\pt$ spectrum, the leading jet $\pt$ distribution is reweighted to match the $\pt$ spectrum of truth jets that produce fake leptons in MC simulations.  This results in an increase in the number of nominal and loose leptons at high momentum~\cite{2018.ssww-13tev-atlas-support}.
@@ -248,7 +248,7 @@ There is good agreement between the data and the prediction, even when only taki
 \begin{table}[htbp]
   \centering
   \begin{tabular}{c}
-    Same-sign inclusive VR \\
+    Same-sign top fakes VR \\
     \hline\hline
     Exactly 2 same-sign signal leptons\\
     $\pt > 27\gev$ for both leptons \\

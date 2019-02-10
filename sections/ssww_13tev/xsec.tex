@@ -8,14 +8,15 @@ The low-$m_{jj}$ region is defined to mirror the signal region exactly with the 
 The signal and low-$m_{jj}$ regions are split into six channels based on the flavor and charge of the dilepton pair: $\mmp$, $\mmm$, $\mep$, $\mem$, $\eep$, and $\eem$.
 This split by charge increases the sensitivity of the measurement due to the $W^{+}/W^{-}$ charge asymmetry at hadron colliders favoring the production of $W^{+}$ bosons~\cite{2010.w-charge-asymmetry}.
 Since the signal events contain two $W$ bosons, the signal strength compared to charge-symmetric backgrounds is much greater in the $++$ channels for both charges combined.
-The $WZ$ control region is included in the fit as a single bin ($l^{\pm}l^{\pm}l^{\pm}$).
+The $WZ$ control region is included in the fit as a single bin ($l^{\pm}l^{\mp}l^{\pm}$).
 
 The maximum likelihood fit and cross section extractions are outlined in Sections~\ref{ssww13tev:xsec_fit_method} and \ref{ssww13tev:xsec_method}, respectively.
 The results of the cross section measurement and of the analysis as a whole are presented in Section~\ref{ssww13tev:results}.
 
 \subsection{Maximum likelihood fit}\label{ssww13tev:xsec_fit_method}
-\TODO{This section is very similar to what is written in the support note... May need to put some work into flushing it out so it's not so close to copy-paste}
-The number of predicted signal events in each channel $c$ and $m_{jj}$ bin $b$ can be calculated from the SM predicted signal cross section $\sigma^{\textrm{tot}}_{\textrm{theo}}$, the total integrated luminosity $\mathcal{L}$, the signal acceptance $\mathcal{A}$, and the efficiency corrections $\mathcal{C}(\theta)$, where $\theta$ represents the set of nuisance parameters that parameterize the effects of each systematic uncertainty on the signal and background expectations.
+%\TODO{This section is very similar to what is written in the support note... May need to put some work into flushing it out so it's not so close to copy-paste}
+The number of predicted signal events in each channel $c$ and $m_{jj}$ bin $b$ can be calculated from the SM predicted total production cross section $\sigma^{\textrm{tot}}_{\textrm{theo}}$ scaled by the total integrated luminosity $\mathcal{L}$, the signal acceptance $\mathcal{A}$, and the efficiency corrections $\mathcal{C}(\theta)$.
+Here $\theta$ represents the set of nuisance parameters that parameterize the effects of each systematic uncertainty on the signal and background expectations.
 The acceptance and efficiency corrections will be covered in more detail in Section~\ref{ssww13tev:xsec_fid_vol}.
 \begin{equation}
   N_{cb}^{\textrm{sig}}(\theta) = \sigma^{\textrm{tot}}_{\textrm{theo}}\mathcal{A}_b\mathcal{C}_{b}(\theta)\mathcal{L}
@@ -53,14 +54,14 @@ The binned likelihood function is given by a product of Gaussian functions for t
 where $\mathcal{G}$ and $\mathcal{P}$ are the Gaussian and Poisson functions, respectively.
 As before, $\mathcal{L}$ represents the integrated luminosity with uncertainty $\sigma_{\mathcal{L}}$ and associated nuisance parameter $\theta_{\mathcal{L}}$.
 The number of measured events in a given bin and channel is represented by $N_{cb}^{\textrm{meas.}}$, and $\nu_{cb}(\mu)$ is the predicted number of events defined in Equation~\ref{eq:ssww13tev_xsec_nexp_fit} expressed as a function of the signal strength $\mu$.
-Finally, the set of nuisance parameters $\theta$ and any auxiliary measurements used to constrain them $\theta^0$ are multiplied for each parameter $p$.
+Finally, the set of nuisance parameters $\theta$ and any auxiliary measurements used to constrain them ($\theta^0$) are multiplied for each parameter $p$.
 
 The profile likelihood ratio is defined as
 \begin{equation}
   q_{\mu} = -2\ln\frac{L(\mu,\hat{\hat{\theta}}_{\mu})}{L(\hat{\mu},\hat{\theta})}
   \label{dq:ssww13tev_xsec_test_statistic}
 \end{equation}
-with $\hat{\mu}$ and $\hat{\theta}$ as the unconditional maximum likelihood estimates and $\hat{\hat{\theta}}$ as the conditional maximum likelihood estimate for a given value of $\mu$.
+where $\hat{\mu}$ and $\hat{\theta}$ are the unconditional maximum likelihood estimates, and $\hat{\hat{\theta}}$ is the conditional maximum likelihood estimate for a given value of $\mu$.
 %basically the idea here is that the unconditional maximum is just the best value of \theta and \mu.  the conditional maximum is the best value of \theta GIVEN a particular \mu (i.e. the best value of \theta is conditional upon the choice of \mu)
 %Since $q_{\mu}$ is asymptotically $\chi^2$ distributed according to Wilks' theorem~\cite{}
 The fitted signal strength $\hat{\mu}$ is obtained by maximizing the likelihood function with respect to all parameters.
@@ -102,11 +103,11 @@ The selection criteria for the fiducial volume are listed in Table~\ref{tab:ssww
   \label{tab:ssww13tev_fiducial_vol}
 \end{table}
 
-In MC simulations, the total phase space is generated, providing the total theoretical cross section $\sigmatottheo$
+In MC simulations the total phase space is generated, providing the total theoretical cross section $\sigmatottheo$
 and the total number of signal events $\mathcal{N}_{\textrm{sig}}^{\textrm{tot}}$\footnote{For the purpose of clarity, the number of events at truth level is represented by a script $\mathcal{N}$, and the number of events at reconstruction level uses a regular $N$.}.
 After applying the fiducial selection at truth level, the total number of signal events in the fiducial region $\mathcal{N}_{\textrm{sig}}^{\textrm{fid}}$ is obtained.
 %, and the fiducial predicted cross section can be written in terms of an acceptance factor $\mathcal{A}$ first introduced in Equation~\ref{eq:ssww13tev_xsec_nsig}:
-An acceptance factor $\mathcal{A}$ is used to represent the efficiency of events falling in the fiducial region at truth level:
+An acceptance factor $\mathcal{A}$ is used to represent the efficiency of events falling inside the fiducial region at truth level:
 \begin{equation}
   \mathcal{A} = \frac{\mathcal{N}_{\textrm{sig}}^{\textrm{fid}}}{\mathcal{N}_{\textrm{sig}}^{\textrm{tot}}}
   \label{eq:ssww13tev_xsec_acceptance}
@@ -116,7 +117,7 @@ A correction factor $\mathcal{C}$ is also necessary to translate from the truth 
   \mathcal{C} = \frac{N_{\textrm{sig,MC}}^{\textrm{SR}}}{\mathcal{N}_{\textrm{sig}}^{\textrm{fid}}}
   \label{eq:ssww13tev_xsec_efficiency}
 \end{equation}
-Since the fit is binned in $m_{jj}$, the acceptance and efficiency correction factors need to be as well.
+Since the fit is binned in $m_{jj}$, the acceptance and efficiency correction factors must be as well.
 Therefore, $\mathcal{A}_i$ and $\mathcal{C}_{ij}$ are written in terms of truth $m_{jj}$ bins $i$ and reconstruction $m_{jj}$ bins $j$.
 A graphical representation of these regions and the use of the acceptance and correction factors can be seen in Figure~\ref{fig:ssww13tev_xsec_fiducial_graphic}.
 
@@ -160,11 +161,11 @@ The measured fiducial cross section can finally be rewritten in terms of $\hat{\
   \label{eq:ssww13tev_xsec_fid_meas_mu}
 \end{equation}
 
-In practice, however, the cross section is not extracted from a single bin, and Equation~\ref{eq:ssww13tev_xsec_nexp_unbinned} becomes for a single channel in truth and reconstruction level $m_{jj}$ bins $i$ and $j$, respectively:
+In practice, however, the cross section is not extracted from a single bin, and Equation~\ref{eq:ssww13tev_xsec_nexp_unbinned} becomes:
 \begin{equation}
   N_{\textrm{exp}}^{\textrm{SR}}(\theta) = \mu(\theta)\cdot\sigmatottheo\cdot\mathcal{L}\cdot\sum\limits_i\mathcal{A}_i\cdot\sum\limits_j\mathcal{C}_{ij}+\sum\limits_j N_{\textrm{bkg},j}^{\textrm{SR}}(\theta)
 \end{equation}
-where now the binned versions of $\mathcal{A}_i$ and $\mathcal{C}_{ij}$ are used.
+for a single channel in truth and reconstruction level $m_{jj}$ bins $i$ and $j$, respectively, where the binned versions of $\mathcal{A}_i$ and $\mathcal{C}_{ij}$ are used.
 This equation can be extended to include all the analysis channels by increasing the number of bins $i$ and $j$.
 Additionally, it can be shown that Equation~\ref{eq:ssww13tev_xsec_fid_meas_mu} holds for this more complex case as well~\cite{2018.ssww-13tev-atlas-support}, provided care is taken to ensure that all the uncertainties are handled properly.
 
