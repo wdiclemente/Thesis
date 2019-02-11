@@ -4,8 +4,8 @@
 \label{ch:alignment}
 
 When a charged particle passes through the ATLAS ID, it leaves hits in the sensors along its path.
-In order to accurately measure the track of the particle, it is necessary to know where these hits occured as precisely as possible, which in turn requires knowledge of the physical location of the element that registered the hit.
-If one of these elements is \emph{misaligned}, or displaced relative to its position in the known detector geometry, the assumed location of the corresponding hit will not match its actual location, resulting in an incorrect track fit.
+In order to accurately measure the track of the particle, it is necessary to know where these hits occured as precisely as possible, which in turn requires knowledge of the physical location of the sensor that registered the hit.
+If one of these sensors is displaced relative to its expected position in the known detector geometry, or \emph{misaligned}, the assumed location of the corresponding hit will not match its actual location, resulting in an incorrect track fit.
 These misalignments can occur for any number of reasons, including but not limited to elements shifting during maintenance periods or cycles in ATLAS's magnetic field, or small movements during normal detector operations.
 %These misalignments in the ID result in poor track reconstruction quality and ultimately degrade the overall detector resolution.
 The effect of a misaligned detector element on the track reconstruction is shown in Figure~\ref{fig:alignment_effects_misalign}. %\TODO{ there has to be a better way to introduce this figure -- i haven't talked about residuals yet}

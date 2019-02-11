@@ -5,8 +5,8 @@ In order to correct for these large detector movements prior to \com{13} collisi
 This alignment was able to correct for the majority of the large detector-wide misalignments as well as determine the global position of the IBL at the micron level.
 %Due to the relatively low statistics available in the cosmic ray data, the alignment was performed up to L3 in the Pixel barrel and IBL and only up to L2 in the SCT (barrel and end-caps) and the Pixel end-caps; the TRT was kept fixed as a reference point.
 
-In June of 2015, shortly after the data taking period began, the first track-based alignment of the refurbished ID was performed using $\mathcal{L} = 7.9~\mathrm{pb}^{-1}$ of \com{13} $pp$ collision data~\cite{2015.alignment-13tev}.
-Starting from the initial geometry determined by the cosmic ray alignment, referred to hereafter as the \emph{March alignment}, an improved set of alignment constants, called the \emph{June alignment}, was derived from a data set of approximately 1.4 million selected tracks.
+In June of 2015, shortly after the data taking period began, the first track-based alignment of the refurbished ID was performed using the initial $7.9~\mathrm{pb}^{-1}$ of \com{13} $pp$ collision data~\cite{2015.alignment-13tev}.
+Starting from the geometry determined by the cosmic ray alignment, referred to hereafter as the \emph{March alignment}, an improved set of alignment constants (the \emph{June alignment}) was derived from a data set of approximately 1.4 million selected tracks.
 For comparison, a MC sample containing approximately 2.7 million tracks was constructed from dijet events simulated using a perfect detector geometry; the MC events are reweighted to match the $\eta$ and $\pt$ distributions found in the data.
 Additional validation of the alignment results uses a set of cosmic ray data collected by the detector during the LHC collisions.
 
@@ -14,12 +14,12 @@ Additional validation of the alignment results uses a set of cosmic ray data col
 The data set used as the input for the alignment contains a subset of physics events used for prompt reconstruction recorded at a rate of 10~Hz.
 To ensure that only high quality tracks are used for the alignment, each track is required to have transverse momentum $\pt > 3\gev$, contain at least one hit in the Pixel detector, at least seven hits in the combined silicon detectors, and at least 25 hits in the TRT.
 
-A full L3 alignment of the IBL was included in the March alignment; however, a realignment was necessary.
-Since the cosmic rays pass through the detector top-down, the staves on the sides of the IBL could not be aligned as precisely as those on the top and bottom due to lower statistics.
-Additionally, the IBL was operating at a temperature of $-20^{\circ}\textrm{C}$ during the cosmic data taking and at $-10^{\circ}\textrm{C}$ for collision data taking.
+A full L3 alignment of the IBL was included in the March alignment; however, a realignment was still necessary.
+Since cosmic rays used in the March alignment pass through the detector top-down, the staves on the sides of the IBL recorded fewer hits and thus could not be aligned as precisely as those on the top and bottom.
+Additionally, the IBL was operating at a temperature of $-20^{\circ}\textrm{C}$ during the cosmic data taking, and it was set to $-10^{\circ}\textrm{C}$ for collision data taking.
 This proved to be significant, as it was observed that the IBL staves experience a temperature-dependent, parabolic bowing in the local $x'$-direction of approximately $-10\mum/\textrm{K}$~\cite{2015.alignment-ibl-stability}.
 As a result, a full L3 alignment of the IBL was essential in order to correct for the bowing.
-Due to it being a brand new element of the detector as well as its importance in vertexing and $b$ jet tagging, aligning the IBL sensors with a high degree of precision was of great importance.
+Due to it being a brand new element of the detector as well as its importance in vertexing and $b$ jet tagging, aligning the IBL sensors with a high degree of precision was one of the main goals of the June alignment.
 
 The June alignment was performed in two stages, with the first pass focusing on relative movements of the big structures and correcting for the bowing of the IBL.
 The March alignment corrected for these larger movements as well; however, it was observed during Run 1 that these sort of misalignments are introduced by changing conditions in the detector~\cite{2014.alignment-performance-8tev}, such as in the cooling system or magnet power cycling, which may have occurred between the early cosmic data taking and the first \com{13} collisions.
@@ -63,19 +63,19 @@ The full alignment chain for the first pass consisted of the following steps:
 \item The IBL was aligned at L3 using all six degrees of freedom for each module.
 \end{enumerate}
 
-The primary goal for the second pass was to remove a bias in the transverse impact parameter $d_0$ present in the March alignment. 
-The resolution of $d_0$ was also poorer than expected.
-In order to correct for this, an additional constraint was passed to the alignment by adding an impact parameter with respect to the beam spot as a pseudo-measurement~\cite{2014.alignment-framework}.
-When the alignment algorithm minimizes the $\chi^2$, it will take care of the impact parameter minimization as well.
-Only the IBL and Pixel detectors were aligned in this step.
-The stages of the second pass are listed below, and the beam spot constraint was used in each:
+The primary goal for the second pass was to remove a bias in the transverse impact parameter $d_0$ found in the March alignment.
+In addition to the bias, the resolution of $d_0$ was also poorer than expected.
+In order to correct for this, an additional constraint was passed to the alignment which added the impact parameter with respect to the beam spot as a pseudo-measurement~\cite{2014.alignment-framework}.
+With this setup, when the alignment algorithm minimizes the $\chi^2$, it will take care of the impact parameter minimization as well.
+Only the IBL and Pixel detectors were aligned in the second pass.
+The different alignment stages are listed below, with the beam spot constraint being used in each:
 \begin{enumerate}
 \item The IBL and Pixel detectors were aligned at L2 with the SCT fixed.
 \item The IBL was aligned at L27
 \item The IBL and Pixel barrel and end-caps were aligned at L3.
 \end{enumerate}
 The set of alignment constants obtained at the end of the second pass represents the June alignment.
-The highest level of alignment over the course of the two passes for each subdetector is listed in Table~\ref{tab:align_june_levels}.
+The highest level of alignment each subdetector received over the course of the two passes is listed in Table~\ref{tab:align_june_levels}.
 
 \begin{table}[htbp]
   \centering
@@ -98,7 +98,7 @@ The highest level of alignment over the course of the two passes for each subdet
 \end{table}
 
 \subsection{Alignment results}
-The primary measure of alignment quality is assessed by looking at the track-hit residual distributions.
+Alignment quality is primarily assessed by looking at the track-hit residual distributions.
 If the detector is well alligned, the residuals will be Gaussian-distributed with a mean of zero and a width approximating the detector's resolution.
 The residual distributions are constructed from the same selection of tracks that were used to perform the alignment, and are the focus of Section~\ref{align:2015_results_residual}.
 A second check on the alignment involves observables sensitive to the track parameter resolution.
@@ -115,12 +115,12 @@ From this, it appears that the constrained alignment successfully removed the $d
   \centering
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/d0_pvcorr}
   \caption{The $d_0$ distributions with respect to the reconstructed primary vertex using the \com{13} collision data sample rconstructed using the June (black) and March (green) alignments.  The data is compared to a MC simulation using a perfect detector geometry (red).  The distributions are normalized to the same number of entries.}
-  \label{fig:align_2015_results_d0}.
+  \label{fig:align_2015_results_d0}
 \end{figure}
 
 \subsubsection{Residual distributions from collisions}\label{align:2015_results_residual}
 As mentioned previously, the primary focus of the June alignment campaign was on the IBL and the Pixel detectors.
-The detectors are the closest to the beam line and have the finest resolutions of the ID subdetectors.
+These subdetectors are the closest to the beam line and have the finest resolutions within the ID.
 The residual distributions in local $x$ and $y$ of the IBL planar sensors\footnote{The IBL contains 12 planar sensors in the center of a stave, with four 3D sensors on either end.  Only the planar sensors are shown here due to low statistics in the 3D sensors as well as poor MC modeling of these sensors.} are shown in Figure~\ref{fig:align_2015_results_ibl}.
 These and subsequent figures in this section compare the June and March alignments to the perfectly-aligned MC simulation.
 Noticeable improvement in the distribution widths can be seen in both the local $x$- and $y$-directions, nearly matching the simulation in local $x$, which is the most sensitive direction.
@@ -129,12 +129,21 @@ Due to the temperature-dependent bowing of the IBL, it is also interesting to lo
 A deformation is clearly visible in the March alignment in both measurement directions, and the shape in the local $x$-direction is consistent with an average stave bowing due to the different operating temperature of the IBL during the March alignment and the $13\tev$ collisions.
 This feature was nearly eliminated in both directions through the L3 alignment of the IBL sensors.
 
+The local $x$ and $y$ residual distributions for the Pixel detector barrel and end-caps are shown in Figures~\ref{fig:align_2015_results_pix} and \ref{fig:align_2015_results_pixec}.
+Even though the IBL is not included in the plots of the barrel, some of the noticeable improvement in the more sensitive local $x$ direction is an effect of the improved IBL alignment.
+Similarly, the relatively broad local $y$ residual distribution in the barrel likely indicates that further refinement of the IBL alignment was needed along that direction.
+Even so, the June alignment outperforms the March alignment and rivals the simulation in most of the plots.
+
+Similar distributions for the SCT and TRT barrel and end-caps are shown in Figures~\ref{fig:align_2015_results_sct} and \ref{fig:align_2015_results_trt}, respectively.
+Much like with the Pixel residuals, there is a reduction in the width of the TRT residuals between the March and June alignments due to the alignment of the other subdetectors improving the quality of the track fit.
+Even though neither subdetector was aligned at module-level, the residuals indicate that the previous L3 alignment performed in Run 1 did not degrade significantly during the upgrade and maintenance period.
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/PIXIBL_Planar_xRES}
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/PIXIBL_Planar_yRES}
   \caption{Local $x$ (left) and local $y$ (right) residual distributions of the IBL planar sensors using the \com{13} collision data sample reconstructed using the June (black) and March (green) alignments.  The data is compared to a MC simulation using a perfect detector geometry (red).  The distributions are normalized to the same number of entries.}
-  \label{fig:align_2015_results_ibl}.
+  \label{fig:align_2015_results_ibl}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -142,34 +151,31 @@ This feature was nearly eliminated in both directions through the L3 alignment o
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/IBL_xRESvsZ}
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/IBL_yRESvsZ}
   \caption{The mean of the local $x$ (left) and local $y$ (right) residual distributions as a function of the global $z$ position of each IBL module using the \com{13} collision data sample reconstructed using the June (black) and March (green) alignments.  The data is compared to a MC simulation using a perfect detector geometry (red).}
-  \label{fig:align_2015_results_ibl_z}.
+  \label{fig:align_2015_results_ibl_z}
 \end{figure}
-
-The local $x$ and $y$ residual distributions for the Pixel detector barrel and end-caps are shown in Figure~\ref{fig:align_2015_results_pix}.
-Even though the IBL is not included in the plots of the barrel, some of the noticeable improvement in the more sensitive local $x$ direction is an effect of the improved IBL alignment.
-Similarly, the relatively broad local $y$ residual distribution in the barrel likely indicates that further refinement of the IBL alignment was needed along that direction.
-Even so, the June alignment outperforms the March alignment and rivals the simulation in most of the plots.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/OLDPIXX}
-  \includegraphics[width=.48\textwidth]{figs/alignment/align2015/PIXECX}\\
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/OLDPIXY}
-  \includegraphics[width=.48\textwidth]{figs/alignment/align2015/PIXECY}
-  \caption{Local $x$ (top) and local $y$ (bottom) residual distributions for the Pixel barrel (excluding the IBL, left) and end-caps (right) using the \com{13} collision data sample reconstructed using the June (black) and March (green) alignments.  The data is compared to a MC simulation using a perfect detector geometry (red).  The distributions are normalized to the same number of entries.}
-  \label{fig:align_2015_results_pix}.
+  \caption{Local $x$ (left) and local $y$ (right) residual distributions for the Pixel barrel (excluding the IBL) using the \com{13} collision data sample reconstructed using the June (black) and March (green) alignments.  The data is compared to a MC simulation using a perfect detector geometry (red).  The distributions are normalized to the same number of entries.}
+  \label{fig:align_2015_results_pix}
 \end{figure}
 
-Similar distributions for the SCT and TRT barrel and end-caps are shown in Figures~\ref{fig:align_2015_results_sct} and \ref{fig:align_2015_results_trt}, respectively.
-Much like with the Pixel residuals, there is a reduction in the width of the TRT residuals between the March and June alignments due to the alignment of the other subdetectors improving the quality of the track fit.
-Even though neither subdetector was aligned at module-level, the residuals indicate that the previous L3 alignment performed in Run 1 has not degraded significantly during the upgrade and maintenance period.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.48\textwidth]{figs/alignment/align2015/PIXECX}
+  \includegraphics[width=.48\textwidth]{figs/alignment/align2015/PIXECY}
+  \caption{Local $x$ (left) and local $y$ (right) residual distributions for the Pixel endcaps using the \com{13} collision data sample reconstructed using the June (black) and March (green) alignments.  The data is compared to a MC simulation using a perfect detector geometry (red).  The distributions are normalized to the same number of entries.}
+  \label{fig:align_2015_results_pixec}
+\end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/SCTX}
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/SCTECX}
   \caption{Local $x$ residual distributions for the SCT barrel (left) and end-caps (right) using the \com{13} collision data sample reconstructed using the June (black) and March (green) alignments.  The data is compared to a MC simulation using a perfect detector geometry (red).  The distributions are normalized to the same number of entries.}
-  \label{fig:align_2015_results_sct}.
+  \label{fig:align_2015_results_sct}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -177,8 +183,9 @@ Even though neither subdetector was aligned at module-level, the residuals indic
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/TRTR}
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/TRTEC}
   \caption{Residual distributions for the TRT barrel (left) and end-caps (right) using the \com{13} collision data sample reconstructed using the June (black) and March (green) alignments.  The data is compared to a MC simulation using a perfect detector geometry (red).  The distributions are normalized to the same number of entries.}
-  \label{fig:align_2015_results_trt}.
+  \label{fig:align_2015_results_trt}
 \end{figure}
+\FloatBarrier
 
 \subsubsection{Track parameter resolution from cosmic rays}\label{align:2015_results_cosmic}
 Cosmic ray data is very useful as an independent check on the alignment in the barrel of the detector.
@@ -198,7 +205,7 @@ The $\Delta d_0$ plot shows a significant improvement in the June alignment, fur
   \centering
   \includegraphics[width=.6\textwidth]{figs/alignment/split-track}
   \caption{Representation of splitting a single cosmic ray track passing through the entire detector (left) into two separate tracks (right).}
-  \label{fig:align_2015_results_split_track}.
+  \label{fig:align_2015_results_split_track}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -206,14 +213,14 @@ The $\Delta d_0$ plot shows a significant improvement in the June alignment, fur
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/DELTAD0}
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/DELTAQOPT}
   \caption{Distribution of the difference in the impact parameter $\Delta d_0$ (left) and charge over transverse momentum $\Delta q/\pt$ (right) between the two cosmic ray split tracks.  The June (black) and March (green) alignments are compared.  The distributions are normalized to the same number of entries.}
-  \label{fig:align_2015_results_cosmic}.
+  \label{fig:align_2015_results_cosmic}
 \end{figure}
 
 \subsection{Error scaling}\label{align:2015_results_error_scaling}
 The final step in preparing the new set of June alignment constants deals with the adjustment of the hit errors, or \emph{error scaling}.
 Knowledge of the exact position of a hit measurement on a track is limited by the accuracy with which the sensors' positions are known.
 Let $\sigma$ represent the hit uncertainty used in track fitting, and $\sigma_0$ be the detector's intrinsic uncertainty.
-If $\sigma = \sigma_0$, the pull of the track-hit residual distributions should form a Gaussian distribution centered at zero with a standard deviation $\sigma = 1$~\cite{2011.alignment-7tev}.
+If $\sigma = \sigma_0$, the pull of the track-hit residual distributions should form a Gaussian distribution centered at zero with unit width~\cite{2011.alignment-7tev}.
 In the case of residual misalignment, the pull distributions' standard deviations will stray from unity.
 The hit uncertainty can be written as:
 \begin{equation}
@@ -221,10 +228,10 @@ The hit uncertainty can be written as:
   \label{eq:align_error_scaling}
 \end{equation}
 where $a$ is a scaling factor, and $b$ is a constant term which can be interpreted as a measure of any remaining misalignment of the detector elements.
-In this alignment campaign, the value of $a$ is fixed at $a=1$ and $b$ is evaluated from the residual pull distributions for each subdetector in its sensitive directions.
+In the June alignment campaign, the value of $a$ was fixed at $a=1$, and $b$ was evaluated from the residual pull distributions for each subdetector in its sensitive directions.
 
 Once the value of $b$ is determined, pull distributions derived from the new value of $\sigma$ should have unit width.
-The error scaling values for each subdetector are listed in Table~\ref{tab:align_error_scaling}, and the pull distributions for the IBL after error scaling are shown in Figure~\ref{fig:align_pull_ibl}.
+The error scaling values for each subdetector are listed in Table~\ref{tab:align_error_scaling}, and the pull distributions for the IBL after error scaling are shown in Figure~\ref{fig:align_pull_ibl}
 
 \begin{table}[htbp]
   \centering
@@ -256,7 +263,7 @@ The error scaling values for each subdetector are listed in Table~\ref{tab:align
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/PIXPULLX0}
   \includegraphics[width=.48\textwidth]{figs/alignment/align2015/PIXPULLY0}
   \caption{Pull distributions in local $x$ (left) and $y$ (right) for the IBL using the \com{13} collision data sample after applying the error scaling.}
-  \label{fig:align_pull_ibl}.
+  \label{fig:align_pull_ibl}
 \end{figure}
 
 %\section{Additional alignment efforts}

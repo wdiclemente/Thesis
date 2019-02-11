@@ -1,16 +1,17 @@
-The alignment procedure uses track-based algorithm that updates the locations of detector elements in order to minimize the set of track-hit \emph{residuals}.
+The alignment procedure uses a track-based algorithm that updates the locations of detector elements in order to minimize the set of track-hit \emph{residuals}.
 These residuals are defined as the distance between the fitted track position in a given detector element to the position of the hit recorded by the same element, and are shown by the cyan lines in Figure~\ref{fig:alignment_effects_misalign}.
+
 Tracks in ATLAS are parameterized as five-dimensional vectors~\cite{2006.atlas-tracking-model}:%follow helical trajectories and are parameterized as five-dimensional vectors~\cite{2006.atlas-tracking-model}:
 \begin{equation}
   \vec{\tau} = (d_0,z_0,\phi_0,\theta,q/p)
 \end{equation}
-where $d_0$ and $z_0$ are the transverse and longitudinal impact parameters with respect to the origin, respectively, $\phi_0$ is the azimuthal angle of the track at the point of closest approach to the origin, $\theta$ is the polar angle, and $q/p$ is the charge of the track divided by its momentum.
+where $d_0$ and $z_0$ are the transverse and longitudinal impact parameters with respect to the origin, $\phi_0$ is the azimuthal angle of the track at the point of closest approach to the origin, $\theta$ is the polar angle, and $q/p$ is the charge of the track divided by its momentum.
 The residual for the $i^{\textrm{th}}$ hit of a given track can then be written in terms of the track parameters $\vec{\tau}$ and a set of alignment parameters $\vec{a}$ that describe the hit location~\cite{2005.global-chi2-alignment}:
 \begin{equation}
   r_i(\vec{\tau},\vec{a}) = (\vec{m}_i - \vec{e}_i (\vec{\tau},\vec{a}))\cdot\hat{k}
 \end{equation}
 where $\vec{e}_i$ is the intersection point of the extrapolated track with the sensor, $\vec{m}_i$ is the position of the associated hit within the sensor, and $\hat{k}$ is the unit vector defining the direction of the measurement within the sensor.
-$\vec{r}$ is then the vector of residuals for the given track.
+$\vec{r}$ then represents the vector of residuals for the given track.
 
 % the alignment constants are those that minimize the track-hit residuals
 A $\chi^2$ function can be built from the residuals of all collected tracks:
@@ -54,11 +55,9 @@ Finally, the alignment corrections $\delta\vec{a}$ can be solved for by invertin
 %The \emph{alignment constants} are the values of $\vec{a}$ that minimize the track-hit residuals.
 which is a linear system of equations with a number of equations equal to the number of alignment degrees of freedom~\cite{2011.alignment-7tev}.
 
-Inverting the matrix and solving this system of equations is referred to as \emph{Global} $\chi^2$ alignment~\cite{2005.global-chi2-alignment}.
+Inverting the full matrix and solving the resulting system of equations is referred to as \emph{Global} $\chi^2$ alignment~\cite{2005.global-chi2-alignment}.
 This can be useful, as $\mathcal{M}_a$ contains all the correlations between the alignable structures.
-However, inverting the matrix becomes difficult when the number of degrees of freedom becomes large, and
-%There are several different \emph{levels} of alignment of increasing granularity, which will be outlined in detail in Section~\ref{align:levels}.
-as the number of alignable structures increases, so too does the size of the matrix $\mathcal{M}_a$.
+However, inverting the matrix is difficult when the number of degrees of freedom becomes large---as the number of alignable structures increases, so too does the size of the matrix $\mathcal{M}_a$.
 Eventually inverting the matrix becomes too computationally intensive to be practical.
 
 This problem is solved by the \emph{Local} $\chi^2$ algorithm~\cite{2005.local-chi2-thesis}.
@@ -73,15 +72,15 @@ The new alignment matrix $\mathcal{M}'_{a}$ and alignment vector $\vec{\nu}'_a$ 
   \vec{\nu}_a = \sum\limits_{\textrm{tracks}}\bigg(\pderiv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\vec{r}_0
   \label{eq:alignment_vector_local}
 \end{equation}
-Inverting $\mathcal{M}'_{a}$ is considerably faster and less intensive even for large numbers of degrees of freedom; however, the correlations between the alignable structures is lost.
+Inverting $\mathcal{M}'_{a}$ is considerably faster and less memory intensive even for large numbers of degrees of freedom; however, the correlations between the alignable structures is lost.
 
 Due to the Taylor expansion used in Equation~\ref{eq:alignment_chi2_min_taylor}, several iterations of the alignment algorithm may be necessary to converge on a final set of alignment constants.
 The Local $\chi^2$ alignment typically requires more iterations due to the loss of the correlation information~\cite{2007.alignment-strategy}.
 In practice, the ATLAS reconstruction is run over a set of events, and the resulting tracks are fed to the alignment algorithm.
 The residuals are calculated, the alignment matrix is built and inverted, and a new set of alignment constants is obtained.
-The convergence of the alignment can be checked by:
+The convergence is checked in two ways:
 \begin{enumerate}
-\item Measure the $\Delta\chi^2$ with the previous iteration. If it is near zero, then the $\chi^2$ is approaching its minimum.
+\item Measuring the $\Delta\chi^2$ with respect to the previous iteration. If it is near zero, then the $\chi^2$ is approaching its minimum.
 \item Looking at the residual distributions for different alignable structures. A well aligned detector will have a mean residual of zero with a width approximating the intrinsic resolution of the detector.
 \end{enumerate}
 If the above checks are satisfied, the process is finished and the final alignment constants are read out; if not, another iteration is performed.
@@ -99,16 +98,17 @@ These misalignments are referred to as \emph{weak modes}, and special care is ta
 One potential impact of weak modes is a bias in the track momentum of reconstructed particles.
 This particular effect is the subject of Section~\ref{align:bias}.
 
-In practice, the detector is aligned both in ``real-time'' as data is collected, and during dedicated offline alignment campaigns.
-The real-time alignment is run in ATLAS's so-called \emph{calibration loop}, which comprises the first stage in the preparation of data for physics analysis.
-The calibration loop requires the alignment as well as various other detector calibrations to be available within 48 hours for initial data processing.
-A fast, coarse-grained alignment\footnote{The calibration loop runs up to a Level 2 alignment in the silicon detectors, which involves treating each layer of sensors as a single object, defined in greater detail in Table~\ref{tab:align_levels}.} is run on a subset of the available data containing full tracking information, and the results are propagated to the reconstruction of that particular run~\cite{2015.alignment-run-2-proceedings}.
+The detector is aligned both in ``real-time'' as data is collected and during dedicated offline alignment campaigns.
+The real-time alignment is run in ATLAS's \emph{calibration loop}, which comprises the first stage in the preparation of data for physics analysis.
+The calibration loop requires the alignment---as well as various other detector calibrations---to be available within 48 hours for initial data processing.
+A fast, coarse-grained alignment\footnote{The calibration loop runs up to a Level 2 alignment in the silicon detectors, which involves treating each layer of sensors as a single object. The alignment levels are defined in greater detail in Table~\ref{tab:align_levels}.} is run on a subset of the available data containing full tracking information, and the results are propagated to the reconstruction of that particular run~\cite{2015.alignment-run-2-proceedings}.
 Due to the time constraints of the calibration loop, a full sensor-by-sensor alignment is not possible.
 
 The more thorough and finely tuned alignments are reserved for the dedicated alignment campaigns.
 These generally occur early in data taking campaigns, typically once a sufficient amount of data is collected after a detector shutdown, in order to obtain a good baseline alignment for use in the remainder of the data collection period.
-Once data taking is complete, another campaign determines an improved set of alignment constants (divided into several ``blocks'' to account for time-dependent misalignments), and the full data is reprocessed using the newly derived detector geometry.
-The initial offline alignment of the ATLAS detector at the beginning of Run 2 in 2015 is the subject of Section~\ref{align:2015}.
+One such alignment campaign, the initial offline alignment of the ATLAS detector at the beginning of Run 2, is the subject of Section~\ref{align:2015}.
+Once data taking is complete, another set of alignment constants is derived for the full set of available data, and it is typically divided into several ``blocks'' to account for potential run-by-run misalignments.
+The data is then reprocessed using the newly derived detector geometry.
 
 \subsection{Alignment levels}\label{align:levels}
 The alignment of the detector is performed at several levels of increasing granularity.
