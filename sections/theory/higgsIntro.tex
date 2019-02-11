@@ -26,21 +26,20 @@ a Lagrangian $\mathcal{L}$ can be written:
   \mathcal{L} = (\mathcal{D}_\mu\phi)^\dagger (\mathcal{D}^\mu\phi) - \mu^2\phi^{\dagger}\phi-\lambda (\phi^{\dagger}\phi)^2
   \label{eq:complex_scalar_lagrangian}
 \end{equation}
-where $\lambda > 0$ and $\mathcal{D}_{\mu}$ is the covariant derivative.
-$\mathcal{D}_\mu$ is defined such that $\mathcal{L}$ is invariant under a local $\gtsu{2}\times\gtu{1}$ gauge transformation:
+where $\lambda > 0$ and $\mathcal{D}_{\mu}$ is the covariant derivative defined such that $\mathcal{L}$ is invariant under a local $\gtsu{2}\times\gtu{1}$ gauge transformation:
 \begin{equation}
   \mathcal{D}_{\mu}\phi = \bigg(\partial_{\mu} + \frac{ig}{2}\tau_a W_{\mu}^a + \frac{ig'}{2}B_{\mu}\bigg)\phi
   \label{eq:covariant_deriv}
 \end{equation}
-where $W_{\mu}^a$ ($a=1,2,3$) are the $\gtsu{2}$ fields with generators $\tau_a$ and coupling constant $g$, and $B_{\mu}$ is the $\gtu{1}$ field with coupling constant $g'$.
+Here $W_{\mu}^a$ ($a=1,2,3$) are the $\gtsu{2}$ fields with generators $\tau_a$ and coupling constant $g$, and $B_{\mu}$ is the $\gtu{1}$ field with coupling constant $g'$.
 
-Isolating the potential term:
+Isolating the potential term of the Lagrangian:
 \begin{equation}
   V(\phi) = \mu^2\phi^{\dagger}\phi+\lambda(\phi^{\dagger}\phi)^2
   \label{eq:higgs_potential}
 \end{equation}
 a choice must be made on the sign of $\mu^2$, and the case of interest is for $\mu^2 < 0$. % \TODO{page 328, 334}
-This results in the famous ``mexican hat potential'' shown in Figure~\ref{fig:mexican_hat}, which is minimized along the collection of points:
+This results in the famous ``Mexican hat potential'' shown in Figure~\ref{fig:mexican_hat}, which is minimized along the collection of points:
 \begin{equation}
   \phi^{\dagger}\phi = \frac{1}{2}\big(\phi_1^2 + \phi_2^2 + \phi_3^2 + \phi_4^2\big) = -\frac{\mu^2}{2\lambda}
   \label{eq:higgs_minimum}
@@ -64,7 +63,7 @@ Finally, the \emph{vacuum expectation value} (VEV) of the field can be written a
   \centering
   \includegraphics[width=.48\textwidth]{figs/theory/higgspotential_greater0}
   \includegraphics[width=.48\textwidth]{figs/theory/higgspotential}
-  \caption{An illustration of the potential term $V(\phi)$ in the cases where $\mu^2~>~0$ (left) and $\mu^2~<~0$ (right).  The right-hand plot shows the Higgs potential, or ``Mexican hat potential'', with the minimum at $|\phi| = \sqrt{-\frac{\mu^2}{\lambda}}$ rather than at $|\phi| = 0$ as in the left-hand plot.}
+  \caption{An illustration of the potential term $V(\phi)$ in Equation~\ref{eq:higgs_potential} for the cases where $\mu^2>0$ (left) and $\mu^2<0$ (right).  The right-hand plot shows the Higgs potential, or ``Mexican hat potential'', with the minimum at $|\phi| = \sqrt{-\frac{\mu^2}{\lambda}}$ rather than at $|\phi| = 0$ as in the left-hand plot.}
   \label{fig:mexican_hat}
 \end{figure}
 
@@ -73,7 +72,7 @@ The VEV can be substituted back into the original Lagrangian in Equation~\ref{eq
   \mathcal{L} \subset \mathcal{L}_M \equiv \frac{1}{8}v^{2}g^{2}\bigg[\big(W_{\mu}^1\big)^2 + \big(W_{\mu}^2\big)^2\bigg] + \frac{1}{8}v^2\bigg[g^{2}\big(W_{\mu}^3\big)^2 - 2gg'W_{\mu}^{3}B^{\mu} + g'^{2}\big(B_{\mu}\big)^{2}\bigg]
   \label{eq:higgs_mass_1}
 \end{equation}
-Focusing on the first term for the moment, substituting in Equation~\ref{eq:w_mixing} for the physical $W^\pm$ bosons, the mass term can be seen clearly:
+Focusing on the first term for the moment, if Equation~\ref{eq:w_mixing} for the physical $W^\pm$ bosons is substitued in, the mass term can be seen clearly:
 \begin{equation}
   M_W^{2}W^{+}W^{-} = \bigg(\frac{1}{2}vg\bigg)^{2}W^{+}W^{-}
 \end{equation}
@@ -94,7 +93,7 @@ where $Z_{\mu}^{2}$ and $A_{\mu}^2$ represent the physical $Z$ boson and photon,
   A_{\mu} = \frac{g'W_{\mu}^{3} - gB_{\mu}}{\sqrt{g^2+g'^2}}
   \label{eq:higgs_a}
 \end{equation}
-From this, it can be seen that the photon is massless, and the mass of the $Z$ boson is identified as:
+From this, it can be seen that the photon is massless ($M_A = 0$ in Equation~\ref{eq:higgs_mass_2}), and the mass of the $Z$ boson is identified as:
 \begin{equation}
   M_Z = \frac{1}{2}v\sqrt{g^2+g'^2}
 \end{equation}
@@ -125,7 +124,7 @@ The rest of the fermion couplings follow from this example.
 
 What is accomplished here is quite remarkable.
 The weak and electromagnetic interactions have been unified into a single $\gtsu{2}\times\gtu{1}$ interaction, and the physical bosons observed in nature arise as mixtures of the four gauge fields.
-Three of the four degrees of freedom in the scalar field $\phi$ of Equation~\ref{eq:complex_scalar_doublet}, are absorbed by the $W^{\pm}$ and $Z$ bosons, and the fourth generates the Higgs boson.
+Three of the four degrees of freedom in the scalar field $\phi$ of Equation~\ref{eq:complex_scalar_doublet}, are absorbed (or ``eaten'') by the $W^{\pm}$ and $Z$ bosons, and the fourth generates the Higgs boson.
 Additionally, it is shown that the Higgs couples to fermions in proportion to their mass.
 From experimental measurements, the value of the VEV has been determined to be $v\approx 246\gev$~\cite{2014.pdg}.
 However, it should be noted that the theory does not predict the mass of the Higgs boson or of the fermions; these must all be determined from experiment.

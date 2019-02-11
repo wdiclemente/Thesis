@@ -1,14 +1,19 @@
-﻿%Modern particle physics is generally interpreted in terms of the Standard Model (SM).
-%This is a quantum field theory which encapsulates our understanding of the electromagnetic, weak, and strong interactions...
-
-The Standard Model of particle physics serves as a mathematical description of the fundamental particles of the universe and their interactions.
+﻿The Standard Model of particle physics serves as a mathematical description of the fundamental particles of the universe and their interactions.
 It has been developed over the course of the past century, incorporating both predictions from theory and results from experiments.
-All in all, the SM has proven remarkably successful in accurately describing particle interactions seen in experiments.
+All in all, the SM has proven to be very accurate in describing the particle interactions seen in experiments, as can be seen in the summary plot of ATLAS standard model measurements through 2018 in Figure~\ref{fig:theory_sm_meas}.
+%Nearly all measurements are consistent with the SM predictions
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.95\textwidth]{figs/theory/ATLAS_sm_measurements}
+  \caption[Summary of several Standard Model total and fiducial production cross section measurements compared to the corresponding theoretical predictuions calculated at NLO or higher. The dark colored error bar represents the statistical uncertainty, and the light colored error bar represents the full uncertainty (including systematic and luminosity uncertainties). The data/theory ratio, luminosity used and reference for each measurement are also shown.]{Summary of several Standard Model total and fiducial production cross section measurements compared to the corresponding theoretical predictuions calculated at NLO or higher. The dark colored error bar represents the statistical uncertainty, and the light colored error bar represents the full uncertainty (including systematic and luminosity uncertainties). The data/theory ratio, luminosity used and reference for each measurement are also shown.~\cite{2019.atlas-summary-plots}}
+  \label{fig:theory_sm_meas}
+\end{figure}
 
 The SM is a quantum field theory (QFT)~\cite{1995.Weinberg, 1995.Peskin} in which the fundamental particles are represented as excited states of their corresponding fields.
 The spin-$\frac{1}{2}$ fermionic fields give rise to the quarks and leptons comprising ordinary matter, the spin-1 fields correspond to the electroweak bosons and the gluon which mediate the electroweak and strong forces, respectively, and finally the scalar Higgs field is responsible for electroweak symmetry breaking.
 The excitations and interactions of the fields are governed by the SM Lagrangian, which is invariant under local transformations of the group $\gtsu{3}\times\gtsu{2}\times\gtu{1}$.
-\TODO{need more detail/refinement here}
+%\TODO{need more detail/refinement here}
 
 The first quantum field theory to be developed was quantum electrodynamics (QED)~\cite{1950.Feynman.QED}, which describes the electromagnetic interaction.
 The theory predicts the existence of a $\gtu{1}$ gauge field that interacts with the electrically charged fermions.
@@ -16,6 +21,7 @@ This field corresponds to the photon.
 A key aspect of QED is that it is perturbative.
 The coupling constant $\alpha = e^2/4\pi$ is small, where $e$ is electrical charge of the field, allowing for the use of perturbation theory in calculations.
 In this case, calculations can be written as a power series in $\alpha$, where successive higher order terms contribute less to the final result.
+The accuracy of perturbative calculations is an essential tool for being able to make predictions from the SM.
 %\TODO{renormalizability here?}
 
 The strong interaction---the theory of quarks and gluons---has also been described using QFT as quantum chromodynamics (QCD).
@@ -61,11 +67,11 @@ The charged $W^{\pm}$ bosons are a mixture of the remaining $W_{\mu}^1$ and $W_{
 \end{equation}
 Unlike the photon (and the gluon of QCD), the $W^\pm$ and $Z$ bosons are massive.
 This means that even though $\gtsu{2}$ is non-Abelian, the range of interaction is short and confinement does not occur.
-Lastly, the EWK interaction is chiral, only coupling to the left-handed component of the fermion fields
+Lastly, the EWK interaction is chiral, only coupling to the left-handed component of the fermion fields.
 
 One final field remains within the SM: the scalar Higgs field.
 It was originally proposed in the 1960's to explain the masses of the $W^{\pm}$ and $Z$ bosons~\cite{1964.Englert.symmetry_breaking, 1964.Higgs.Broken_Symmetries_1, 1964.Higgs.Broken_Symmetries_2} and is the mechanism for the EWSB process.
-The particle associated with the field is a massive scalar boson, which was at last discovered by ATLAS and CMS in 2012~\cite{HIGG-2012-27, CMS-HIG-12-028} with a mass of $125\gev$.
+The particle associated with the field is a massive scalar boson, the Higgs boson, which was recently discovered by ATLAS and CMS in 2012~\cite{HIGG-2012-27, CMS-HIG-12-028} with a mass of $125\gev$.
 
 
 %\subsection{Electroweak mixing}\label{theory:ewk_mixing}
