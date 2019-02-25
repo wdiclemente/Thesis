@@ -42,6 +42,14 @@ The final estimate of the fake background becomes:
 N_{NN}^{\textrm{fake\ bkg.}} = \sum\limits_{b}f(b) \big(N_{NL}(b) - N_{NL}^{\textrm{prompt}}(b)\big)
 \label{eq:ssww13tev_ff_bkg}
 \end{equation}
+A visual representation of the fake background estimation process is shown in Figure~\ref{fig:ssww13tev_ff_apply}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.8\textwidth]{figs/ssww_13tev/backgrounds/ff/fake_factor}
+  \caption{Graphical representation of how the fake factor method is used to estimate the fake background in a given $NN$ region.}
+  \label{fig:ssww13tev_ff_apply}
+\end{figure}
 
 %---------------------------------------------------------------------------------------------
 %
@@ -169,7 +177,7 @@ Figure~\ref{fig:ssww13tev_ff_application} contains a graphical representation of
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=.95\textwidth]{figs/ssww_13tev/backgrounds/ff/apply_ff}
-  \caption{Graphical representation of the fake-factor application using $\ptptcone$.  The value of $\ptptcone$ for the loose lepton is used to ``look up'' the fake-factor weight which is then applied to the event.  The loose lepton's $\pt$ becomes $\ptptcone$ for the purpose of the fake background estimation.}
+  \caption{Graphical representation of the fake-factor application using $\ptptcone$.  The value of $\ptptcone$ for the loose lepton is used to ``look up'' the fake-factor weight which is then applied to the event.  The loose lepton's $\pt$ becomes $\ptptcone$ for the purpose of the fake background estimation. \TODO{Update figure to match style of Fig.~\ref{fig:ssww13tev_ff_apply}.}}
   \label{fig:ssww13tev_ff_application}
 \end{figure}
 

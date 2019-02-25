@@ -713,9 +713,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="445.10683"
-     inkscape:cy="214.94368"
+     inkscape:zoom="1.4"
+     inkscape:cx="342.58469"
+     inkscape:cy="238.00519"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -4865,7 +4865,13 @@
          sodipodi:role="line"
          id="tspan6885"
          x="360.62445"
-         y="490.71738">pT+pTcone</tspan></text>
+         y="490.71738">p<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4821">T</tspan>+p<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4823">T</tspan><tspan
+   style="font-size:65.00091553%;baseline-shift:super"
+   id="tspan4829" /></tspan></text>
     <g
        id="g6946"
        transform="matrix(0.99322349,-0.06867698,0.08882375,0.44856455,-53.136188,294.28785)">
@@ -4898,7 +4904,9 @@
          id="tspan6953"
          x="35.375648"
          y="631.69708"
-         style="font-size:24px;fill:#011f5b;fill-opacity:1">pT</tspan></text>
+         style="font-size:24px;fill:#011f5b;fill-opacity:1">p<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan4041">T</tspan></tspan></text>
     <g
        id="g6946-3"
        transform="matrix(-0.65207021,0.37355996,0.367025,0.38766349,99.462,293.05012)"
@@ -4932,7 +4940,13 @@
          sodipodi:role="line"
          id="tspan6885-4"
          x="585.27228"
-         y="277.55792">pT+pTcone</tspan></text>
+         y="277.55792">p<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4043">T</tspan>+p<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4045">T</tspan><tspan
+   style="font-size:65.00091553%;baseline-shift:super"
+   id="tspan4047" /></tspan></text>
     <g
        id="g6878-7"
        transform="matrix(-1.1999195,-0.17220842,-0.24381282,0.5792681,1041.4892,371.91624)"
@@ -4998,7 +5012,11 @@
          sodipodi:role="line"
          id="tspan4253"
          x="539.36786"
-         y="659.29108">binned in pT+pTcone</tspan></text>
+         y="659.29108">binned in p<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4831">T</tspan>+p<tspan
+   style="font-size:65.00091553%;baseline-shift:sub"
+   id="tspan4833">T</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Sans Bold"
@@ -5011,5 +5029,41 @@
          x="212.82362"
          y="538.07623"
          style="font-size:36px">Loose</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.39999962px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#980000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica Bold"
+       x="618.5661"
+       y="273.95111"
+       id="text4049"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.78248771,0.62266603,-0.62266603,0.78248771,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan4051"
+         x="618.5661"
+         y="273.95111">cone</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#980000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Sans"
+       x="395.42627"
+       y="484.93362"
+       id="text4825"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4827"
+         x="395.42627"
+         y="484.93362"
+         style="font-size:10.39999962px;font-weight:bold;fill:#980000;fill-opacity:1;-inkscape-font-specification:Helvetica Bold">cone</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Sans"
+       x="649.95508"
+       y="653.14789"
+       id="text4835"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4837"
+         x="649.95508"
+         y="653.14789"
+         style="font-size:10.39999962px;font-weight:bold;-inkscape-font-specification:Helvetica Bold">cone</tspan></text>
   </g>
 </svg>
