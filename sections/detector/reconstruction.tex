@@ -1,6 +1,15 @@
 Particle reconstruction algorithms
 
 \subsubsection{Track reconstruction}\label{detector:track_reconstruction}
+The track reconstruction algorithm used in ATLAS follows 
+
+Following this procedure, TRT hits can be incorporated into the track fit through \emph{TRT track extension}~\cite{2008.newt}.
+Compatible sets of TRT measurements are found for tracks found in the silicon detectors surviving the ambiguity solving.
+The algorithm requires that the original silicon-only track not be modified by the inclusion of the TRT hits; it is simply an extension of the existing track.
+
+What is described above is the \emph{inside-out} reconstruction algorithm; there is also an \emph{outside-in} reconstruction that begins in the TRT.
+This algorithm is not covered in detail here, as much of the process is similar to the above.
+The general workflow begins with finding track segments in the TRT, constructing the track candidates including the silicon hits, and finally ambiguity solving.
 
 \subsubsection{Muon reconstruction}\label{detector:muon_reconstruction}
 
