@@ -1,5 +1,5 @@
 In order to convert the raw detector readouts to information about a given particle, various sets of reconstruction algorithms are run.
-This includes building particle trajectories in the ID, identifying and measuring electrons and muons, and clustering hadronic energy deposits into jets.
+This includes building particle trajectories in the ID, as well as identifying and measuring electrons and muons. %, and clustering hadronic energy deposits into jets.
 A brief overview of these reconstruction methods follow in order to provide context for when these objects are used later in the thesis.
 
 \subsubsection{Track reconstruction}\label{detector:track_reconstruction}
@@ -43,8 +43,8 @@ Electron reconstruction~\cite{2019.electron-reco-id} uses information from both 
 The characteristic signature of an electron in ATLAS is a charged particle track in the ID matched in $\eta$-$\phi$ to localized clusters of energy deposited in the calorimeter.
 
 Calorimeter cluster candidates are seeded from localized energy deposits according to a sliding-window algorithm~\cite{2008.sliding-window}.
-The clusters are a $3\times 5$ ($\eta\times\phi$) rectangle of calorimeter towers with a total transverse energy greater than $2.5\gev$.
-In the event that two clusters overlap, if the clusters' $\et$ vary by more than 10\% the highest $\et$ cluster is kept, otherwise the candidate with the highest $\et$ in the central tower is kept.
+The clusters are a $3\times 5$ rectangle of calorimeter towers in $\eta\times\phi$ with a total transverse energy greater than $2.5\gev$.
+In the event that two clusters overlap, if the $\et$ of the clusters vary by more than 10\%, the highest $\et$ cluster is kept, otherwise the candidate with the highest $\et$ in the central tower is kept.
 The ID tracks are those generated using the algorithm detailed above in Section~\ref{detector:track_reconstruction}, and tracks with a nearby calorimeter cluster are re-fit using a Gaussian-sum filter~\cite{2003.gsf} designed to take into account bremsstrahlung effects.
 
 To reconstruct the final electron candidate, the refit track and the cluster are subject to the final matching criteria:
@@ -61,8 +61,8 @@ Finally, the clusters are reconstructed about the seed cluster using a larger wi
 
 \paragraph*{Electron identification}
 To determine whether an electron candidate is a signal electron or background object, an identification criteria (ID) is implemented, covered in more detail in~\cite{2019.electron-reco-id, 2016.electron-performance-13tev}.
-Electron ID is performed using a multivariate likelihood technique (LH) that simultaneously evaluates a list of measurements of an electron candidate, including both tracking and clustering information.
-To cover the different requirements of physics and performance studies, four different likelihood working points are constructed corresponding to increasing thresholds for the LH discriminant: \tt{VeryLooseLH}, \tt{LooseLH}, \tt{MediumLH}, and \tt{TightLH}.
+Electron ID is performed using a multivariate likelihood technique (LH) that simultaneously evaluates a list of measurements of an electron candidate, including both tracking and calorimeter clustering information.
+To cover the different requirements of various physics and performance studies, four different likelihood working points are constructed corresponding to increasing thresholds for the LH discriminant: \tt{VeryLooseLH}, \tt{LooseLH}, \tt{MediumLH}, and \tt{TightLH}.
 Each successive working point is a subset of its predecessors.
 The efficiencies of the \tt{LooseLH}, \tt{MediumLH}, and \tt{TightLH} working points as a function of electron $\et$ are shown in Figure~\ref{fig:electron_id_efficiency}.
 
@@ -78,16 +78,24 @@ Signal electrons, such as those from the decay of a $W$ boson, tend to have litt
 Background electrons, such as those from photon conversions or jets, are often produced in association with other particles.
 To take advantage of this, variables are consructed to quantify the amount of activity within a cone of a specified radius in $\Delta R$ about an electron---one track-based and a second calorimeter-based.
 
-The track-based isolation consists of the sum of the transverse momentum of tracks with $\pt > 1\gev$ that satisfy basic quality requirements within a cone of $\Delta R < 0.2$ about an electron (not including the electron itself).
-Additionally, additional particles from bremsstrahlung radiation are considered part of the original electron and are subtracted from the isolation cone.
+The track-based isolation consists of the sum of the transverse momentum of tracks within a cone of a specified radius about an electron (not including the electron itself).
+The tracks are required to have $\pt > 1\gev$, that satisfy basic quality requirements, and be associated with the vertex from which the electron originated.
+Additionally, particles from bremsstrahlung radiation are considered part of the original electron and are subtracted from the isolation cone.
+A variable cone radius dependent on the $\pt$ of the electron is used in order to compensate for busy detector environments:
+\begin{equation}
+  \Delta R = \min\Bigg(\frac{10\gev}{\pt},R_{\textrm{max}}\Bigg)
+  \label{eq:varcone}
+\end{equation}
+where $R_{\textrm{max}}$ is the largest allowed cone size, typically set at 0.2 for electrons.
 
-Calorimeter isolation is a bit more difficult due to the size of the energy deposits relative to the cone size, as parts of an energy cluster can lie outside of the cone.
+Calorimeter isolation is a bit more difficult, due to the size of the energy deposits relative to the cone size, as parts of an energy cluster can lie outside of the cone.
 As such, topological clusters~\cite{2017.topo-clustering} (topo clusters) are seeded by calorimeter cells with deposited energy greater than four times the expected noise-level of that cell.
 The cluster is then expanded incorporating electromagnetic and hadronic cells with an energy greater than two times the noise-level until no adjacent clusters remain satisfying the requirement.
 The isolation cone is then the sum of the $\et$ of all positive-energy topo clusters whose barycenters fall within a cone of radius $\Delta R < 0.2$.
 The electron's energy is subtracted by removing the cells within a rectangle around the electron.
 
-Four isolation working points are defined targeting specific values of isoation efficiency.
+The isolation selection uses the \emph{relative isolation}, defined as the ratio of the track- or calorimeter-based isolation variable divided by the electron $\pt$.
+Four isolation working points are defined targeting specific values of efficiency.
 \tt{Loose} and \tt{LooseTrackOnly} target a fixed efficiency value across the $\pt$ and $\eta$ spectrum of the electrons, with the latter not applying a cut on calorimeter isolation.
 \tt{Gradient} and \tt{GradientLoose} target a $\pt$-dependent fixed efficiency that is uniform in $\eta$.
 The efficiencies for these working points as a function of electron $\et$ are shown in Figure~\ref{fig:electron_iso_efficiency}.
@@ -101,5 +109,68 @@ Additional working points are provided that instead use fixed values for the rel
 \end{figure}
 
 \subsubsection{Muon reconstruction}\label{detector:muon_reconstruction}
+Muon reconstruction~\cite{2014.muon-reconstruction-run1, 2016.muon-reconstruction-13tev} occurs independently in the ID and the MS, and then the information from both is combined to form the final muon tracks used in analysis.
+Muons in the ID are reconstructed as a charged particle track following the standard procedure detailed in Section~\ref{detector:track_reconstruction}.
 
-\subsubsection{Jet reconstruction}\label{detector:jet_reconstruction}
+In the MS, hits within each muon chamber are collected into segments, with separate algorithms for each of the four different detector components (see Section~\ref{sec:muon_spectrometer}).
+Muon track candidates are then built by fitting together segments using a combinatorial search seeded by segments in the middle layers first, and then expanding to the outer and inner layers.
+A track must contain at least two matching segments, except in the transition region between the barrel and endcap where a single segment can be used.
+In the event that a segment is shared by multiple tracks, an overlap removal algorithm decides which track should keep the segment, or if it should remain shared.
+Finally, the hits within each track candidate are fitted using a global $\chi^2$ fit, and the track is accepted if the $\chi^2$ satisfies a set of selection criteria.
+
+The ID and MS tracks are then combined according to several different reconstruction criteria determined by the available information from the ID, MS, and calorimeters.
+This results in four different muon ``types'':
+\begin{itemize}
+  \item Combined (CB): Independent tracks in the ID and MS are combined with a global track refit using both sets of hits.
+MS hits may be added or removed if it improves the quality of the track fit.
+Muons are typically reconstructed outside-in, matching a MS track to one in the ID; however, an inside-out matchin is also used as a complementary approach.
+  \item Segment-tagged (ST): An ID track is classified as a muon if it can be extrapolated to at least one track segment in the MDT or CSC chambers.
+These are used when a muon only crosses one layer of the MS, either due to low $\pt$ or falling in a region of reduced acceptance.
+  \item Calorimeter-tagged (CT): An ID track is classified as a muon if it can be matched to a calorimeter energy deposit compatible with a minimum ionizing particle.
+These muons are generally lower in purity than the other types, but they are useful for recovering acceptance in the region $|\eta| < 0.1$ where the MS is only partially instrumented.
+  \item Extrapolated (ME): The muon is reconstructed using a MS track that is loosely compatible with having originated from the interaction point.
+The MS track must transverse at least two layers of the MS in the central region and three in the forward region.
+These muons are generally used to extend the acceptance of muon reconstruction in the forward regions not covered by the ID ($2.5 < |\eta| < 2.7$).
+\end{itemize}
+
+\paragraph*{Muon identification}
+Muon identification serves to select signal muons with a high quality momentum measurement from backgrounds (mainly from pions and kaons).
+For CB muons, three variables are used:
+\begin{itemize}
+  \item $q/p\ significance$: The absolute value of the difference the $q/p$ of the muons (where $q$ is the muon's charge) as measured by the ID and the MS divided by the corresponding uncertainties added in quadrature.
+  \item $\rho'$: The absolute value of the difference between the $\pt$ measurements in the ID and the MS divided by the $\pt$ of the combined track.
+  \item The normalized $\chi^2$ of the combined track fit.
+\end{itemize}
+Additional requirements are imposed on the number of hits within the ID to ensure the tracks' momenta are well measured.
+
+There are three primary muon identification working points\footnote{A fourth working point, \tt{High$\pt$}, is optimized for high mass searches, such as $W'$ and $Z'$ resonances, and is not covered here.} of increasing background rejection: \tt{Loose}, \tt{Medium}, and \tt{Tight}.
+\tt{Loose} muons include all four types listed above, but CT and ST muons are restricted to the region $|\eta| < 0.1$.
+The default recommendation for analysis are \tt{Medium} muons, which only include CB and ME tracks.
+Finally, \tt{Tight} muons are made up of CB muons with hits in at least two components of the MS and that pass the \tt{Medium} requirements.
+Each successive working point is a subset of the previous one, and the cuts on the three variables listed above are tightened in each step.
+The muon reconstruction efficiency for each of these three working points in $Z\rightarrow\mu\mu$ events is shown in Figure~\ref{fig:muon_id_efficiency}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.6\textwidth]{figs/detector/muon_id_efficiency}
+  \caption[Muon reconstruction efficiencies in $Z\rightarrow\mu\mu$ events for the \tt{Loose} (yellow), \tt{Medium} (red), and \tt{Tight} (blue) ID working points as a function of muon $\eta$.  Collision data (solid points) is compared to simulation (open points) and the ratio is in the lower panel.]{Muon reconstruction efficiencies in $Z\rightarrow\mu\mu$ events for the \tt{Loose} (yellow), \tt{Medium} (red), and \tt{Tight} (blue) ID working points as a function of muon $\eta$.  Collision data (solid points) is compared to simulation (open points) and the ratio is in the lower panel.  Plot taken from~\cite{2017.muon-cp-plots}.}
+  \label{fig:muon_id_efficiency}
+\end{figure}
+
+\paragraph*{Muon isolation}
+Isolation for muons is handled in much the same way as for electrons (see Section~\ref{detector:electron_reconstruction}).
+A track-based variable is computed by summing the transverse momenta of tracks with $\pt > 1\gev$ within a cone of variable radius as in Equation~\ref{eq:varcone} with $R_\textrm{max} = 0.3$.
+The calorimeter-based isolation again uses topo clusters of radius $\Delta R < 0.2$ with the energy deposit corresponding to the muon removed.
+Similar isolation working points are constructed using the same criteria as for electrons, and the efficiency of the \tt{Loose} and \tt{GradientLoose} working points as a function of muon $\pt$ are shown in Figure~\ref{fig:muon_iso_efficiency}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.48\textwidth]{figs/detector/muon_iso_efficiency_loose-cropped}
+  \includegraphics[width=.48\textwidth]{figs/detector/muon_iso_efficiency_gloose-cropped}
+  \caption[Muon isolation efficiencies in $Z\rightarrow\mu\mu$ events for the \tt{Loose} (left) and \tt{GradientLoose} (right) working points as a function of muon $\pt$.  Collision data (black) is compared to simulation (red) and the ratio is in the lower panel.]{Muon isolation efficiencies in $Z\rightarrow\mu\mu$ events for the \tt{Loose} (left) and \tt{GradientLoose} (right) working points as a function of muon $\pt$.  Collision data (black) is compared to simulation (red) and the ratio is in the lower panel.  Plots taken from~\cite{2016.muon-reconstruction-13tev}.}
+  \label{fig:muon_iso_efficiency}
+\end{figure}
+
+%\subsubsection{Jet reconstruction}\label{detector:jet_reconstruction}
+%Jet reconstruction~\cite{2017.jet-reconstruction} uses the anti-$k_t$ clustering algorithm~\cite{2008.anti-kt} with a distance parameter $R = 0.4$.
+%Topo clusters are created from energy deposits in the calorimeters using a similar technique as used for the electron isolation (see Section~\ref{detector:electron_reconstruction}.
