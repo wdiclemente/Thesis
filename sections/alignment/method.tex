@@ -1,5 +1,5 @@
 The alignment procedure uses a track-based algorithm that updates the locations of detector elements in order to minimize the set of track-hit \emph{residuals}.
-These residuals are defined as the distance between the fitted track position in a given detector element to the position of the hit recorded by the same element, and are shown by the cyan lines in Figure~\ref{fig:alignment_effects_misalign}.
+These residuals are defined as the distance between the where fitted track intersects a given detector element and the position of the actual hit recorded by the same element, shown by the cyan lines in Figure~\ref{fig:alignment_effects_misalign}.
 
 Tracks in ATLAS are parameterized as five-dimensional vectors~\cite{2006.atlas-tracking-model}:%follow helical trajectories and are parameterized as five-dimensional vectors~\cite{2006.atlas-tracking-model}:
 \begin{equation}
@@ -11,7 +11,7 @@ The residual for the $i^{\textrm{th}}$ hit of a given track can then be written 
   r_i(\vec{\tau},\vec{a}) = (\vec{m}_i - \vec{e}_i (\vec{\tau},\vec{a}))\cdot\hat{k}
 \end{equation}
 where $\vec{e}_i$ is the intersection point of the extrapolated track with the sensor, $\vec{m}_i$ is the position of the associated hit within the sensor, and $\hat{k}$ is the unit vector defining the direction of the measurement within the sensor.
-$\vec{r}$ then represents the vector of residuals for the given track.
+$\vec{r}$ then is the vector of residuals for the track.
 
 % the alignment constants are those that minimize the track-hit residuals
 A $\chi^2$ function can be built from the residuals of all collected tracks:
@@ -58,30 +58,30 @@ which is a linear system of equations with a number of equations equal to the nu
 Inverting the full matrix and solving the resulting system of equations is referred to as \emph{Global} $\chi^2$ alignment~\cite{2005.global-chi2-alignment}.
 This can be useful, as $\mathcal{M}_a$ contains all the correlations between the alignable structures.
 However, inverting the matrix is difficult when the number of degrees of freedom becomes large---as the number of alignable structures increases, so too does the size of the matrix $\mathcal{M}_a$.
-Eventually inverting the matrix becomes too computationally intensive to be practical.
+Eventually, inverting the matrix becomes too computationally intensive to be practical.
 
 This problem is solved by the \emph{Local} $\chi^2$ algorithm~\cite{2005.local-chi2-thesis}.
-In this case, the alignment matrix is constructed to be block-diagonal, allowing for it to be inverted even for large numbers of degrees of freedom.
+In this case, the alignment matrix is constructed to be block-diagonal, allowing for it to be easily inverted even for large numbers of degrees of freedom.
 This is achieved by replacing the full derivative in Equation~\ref{eq:alignment_chi2_min_taylor} with the partial derivative $\frac{\partial\vec{r}}{\partial\vec{a}}$.
 The new alignment matrix $\mathcal{M}'_{a}$ and alignment vector $\vec{\nu}'_a$ become:
 \begin{equation}
-  \mathcal{M}_a = \sum\limits_{\textrm{tracks}}\bigg(\pderiv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\bigg(\pderiv{\vec{r}}{\vec{a}}\bigg)
+  \mathcal{M}'_a = \sum\limits_{\textrm{tracks}}\bigg(\pderiv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\bigg(\pderiv{\vec{r}}{\vec{a}}\bigg)
   \label{eq:alignment_matrix_local}
 \end{equation}
 \begin{equation}
-  \vec{\nu}_a = \sum\limits_{\textrm{tracks}}\bigg(\pderiv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\vec{r}_0
+  \vec{\nu}'_a = \sum\limits_{\textrm{tracks}}\bigg(\pderiv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\vec{r}_0
   \label{eq:alignment_vector_local}
 \end{equation}
-Inverting $\mathcal{M}'_{a}$ is considerably faster and less memory intensive even for large numbers of degrees of freedom; however, the correlations between the alignable structures is lost.
-
+Inverting $\mathcal{M}'_{a}$ is considerably faster and less memory intensive compared to $\mathcal{M}_{a}$, even for large numbers of degrees of freedom; however, the correlations between the alignable structures is lost.
 Due to the Taylor expansion used in Equation~\ref{eq:alignment_chi2_min_taylor}, several iterations of the alignment algorithm may be necessary to converge on a final set of alignment constants.
 The Local $\chi^2$ alignment typically requires more iterations due to the loss of the correlation information~\cite{2007.alignment-strategy}.
+
 In practice, the ATLAS reconstruction is run over a set of events, and the resulting tracks are fed to the alignment algorithm.
 The residuals are calculated, the alignment matrix is built and inverted, and a new set of alignment constants is obtained.
 The convergence is checked in two ways:
 \begin{enumerate}
-\item Measuring the $\Delta\chi^2$ with respect to the previous iteration. If it is near zero, then the $\chi^2$ is approaching its minimum.
-\item Looking at the residual distributions for different alignable structures. A well aligned detector will have a mean residual of zero with a width approximating the intrinsic resolution of the detector.
+\item Measuring change in the $\chi^2$ with respect to the previous iteration. If it is near zero, then the $\chi^2$ is approaching its minimum.
+\item Looking at the residual distributions for different alignable structures. A well aligned detector will have a residual distribution that is approximately Gaussian, with a mean of zero with a width approximating the intrinsic resolution of the detector.
 \end{enumerate}
 If the above checks are satisfied, the process is finished and the final alignment constants are read out; if not, another iteration is performed.
 A visual representation of the alignment chain is shown in Figure~\ref{fig:alignment_chain}.
@@ -93,7 +93,7 @@ A visual representation of the alignment chain is shown in Figure~\ref{fig:align
   \label{fig:alignment_chain}
 \end{figure}
 
-Since a $\chi^2$ minimization is used to align the detector, if there is a systematic misalignments in the detector that does not adversely affect the $\chi^2$, the algorithm will be insensitive to it.
+Since a $\chi^2$ minimization is used to align the detector, if there is a systematic misalignment in the detector that does not adversely affect the $\chi^2$, the algorithm will be insensitive to it.
 These misalignments are referred to as \emph{weak modes}, and special care is taken to remove them~\cite{2014.alignment-performance-8tev}.
 One potential impact of weak modes is a bias in the track momentum of reconstructed particles.
 This particular effect is the subject of Section~\ref{align:bias}.
@@ -104,20 +104,22 @@ The calibration loop requires the alignment---as well as various other detector 
 A fast, coarse-grained alignment\footnote{The calibration loop runs up to a Level 2 alignment in the silicon detectors, which involves treating each layer of sensors as a single object. The alignment levels are defined in greater detail in Table~\ref{tab:align_levels}.} is run on a subset of the available data containing full tracking information, and the results are propagated to the reconstruction of that particular run~\cite{2015.alignment-run-2-proceedings}.
 Due to the time constraints of the calibration loop, a full sensor-by-sensor alignment is not possible.
 
-The more thorough and finely tuned alignments are reserved for the dedicated alignment campaigns.
-These generally occur early in data taking campaigns, typically once a sufficient amount of data is collected after a detector shutdown, in order to obtain a good baseline alignment for use in the remainder of the data collection period.
+The more thorough and finely tuned alignments are reserved for dedicated alignment campaigns, typically near the beginning and at the end of data taking campaigns. 
+The former generally occurs once a sufficient amount of data is collected after a detector shutdown, in order to obtain a good baseline alignment for use in the remainder of the data collection period.
 One such alignment campaign, the initial offline alignment of the ATLAS detector at the beginning of Run 2, is the subject of Section~\ref{align:2015}.
-Once data taking is complete, another set of alignment constants is derived for the full set of available data, and it is typically divided into several ``blocks'' to account for potential run-by-run misalignments.
+The latter occurs once data taking is complete.
+A new set of alignment constants is derived for the full set of available data, and it is typically divided into several ``blocks'' to account for potential run-by-run misalignments.
 The data is then reprocessed using the newly derived detector geometry.
 
 \subsection{Alignment levels}\label{align:levels}
 The alignment of the detector is performed at several levels of increasing granularity.
 This adds flexibility in being able to align only as finely as needed, and it also allows for global, detector-level misalignments to be corrected first before dealing with finer adjustments.
+The main alignment levels are as follows:
 \begin{itemize}%[{Level }1:]
 \item Level 1 (L1) alignment involves moving entire subdetector components as a single unit, such as the entire Pixel detector, or the SCT barrel.  These often have the largest misalignments, but they are easily corrected and do not require large volumes of data to do so.
 \item Level 2 (L2) alignment treats individual layers in the silicon detectors (modules in the TRT) and end cap disks as individual alignable objects.
-\item Level 2.7 (L27) alignment was introduced with the addition of the IBL to the ID in Run 2.  It involves the stave-by-stave alignment of the IBL and Pixel barrel\footnote{For the purposes of this Chapter, the term ``Pixel'' will refer to the original three layers of the Pixel detector, and the IBL will be referenced separately.}.
-\item Level 3 (L3) alignment treats each sensor in the silicon detectors and each straw in the TRT as an individual alignable object.  It is the finest grained alignment available but also the most computationally intensive due to the large number of degrees of freedom.  The large number of individual detector sensors being aligned also requires the largest amount of statstics.
+\item Level 2.7 (L27) alignment was introduced with the addition of the IBL to the ID in Run 2.  It involves the stave-by-stave alignment of the IBL and Pixel barrel\footnote{Even though the IBL is considered a part of the Pixel Detector, for the purposes of this Chapter, ``Pixel'' will refer to the original three layers of the Pixel barrel and its endcaps, and the IBL will be referenced separately.}.
+\item Level 3 (L3) alignment treats each module in the silicon detectors and each straw in the TRT as an individual alignable object.  It is the finest grained alignment available but also the most computationally intensive due to the large number of degrees of freedom.  Due to the large number of individual detector elements being aligned, high statistics are required.
 \end{itemize}
 The different alignment levels are listed in more detail in Table~\ref{tab:align_levels}, including the number of alignable structures and associated degrees of freedom for each detector component.
 

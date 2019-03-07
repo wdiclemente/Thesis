@@ -1,12 +1,19 @@
 A variety of weak mode deformations can exist in the detector even after alignment.
-As mentioned previously, these weak modes consist of misalignments which don't affect the $\chi^2$ of the residuals and thus are not handled by the basic alignment algorithm.
+As mentioned previously, these weak modes consist of misalignments which don't affect the $\chi^2$ of the residuals and thus are not handled by the unconstrained alignment algorithm.
 In the presence of a weak mode, the description of the detector geometry can still provide efficient and high quality track fits, but there may also be systematic biases in one or more track parameters.
 Several weak modes, their impacts on the reconstruction, and the steps taken to eliminate them are detailed in~\cite{2014.alignment-performance-8tev, 2012.alignment-systematics}. 
 This section focuses specifically on \emph{sagitta} deformations that result in a bias in the reconstructed track momentum.
 
 These sagitta distortions consist of detector movements orthogonal to the trajectory of the outgoing particle.
 The effect on the reconstructed track curvature is different for positvely and negatively charged particles, resulting in a charge-antisymmetric bias.
-This effect is illustrated in the curl deformation shown in Figure~\ref{fig:align_radial_distortion}.
+An example of this is illustrated by the curl deformation in Figure~\ref{fig:align_radial_distortion}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.45\textwidth]{figs/alignment/radial-distortion}
+  \caption{Representation of a curl distortion in the detector.  The image represents a cutaway view of the transverse plane of the barrel region.  The deformation is represented by the red arrows, and the impact on the reconstructed positive (blue) and negative (green) tracks are shown.  The dashed lines represent the true particle trajectories, and the solid lines represent the reconstructed trajectories.}
+  \label{fig:align_radial_distortion}
+\end{figure}
 
 In the plane transverse to ATLAS's magnetic field, outgoing particle tracks form circular arcs.
 The sagitta is defined as the distance from the center of this arc to the center of its base, as shown in Figure~\ref{fig:align_sagitta}, and it represents the ``amount of bending'' in the track.
@@ -30,22 +37,15 @@ Finally, since the reconstructed polar angle does not change under a sagitta def
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.45\textwidth]{figs/alignment/radial-distortion}
-  \caption{Representation of a curl distortion in the detector.  The image shows a cutaway in the transverse plane.  The deformation is represented by the red arrows, and the impact on the reconstructed positive (blue) and negative (green) tracks are shown.  The dashed lines represent the true particle trajectories, and the solid lines represent the reconstructed trajectories.}
-  \label{fig:align_radial_distortion}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
   \includegraphics[width=.4\textwidth]{figs/alignment/sagitta}
-  \caption{Geometric definition of the sagitta $s$ in relation to the length of the chord $l$ and the radius $r$ of a circular arc.}
+  \caption{Geometric definition of the sagitta $s$ in relation to the length of the chord $l$ and the radius $R$ of a circular arc.}
   \label{fig:align_sagitta}
 \end{figure}
 
 \subsection{Sagitta bias monitoring with electron $E/p$}\label{align:eop}
-Since a sagitta bias results in changes in the momentum of particles' tracks as measured by the ID, they can be identified using independent measurements from other systems in the detector.
+Since a sagitta bias results in changes in the momenta of particle tracks as measured by the ID, they can be identified using independent measurements from other systems in the detector.
 One such method involves using the energy-momentum ratio of electrons ($E/p$).
-Since the electron's energy is measured in ATLAS's calorimeter systems, it is not sensitive to any sagitta bias that may exist in the ID and the corresponding measurement of the track momentum.
+Since the electron's energy is measured in ATLAS's calorimeter systems, it is not sensitive to any sagitta bias that may exist in the ID and in the corresponding measurement of the track momentum.
 Under the assumption that the calorimeter response is independent of the charge of incoming particles, a charge-dependent momentum bias in the ID will manifest as a difference in the $E/p$ ratio for electrons and positrons.%\footnote{For the remainder of this section, electrons and positrons will collectively be referred to as ``electrons'' unless explicitly noted.}.
 
 In the presence of a sagitta bias, the momentum will change according to Equation~\ref{eq:align_p_sagitta_bias} and the average measured $\eop$ can be written as:
@@ -58,28 +58,28 @@ Assuming that $\eop^+ = \eop^-$ in the absence of a bias, the sagitta bias param
   \delta_s = \frac{\eop^+ - \eop^-}{2\langle\et\rangle}
 \label{eq:align_eop_sagitta}
 \end{equation}
-If the kinematic selections for electrons and positrons are identical, the energy scale of the calorimeter will not factor into the $\eop$ difference; however, it will affect $\langle\et\rangle$ which would scale the measured $\delta_s$.
-This is expected to be a small effect, as the energy scale for electrons has been measured at \com{13} with uncertainties on the per-mil level across the entire detector~\cite{2016.electron-photon-calibration}.
+If the kinematic selections for electrons and positrons are identical, the energy scale of the calorimeter will not factor into the $\eop$ difference; however, it will affect $\langle\et\rangle$, which would scale the measured $\delta_s$.
+This is expected to be a small effect, as the energy scale for electrons has been measured at $13\tev$ with uncertainties on the per-mil level across the entire detector~\cite{2016.electron-photon-calibration}.
 
 \subsubsection{Measuring $\eop$}
-The $E/p$ ratio is measured using electrons and positrons from $\Zee$ events in order to obtain a high purity sample of candidate particles.
+The $E/p$ ratio is measured using electrons and positrons from $Z\rightarrow ee$ events in order to obtain a high purity sample of candidate particles.
 They are required to pass a basic selection criteria to ensure they are well measured in both the ID and the calorimeters:
 \begin{itemize}
   \item $\et > 25\gev$
   \item $|\eta| < 2.47$, excluding the calorimeter's barrel-to-endcap transition region in $1.37<|\eta|<1.52$
-  \item Pass \tt{MediumLH} identification working point detailed in Section~\ref{detector:electron_reconstruction}
+  \item Pass the \tt{MediumLH} identification working point detailed in Section~\ref{detector:electron_reconstruction}
   \item Pass a selection of quality cuts, including a requirement that the electron be identified using cluster information in the calorimeter %author == 1 is cluster based only, author == 3 is cluster and track-based
   \item The associated track must have at least one hit in the IBL, three in the Pixel detector, and five in the SCT detector.
 \end{itemize}
-Events with exactly two opposite-charge electrons passing this selection with a dielectron invariant mass within $30\gev$ of the $Z$ boson mass are then used for the $E/p$ calculation.
+Events containing exactly two opposite-charge electrons passing this selection with an invariant mass within $30\gev$ of the $Z$ boson mass are then used for the $E/p$ calculation.
 
-Since the size of the sagitta bias $\delta_s$ is not expected to be constant across the entire detector, a two-dimensional rectangular grid binned in detector $\eta$ and $\phi$ is constructed.
-From the selected events, separate distributions of $E/p$ are made for electrons and positrons lying in each bin.
+Since the size of the sagitta bias $\delta_s$ is not expected to be constant across the entire detector, a two-dimensional rectangular grid is constructed binned in detector $\eta$ and $\phi$.
+From the selected events, separate distributions of $E/p$ are made for electrons and positrons within each bin.
 Each distribution is fit with Crystal Ball function\footnote{The Crystal Ball function is a proability density function consisting of a Gaussian core and a power-law tail.}, and the peak of the distribution is taken as the value of $\eop$.
 If there is no bias on the track momentum in the bin, the peaks for electrons and positrons should agree.
 Example $E/p$ distributions including the Crystal Ball fits are shown in Figure~\ref{fig:alignment_eop_fit}.
 
-It is important to emphasize that deviations from one in the \emph{ratio} of $\eop$ for electrons and positrons indicates that a momentum bias may be present.
+It is important to emphasize that deviations from one in the \emph{ratio} of $\eop^+$ to $\eop^-$ points to a potential momentum biases.
 The value of $\eop$ itself is not expected to equal one exactly, as the track momentum on average tends to be slightly lower than the energy measurement in the calorimeter.
 This is due to the fact that if the electron were to radiate a photon, its momentum would change slightly, while it is likely that both the electron and the emitted photon would leave energy deposits near each other in the calorimeter and be reconstructed into the same object. 
 
@@ -102,16 +102,16 @@ The corrected momentum is then constrained in the alignment.
 
 \subsubsection{Results in $13\tev$ data}
 The $E/p$ method has been used to monitor sagitta biases in the detector several times over the course of Run 2.
-During this time, it has primarily served as an independent cross-check to a second method using $Z\rightarrow\mu^{\pm}\mu^{\mp}$ events~\cite{2012.alignment-systematics}.
-The $Z\rightarrow\mu^{\pm}\mu^{\mp}$ method identifies individual track momentum biases through shifts in the reconstructed $Z$ mass, which leaves it relatively insensitive to global sagitta biases.
+During this time, it has primarily served as an independent cross-check to a second method using $Z\rightarrow\mu\mu$ events~\cite{2012.alignment-systematics}.
+The $Z\rightarrow\mu\mu$ method identifies individual track momentum biases through shifts in the reconstructed $Z$ mass, which leaves it relatively insensitive to global sagitta biases.
 For this reason, the sagitta bias maps produced using this technique are normalized to those from the $E/p$ method before being used to constrain the alignment. 
 The results of two implementations of the $E/p$ method are presented here.
 \begin{enumerate}
 \item The first follows the end-of-year reprocessing of the entire ATLAS 2016 data set. % at \com{13}.
 Two sets of alignment constants are compared: the \emph{prompt} alignment, which was derived shortly after each run was recorded, and the \emph{reprocessed} alignment.
-The maps of the sagitta bias comparing the two alignments calculated using the $E/p$ method are shown in Figure~\ref{fig:alignment_2016_sagitta_map}, and the comparison of the $\eta$ projection of each map is shown in Figure~\ref{fig:alignment_2016_sagitta_projection}.
-\item The second uses the 2017 data after reprocessing, and compares the effects of multiple iterations of the method.
-In each iteration, the momenta of the electrons and positrons are corrected based on Equation~\ref{eq:align_p_sagitta_bias} using the value of $\delta_s$ computed in the previous iteration, and a new sagitta bias map is calculated.
+The maps of the sagitta bias in each alignment calculated using the $E/p$ method are shown in Figure~\ref{fig:alignment_2016_sagitta_map}, and the comparison of the $\eta$ projection of the maps is shown in Figure~\ref{fig:alignment_2016_sagitta_projection}.
+\item The second uses the 2017 data after reprocessing, and compares the effects of multiple iterations of the $E/p$ method.
+In each iteration, the momenta of the electrons and positrons are corrected according to Equation~\ref{eq:align_p_sagitta_bias} using the value of $\delta_s$ computed in the previous iteration, and a new sagitta bias map is calculated.
 If the method is indeed characterizing the sagitta biases correctly, the corrections should converge quickly.
 The initial sagitta bias map is compared to the map after two such iterations in Figure~\ref{fig:alignment_2017_sagitta_map}, and the sagitta bias projected along $\eta$ for each iteration is shown in Figure~\ref{fig:alignment_2017_sagitta_projection}.
 Indeed, after just two iterations, $\delta_s$ is consistent with zero in nearly all bins.

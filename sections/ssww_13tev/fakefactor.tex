@@ -172,14 +172,15 @@ For the purposes of the fake-factor calculation, it is perhaps more intuitive to
 When the lepton $\pt$ cuts required by a particular signal or control region are applied to nominal and loose leptons, the cut is applied to the $\pt$ of the nominal lepton and to the $\ptptcone$ of the loose object.
 Similarly, when looking up the fake-factor weight for a given $NL$ event, the value taken from the bin corresponding to the $\ptptcone$ of the loose object.
 Finally, when applying the weight to the event, $\ptptcone$ is assigned as the $\pt$ of the loose object.
-Figure~\ref{fig:ssww13tev_ff_application} contains a graphical representation of this procedure.
+This can be visualized by referring back to Figure~\ref{fig:ssww13tev_ff_apply}; every time a loose lepton is used (the red circles in the Figure), $\ptptcone$ is used in place of $\pt$.
+%Figure~\ref{fig:ssww13tev_ff_application} contains a graphical representation of this procedure.
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=.95\textwidth]{figs/ssww_13tev/backgrounds/ff/apply_ff}
-  \caption{Graphical representation of the fake-factor application using $\ptptcone$.  The value of $\ptptcone$ for the loose lepton is used to ``look up'' the fake-factor weight which is then applied to the event.  The loose lepton's $\pt$ becomes $\ptptcone$ for the purpose of the fake background estimation. \TODO{Update figure to match style of Fig.~\ref{fig:ssww13tev_ff_apply}.}}
-  \label{fig:ssww13tev_ff_application}
-\end{figure}
+%\begin{figure}[htbp]
+%  \centering
+%  \includegraphics[width=.95\textwidth]{figs/ssww_13tev/backgrounds/ff/apply_ff}
+%  \caption{Graphical representation of the fake-factor application using $\ptptcone$.  The value of $\ptptcone$ for the loose lepton is used to ``look up'' the fake-factor weight which is then applied to the event.  The loose lepton's $\pt$ becomes $\ptptcone$ for the purpose of the fake background estimation. \TODO{Update figure to match style of Fig.~\ref{fig:ssww13tev_ff_apply}.}}
+%  \label{fig:ssww13tev_ff_application}
+%\end{figure}
 
 Finally, it should be noted that the addition of $\ptcone$ to the loose object may cause the loose leptons in the denominator sample to migrate into higher bins.
 This results in an overall decrease in the number of loose objects in the lower $\ptptcone$ bins due to there not being additional leptons at lower $\pt$ to replace them.
