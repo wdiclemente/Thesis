@@ -9,19 +9,19 @@ The expectation is that the increased detector acceptance from the forward track
 The chosen method for optimizing the event selection is a cut-based algorithm known as the Random Grid Search (RGS) \cite{2018.rgs-paper}.
 Consider a simple case of two variables $x$ and $y$ chosen to differentiate signal from background.
 In order to be considered a signal event, a given event would be required to pass a set of selection criteria, called a \emph{cut point}: $c = \{x > x_c, y > y_c\}$.
-A simple method to choose the optimal cut point (i.e. the ``best'' values of the cuts $x_c$ and $y_c$) would be to construct an $n\times m$ rectangular grid in $x$ and $y$ consisting of points $(x_0,y_0), (x_1,y_1), ..., (x_n,y_m)$, as Figure~\ref{fig:rgs_grids_rectangular}.
+A simple method to choose the optimal cut point (the ``best'' values of the cuts $x_c$ and $y_c$) would be to construct an $n\times m$ rectangular grid in $x$ and $y$ consisting of points $(x_0,y_0), (x_1,y_1), ..., (x_n,y_m)$, as in Figure~\ref{fig:rgs_grids_rectangular}.
 One can then choose a cut point $c_k = \{x > x_i, y > y_j\}$ that maximizes the signal significance as given by a chosen metric.
 This would be considered a \emph{rectangular grid search}.
 
 While effective in principle, a rectangular grid search comes with two major drawbacks:
 \begin{enumerate}
 \item The algorithm scales exponentially as the number of variables to be optimized increases, as this is effectively increasing the dimensionality of the grid.  In the simple case of a square grid with $N$ bins per variable $v$, the number of cut points to be evaluated grows as $N^v$.
-\item Signal and background samples are rarely evenly distributed over the entire grid, resulting in many cut points being sub-optimal and evaluating them would be a waste of computing resources.
+\item Signal and background samples are rarely evenly distributed over the entire grid, resulting in many cut points being sub-optimal, and evaluating them would be a waste of computing resources.
 \end{enumerate}
 
 To combat these limitations, the RGS algorithm constructs a grid of cut points directly from the signal sample itself.
 In the two-dimensional example, this means that the variables $x_i$ and $y_j$ making up the cut point $c_k = \{x > x_i, y > y_j\}$ take their values directly from a given signal event.
-This has the benefit of creating a \emph{random grid} of cut points that is biased towards regions of high signal concentration by construction.
+This creates a \emph{random grid} of cut points that has the benefit of being biased towards regions of high signal concentration by construction.
 This reduces the need for exponentially increasing numbers of cut points while ensuring that computing resources are not wasted in regions with few to no signal events.
 An example of a two-dimensional random grid is shown in Figure~\ref{fig:rgs_grids_random}.
 
@@ -42,7 +42,7 @@ An example of a two-dimensional random grid is shown in Figure~\ref{fig:rgs_grid
 \end{figure}
 
 Once the random grid of cut points is constructed, the optimal cut point can be chosen using any number of metrics, such as signal to background ratio.
-For the purpose of the \ssww upgrade study, the optimal cut point is chosen to be the one that mazimizes the signal significance $Z$ as defined in Equation~\ref{eq:significance_with_error} \cite{2011.asimov-significance}:
+For the purpose of the \ssww upgrade study, the optimal cut point is chosen to be the one that mazimizes the signal significance $Z$, defined as~\cite{2011.asimov-significance}:
 \begin{equation}
 Z = \sqrt{2{\bigg[}(s+b)\ln{\Big(}\frac{s+b}{b_0}{\Big)}+b_0-s-b{\bigg]}+\frac{(b-b_0)^2}{\sigma_b^2}}
 \label{eq:significance_with_error}
@@ -52,7 +52,6 @@ where $s$ and $b$ are the number of signal and background events, respectively, 
 b_0 = \frac{1}{2}{\Big(}b-\sigma_b^2+\sqrt{(b-\sigma_b^2)^2+4(s+b)\sigma_b^2}{\Big)}
 \label{eq:significance_b0}
 \end{equation}
-
 In the case where the backround is known precisely (i.e. $\sigma_b = 0$), Equation~\ref{eq:significance_with_error} simplifies to
 \begin{equation}
 Z = \sqrt{2\bigg(b\big[(1+s/b)\ln(1+s/b)-s/b\big]\bigg)}
@@ -79,7 +78,7 @@ The following variables are chosen for optimization:
 Subleading lepton $\pt$ is omitted as it is desirable to keep the cut value as low as possible due to its sensitivity to the longitudinal polarization (as discussed in Section~\ref{sec:sswwupgrade_longitudinal_sens}); despite this, the leading lepton $\pt$ is still allowed to be optimized as it can have strong background rejection power.
 Additionally, the dijet separation $\detajj$ was included in early studies of the optimization, however it was dropped due to the cut value being motivated by well-studied differences between EWK- and QCD-produced \ssww events (as in Figure~\ref{fig:ssww13tev_dijet_comparison_dyjj}).
 
-Two additional constraints were imposed when selecting the optimal cut point:
+Two additional constraints are imposed on the optimal cut point:
 \begin{enumerate}
 \item At least 1000 signal events must survive in order to prevent the optimization from being too aggressive and unnecssarily reducing signal statistics.
 \item The dijet invariant mass may only vary within a $50\gev$ range of the default value (from $450-550\gev$) due to the cut being physically motivated by the VBS event topology described in Section~\ref{ssww13tev:ssww_topology}.
@@ -102,7 +101,7 @@ The updates to the event selection are listed in Table~\ref{tab:sswwupgrade_opti
 The large reduction in the background is primarily a result of increasing the leading and subleading jet $\pt$ from $30\gev$ to $90\gev$ and $45\gev$, respectively.
 As can be seen in Figure~\ref{fig:optimized_jetpt}, this increase removes a significant portion of the backgrounds from jets faking electrons and charge mis-ID.
 Additionally, the loosening of the lepton-jet centrality cut $\zeta$ allows more signal events to survive the event selection (see Figure~\ref{fig:optimized_centrality}).
-Other changes to the event selection are minor and do not individually have a large impact on the signal or background yields; similar distributions of these variables are shown in Appendix~\ref{app:sswwupgrade_optimization_plots}.
+Other changes to the event selection are minor and do not individually have a large impact on the signal or background yields; similar distributions for these variables are shown in Appendix~\ref{app:sswwupgrade_optimization_plots}.
 
 The full event yields after optimization as well as the cross section measurement are detailed alongside those using the default selection in Section~\ref{sswwupgrade:results}.
 

@@ -55,7 +55,7 @@ The event yields for the $WZ$ control region are listed in Table~\ref{tab:ssww13
 
 \subsection{Estimation of the $V\gamma$ background}\label{ssww13tev:wgamma}
 Events from $V\gamma$ processes can pass selection if the photon converts into an $e^{+}e^{-}$ pair and one of the electrons passes the selection criteria.
-The background is estimated from MC simulations which are then scaled by a normalization factor calculated from a control region enriched in $Z(\mu^{+}\mu^{-})\gamma$ events.
+The background is estimated from MC simulations which are then scaled by a normalization factor calculated from a control region enriched in $Z\rightarrow\mu\mu+\gamma$ events.
 This control region selects two opposite-sign muons and an additional electron that is assumed to come from the photon conversion.
 The full event selection is detailed in Table~\ref{tab:ssww13tev_vgamma_cr}.
 
@@ -76,7 +76,7 @@ The full event selection is detailed in Table~\ref{tab:ssww13tev_vgamma_cr}.
 \end{table}
 
 The $Z\gamma$ MC samples available do not cover the full range of $\pt^\gamma$ and $\deltar(\gamma,l)$; thus, additional Drell-Yan samples ($Z$+jets) are used to fill out the phase space.
-Overlap between the two samples are removed based to avoid double counting.
+Overlap between the two samples are removed to avoid double counting.
 Events with final state photons are checked at truth level\footnote{Truth particles are the particles produced directly by the MC generator before being passed through the full detector simulation, at which point they are considered \emph{reconstruction-level} (or \emph{reco-level}) particles.} to ensure that the photon did not originate from a hadronic decay.
 Cuts on $\pt^\gamma > 10\gev$ and $\deltar(\gamma,l) > 0.1$ are then applied at generator level, and $Z\gamma$ events that fail this additional selection and $Z$+jets events that pass it are removed.
 
@@ -115,14 +115,14 @@ This is the dominant process leading to charge flip, and it is highly dependent 
 This process is dependent on the momentum of the electron, as its track becomes more straight as the momentum of the electron increases.
 \end{enumerate}
 
-In order to estimate this background, the rate at which an electron's charge is misidentified is calculated from $Z\rightarrow e^{+}e^{-}$ MC simulation.
+In order to estimate this background, the rate at which an electron's charge is misidentified is calculated from $Z\rightarrow ee$ MC simulation.
 It is known that the MC does not perfectly model the material effects leading to charge flip; as a result, scale factors are applied to the MC in order for it to to better reflect the real performance.
 These scale factors are obtained from the ratio of charge mis-ID rates in data and uncorrected MC in~\cite{2018.ssww-13tev-atlas-support} following the method outlined in~\cite{2017.charge-flip-support}.
 Once the scale factors are applied, the charge misidentification rate $\varepsilon$ can be extracted by comparing the electron's reconstructed charge with the charge of its truth particle:
 \begin{equation}
   \varepsilon(\eta,\pt) = \frac{N_{\textrm{wrong\ charge}}}{N_{\textrm{prompt\ electrons}}}
 \end{equation}
-The charge mis-ID rate is calculated in bins of electron $|\eta|$ and $\pt$, and it varies from below $0.1\%$ in the central region of the detector up to $8\%$ in the forward regions for high $\pt$ (above $90\gev$) electrons.
+The charge mis-ID rate is calculated in bins of electron $|\eta|$ and $\pt$, and it varies from below $0.1\%$ in the central region of the detector up to $8\%$ in the forward regions for high $\pt$ (above $80\gev$) electrons.
 A two-dimensional plot of $\varepsilon$ can be found in Figure~\ref{fig:charge_flip_rates}.
 
 \begin{figure}
@@ -152,7 +152,7 @@ These events are then weighted by the probability for one of the electrons to be
 %\label{ssww13tev:ch_flip_weight2}
 %\end{equation}
 where the subscripts 1 and 2 refer to the leading and subleading electrons, respectively, and $\varepsilon_i$ is a function of the $\eta$ and $\pt$ of the $i^{\textrm{th}}$ electron.
-In the case of an event with only one electron and one muon, Equation~\ref{ssww13tev:ch_flip_weight} simplifies:
+In the case of an event with one electron and one muon ($\varepsilon_\mu = 0$), Equation~\ref{ssww13tev:ch_flip_weight} simplifies:
 \begin{equation}
 \omega = \frac{\varepsilon}{1-\varepsilon}
 \end{equation}

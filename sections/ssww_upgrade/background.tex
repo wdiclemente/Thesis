@@ -8,16 +8,16 @@ Similarly, all backgrounds with three vector bosons are combined and labeled as 
 Any $W$+jets or top events that pass selection and do not contain a fake electron, as well as any $Z$+jets events without an electron identifed as having its charge misidentified are combined as \emph{other non-prompt} backgrounds.
 
 \subsection{Truth-based isolation}\label{sswwupgrade:isolation}
-The canonical isolation variables used in ATLAS analyses require detailed information is from many detector subsystems including particle tracks and calorimeter responses.
+The canonical isolation variables used in ATLAS analyses require detailed information from several detector subsystems including particle tracks and calorimeter responses.
 Since the MC samples used in this analysis have not been run through a full detector simulation, it is not possible to reproduce the official isolation variables.
 For truth-level analysis, this is generally not a serious concern, as high-$\pt$ signal leptons tend to be well isolated to begin with.
 However, isolation is one of the most powerful tools for rejecting leptons from non-prompt sources, such as top events, which are produced in association with additional nearby particles from $b$ and $c$ hadron decays.
-It was seen in the early stages of this analysis that without any sort of isolation requirement, contributions from top backgrounds (including single top, $t\bar{t}$ and $t\bar{t}+V$) were more than an order of magnitude higher than expected.% given the size of these backgrounds in the $13\tev$ analysis.
+It was seen in the early stages of this analysis that without any sort of isolation requirement, contributions from top backgrounds (including single top, $t\bar{t}$, and $t\bar{t}+V$) were more than an order of magnitude higher than expected.% given the size of these backgrounds in the $13\tev$ analysis.
 
-As a result, it is necessary to find one or more quantities that are comparable to the isolation information that is available in fully-simulated samples.
+As a result, it was necessary to find one or more quantities that are comparable to the isolation information that is available in fully-simulated samples.
 Analogues to track- and calorimeter-based isolation are constructed by summing the momentum and energy, respectively, of stable truth particles with $\pt > 1\gev$ within a specified radius of each signal lepton.
 For the track-based isolation, only charged truth particles are used; both charged and neutral particles (excluding neutrinos) are included for the calorimeter-based isolation.
-Ultimately, a set of isolation cuts are chosen that are similar to those recommended by ATLAS for Run 2 analyses.
+Ultimately, a set of isolation cuts are chosen that are similar to the fixed-cut recommendations for ATLAS Run 2 analyses.
 The truth-based isolation requirements are listed in Table~\ref{tab:truth_iso_definition}.
 
 \begin{table}[htp]
@@ -35,6 +35,6 @@ The truth-based isolation requirements are listed in Table~\ref{tab:truth_iso_de
   \label{tab:truth_iso_definition}
 \end{table}
 
-With no cut on truth-based isolation, 83\% of the total background consists of top events without including contributions to the fake electron background.
+With no cut on truth-based isolation, 83\% of the total background consisted of top events (without including top contributions to the fake electron background).
 The isolation requirement reduces the top background by over 99\%, and the percentage of the total background from top events is reduced to 2\%.
 Additional studies on the truth-based isolation as well as full event yields with and without the islolation requirement can be found in Appendix~\ref{app:truth_isolation}.

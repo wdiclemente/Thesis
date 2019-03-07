@@ -117,7 +117,8 @@ Since the overall contributions from other processes estimated with MC are small
 It is also necessary to consider uncertainties on the theoretical predictions in the fiducial region.
 They include the choice of PDF set, the value of the strong coupling constant $\alpha_s$, the renormalization scale $\mu_R$, the factorization scale $\mu_F$, and the parton showering.
 The size of these uncertainties are measured by generating new samples with variations in a chosen parameters and comparing them to samples using the nominal choice of the parameter.
-Internal variations on the PDF sets and using a different set entirely results in a relative uncertainty of up to $2.25\%$ on the nominal sample.
+
+For the signal sample, internal variations on the PDF sets as well as using a different set entirely results in a relative uncertainty of up to $2.25\%$ on the nominal sample.
 The impact from varying $\alpha_s$ is very small, on the order of $<0.01\%$.
 The factorization and renormalization scales are independently varied between $0.5$-$2.0$ from their nominal values of $1.0$.
 This results in relative uncertainties on the prediction of up to $15\%$.
@@ -134,8 +135,8 @@ The interference effects are estimated using the \tt{MadGraph} MC generator, as 
 This allows four samples to be generated:
 \begin{enumerate}
 \item Inclusive: All available diagrams are used in the matrix element calculation
-\item EWK only: Only EWK diagrams ($\mathcal{O}(\alpha_{\textrm{EWK}}) = 4$) are used
-\item QCD only: Only QCD diagrams ($\mathcal{O}(\alpha_s) = 2 \otimes \mathcal{O}(\alpha_{\textrm{EWK}}) = 2$) are used
+\item EWK only: Only EWK diagrams ($\mathcal{O}(\alpha_{\textrm{EWK}}) = 6$) are used
+\item QCD only: Only QCD diagrams ($\mathcal{O}(\alpha_s) = 2 \otimes \mathcal{O}(\alpha_{\textrm{EWK}}) = 4$) are used
 \item Interference: Only the interference terms are used
 \end{enumerate}
 A minimal set of generator level cuts, listed in Table~\ref{tab:ssww13tev_uncert_int_cuts}, is applied in order to avoid biasing the sample towards either production mode.
@@ -163,7 +164,7 @@ The size of the interference is found to be approximately $6\%$ of the total cro
     \hline\hline
     Inclusive    & $3.646\pm 0.0012$ \\
     EWK only     & $2.132\pm 0.0005$ \\
-    QCD only     & $1.371\pm 0.0008$ \\
+    QCD only     & $1.371\pm 0.0008$ \\ \hline
     Interference & $0.227\pm 0.0002$ \\
     \hline
   \end{tabular}

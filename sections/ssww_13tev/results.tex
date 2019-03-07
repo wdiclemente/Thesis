@@ -5,45 +5,21 @@ From this fit, the normalization factor for the $WZ$ control region $\mu_{WZ}$ a
 
 The $WZ$ normalization factor is measured to be:
 \begin{equation}
-  \mu_{WZ} = 0.88^{+0.07}_{-0.07}(\textrm{stat})~^{+0.31}_{-0.21}(\textrm{theory})~^{+0.22}_{-0.11}(\textrm{sys})
+  \mu_{WZ} = 0.88^{+0.07}_{-0.07}(\textrm{stat})~^{+0.31}_{-0.21}(\textrm{model\ sys})~^{+0.22}_{-0.11}(\textrm{experimental\ sys})
   \label{eq:ssww13tev_signal_strength_wz}
 \end{equation}
 and is constrained primarily by the number of data events in the $WZ$ control region.
 The observed signal strength of \ssww EWK production, defined in Equation~\ref{eq:ssww13tev_xsec_mu}, is extracted from the fit and measured with respect to the prediction of the \sherpav{2.2.2} MC generator:
 \begin{equation}
-  \mu_{\textrm{obs}} = 1.45^{+0.25}_{-0.24}(\textrm{stat})~^{+0.06}_{-0.08}(\textrm{theory})~^{+0.27}_{-0.22}(\textrm{sys}) % paper has no theory uncert for some reason
+  \mu_{\textrm{obs}} = 1.45^{+0.25}_{-0.24}(\textrm{stat})~^{+0.27}_{-0.22}(\textrm{sys}) % paper has no theory uncert for some reason
   \label{eq:ssww13tev_signal_strength_sr}
 \end{equation}
 This corresponds to a rejection of the background-only hypothesis with a significance of $6.9\sigma$.
 
-The observed number of data events are compared to the predicted signal and background yields in the signal region in Table~\ref{tab:ssww13tev_yields_prefit} before applying the fit and in Table~\ref{tab:ssww13tev_yields_postfit} after the fit.
+The observed number of data events are compared to the predicted signal and background yields in the signal region after applying the fit in Table~\ref{tab:ssww13tev_yields_postfit}.
+The pre-fit event yields can be found in Appendix~\ref{app:ssww13tev_prefit}.
 122 candidate events are observed compared to a prediction of 60 signal and 69 background events.
-
 The $m_{jj}$ distributions for data and prediction are shown in Figure~\ref{fig:ssww13tev_results_mjj_sr_postfit} after the fit, and the fitted event yields in the low-$m_{jj}$ and $WZ$ control regions are shown in Figure~\ref{fig:ssww13tev_results_cr_postfit}.
-Additional distributions can be found in Appendix~\ref{app:ssww13tev_additional_material}.
-
-\begin{table}[htbp]
-  \resizebox{\linewidth}{!}{
-  \begin{tabular}{l|l@{$\,\pm\,$}ll@{$\,\pm\,$}ll@{$\,\pm\,$}ll@{$\,\pm\,$}ll@{$\,\pm\,$}ll@{$\,\pm\,$}l|l@{$\,\pm\,$}l}
-    & \multicolumn{2}{c}{$\eep$}& \multicolumn{2}{c}{$\eem$}& \multicolumn{2}{c}{$\mep$}& \multicolumn{2}{c}{$\mem$}& \multicolumn{2}{c}{$\mmp$}& \multicolumn{2}{c|}{$\mmm$}& \multicolumn{2}{c}{combined}\\
-\hline\hline
-$WZ$                    & 1.9 & 0.6 & 1.3 & 0.4 & 14 & 4 & 8.9 & 2.6 & 5.5 & 1.6 & 3.6 & 1.1 & 35 & 10 \\ % before scaling (calculated by hand)
-Non-prompt            & 4.1& 2.3   & 2.3& 1.7   & 9& 5   & 6& 4   & 0.57& 0.15   & 0.67& 0.25   & 23& 10 \\
-$e/\gamma$ conversions         & 1.74& 0.29   & 1.8& 0.4   & 6.1& 1.6   & 3.7& 0.8   & \multicolumn{2}{c}{---}   & \multicolumn{2}{c|}{---}   & 13.4& 2.5 \\
-Other prompt          & 0.17& 0.05   & 0.14& 0.04   & 0.90& 0.19   & 0.60& 0.14   & 0.36& 0.10   & 0.19& 0.05   & 2.4& 0.5 \\
-\ssww QCD              & 0.38& 0.13   & 0.16& 0.05   & 3.0& 1.0   & 1.2& 0.4   & 1.8& 0.6   & 0.76& 0.25   & 7.3& 2.5 \\
-\hline
-Expected background   & 8.2 & 2.4 & 5.7 & 1.8 & 33 & 7 & 21 & 5 & 8.2 & 1.8 & 5.3 & 1.2 & 81 & 14  \\
-\hline
-\ssww EWK & 3.8 & 0.6 & 1.49 & 0.22 & 16.5 & 2.5 & 6.5 & 1.0 & 9.1 & 1.4 & 3.5 & 0.5 & 41 & 6 \\
-\hline
-Data& \multicolumn{2}{c}{10}& \multicolumn{2}{c}{4}& \multicolumn{2}{c}{44}& \multicolumn{2}{c}{28}& \multicolumn{2}{c}{25}& \multicolumn{2}{c|}{11}& \multicolumn{2}{c}{122}\\
-\hline
-\end{tabular}
-  }
-  \caption{Table of the data and prediction event yields in the signal region before the fit.  Numbers are shown for the six lepton flavor and charge channels and for all channels combined.  Here the $WZ$ background yields are normalized to the data in the $WZ$ control region.  The background estimations from the fake-factor are included in the ``Non-prompt'' category, and backgrounds from  $V\gamma$ production and electron charge misidentification are combined in the ``$e/\gamma$ conversions'' category. Finally, $ZZ$, $VVV$, and $t\bar{t}+V$ backgrounds are combined in the ``Other prompt'' category.}
-  \label{tab:ssww13tev_yields_prefit}
-\end{table}
 
 \begin{table}[htbp]
   \resizebox{\linewidth}{!}{
@@ -94,7 +70,7 @@ The final prediction used in the cross section measurement including uncertainti
 
 Combining this \tt{SHERPA} prediction with the measured signal strength $\mu_{\textrm{obs}}$ from Equation~\ref{eq:ssww13tev_signal_strength_sr}, the measured fiducial cross section $\sigma_{\textrm{meas}}^{\textrm{fid}}$ can be calculated using Equation~\ref{eq:ssww13tev_xsec_fid_meas_mu}:
 \begin{equation}
-  \sigma_{\textrm{meas}}^{\textrm{fid}} = 2.91^{+0.51}_{-0.47}(\textrm{stat})~^{+0.12}_{-0.16}(\textrm{theory})~^{+0.24}_{-0.23}(\textrm{sys})~^{+0.08}_{-0.06}(\textrm{luminosity})~\textrm{fb}
+  \sigma_{\textrm{meas}}^{\textrm{fid}} = 2.91^{+0.51}_{-0.47}(\textrm{stat})~^{+0.12}_{-0.16}(\textrm{model\ sys})~^{+0.24}_{-0.23}(\textrm{experimental\ sys})~^{+0.08}_{-0.06}(\textrm{luminosity})~\textrm{fb}
   \label{eq:ssww13tev_fiducial_xsec}
 \end{equation}
 A plot comparing the measured fiducial cross section to two theoretical calculations is shown in Figure~\ref{fig:ssww13tev_results_xsec}.

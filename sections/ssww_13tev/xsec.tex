@@ -3,11 +3,11 @@
 
 The \ssww EWK cross section is extracted from the signal region using a maximum-likelihod fit applied simultaneously to four $m_{jj}$ bins in the signal region as well as to the low-$m_{jj}$ and $WZ$ control regions.
 For the fit and cross section extraction, the signal region is defined as in Table~\ref{tab:ssww13tev_event_selection} with the dijet invariant mass requirement raised to $m_{jj} > 500\gev$.
-The low-$m_{jj}$ region is defined to mirror the signal region exactly with the dijet invariant mass inverted to $200 < m_{jj} < 500\gev$, and the $WZ$ control region is defined previously in Section~\ref{ssww13tev:wz}.
+The low-$m_{jj}$ region is defined to mirror the signal region exactly with the dijet invariant mass inverted to $200 < m_{jj} < 500\gev$, and the $WZ$ control region is as defined previously in Section~\ref{ssww13tev:wz}.
 
 The signal and low-$m_{jj}$ regions are split into six channels based on the flavor and charge of the dilepton pair: $\mmp$, $\mmm$, $\mep$, $\mem$, $\eep$, and $\eem$.
-This split by charge increases the sensitivity of the measurement due to the $W^{+}/W^{-}$ charge asymmetry at hadron colliders favoring the production of $W^{+}$ bosons~\cite{2010.w-charge-asymmetry}.
-Since the signal events contain two $W$ bosons, the signal strength compared to charge-symmetric backgrounds is much greater in the $++$ channels for both charges combined.
+This split by charge increases the sensitivity of the measurement due to the $W^{+}/W^{-}$ charge asymmetry favoring the production of $W^{+}$ bosons~\cite{2010.w-charge-asymmetry}.
+Since the signal events contain two $W$ bosons, the signal strength compared to charge-symmetric backgrounds is much greater in the $++$ channels than for both charges combined.
 The $WZ$ control region is included in the fit as a single bin ($l^{\pm}l^{\mp}l^{\pm}$).
 
 The maximum likelihood fit and cross section extractions are outlined in Sections~\ref{ssww13tev:xsec_fit_method} and \ref{ssww13tev:xsec_method}, respectively.
@@ -103,7 +103,7 @@ The selection criteria for the fiducial volume are listed in Table~\ref{tab:ssww
   \label{tab:ssww13tev_fiducial_vol}
 \end{table}
 
-In MC simulations the total phase space is generated, providing the total theoretical cross section $\sigmatottheo$
+The full phase space is generated in MC simulations, providing the total theoretical cross section $\sigmatottheo$
 and the total number of signal events $\mathcal{N}_{\textrm{sig}}^{\textrm{tot}}$\footnote{For the purpose of clarity, the number of events at truth level is represented by a script $\mathcal{N}$, and the number of events at reconstruction level uses a regular $N$.}.
 After applying the fiducial selection at truth level, the total number of signal events in the fiducial region $\mathcal{N}_{\textrm{sig}}^{\textrm{fid}}$ is obtained.
 %, and the fiducial predicted cross section can be written in terms of an acceptance factor $\mathcal{A}$ first introduced in Equation~\ref{eq:ssww13tev_xsec_nsig}:
@@ -141,7 +141,7 @@ In the simple case with only one bin, the equation for the total number of expec
   N_{\textrm{exp}}^{\textrm{SR}}(\theta) = \mu(\theta)\cdot\sigmatottheo\cdot\mathcal{L}\cdot\mathcal{A}\cdot\mathcal{C}(\theta)+N_{\textrm{bkg}}^{\textrm{SR}}(\theta)
   \label{eq:ssww13tev_xsec_nexp_unbinned}
 \end{equation}
-with the non-binned versions of $\mathcal{A}$ and $\mathcal{C}$ defined in Equations~\ref{eq:ssww13tev_xsec_acceptance} and \ref{eq:ssww13tev_xsec_efficiency}, respectively.
+with the unbinned versions of $\mathcal{A}$ and $\mathcal{C}$ defined in Equations~\ref{eq:ssww13tev_xsec_acceptance} and \ref{eq:ssww13tev_xsec_efficiency}, respectively.
 
 If the measured fiducial cross section is written as:
 \begin{equation}
@@ -163,7 +163,7 @@ The measured fiducial cross section can finally be rewritten in terms of $\hat{\
 
 In practice, however, the cross section is not extracted from a single bin, and Equation~\ref{eq:ssww13tev_xsec_nexp_unbinned} becomes:
 \begin{equation}
-  N_{\textrm{exp}}^{\textrm{SR}}(\theta) = \mu(\theta)\cdot\sigmatottheo\cdot\mathcal{L}\cdot\sum\limits_i\mathcal{A}_i\cdot\sum\limits_j\mathcal{C}_{ij}+\sum\limits_j N_{\textrm{bkg},j}^{\textrm{SR}}(\theta)
+  N_{\textrm{exp}}^{\textrm{SR}}(\theta) = \mu(\theta)\cdot\sigmatottheo\cdot\mathcal{L}\cdot\sum\limits_i\mathcal{A}_i\sum\limits_j\mathcal{C}_{ij}+\sum\limits_j N_{\textrm{bkg},j}^{\textrm{SR}}(\theta)
 \end{equation}
 for a single channel in truth and reconstruction level $m_{jj}$ bins $i$ and $j$, respectively, where the binned versions of $\mathcal{A}_i$ and $\mathcal{C}_{ij}$ are used.
 This equation can be extended to include all the analysis channels by increasing the number of bins $i$ and $j$.
