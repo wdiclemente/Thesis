@@ -3,11 +3,10 @@
 %However, these were experimentally observed to have masses...
 
 The results of electroweak mixing and the implications of the Higgs field have been introduced in the previous section.
-If the EWK theory were an unbroken symmetry, the associated $W^{\pm}$ and $Z$ bosons would be massless; however, when observed experimentally, they were found to be quite heavy~\cite{1983.w-boson, 1983.z-boson}, at around $80\gev$ and $91\gev$, respectively~\cite{2014.pdg}.
-Here, a more detailed explanation of the Higgs mechanism and how it ``spontaneously breaks'' the EWK symmetry, resulting in the three massive bosons ($W^\pm$ and $Z$) and one massless boson (photon), is presented.
+If the EWK theory were an unbroken symmetry, the associated $W^{\pm}$ and $Z$ bosons would be massless; however, when first observed experimentally~\cite{1983.w-boson, 1983.z-boson}, they were found to be quite heavy; currently, their masses are known to be approximately $80\gev$ and $91\gev$, respectively~\cite{2014.pdg}.
+The following presents the Higgs mechanism, including how it ``spontaneously breaks'' the EWK symmetry, resulting in the massive $W^\pm$ and $Z$ bosons and the massless photon.
 
-To see how the Higgs mechanism results in the massive vector bosons and a massless photon, consider the following.
-Beginning with a complex scalar doublet $\phi$ defined as:
+Beginning by writing the Higgs field as a complex scalar doublet $\phi$:
 \begin{equation}
   \phi = 
   \begin{pmatrix}
@@ -21,12 +20,13 @@ Beginning with a complex scalar doublet $\phi$ defined as:
   \end{pmatrix}
   \label{eq:complex_scalar_doublet}
 \end{equation}
-a Lagrangian $\mathcal{L}$ can be written:
+a simple Lagrangian $\mathcal{L}$ can be written:
 \begin{equation}
   \mathcal{L} = (\mathcal{D}_\mu\phi)^\dagger (\mathcal{D}^\mu\phi) - \mu^2\phi^{\dagger}\phi-\lambda (\phi^{\dagger}\phi)^2
   \label{eq:complex_scalar_lagrangian}
 \end{equation}
-where $\lambda > 0$ and $\mathcal{D}_{\mu}$ is the covariant derivative defined such that $\mathcal{L}$ is invariant under a local $\gtsu{2}\times\gtu{1}$ gauge transformation:
+where $\lambda > 0$ and $\mu^2$ are constants (the sign of $\mu^2$ will be addressed shortly).
+$\mathcal{D}_{\mu}$ is the covariant derivative defined such that $\mathcal{L}$ is invariant under a local $\gtsu{2}\times\gtu{1}$ gauge transformation:
 \begin{equation}
   \mathcal{D}_{\mu}\phi = \bigg(\partial_{\mu} + \frac{ig}{2}\tau_a W_{\mu}^a + \frac{ig'}{2}B_{\mu}\bigg)\phi
   \label{eq:covariant_deriv}
@@ -39,7 +39,7 @@ Isolating the potential term of the Lagrangian:
   \label{eq:higgs_potential}
 \end{equation}
 a choice must be made on the sign of $\mu^2$, and the case of interest is for $\mu^2 < 0$. % \TODO{page 328, 334}
-This results in the famous ``Mexican hat potential'' shown in Figure~\ref{fig:mexican_hat}, which is minimized along the collection of points:
+This results in the so-called ``Mexican hat potential'' shown in Figure~\ref{fig:mexican_hat}, which is minimized along the collection of points:
 \begin{equation}
   \phi^{\dagger}\phi = \frac{1}{2}\big(\phi_1^2 + \phi_2^2 + \phi_3^2 + \phi_4^2\big) = -\frac{\mu^2}{2\lambda}
   \label{eq:higgs_minimum}
@@ -124,7 +124,15 @@ The rest of the fermion couplings follow from this example.
 
 What is accomplished here is quite remarkable.
 The weak and electromagnetic interactions have been unified into a single $\gtsu{2}\times\gtu{1}$ interaction, and the physical bosons observed in nature arise as mixtures of the four gauge fields.
-Three of the four degrees of freedom in the scalar field $\phi$ of Equation~\ref{eq:complex_scalar_doublet}, are absorbed (or ``eaten'') by the $W^{\pm}$ and $Z$ bosons, and the fourth generates the Higgs boson.
+Three of the four degrees of freedom in the scalar field $\phi$ of Equation~\ref{eq:complex_scalar_doublet}, are absorbed (or ``eaten'') by the $W^{\pm}$ and $Z$ bosons, giving them a longitudinal polarization mode corresponding to a massive particle, and the fourth generates the Higgs boson.
+This process is summarized in Figure~\ref{fig:higgs_dof}.
 Additionally, it is shown that the Higgs couples to fermions in proportion to their mass.
 From experimental measurements, the value of the VEV has been determined to be $v\approx 246\gev$~\cite{2014.pdg}.
 However, it should be noted that the theory does not predict the mass of the Higgs boson or of the fermions; these must all be determined from experiment.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.65\textwidth]{figs/theory/higgs_mechanism_dof}
+  \caption{A graphical representation of the EWSB mechanism involving the $\gtsu{2}\times\gtu{1}$ bosons and the Higgs field.  The $W^\pm$ and $Z$ bosons each obtain mass by eating a degree of freedom (dof) from the Higgs field, and in the process gain a longitudinal polarization mode, while the photon stays massless (with two dof) and the SM Higgs boson $h$ remains.}
+  \label{fig:higgs_dof}
+\end{figure}
