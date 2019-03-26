@@ -2,7 +2,7 @@ In order to convert the raw detector readouts to information about a given parti
 This includes building particle trajectories in the ID, as well as identifying and measuring electrons and muons. %, and clustering hadronic energy deposits into jets.
 A brief overview of these reconstruction methods follow in order to provide context for when these objects are used later in the thesis.
 
-\subsubsection{Track reconstruction}\label{detector:track_reconstruction}
+\subsection{Track reconstruction}\label{detector:track_reconstruction}
 \emph{Track reconstruction} is the process by which a particle's trajectory is reconstructed from the raw measurements recorded in the ID.
 The ATLAS track reconstruction algorithm~\cite{2017.atlas-track-reconstruction-run2} follows three main steps: clusterization, track finding, and ambiguity solving.
 
@@ -38,7 +38,7 @@ What is described above is the \emph{inside-out} reconstruction algorithm; there
 This algorithm is not covered in detail here, as much of the process is similar to the above.
 The general workflow begins with finding track segments in the TRT, constructing the track candidates including the silicon hits, and finally ambiguity solving.
 
-\subsubsection{Electron reconstruction}\label{detector:electron_reconstruction}
+\subsection{Electron reconstruction}\label{detector:electron_reconstruction}
 Electron reconstruction~\cite{2019.electron-reco-id} uses information from both the ID and the electromagnetic calorimeters.
 The characteristic signature of an electron in ATLAS is a charged particle track in the ID that is matched in $\eta$-$\phi$ to localized clusters of energy deposited in the calorimeter.
 
@@ -108,7 +108,7 @@ Additional working points are also provided that instead use fixed values for th
   \label{fig:electron_iso_efficiency}
 \end{figure}
 
-\subsubsection{Muon reconstruction}\label{detector:muon_reconstruction}
+\subsection{Muon reconstruction}\label{detector:muon_reconstruction}
 Muon reconstruction~\cite{2014.muon-reconstruction-run1, 2016.muon-reconstruction-13tev} first occurs independently in the ID and the MS, and then the information from both is combined to form the final muon tracks used in analysis.
 Muons in the ID are reconstructed as a charged particle track following the standard procedure detailed in Section~\ref{detector:track_reconstruction}.
 
@@ -171,6 +171,6 @@ Similar isolation working points are constructed using the same criteria as for 
   \label{fig:muon_iso_efficiency}
 \end{figure}
 
-%\subsubsection{Jet reconstruction}\label{detector:jet_reconstruction}
+%\subsection{Jet reconstruction}\label{detector:jet_reconstruction}
 %Jet reconstruction~\cite{2017.jet-reconstruction} uses the anti-$k_t$ clustering algorithm~\cite{2008.anti-kt} with a distance parameter $R = 0.4$.
 %Topo clusters are created from energy deposits in the calorimeters using a similar technique as used for the electron isolation (see Section~\ref{detector:electron_reconstruction}.
