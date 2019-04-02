@@ -11,7 +11,7 @@ One popular model is the Georgi-Machacek (GM) Higgs-triplet model~\cite{1985.dou
 The GM model proposes a Higgs triplet field $\chi$ in addition to the usual Higgs doublet $\phi$.
 After symmetry breaking, each field obtains its own VEV, $v_\chi$ and $v_\phi$, and the SM VEV is made up of a combination of the two:
 \begin{equation}
-  v_{\textrm{SM}}^2 = v_\phi^2+8 v_\chi^2 \approx (246\gev)^2
+  v_{\textrm{SM}}^2 = v_\phi^2+8 v_\chi^2 \approx (246\gev)^2\,.
 \end{equation}
 As a result, the $W^\pm$ and $Z$ boson masses, which are determined by $v_{\textrm{SM}}$ in the SM, receive contributions from both VEV's here.
 It is important to note that even though this fixes the value of $v_\phi^2+8 v_\chi^2$, the ratio $v_\phi/v_\chi$ is not determined.
@@ -51,7 +51,7 @@ No significant excess is seen above the SM predictions, and the 95\% CL limits o
 In the event that new physics exists at an energy scale far above what is currently accessible at the LHC, it cannot be directly observed by the experiment; however, its effects can still appear in the interactions between known particles.
 In this case, the SM is simply the low-energy behavior of a larger \emph{effective field theory} (EFT), which contains additional, higher-dimensional operators that obey the existing SM symmetries:
 \begin{equation}
-  \mathcal{L}_{EFT} = \mathcal{L}_{SM}+\sum\limits_{d > 4}\sum\limits_i \frac{\tilde{c}_{i}}{\Lambda^{d-4}}\mathcal{O}_{i}
+  \mathcal{L}_{EFT} = \mathcal{L}_{SM}+\sum\limits_{d > 4}\sum\limits_i \frac{\tilde{c}_{i}}{\Lambda^{d-4}}\mathcal{O}_{i}\,,
   \label{eq:eft_lagrangian}
 \end{equation}
 where $\mathcal{O}_i$ are operators of dimension $d$ with coefficients $\tilde{c}_i$, and $\Lambda$ is the energy scale of the new physics.
@@ -68,15 +68,15 @@ As a result, these operators are better constrained by existing analyses with gr
 Operators with $d=8$ are the lowest that modify exclusively the QGC's, of which there are 18, and nine of them modify the $WWWW$ QGC accessible through same-sign \sswwnojj scattering~\cite{2006.aqgc-at-lhc, 2013.aqgc-mc}:
 \begin{equation}
   \begin{aligned}
-    &\mathcal{O}_{S,0} = \big[(D_\mu\Phi)^\dagger D_\nu\Phi\big]\times\big[(D^\mu\Phi)^\dagger D^\nu\Phi\big]\\
-    &\mathcal{O}_{S,1} = \big[(D_\mu\Phi)^\dagger D^\mu\Phi\big]\times\big[(D_\nu\Phi)^\dagger D^\nu\Phi\big]\\
-    &\mathcal{O}_{M,0} = \textrm{Tr}\big[\hat{W}_{\mu\nu}\hat{W}^{\mu\nu}\big]\times\big[(D_\beta\Phi)^\dagger D^\beta\Phi\big]\\
-    &\mathcal{O}_{M,1} = \textrm{Tr}\big[\hat{W}_{\mu\nu}\hat{W}^{\nu\beta}\big]\times\big[(D_\beta\Phi)^\dagger D^\mu\Phi\big]\\
-    &\mathcal{O}_{M,6} = \big[(D_\mu\Phi)^\dagger\hat{W}_{\beta\nu}\hat{W}^{\beta\nu}D^\mu\Phi\big]\\
-    &\mathcal{O}_{M,7} = \big[(D_\mu\Phi)^\dagger\hat{W}_{\beta\nu}\hat{W}^{\beta\mu}D^\nu\Phi\big]\\
-    &\mathcal{O}_{T,0} = \textrm{Tr}\big[\hat{W}_{\mu\nu}\hat{W}^{\mu\nu}\big]\times\textrm{Tr}\big[\hat{W}_{\alpha\beta}\hat{W}^{\alpha\beta}\big]\\
-    &\mathcal{O}_{T,1} = \textrm{Tr}\big[\hat{W}_{\alpha\nu}\hat{W}^{\mu\beta}\big]\times\textrm{Tr}\big[\hat{W}_{\mu\beta}\hat{W}^{\alpha\nu}\big]\\
-    &\mathcal{O}_{T,2} = \textrm{Tr}\big[\hat{W}_{\alpha\mu}\hat{W}^{\mu\beta}\big]\times\textrm{Tr}\big[\hat{W}_{\beta\nu}\hat{W}^{\nu\alpha}\big]\\
+    &\mathcal{O}_{S,0} = \big[(D_\mu\Phi)^\dagger D_\nu\Phi\big]\times\big[(D^\mu\Phi)^\dagger D^\nu\Phi\big]\,,\\
+    &\mathcal{O}_{S,1} = \big[(D_\mu\Phi)^\dagger D^\mu\Phi\big]\times\big[(D_\nu\Phi)^\dagger D^\nu\Phi\big]\,,\\
+    &\mathcal{O}_{M,0} = \textrm{Tr}\big[\hat{W}_{\mu\nu}\hat{W}^{\mu\nu}\big]\times\big[(D_\beta\Phi)^\dagger D^\beta\Phi\big]\,,\\
+    &\mathcal{O}_{M,1} = \textrm{Tr}\big[\hat{W}_{\mu\nu}\hat{W}^{\nu\beta}\big]\times\big[(D_\beta\Phi)^\dagger D^\mu\Phi\big]\,,\\
+    &\mathcal{O}_{M,6} = \big[(D_\mu\Phi)^\dagger\hat{W}_{\beta\nu}\hat{W}^{\beta\nu}D^\mu\Phi\big]\,,\\
+    &\mathcal{O}_{M,7} = \big[(D_\mu\Phi)^\dagger\hat{W}_{\beta\nu}\hat{W}^{\beta\mu}D^\nu\Phi\big]\,,\\
+    &\mathcal{O}_{T,0} = \textrm{Tr}\big[\hat{W}_{\mu\nu}\hat{W}^{\mu\nu}\big]\times\textrm{Tr}\big[\hat{W}_{\alpha\beta}\hat{W}^{\alpha\beta}\big]\,,\\
+    &\mathcal{O}_{T,1} = \textrm{Tr}\big[\hat{W}_{\alpha\nu}\hat{W}^{\mu\beta}\big]\times\textrm{Tr}\big[\hat{W}_{\mu\beta}\hat{W}^{\alpha\nu}\big]\,,\\
+    &\mathcal{O}_{T,2} = \textrm{Tr}\big[\hat{W}_{\alpha\mu}\hat{W}^{\mu\beta}\big]\times\textrm{Tr}\big[\hat{W}_{\beta\nu}\hat{W}^{\nu\alpha}\big]\,.\\
   \end{aligned}
   \label{eq:aqgc_dim8}
 \end{equation}

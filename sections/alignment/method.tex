@@ -3,12 +3,12 @@ These residuals are defined as the distance between the where fitted track inter
 
 Tracks in ATLAS are parameterized as five-dimensional vectors~\cite{2006.atlas-tracking-model}:%follow helical trajectories and are parameterized as five-dimensional vectors~\cite{2006.atlas-tracking-model}:
 \begin{equation}
-  \vec{\tau} = (d_0,z_0,\phi_0,\theta,q/p)
+  \vec{\tau} = (d_0,z_0,\phi_0,\theta,q/p)\,,
 \end{equation}
 where $d_0$ and $z_0$ are the transverse and longitudinal impact parameters with respect to the origin, $\phi_0$ is the azimuthal angle of the track at the point of closest approach to the origin, $\theta$ is the polar angle, and $q/p$ is the charge of the track divided by its momentum.
 The residual for the $i^{\textrm{th}}$ hit of a given track can then be written in terms of the track parameters $\vec{\tau}$ and a set of alignment parameters $\vec{a}$ that describe the hit location~\cite{2005.global-chi2-alignment}:
 \begin{equation}
-  r_i(\vec{\tau},\vec{a}) = (\vec{m}_i - \vec{e}_i (\vec{\tau},\vec{a}))\cdot\hat{k}
+  r_i(\vec{\tau},\vec{a}) = (\vec{m}_i - \vec{e}_i (\vec{\tau},\vec{a}))\cdot\hat{k}\,,
   \label{eq:aligment_residual_def}
 \end{equation}
 where $\vec{e}_i$ is the intersection point of the extrapolated track with the sensor, and $\vec{m}_i$ is the position of the associated hit within the sensor.
@@ -25,26 +25,26 @@ $\vec{r}$ then is the vector of residuals for the track.
 % the alignment constants are those that minimize the track-hit residuals
 A $\chi^2$ function can be built from the residuals of all collected tracks:
 \begin{equation}
-  \chi^2 = \sum\limits_{\textrm{tracks}}\vec{r}^{T}V^{-1}\vec{r}
+  \chi^2 = \sum\limits_{\textrm{tracks}}\vec{r}^{T}V^{-1}\vec{r}\,,
   \label{eq:alignment_chi2}
 \end{equation}
 where $V$ is the covariance matrix of the hit measurements.
 The $\chi^2$ function is then minimized with respect to the alignment parameters $\vec{a}$, which contain all degrees of freedom being aligned.
-The minimization condition with respect to $\vec{a}$ is:
+The minimization condition with respect to $\vec{a}$ is
 \begin{equation}
-  \frac{d\chi^2}{d\vec{a}} = 0 ~~ \rightarrow ~~ 2\sum\limits_{\textrm{tracks}}\bigg(\deriv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\vec{r} = 0
+  \frac{d\chi^2}{d\vec{a}} = 0 \quad\rightarrow\quad 2\sum\limits_{\textrm{tracks}}\bigg(\deriv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\vec{r} = 0\,.
   \label{eq:alignment_chi2_min_condition}
 \end{equation}
 This equation can be difficult to solve exactly, so the residual is rewritten as a first order Taylor expansion:
 \begin{equation}
   %\vec{r} = \vec{r}_0+\frac{\partial\vec{r}}{\partial\vec{\tau}}\delta\vec{\tau}+\frac{\partial\vec{r}}{\partial\vec{a}}\delta\vec{a}
-  \vec{r} = \vec{r}_0+\deriv{\vec{r}}{\vec{a}}\delta\vec{a}
+  \vec{r} = \vec{r}_0+\deriv{\vec{r}}{\vec{a}}\delta\vec{a}\,,
   \label{eq:alignment_residual_taylor}
 \end{equation}
 where $\vec{r}_0$ is dependent on an initial set of track and alignment parameters $\vec{\tau}_0$ and $\vec{a}_0$, respectively; the dependence of $\vec{r}$ on the track parameters is included when evaluating the total derivative $\deriv{\vec{r}}{\vec{a}}$.
-Equation~\ref{eq:alignment_residual_taylor} can then be inserted into the minimization condition from Equation~\ref{eq:alignment_chi2_min_condition} to give:
+Equation~\ref{eq:alignment_residual_taylor} can then be inserted into the minimization condition from Equation~\ref{eq:alignment_chi2_min_condition} to give
 \begin{equation}
-  \Bigg[ \sum\limits_{\textrm{tracks}}\bigg(\deriv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\bigg(\deriv{\vec{r}}{\vec{a}}\bigg) \Bigg]\delta\vec{a} + \sum\limits_{\textrm{tracks}}\bigg(\deriv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\vec{r}_0 = 0
+  \Bigg[ \sum\limits_{\textrm{tracks}}\bigg(\deriv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\bigg(\deriv{\vec{r}}{\vec{a}}\bigg) \Bigg]\delta\vec{a} + \sum\limits_{\textrm{tracks}}\bigg(\deriv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\vec{r}_0 = 0\,.
   \label{eq:alignment_chi2_min_taylor}
 \end{equation}
 From this equation, the alignment matrix $\mathcal{M}_a$ and alignment vector $\vec{\nu}_a$ can be defined:
@@ -53,16 +53,16 @@ From this equation, the alignment matrix $\mathcal{M}_a$ and alignment vector $\
   \label{eq:alignment_matrix}
 \end{equation}
 \begin{equation}
-  \vec{\nu}_a = \sum\limits_{\textrm{tracks}}\bigg(\deriv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\vec{r}_0
+  \vec{\nu}_a = \sum\limits_{\textrm{tracks}}\bigg(\deriv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\vec{r}_0\,.
   \label{eq:alignment_vector}
 \end{equation}
 Finally, the alignment corrections $\delta\vec{a}$ can be solved for by inverting the alignment matrix:
 \begin{equation}
-  \delta\vec{a} = -\mathcal{M}_a^{-1}\vec{\nu}_a
+  \delta\vec{a} = -\mathcal{M}_a^{-1}\vec{\nu}_a\,,
   \label{eq:alignment_corrections}
 \end{equation}
 %The \emph{alignment constants} are the values of $\vec{a}$ that minimize the track-hit residuals.
-which is a linear system of equations with a number of equations equal to the number of alignment degrees of freedom~\cite{2011.alignment-7tev}.
+which results in a system of linear equations of a size equal to the number of alignment degrees of freedom~\cite{2011.alignment-7tev}.
 
 Inverting the full matrix and solving the resulting system of equations is referred to as \emph{Global} $\chi^2$ alignment~\cite{2005.global-chi2-alignment}.
 This can be useful, as $\mathcal{M}_a$ contains all the correlations between the structures that are being aligned, or \emph{alignable structures}.
@@ -72,13 +72,13 @@ Eventually, inverting the matrix becomes too computationally intensive to be pra
 This problem is solved by the \emph{Local} $\chi^2$ algorithm~\cite{2005.local-chi2-thesis}.
 In this case, the alignment matrix is constructed to be block-diagonal, allowing for it to be easily inverted even for large numbers of degrees of freedom.
 This is achieved by replacing the full derivative in Equation~\ref{eq:alignment_chi2_min_taylor} with the partial derivative $\frac{\partial\vec{r}}{\partial\vec{a}}$.
-The new alignment matrix $\mathcal{M}'_{a}$ and alignment vector $\vec{\nu}'_a$ become:
+The new alignment matrix $\mathcal{M}'_{a}$ and alignment vector $\vec{\nu}'_a$ become
 \begin{equation}
   \mathcal{M}'_a = \sum\limits_{\textrm{tracks}}\bigg(\pderiv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\bigg(\pderiv{\vec{r}}{\vec{a}}\bigg)
   \label{eq:alignment_matrix_local}
 \end{equation}
 \begin{equation}
-  \vec{\nu}'_a = \sum\limits_{\textrm{tracks}}\bigg(\pderiv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\vec{r}_0
+  \vec{\nu}'_a = \sum\limits_{\textrm{tracks}}\bigg(\pderiv{\vec{r}}{\vec{a}}\bigg)^{T}V^{-1}\vec{r}_0\,.
   \label{eq:alignment_vector_local}
 \end{equation}
 Inverting $\mathcal{M}'_{a}$ is considerably faster and requires less computing memory compared to $\mathcal{M}_{a}$, even for large numbers of degrees of freedom; however, the correlations between the alignable structures is lost.
@@ -172,7 +172,7 @@ In a typical alignment job, L1 and L2 contain few enough degrees of freedom that
     \hline
   \end{tabular} 
   }
-  \caption{The four alignment levels for each of the detector subsystems. The total number of alignable structures and degrees of freedom (DoF) to be aligned are given for each level.}
+  \caption{The four alignment levels for each of the detector subsystems and their components (first introduced in Section~\ref{sec:atlas}). The total number of alignable structures and degrees of freedom (DoF) to be aligned are given for each level.}
   \label{tab:align_levels}
 \end{table}
 

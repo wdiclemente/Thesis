@@ -15,20 +15,20 @@ The results of the cross section measurement and of the analysis as a whole are 
 
 \subsection{Maximum likelihood fit}\label{ssww13tev:xsec_fit_method}
 %\TODO{This section is very similar to what is written in the support note... May need to put some work into flushing it out so it's not so close to copy-paste}
-The number of predicted signal events in each channel $c$ and $m_{jj}$ bin $b$ can be calculated from the SM predicted total production cross section $\sigma^{\textrm{tot}}_{\textrm{theo}}$ scaled by the total integrated luminosity $\mathcal{L}$, the signal acceptance $\mathcal{A}$, and the efficiency corrections $\mathcal{C}(\theta)$.
-Here $\theta$ represents the set of nuisance parameters that parameterize the effects of each systematic uncertainty on the signal and background expectations.
-The acceptance and efficiency corrections will be covered in more detail in Section~\ref{ssww13tev:xsec_fid_vol}.
+The number of predicted signal events in each channel $c$ and $m_{jj}$ bin $b$ can be calculated from the SM predicted total production cross section $\sigma^{\textrm{tot}}_{\textrm{theo}}$ scaled by the total integrated luminosity $\mathcal{L}$, the signal acceptance $\mathcal{A}$, and the efficiency corrections $\mathcal{C}(\theta)$:
 \begin{equation}
-  N_{cb}^{\textrm{sig}}(\theta) = \sigma^{\textrm{tot}}_{\textrm{theo}}\mathcal{A}_b\mathcal{C}_{b}(\theta)\mathcal{L}
+  N_{cb}^{\textrm{sig}}(\theta) = \sigma^{\textrm{tot}}_{\textrm{theo}}\mathcal{A}_b\mathcal{C}_{b}(\theta)\mathcal{L}\,.
   \label{eq:ssww13tev_xsec_nsig}
 \end{equation}
+Here, $\theta$ represents the set of nuisance parameters that parameterize the effects of each systematic uncertainty on the signal and background expectations.
+The acceptance and efficiency corrections will be covered in more detail in Section~\ref{ssww13tev:xsec_fid_vol}.
 A signal strength parameter $\mu$ is defined as the ratio of the measured cross section to the SM predicted cross section.
 %it seems like $\mu$ is the main thing we're extracting from the fit, and we calculate the cross section by measuring $\mu$ and solving for $\sigma_obs$, maybe put some words about this in
 The expected number of events in a given channel and bin can then be expressed as the sum of the estimated background ($N_{cb}^{\textrm{bkg}}(\theta)$) and the number of predicted signal events scaled by $\mu$:
 \begin{equation}
   \begin{aligned}
     N_{cb}^{\textrm{exp}}(\theta) &= \mu N_{cb}^{\textrm{sig}}(\theta) + N_{cb}^{\textrm{bkg}}(\theta) \\
-                              &= \mu \sigma^{\textrm{tot}}_{\textrm{theo}}\mathcal{A}_b\mathcal{C}_{b}(\theta)\mathcal{L} + N_{cb}^{\textrm{bkg}}(\theta)
+                              &= \mu \sigma^{\textrm{tot}}_{\textrm{theo}}\mathcal{A}_b\mathcal{C}_{b}(\theta)\mathcal{L} + N_{cb}^{\textrm{bkg}}(\theta)\,.
   \end{aligned}
   \label{eq:ssww13tev_xsec_nexp}
 \end{equation}
@@ -39,7 +39,7 @@ The yields after the fit correspond to the value that best matches the observed 
 
 The number of events per channel and bin after the fit can be written as a sum of the predicted event yields for each sample $s$:
 \begin{equation}
-  \nu_{cb}(\phi,\theta,\gamma_{cb}) = \gamma_{cb}\sum\limits_{s}\big[\eta_{cs}(\theta)\phi_{cs}(\theta)\lambda\big] h_{cbs}(\theta)
+  \nu_{cb}(\phi,\theta,\gamma_{cb}) = \gamma_{cb}\sum\limits_{s}\big[\eta_{cs}(\theta)\phi_{cs}(\theta)\lambda\big] h_{cbs}(\theta)\,.
   \label{eq:ssww13tev_xsec_nexp_fit}
 \end{equation}
 In this equation, the fitted number of events in a given channel and bin is obtained by weighting the histogram of predicted yields $h_{cbs}$ by the product of a given luminosity $\lambda$ and any normalization factors $\phi_{cs}$ that may be given for each channel and sample.
@@ -49,7 +49,7 @@ Finally, bin-by-bin scale factors $\gamma_{cb}$ are included to parameterize the
 
 The binned likelihood function is given by a product of Gaussian functions for the luminosity and for the background uncertainties and a product of Poisson functions for the number of observed events in each bin and channel:
 \begin{equation}
-  L(\mu|\theta) = \mathcal{G}(\mathcal{L}|\theta_{\mathcal{L}},\sigma_{\mathcal{L}})\cdot \prod\limits_{c}\prod\limits_{b}\mathcal{P}(N_{\textrm{cb}}^{\textrm{meas.}}|\nu_{cb}(\mu))\prod\limits_{p}\mathcal{G}(\theta_{p}^{0}|\theta_{p})
+  L(\mu|\theta) = \mathcal{G}(\mathcal{L}|\theta_{\mathcal{L}},\sigma_{\mathcal{L}})\cdot \prod\limits_{c}\prod\limits_{b}\mathcal{P}(N_{\textrm{cb}}^{\textrm{meas.}}|\nu_{cb}(\mu))\prod\limits_{p}\mathcal{G}(\theta_{p}^{0}|\theta_{p})\,,
 \end{equation}
 where $\mathcal{G}$ and $\mathcal{P}$ are the Gaussian and Poisson functions, respectively.
 As before, $\mathcal{L}$ represents the integrated luminosity with uncertainty $\sigma_{\mathcal{L}}$ and associated nuisance parameter $\theta_{\mathcal{L}}$.
@@ -58,7 +58,7 @@ Finally, the set of nuisance parameters $\theta$ and any auxiliary measurements 
 
 The profile likelihood ratio is defined as
 \begin{equation}
-  q_{\mu} = -2\ln\frac{L(\mu,\hat{\hat{\theta}}_{\mu})}{L(\hat{\mu},\hat{\theta})}
+  q_{\mu} = -2\ln\frac{L(\mu,\hat{\hat{\theta}}_{\mu})}{L(\hat{\mu},\hat{\theta})}\,,
   \label{dq:ssww13tev_xsec_test_statistic}
 \end{equation}
 where $\hat{\mu}$ and $\hat{\theta}$ are the unconditional maximum likelihood estimates, and $\hat{\hat{\theta}}$ is the conditional maximum likelihood estimate for a given value of $\mu$.
@@ -109,12 +109,12 @@ After applying the fiducial selection at truth level, the total number of signal
 %, and the fiducial predicted cross section can be written in terms of an acceptance factor $\mathcal{A}$ first introduced in Equation~\ref{eq:ssww13tev_xsec_nsig}:
 An acceptance factor $\mathcal{A}$ is used to represent the efficiency of events falling inside the fiducial region at truth level:
 \begin{equation}
-  \mathcal{A} = \frac{\mathcal{N}_{\textrm{sig}}^{\textrm{fid}}}{\mathcal{N}_{\textrm{sig}}^{\textrm{tot}}}
+  \mathcal{A} = \frac{\mathcal{N}_{\textrm{sig}}^{\textrm{fid}}}{\mathcal{N}_{\textrm{sig}}^{\textrm{tot}}}\,.
   \label{eq:ssww13tev_xsec_acceptance}
 \end{equation}
 A correction factor $\mathcal{C}$ is also necessary to translate from the truth level fiducial volume to the reconstruction level signal region and is defined in terms of the number of reconstruction level MC events in the signal region $N_{\textrm{sig,MC}}^{\textrm{SR}}$:
 \begin{equation}
-  \mathcal{C} = \frac{N_{\textrm{sig,MC}}^{\textrm{SR}}}{\mathcal{N}_{\textrm{sig}}^{\textrm{fid}}}
+  \mathcal{C} = \frac{N_{\textrm{sig,MC}}^{\textrm{SR}}}{\mathcal{N}_{\textrm{sig}}^{\textrm{fid}}}\,.
   \label{eq:ssww13tev_xsec_efficiency}
 \end{equation}
 Since the fit is binned in $m_{jj}$, the acceptance and efficiency correction factors must be as well.
@@ -130,38 +130,38 @@ A graphical representation of these regions and the use of the acceptance and co
 
 \subsection{Cross section extraction}\label{ssww13tev:xsec_method}
 The \ssww EWK fiducial cross section is measured using the signal strength parameter $\mu$ that is determined by the maximum likelihood fit.
-This parameter is dependent on the nuisance parameters $\theta$ and can be written explicitly in terms of the measured and theoretical cross sections as:
+This parameter is dependent on the nuisance parameters $\theta$ and can be written explicitly in terms of the measured and theoretical cross sections as
 \begin{equation}
-  \mu(\theta) = \frac{\sigma_{\textrm{meas}}^{\textrm{SR}}}{\sigma_{\textrm{theo}}^{\textrm{SR}}}
+  \mu(\theta) = \frac{\sigma_{\textrm{meas}}^{\textrm{SR}}}{\sigma_{\textrm{theo}}^{\textrm{SR}}}\,.
   \label{eq:ssww13tev_xsec_mu}
 \end{equation}
 
-In the simple case with only one bin, the equation for the total number of expected events in the signal region first introduced in Equation~\ref{eq:ssww13tev_xsec_nexp} can be written as:
+In the simple case with only one bin, the equation for the total number of expected events in the signal region first introduced in Equation~\ref{eq:ssww13tev_xsec_nexp} can be written as
 \begin{equation}
   N_{\textrm{exp}}^{\textrm{SR}}(\theta) = \mu(\theta)\cdot\sigmatottheo\cdot\mathcal{L}\cdot\mathcal{A}\cdot\mathcal{C}(\theta)+N_{\textrm{bkg}}^{\textrm{SR}}(\theta)
   \label{eq:ssww13tev_xsec_nexp_unbinned}
 \end{equation}
 with the unbinned versions of $\mathcal{A}$ and $\mathcal{C}$ defined in Equations~\ref{eq:ssww13tev_xsec_acceptance} and \ref{eq:ssww13tev_xsec_efficiency}, respectively.
 
-If the measured fiducial cross section is written as:
+If the measured fiducial cross section is written as
 \begin{equation}
-  \sigma_{\textrm{meas}}^{\textrm{fid}} = \mu\cdot\mathcal{A}\cdot\sigmatottheo
+  \sigma_{\textrm{meas}}^{\textrm{fid}} = \mu\cdot\mathcal{A}\cdot\sigmatottheo\,,
 \end{equation}
-then Equation~\ref{eq:ssww13tev_xsec_nexp_unbinned} can be rearranged to read:
+then Equation~\ref{eq:ssww13tev_xsec_nexp_unbinned} can be rearranged to read
 \begin{equation}
-  \sigma_{\textrm{meas}}^{\textrm{fid}} = \frac{N_{\textrm{exp}}^{\textrm{SR}}(\theta)-N_{\textrm{bkg}}^{\textrm{SR}}(\theta)}{\mathcal{L}\cdot\mathcal{C}(\theta)}
+  \sigma_{\textrm{meas}}^{\textrm{fid}} = \frac{N_{\textrm{exp}}^{\textrm{SR}}(\theta)-N_{\textrm{bkg}}^{\textrm{SR}}(\theta)}{\mathcal{L}\cdot\mathcal{C}(\theta)}\,.
   \label{eq:ssww13tev_xsec_fid_meas}
 \end{equation}
 The measured fiducial cross section can finally be rewritten in terms of $\hat{\mu}$, which is the best estimator of the signal strength as extracted from the fit:
 \begin{equation}
   \begin{aligned}
     \sigma_{\textrm{meas}}^{\textrm{fid}} &= \hat{\mu}(\theta)\cdot\sigmatottheo\cdot\mathcal{A}\\
-    &= \hat{\mu}(\theta)\cdot\sigma_{\textrm{theo}}^{\textrm{fid}}
+    &= \hat{\mu}(\theta)\cdot\sigma_{\textrm{theo}}^{\textrm{fid}}\,.
   \end{aligned}
   \label{eq:ssww13tev_xsec_fid_meas_mu}
 \end{equation}
 
-In practice, however, the cross section is not extracted from a single bin, and Equation~\ref{eq:ssww13tev_xsec_nexp_unbinned} becomes:
+In practice, however, the cross section is not extracted from a single bin, and Equation~\ref{eq:ssww13tev_xsec_nexp_unbinned} becomes
 \begin{equation}
   N_{\textrm{exp}}^{\textrm{SR}}(\theta) = \mu(\theta)\cdot\sigmatottheo\cdot\mathcal{L}\cdot\sum\limits_i\mathcal{A}_i\sum\limits_j\mathcal{C}_{ij}+\sum\limits_j N_{\textrm{bkg},j}^{\textrm{SR}}(\theta)
 \end{equation}

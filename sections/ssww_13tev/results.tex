@@ -3,7 +3,7 @@
 After running the full analysis chain, the event yields in the signal region, low-$m_{jj}$ control region, and $WZ$ control region as well as associated nuisance parameters representing the uncertainties are passed to the maximum likelihood fit.
 From this fit, the normalization factor for the $WZ$ control region $\mu_{WZ}$ and the signal strength parameter in the signal region $\mu_{\textrm{obs}}$ are determined, and the predicted yields in each input bin have been shifted according to the process detailed in Section~\ref{ssww13tev:xsec_fit_method}.
 
-The $WZ$ normalization factor is measured to be:
+The $WZ$ normalization factor is measured to be
 \begin{equation}
   \mu_{WZ} = 0.88^{+0.07}_{-0.07}(\textrm{stat})~^{+0.31}_{-0.21}(\textrm{model\ sys})~^{+0.22}_{-0.11}(\textrm{experimental\ sys})
   \label{eq:ssww13tev_signal_strength_wz}
@@ -11,7 +11,7 @@ The $WZ$ normalization factor is measured to be:
 and is constrained primarily by the number of data events in the $WZ$ control region.
 The observed signal strength of \ssww EWK production, defined in Equation~\ref{eq:ssww13tev_xsec_mu}, is extracted from the fit and measured with respect to the prediction of the \sherpav{2.2.2} MC generator:
 \begin{equation}
-  \mu_{\textrm{obs}} = 1.45^{+0.25}_{-0.24}(\textrm{stat})~^{+0.27}_{-0.22}(\textrm{sys}) % paper has no theory uncert for some reason
+  \mu_{\textrm{obs}} = 1.45^{+0.25}_{-0.24}(\textrm{stat})~^{+0.27}_{-0.22}(\textrm{sys})\,. % paper has no theory uncert for some reason
   \label{eq:ssww13tev_signal_strength_sr}
 \end{equation}
 This corresponds to a rejection of the background-only hypothesis with a significance of $6.9\sigma$.
@@ -62,15 +62,15 @@ The last ingredient necessary to measure the \ssww EWK cross section is the theo
 \sherpav{2.2.2} is used for the calculation, and the cross section in the total generator phase space is $40.81\pm 0.05~\textrm{fb}$, and the fiducial cross section is $2.01\pm 0.02~\textrm{fb}$.
 This corresponds to an acceptance factor of $\mathcal{A} = 0.0493\pm 0.0002$.
 Uncertainties on the simulation are estimated using variations of the scale, parton shower, and PDF set.
-The final prediction used in the cross section measurement including uncertainties from Section~\ref{ssww13tev:theory_uncert} is:
+The final prediction used in the cross section measurement including uncertainties from Section~\ref{ssww13tev:theory_uncert} is
 \begin{equation}
-  \sigma_{\tt{SHERPA}}^{\textrm{fid}} = 2.01 \pm 0.02(\textrm{stat})~^{+0.29}_{-0.23} (\textrm{scale})~^{+0.16}_{-0.02}(\textrm{parton shower})~^{+0.05}_{-0.03} (\textrm{PDF})~\textrm{fb}
+  \sigma_{\tt{SHERPA}}^{\textrm{fid}} = 2.01 \pm 0.02(\textrm{stat})~^{+0.29}_{-0.23} (\textrm{scale})~^{+0.16}_{-0.02}(\textrm{parton shower})~^{+0.05}_{-0.03} (\textrm{PDF})~\textrm{fb}\,.
   \label{eq:ssww13tev_fiducial_xsec_theory}
 \end{equation}
 
 Combining this \tt{SHERPA} prediction with the measured signal strength $\mu_{\textrm{obs}}$ from Equation~\ref{eq:ssww13tev_signal_strength_sr}, the measured fiducial cross section $\sigma_{\textrm{meas}}^{\textrm{fid}}$ can be calculated using Equation~\ref{eq:ssww13tev_xsec_fid_meas_mu}:
 \begin{equation}
-  \sigma_{\textrm{meas}}^{\textrm{fid}} = 2.91^{+0.51}_{-0.47}(\textrm{stat})~^{+0.12}_{-0.16}(\textrm{model\ sys})~^{+0.24}_{-0.23}(\textrm{experimental\ sys})~^{+0.08}_{-0.06}(\textrm{luminosity})~\textrm{fb}
+  \sigma_{\textrm{meas}}^{\textrm{fid}} = 2.91^{+0.51}_{-0.47}(\textrm{stat})~^{+0.12}_{-0.16}(\textrm{model\ sys})~^{+0.24}_{-0.23}(\textrm{experimental\ sys})~^{+0.08}_{-0.06}(\textrm{luminosity})~\textrm{fb}\,.
   \label{eq:ssww13tev_fiducial_xsec}
 \end{equation}
 A plot comparing the measured fiducial cross section to two theoretical calculations is shown in Figure~\ref{fig:ssww13tev_results_xsec}.

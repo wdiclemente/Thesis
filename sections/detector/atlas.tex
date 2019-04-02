@@ -8,15 +8,15 @@ The ATLAS detector and its subsystems are shown in Figure~\ref{fig:atlas}.
 ATLAS uses a global, right-handed coordinate system with the origin at the center of the detector (the nominal interaction point).
 The $x$-axis points from the origin inwards to the center of the LHC ring, the $y$-axis points upwards, and the $z$-axis points along the beam line.
 Due to the azimuthal symmetry of the detector, it is useful to use cylindrical coordinates ($r,\phi$) in the plane transverse to the $z$-axis, where $\phi$ is the azimuthal angle.
-Instead of using the polar angle $\theta$ to describe particle trajectories, pseudorapidity $\eta$ is used instead, defined in terms of $\theta$:
+Instead of using the polar angle $\theta$ to describe particle trajectories, pseudorapidity is used instead: %, defined in terms of $\theta$:
 \begin{equation}
-  \eta = -\mathrm{ln}\big(\tan(\theta/2)\big)
+  \eta = -\mathrm{ln}\big(\mathrm{tan}(\theta/2)\big)\,.
   \label{eq:eta}
 \end{equation}
 Pseudorapidity has the useful property that differences in $\eta$ are invariant under Lorentz boosts along the $z$-axis.
-The separation between two particles $p_i$ and $p_j$ is often expressed in terms of the quantity $\Delta R$, defined as:
+The angular separation between two particles $p_i$ and $p_j$ is often expressed in terms of the quantity $\Delta R$, defined as
 \begin{equation}
-  \Delta R(p_i,p_j) = \sqrt{\Delta\eta_{i,j}^2 + \Delta\phi_{i,j}^2}
+  \Delta R(p_i,p_j) = \sqrt{\Delta\eta_{i,j}^2 + \Delta\phi_{i,j}^2}\,,
   \label{eq:deltar}
 \end{equation}
 where $\Delta\phi_{i,j} \in [-\pi,\pi]$ since $\phi$ is periodic in $2\pi$ and ``wraps around'' the detector in the azimuthal direction.

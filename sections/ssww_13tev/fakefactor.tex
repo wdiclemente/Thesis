@@ -16,12 +16,12 @@ This is done by creating two samples using different lepton definitions:
 \end{enumerate}
 Using the sets of nominal and loose leptons, a fake-factor $f$ can be calculated from a region enriched in processes that are prone to producing fake leptons:
 \begin{equation}
-f = \frac{N_{\textrm{nominal}}}{N_{\textrm{loose}}}
+f = \frac{N_{\textrm{nominal}}}{N_{\textrm{loose}}}\,.
 \label{eq:ssww13tev_ff_default_unbinned}
 \end{equation}
 Since the fake rate is not expected to be constant over the entire phase space, the fake-factor can be divided into bins:
 \begin{equation}
-f(b) = \frac{N_{\textrm{nominal}}(b)}{N_{\textrm{loose}}(b)}
+f(b) = \frac{N_{\textrm{nominal}}(b)}{N_{\textrm{loose}}(b)}\,,
 \label{eq:ssww13tev_ff_default_binned}
 \end{equation}
 where $b$ represents the bin number.
@@ -29,17 +29,17 @@ In this analysis, the fake-factor is binned in lepton $\pt$.
 
 In order to estimate the fake background contribution in a given signal or control region, the fake-factor is applied to a second control region with a selection identical to the region of interest except one of the leptons required to satisfy the loose criteria.
 The region for which the background is estimated contains two nominal leptons and is referred to as \emph{nominal+nominal} ($NN$), and the associated control region where the fake-factor is applied contains one nominal and one loose lepton and is referred to as \emph{nominal+loose} ($NL$).
-The fake background in a $NN$ region can then be calculated as:
+The fake background in a $NN$ region can then be calculated as
 \begin{equation}
-N_{NN}^{\textrm{fake\ bkg.}} = \sum\limits_{b}f(b) N_{NL}(b)
+N_{NN}^{\textrm{fake\ bkg.}} = \sum\limits_{b}f(b) N_{NL}(b)\,.
 \label{eq:ssww13tev_ff_bkg_nosub}
 \end{equation}
 
 Backgrounds containing two prompt leptons can also enter the $NL$ region if one of the leptons passes the nominal selection and the other passes the loose selection.
 Since the fake-factor method estimates the fake background by scaling the amount of non-prompt events in the $NL$ region, if these prompt contributions are not removed, they will be included in the scaling, and the background will be overpredicted.
-The final estimate of the fake background becomes:
+The final estimate of the fake background becomes
 \begin{equation}
-N_{NN}^{\textrm{fake\ bkg.}} = \sum\limits_{b}f(b) \big(N_{NL}(b) - N_{NL}^{\textrm{prompt}}(b)\big)
+N_{NN}^{\textrm{fake\ bkg.}} = \sum\limits_{b}f(b) \big(N_{NL}(b) - N_{NL}^{\textrm{prompt}}(b)\big)\,.
 \label{eq:ssww13tev_ff_bkg}
 \end{equation}
 A visual representation of the fake background estimation process is shown in Figure~\ref{fig:ssww13tev_ff_apply}.
@@ -64,7 +64,7 @@ Consider the case of two separate events with muons of identical momentum, but o
 The loose lepton on average will originate from a jet with higher $\pt$ than the one corresponding to the nominal lepton despite both muons having the same momentum.
 This can be seen explicitly when comparing the $\pt$ of a muon to its associated truth jet:
 \begin{equation}
-\Delta\pt(\mu,j) = \frac{\pt(j)-\pt(\mu)}{\pt(j)+\pt(\mu)}
+\Delta\pt(\mu,j) = \frac{\pt(j)-\pt(\mu)}{\pt(j)+\pt(\mu)}\,.
 \label{eq:ssww13tev_ff_deltapt}
 \end{equation}
 Since muons are not included in the jet reconstruction algorithm, $\Delta\pt$ approximates the momentum of the muon compared to the rest of the jet.
@@ -88,7 +88,7 @@ Thus, the sample of loose leptons in the denominator of the fake-factor calculat
 Adding the isolation cone greatly reduces the difference in the fraction of the underlying jet momentum carried by the nominal and loose leptons.
 To check this, a new $\Delta\pt$ is calculated between a lepton and its matched truth jet, where the truth jet $\pt$ has been corrected to include all muons within a cone of $\deltar < 0.4$:
 \begin{equation}
-\pt(j) = \pt(j_{\textrm{truth}})+\sum\limits_{\deltar < 0.4}\pt(\mu_{\textrm{truth}})
+\pt(j) = \pt(j_{\textrm{truth}})+\sum\limits_{\deltar < 0.4}\pt(\mu_{\textrm{truth}})\,.
 \label{eq:ssww13tev_ff_jet_corr}
 \end{equation}
 The $\Delta\pt$ distributions comparing $\pt$ and $\ptptcone$ for nominal and loose leptons using the corrected jet $\pt$ are found in Figure~\ref{fig:ssww13tev_ff_deltapt_ptcone}, and better agreement is seen between the numerator (nominal) and denominator (loose with $\ptptcone$) distributions.
@@ -103,11 +103,11 @@ The $\Delta\pt$ distributions comparing $\pt$ and $\ptptcone$ for nominal and lo
 
 The numerator remains binned in lepton $\pt$, due to the fact that it is meant to mirror the signal region as closely as possible, and the signal lepton selection does not use $\ptptcone$.
 The impact of this is expected to be negligible due to the $\ptcone$ isolation being small for signal leptons, as shown for muons in Figure~\ref{fig:ssww13tev_ff_ptcone_muons}.
-Finally, the fake-factor $f$ becomes:
+Finally, the fake-factor $f$ becomes
 
 \begin{equation}
 %f_b = \frac{N_{\textrm{nominal}}^b(\pt)}{N_{\textrm{loose}}^b(\ptptcone)}
-f(b) = \frac{N_{\textrm{nominal}}\big(b(\pt)\big)}{N_{\textrm{loose}}\big(b(\ptptcone)\big)}
+f(b) = \frac{N_{\textrm{nominal}}\big(b(\pt)\big)}{N_{\textrm{loose}}\big(b(\ptptcone)\big)}\,.
 \label{eq:ssww13tev_ff_ptcone_binned}
 \end{equation}
 

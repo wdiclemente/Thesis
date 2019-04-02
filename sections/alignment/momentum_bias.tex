@@ -17,21 +17,21 @@ An example of this is illustrated by the curl deformation in Figure~\ref{fig:ali
 
 In the plane transverse to ATLAS's magnetic field, outgoing particle tracks form circular arcs.
 The sagitta is defined as the distance from the center of this arc to the center of its base, as shown in Figure~\ref{fig:align_sagitta}, and it represents the ``amount of bending'' in the track.
-In the case where the sagitta $s$ is considerably smaller than the detector radius $R_0$, which is a valid assumption when working with high momentum tracks, the transverse momentum of a particle of charge $q$ can be written as~\cite{2018.alignment-radial-distortions}:
+In the case where the sagitta $s$ is considerably smaller than the detector radius $R_0$, which is a valid assumption when working with high momentum tracks, the transverse momentum of a particle of charge $q$ can be written as
 \begin{equation}
-  \pt \propto q B \frac{R_0^2}{8s}
+  \pt \propto q B \frac{R_0^2}{8s}\,,
   \label{eq:align_pt_sagitta}
 \end{equation}
-where $B$ is the strengh of the detector's magnetic field.
-If a sagitta bias is present, the track's transverse momentum shifts by~\cite{2012.alignment-systematics}:
+where $B$ is the strengh of the detector's magnetic field~\cite{2018.alignment-radial-distortions}.
+If a sagitta bias is present, the track's transverse momentum shifts by
 \begin{equation}
-  q/\pt\rightarrow q/\pt+\delta_s ~~~~~\textrm{or}~~~~~ \pt\rightarrow \pt\cdot(1+q\pt\delta_s)^{-1}
+  q/\pt\rightarrow q/\pt+\delta_s ~~~~~\textrm{or}~~~~~ \pt\rightarrow \pt\cdot(1+q\pt\delta_s)^{-1}\,,
   \label{eq:align_pt_sagitta_bias}
 \end{equation}
-where $\delta_s$ is a universal bias parameter that uniquely defines the deformation.
+where $\delta_s$ is a universal bias parameter that uniquely defines the deformation~\cite{2012.alignment-systematics}.
 Finally, since the reconstructed polar angle does not change under a sagitta deformation, the longitudinal component of the momentum scales along with the transverse component, and an equivalent equation can be written for the total momentum:
 \begin{equation}
-  p\rightarrow p\cdot(1+q\pt\delta_s)^{-1}
+  p\rightarrow p\cdot(1+q\pt\delta_s)^{-1}\,.
   \label{eq:align_p_sagitta_bias}
 \end{equation}
 
@@ -48,14 +48,14 @@ One such method involves using the energy-momentum ratio of electrons ($E/p$).
 Since the electron's energy is measured in ATLAS's calorimeter systems, it is not sensitive to any sagitta bias that may exist in the ID and in the corresponding measurement of the track momentum.
 Under the assumption that the calorimeter response is independent of the charge of incoming particles, a charge-dependent momentum bias in the ID will manifest as a difference in the $E/p$ ratio for electrons and positrons.%\footnote{For the remainder of this section, electrons and positrons will collectively be referred to as ``electrons'' unless explicitly noted.}.
 
-In the presence of a sagitta bias, the momentum will change according to Equation~\ref{eq:align_p_sagitta_bias} and the average measured $\eop$ can be written as:
+In the presence of a sagitta bias, the momentum will change according to Equation~\ref{eq:align_p_sagitta_bias} and the average measured $\eop$ can be written as
 \begin{equation}
-  \eop^{\pm}\rightarrow\eop^{\pm}\pm\langle\et\rangle\delta_s
+  \eop^{\pm}\rightarrow\eop^{\pm}\pm\langle\et\rangle\delta_s\,,
 \end{equation}
 where the approximation $\pt\approx\et$ is used.
-Assuming that $\eop^+ = \eop^-$ in the absence of a bias, the sagitta bias parameter can be written as:
+Assuming that $\eop^+ = \eop^-$ in the absence of a bias, the sagitta bias parameter can be solved for:
 \begin{equation}
-  \delta_s = \frac{\eop^+ - \eop^-}{2\langle\et\rangle}
+  \delta_s = \frac{\eop^+ - \eop^-}{2\langle\et\rangle}\,.
 \label{eq:align_eop_sagitta}
 \end{equation}
 If the kinematic selections for electrons and positrons are identical, the energy scale of the calorimeter will not factor into the $\eop$ difference; however, it will affect $\langle\et\rangle$, which would scale the measured $\delta_s$.
@@ -93,11 +93,11 @@ This is due to the fact that if the electron were to radiate a photon, its momen
 
 Once the $\eop^\pm$ distributions in each $\eta$-$\phi$ bin have been extracted from the fits, a two dimensional map of $\delta_s$ can be constructed using Equation~\ref{eq:align_eop_sagitta}.
 The map gives an overview of sagitta biases that may be present in the detector, and can be used by the alignment algorithm to reduce the bias in the next iteration.
-In this case, the tracks fed to the alignment have their momenta corrected according to~\cite{2012.alignment-systematics}:
+In this case, the tracks fed to the alignment have their momenta corrected according to
 \begin{equation}
-q/p_{\textrm{corr}} = q/p_{\textrm{reco}}(1-q\pt\delta_s)
+q/p_{\textrm{corr}} = q/p_{\textrm{reco}}(1-q\pt\delta_s)\,,
 \end{equation}
-where $p_{\textrm{reco}}$ is the reconstructed momentum of the track.
+where $p_{\textrm{reco}}$ is the reconstructed momentum of the track~\cite{2012.alignment-systematics}.
 The corrected momentum is then constrained in the alignment.
 
 \subsubsection{Results in $13\tev$ data}

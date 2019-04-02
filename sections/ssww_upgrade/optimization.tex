@@ -42,19 +42,19 @@ An example of a two-dimensional random grid is shown in Figure~\ref{fig:rgs_grid
 \end{figure}
 
 Once the random grid of cut points is constructed, the optimal cut point can be chosen using any number of metrics, such as signal to background ratio.
-For the purpose of the \ssww upgrade study, the optimal cut point is chosen to be the one that mazimizes the signal significance $Z$, defined as~\cite{2011.asimov-significance}:
+For the purpose of the \ssww upgrade study, the optimal cut point is chosen to be the one that mazimizes the signal significance $Z$, defined as~\cite{2011.asimov-significance}
 \begin{equation}
-Z = \sqrt{2{\bigg[}(s+b)\ln{\Big(}\frac{s+b}{b_0}{\Big)}+b_0-s-b{\bigg]}+\frac{(b-b_0)^2}{\sigma_b^2}}
+Z = \sqrt{2{\bigg[}(s+b)\ln{\Big(}\frac{s+b}{b_0}{\Big)}+b_0-s-b{\bigg]}+\frac{(b-b_0)^2}{\sigma_b^2}}\,,
 \label{eq:significance_with_error}
 \end{equation}
-where $s$ and $b$ are the number of signal and background events, respectively, $\sigma_b$ is the total uncertainty on the background, and $b_0$ is defined as:
+where $s$ and $b$ are the number of signal and background events, respectively, $\sigma_b$ is the total uncertainty on the background, and $b_0$ is defined as
 \begin{equation}
-b_0 = \frac{1}{2}{\Big(}b-\sigma_b^2+\sqrt{(b-\sigma_b^2)^2+4(s+b)\sigma_b^2}{\Big)}
+b_0 = \frac{1}{2}{\Big(}b-\sigma_b^2+\sqrt{(b-\sigma_b^2)^2+4(s+b)\sigma_b^2}{\Big)}\,.
 \label{eq:significance_b0}
 \end{equation}
 In the case where the backround is known precisely (i.e. $\sigma_b = 0$), Equation~\ref{eq:significance_with_error} simplifies to
 \begin{equation}
-Z = \sqrt{2\bigg(b\big[(1+s/b)\ln(1+s/b)-s/b\big]\bigg)}
+Z = \sqrt{2\bigg(b\big[(1+s/b)\ln(1+s/b)-s/b\big]\bigg)}\,,
 \label{eq:significance_without_error}
 \end{equation}
 which further reduces to the familiar $Z = s/\sqrt{b}$ for the case when $s \muchless b$.

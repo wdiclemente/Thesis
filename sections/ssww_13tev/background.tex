@@ -120,7 +120,7 @@ It is known that the MC does not perfectly model the material effects leading to
 These scale factors are obtained from the ratio of charge mis-ID rates in data and uncorrected MC in~\cite{2018.ssww-13tev-atlas-support} following the method outlined in~\cite{2017.charge-flip-support}.
 Once the scale factors are applied, the charge misidentification rate $\varepsilon$ can be extracted by comparing the electron's reconstructed charge with the charge of its truth particle:
 \begin{equation}
-  \varepsilon(\eta,\pt) = \frac{N_{\textrm{wrong\ charge}}}{N_{\textrm{prompt\ electrons}}}
+  \varepsilon(\eta,\pt) = \frac{N_{\textrm{wrong\ charge}}}{N_{\textrm{prompt\ electrons}}}\,.
 \end{equation}
 The charge mis-ID rate is calculated in bins of electron $|\eta|$ and $\pt$, and it varies from below $0.1\%$ in the central region of the detector up to $8\%$ in the forward regions for high $\pt$ (above $80\gev$) electrons.
 A two-dimensional plot of $\varepsilon$ can be found in Figure~\ref{fig:charge_flip_rates}.
@@ -144,7 +144,7 @@ Thus there are three possible combinations of charge identification, assuming a 
 In order to estimate the size of the background from charge misidentification, opposite-sign events are selected using the default event selection for a given signal or control region with the same-sign requirement inverted.
 These events are then weighted by the probability for one of the electrons to be reconstructed with the wrong charge:
 \begin{equation}
-\omega = \frac{\varepsilon_1(1-\varepsilon_2)+\varepsilon_2(1-\varepsilon_1)}{(1-\varepsilon_1)(1-\varepsilon_2)+\varepsilon_1\varepsilon_2}
+\omega = \frac{\varepsilon_1(1-\varepsilon_2)+\varepsilon_2(1-\varepsilon_1)}{(1-\varepsilon_1)(1-\varepsilon_2)+\varepsilon_1\varepsilon_2}\,,
 \label{ssww13tev:ch_flip_weight}
 \end{equation}
 %\begin{equation}
@@ -152,9 +152,9 @@ These events are then weighted by the probability for one of the electrons to be
 %\label{ssww13tev:ch_flip_weight2}
 %\end{equation}
 where the subscripts 1 and 2 refer to the leading and subleading electrons, respectively, and $\varepsilon_i$ is a function of the $\eta$ and $\pt$ of the $i^{\textrm{th}}$ electron.
-In the case of an event with one electron and one muon ($\varepsilon_\mu = 0$), Equation~\ref{ssww13tev:ch_flip_weight} simplifies:
+In the case of an event with one electron and one muon ($\varepsilon_\mu = 0$), Equation~\ref{ssww13tev:ch_flip_weight} simplifies to
 \begin{equation}
-\omega = \frac{\varepsilon}{1-\varepsilon}
+\omega = \frac{\varepsilon}{1-\varepsilon}\,.
 \end{equation}
 This method assumes that there is little contamination from fake electrons in the opposite-sign sample, and this has been verified with MC simulation.
 
@@ -162,12 +162,12 @@ Additionally, charge-flipped electrons tend to be reconstructed with lower energ
 This is due to energy loss from the material interactions that can cause the charge to be misidentified in the first place.
 A correction factor is calculated from MC simulations, comparing the $\pt$ of the truth electron to its reconstructed counterpart:
 \begin{equation}
-\alpha = \frac{\Big(\frac{\pt^{\textrm{reco}}}{\pt^{\textrm{truth}}}-1\Big)_{\textrm{correct charge}}}{\Big(\frac{\pt^{\textrm{reco}}}{\pt^{\textrm{truth}}}-1\Big)_{\textrm{wrong charge}}}
+\alpha = \frac{\Big(\frac{\pt^{\textrm{reco}}}{\pt^{\textrm{truth}}}-1\Big)_{\textrm{correct charge}}}{\Big(\frac{\pt^{\textrm{reco}}}{\pt^{\textrm{truth}}}-1\Big)_{\textrm{wrong charge}}}\,.
 \label{ssww13tev:ch_flip_alpha}
 \end{equation}
 The correction is then applied to the $\pt$ of the charge-flipped electron via
 \begin{equation}
-\pt = \pt^0/(1+\alpha)+dE
+\pt = \pt^0/(1+\alpha)+dE\,,
 \label{ssww13tev:ch_flip_energy_corr}
 \end{equation}
 where $\pt^0$ is the uncorrected $\pt$ of the electron and $dE$ is a gaussian smearing factor centered at zero with a width related to the energy resolution.

@@ -52,7 +52,7 @@ To reconstruct the final electron candidate, the refit track and the cluster are
   \begin{gathered}
   |\eta_{\textrm{cluster}} - \eta_{\textrm{track}}| < 0.05 \\
   \textrm{and}\\
-   -0.10 < q\times \Delta\phi_{\textrm{cluster, track}} < 0.05 \textrm{\ \ \ or\ \ \ }-0.10 < q\times \Delta\phi_{\textrm{res}} < 0.05
+   -0.10 < q\times \Delta\phi_{\textrm{cluster, track}} < 0.05 \quad\textrm{or}\quad -0.10 < q\times \Delta\phi_{\textrm{res}} < 0.05\,,
   \end{gathered}
 \end{equation}
 where $q$ is the charge of the track and $\Delta\phi_{\textrm{res}}$ is the azimuthal separation between the cluster position and the track after rescaling its momentum to the energy of the cluster.
@@ -83,7 +83,7 @@ The tracks are required to have $\pt > 1\gev$, satisfy basic quality requirement
 Additionally, particles from bremsstrahlung radiation are considered part of the original electron and are subtracted from the isolation cone.
 A variable cone radius dependent on the $\pt$ of the electron is used in order to compensate for busy detector environments:
 \begin{equation}
-  \Delta R = \mathrm{min}\Bigg(\frac{10\gev}{\pt},R_{\textrm{max}}\Bigg)
+  \Delta R = \mathrm{min}\Bigg(\frac{10\gev}{\pt},R_{\textrm{max}}\Bigg)\,,
   \label{eq:varcone}
 \end{equation}
 where $R_{\textrm{max}}$ is the largest allowed cone size, typically set at 0.2 for electrons.
