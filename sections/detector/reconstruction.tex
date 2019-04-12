@@ -17,7 +17,7 @@ This number allows for a first momentum estimate to be made while still allowing
 The impact parameters of a track seed---the distance of closest approach to the collision---are estimated by assuming a perfect helical trajectory in a uniform magnetic field.
 In order to ensure the quality of a track seed, criteria on the momentum and impact parameters are imposed as well as a requirement that at least one additional space-point lies along the preliminary trajectory.
 Finally, a combinatorial Kalman filter~\cite{1987.kalman-filtering} builds track candidates from the track seeds by incorporating additional space-points lying along the preliminary trajectory.
-The filter allows for multpile track candidates to be fit to the same track seed if more than one set of space-points is compatible.
+The filter allows for multiple track candidates to be fit to the same track seed if more than one set of space-points is compatible.
 
 The final step of the reconstruction process is the ambiguity solving.
 Each collected track candidate is processed individually before being sorted by its \emph{track score}, a metric for quantifying the likelihood that a given track candidate correctly represents the particle's trajectory.
@@ -76,7 +76,7 @@ The efficiencies of the \tt{LooseLH}, \tt{MediumLH}, and \tt{TightLH} working po
 \paragraph*{Electron isolation}
 Signal electrons, such as those from the decay of a $W$ boson, tend to have little detector activity nearby in both the ID and the calorimeters.
 Background electrons, such as those from photon conversions or jets, are often produced in association with other particles.
-To take advantage of this, variables are consructed to quantify the amount of activity within a cone of a specified radius in $\Delta R$ about an electron in both the tracking systems and the calorimeters.
+To take advantage of this, variables are constructed to quantify the amount of activity within a cone of a specified radius in $\Delta R$ about an electron in both the tracking systems and the calorimeters.
 
 The track-based isolation consists of the sum of the transverse momentum of tracks within a cone of a specified radius about an electron (not including the electron itself).
 The tracks are required to have $\pt > 1\gev$, satisfy basic quality requirements, and be associated with the vertex from which the electron originated.
@@ -123,7 +123,7 @@ This results in four different muon ``types'':
 \begin{itemize}
   \item Combined (CB): Independent tracks in the ID and MS are combined with a global track refit using both sets of hits.
 MS hits may be added or removed if it improves the quality of the track fit.
-Muons are typically reconstructed outside-in, matching a MS track to one in the ID; however, an inside-out matchin is also used as a complementary approach.
+Muons are typically reconstructed outside-in, matching a MS track to one in the ID; however, an inside-out matching is also used as a complementary approach.
   \item Segment-tagged (ST): An ID track is classified as a muon if it can be extrapolated to at least one track segment in the MDT or CSC chambers.
 These are used when a muon only crosses one layer of the MS, either due to low $\pt$ or falling in a region of reduced acceptance.
   \item Calorimeter-tagged (CT): An ID track is classified as a muon if it can be matched to a calorimeter energy deposit compatible with a minimum ionizing particle.

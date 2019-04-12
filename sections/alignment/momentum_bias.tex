@@ -5,7 +5,7 @@ Several weak modes, their impacts on the reconstruction, and the steps taken to 
 This section focuses specifically on \emph{sagitta} deformations that result in a bias in the reconstructed track momentum.
 
 These sagitta distortions consist of detector movements orthogonal to the trajectory of the outgoing particle.
-The effect on the reconstructed track curvature is different for positvely and negatively charged particles, resulting in a charge-antisymmetric bias.
+The effect on the reconstructed track curvature is different for positively and negatively charged particles, resulting in a charge-antisymmetric bias.
 An example of this is illustrated by the curl deformation in Figure~\ref{fig:align_radial_distortion}.
 
 \begin{figure}[htbp]
@@ -22,7 +22,7 @@ In the case where the sagitta $s$ is considerably smaller than the detector radi
   \pt \propto q B \frac{R_0^2}{8s}\,,
   \label{eq:align_pt_sagitta}
 \end{equation}
-where $B$ is the strengh of the detector's magnetic field~\cite{2018.alignment-radial-distortions}.
+where $B$ is the strength of the detector's magnetic field~\cite{2018.alignment-radial-distortions}.
 If a sagitta bias is present, the track's transverse momentum shifts by
 \begin{equation}
   q/\pt\rightarrow q/\pt+\delta_s ~~~~~\textrm{or}~~~~~ \pt\rightarrow \pt\cdot(1+q\pt\delta_s)^{-1}\,,
@@ -75,7 +75,7 @@ Events containing exactly two opposite-charge electrons passing this selection w
 
 Since the size of the sagitta bias $\delta_s$ is not expected to be constant across the entire detector, a two-dimensional rectangular grid is constructed binned in detector $\eta$ and $\phi$.
 From the selected events, separate distributions of $E/p$ are made for electrons and positrons within each bin.
-Each distribution is fit with Crystal Ball function\footnote{The Crystal Ball function is a proability density function consisting of a Gaussian core and a power-law tail.}, and the peak of the distribution is taken as the value of $\eop$.
+Each distribution is fit with Crystal Ball function\footnote{The Crystal Ball function is a probability density function consisting of a Gaussian core and a power-law tail.}, and the peak of the distribution is taken as the value of $\eop$.
 If there is no bias on the track momentum in the bin, the peaks for electrons and positrons should agree.
 Example $E/p$ distributions including the Crystal Ball fits are shown in Figure~\ref{fig:alignment_eop_fit}.
 

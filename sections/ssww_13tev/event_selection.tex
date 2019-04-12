@@ -10,13 +10,13 @@ Jets are only required to pass one set of selection criteria.
 These selections are outlined in the following subsections and summarized in Table~\ref{tab:ssww13tev_muon_selection} for muons, Table~\ref{tab:ssww13tev_elec_selection} for electrons, and Table~\ref{tab:ssww13tev_jet_selection} for jets.
 
 \subsubsection{Muon candidate selection}
-Cuts on muon momentum serve to reject low momentum leptons from background processes and from additional collisions occuring in pileup events.
+Cuts on muon momentum serve to reject low momentum leptons from background processes and from additional collisions occurring in pileup events.
 Preselected muons must have transverse momentum $\pt > 6\gev$, and the signal muons must pass $\pt > 27\gev$.
 The $\pt$ requirement for loose muons is lower than for signal muons, at $\pt > 15\gev$, for reasons that are discussed in Section~\ref{ssww13tev:ff_implementation}.
 Muons are required to fall within the detector's $\eta$ acceptance: $|\eta| < 2.7$ for preselected muons, which is tightened to $|\eta| < 2.5$ for the signal muons.
 
 Cuts on the transverse and longitudinal impact parameters are applied to ensure that the candidate muon originated from the primary particle interaction and not some other source.
-The preselection and the loose selection both have relaxed requirements on the transverse impact parameter significance ($d_0/\sigma_{d_{0}}$) than the signal selection; all three have the same requirement on the transverse impact paramter ($|z_0\times\sin\theta|$).
+The preselection and the loose selection both have relaxed requirements on the transverse impact parameter significance ($d_0/\sigma_{d_{0}}$) than the signal selection; all three have the same requirement on the transverse impact parameter ($|z_0\times\sin\theta|$).
 
 Finally, the muon candidates are required to pass a particle identification and an isolation criteria as defined in~\cite{2016.muon-reconstruction-13tev}.
 The methods used in constructing the identification and isolation working points are described in more detail in Section~\ref{detector:muon_reconstruction}.
@@ -38,7 +38,7 @@ Both the transverse and longitudinal impact parameter cuts are the same for all 
 
 The electron particle identification uses a multivariate likelihood technique (LH) detailed in Section~\ref{detector:electron_reconstruction}.
 Preselected electrons must pass the \tt{LooseLH} working point with an additional requirement that there be a reconstructed track hit in the first layer of the pixel detector (a so-called $B$-layer hit).
-The LH requirement for the loose and signal electrons increases in tighness using \tt{MediumLH} and \tt{TightLH} electrons, respectively.
+The LH requirement for the loose and signal electrons increases in tightness using \tt{MediumLH} and \tt{TightLH} electrons, respectively.
 As for isolation, the \tt{Gradient} working point is required for signal electrons only.
 The loose electrons must fail one or both of the signal identification and isolation requirements.
 
@@ -68,7 +68,7 @@ Finally, the jets are required to be separated from the selected leptons by at l
 \end{table}
 
 \subsubsection{Treatment of overlapping objects}\label{ssww13tev:overlap_removal}
-In the event that one or more objects are reconstructed very close to each other, there is the possiblity for double-counting if both originated from the same object.
+In the event that one or more objects are reconstructed very close to each other, there is the possibility for double-counting if both originated from the same object.
 The procedure by which this ambiguity is resolved is called \emph{overlap removal} (OR).
 The standard ATLAS recommendation for OR~\cite{2014.atlas-overlap-removal, 2018.atlas-wboson-top} is implemented in this analysis and is summarized in Table~\ref{tab:ssww13tev_or}.
 

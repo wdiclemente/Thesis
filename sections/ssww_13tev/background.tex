@@ -1,6 +1,6 @@
 The major sources of background events are summarized in Section~\ref{ssww13tev:background_overview}, and the methods used to estimate them are detailed in this section.  
 Prompt backgrounds from $ZZ$ and $t\bar{t}+V$ are estimated directly from MC simulations.
-The shape of the $WZ$ and $V\gamma$ backgrounds are taken from MC, and the predicted yeilds are normalized to the data predictions in dedicated control regions, as outlined in Sections~\ref{ssww13tev:wz} and \ref{ssww13tev:wgamma}, respectively.
+The shape of the $WZ$ and $V\gamma$ backgrounds are taken from MC, and the predicted yields are normalized to the data predictions in dedicated control regions, as outlined in Sections~\ref{ssww13tev:wz} and \ref{ssww13tev:wgamma}, respectively.
 Opposite sign events with a charge misidentified electron are estimated by a data-driven background method which is summarized in Section~\ref{ssww13tev:charge_misid}.
 Finally, a \emph{fake-factor} method is used to estimate the contributions from non-prompt backgrounds and is the subject of Section~\ref{ssww13tev:fake_factor}.
 
@@ -128,7 +128,7 @@ A two-dimensional plot of $\varepsilon$ can be found in Figure~\ref{fig:charge_f
 \begin{figure}
   \centering
   \includegraphics[width=.7\textwidth]{figs/ssww_13tev/backgrounds/charge_flip/charge_flip_2d}
-  \caption{Charge misidentification rates for electrons as a function of $|\eta|$ and $\pt$.  Rates are calculated from $Z\rightarrow e^{+}e^{-}$ MC after applying sacle factors to approximate the charge mis-ID rates in data.}
+  \caption{Charge misidentification rates for electrons as a function of $|\eta|$ and $\pt$.  Rates are calculated from $Z\rightarrow e^{+}e^{-}$ MC after applying scale factors to approximate the charge mis-ID rates in data.}
   \label{fig:charge_flip_rates}
 \end{figure}
 
@@ -170,9 +170,9 @@ The correction is then applied to the $\pt$ of the charge-flipped electron via
 \pt = \pt^0/(1+\alpha)+dE\,,
 \label{ssww13tev:ch_flip_energy_corr}
 \end{equation}
-where $\pt^0$ is the uncorrected $\pt$ of the electron and $dE$ is a gaussian smearing factor centered at zero with a width related to the energy resolution.
+where $\pt^0$ is the uncorrected $\pt$ of the electron and $dE$ is a Gaussian smearing factor centered at zero with a width related to the energy resolution.
 Since which electron is mis-reconstructed is never determined in this method, in the case of a two-electron event, the energy correction is applied randomly to one of the two electrons based on the probabilities for them to be charge-flipped.
-This also determines the overall sign of the event; the charge of the electron that does not recieve the correction is taken to be the charge for both.
+This also determines the overall sign of the event; the charge of the electron that does not receive the correction is taken to be the charge for both.
 
 Systematic uncertainties on the charge mis-ID rates are calculated by generating two additional sets of rates with the uncertainties on the scale factors varied up and down.
 The size of the estimated charge flip background without the energy correction applied is also taken as a systematic uncertainty.

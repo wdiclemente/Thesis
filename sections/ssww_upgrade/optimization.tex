@@ -42,7 +42,7 @@ An example of a two-dimensional random grid is shown in Figure~\ref{fig:rgs_grid
 \end{figure}
 
 Once the random grid of cut points is constructed, the optimal cut point can be chosen using any number of metrics, such as signal to background ratio.
-For the purpose of the \ssww upgrade study, the optimal cut point is chosen to be the one that mazimizes the signal significance $Z$, defined as~\cite{2011.asimov-significance}
+For the purpose of the \ssww upgrade study, the optimal cut point is chosen to be the one that maximizes the signal significance $Z$, defined as~\cite{2011.asimov-significance}
 \begin{equation}
 Z = \sqrt{2{\bigg[}(s+b)\ln{\Big(}\frac{s+b}{b_0}{\Big)}+b_0-s-b{\bigg]}+\frac{(b-b_0)^2}{\sigma_b^2}}\,,
 \label{eq:significance_with_error}
@@ -52,7 +52,7 @@ where $s$ and $b$ are the number of signal and background events, respectively, 
 b_0 = \frac{1}{2}{\Big(}b-\sigma_b^2+\sqrt{(b-\sigma_b^2)^2+4(s+b)\sigma_b^2}{\Big)}\,.
 \label{eq:significance_b0}
 \end{equation}
-In the case where the backround is known precisely (i.e. $\sigma_b = 0$), Equation~\ref{eq:significance_with_error} simplifies to
+In the case where the background is known precisely (i.e. $\sigma_b = 0$), Equation~\ref{eq:significance_with_error} simplifies to
 \begin{equation}
 Z = \sqrt{2\bigg(b\big[(1+s/b)\ln(1+s/b)-s/b\big]\bigg)}\,,
 \label{eq:significance_without_error}
@@ -65,7 +65,7 @@ which further reduces to the familiar $Z = s/\sqrt{b}$ for the case when $s \muc
 \subsection{Inputs to the optimization}\label{sswwupgrade:opt_inputs}
 In order to train the RGS, signal and background samples are prepared from events passing the event selection outlined in Table~\ref{tab:sswwupgrade_event_selection} up through the $b$-jet veto.
 The signal sample is chosen to be the longitudinally polarized \ssww EWK events, and the transverse and mixed polarizations are treated as background along with \ssww events from QCD interactions and the traditional backgrounds listed in Section~\ref{sswwupgrade:background}.
-Splitting the inclusive \ssww EWK events by polarization allows the optimization to favor the longitunally polarized events as much as possible, even though they both contribute to the EWK signal.
+Splitting the inclusive \ssww EWK events by polarization allows the optimization to favor the longitudinally polarized events as much as possible, even though they both contribute to the EWK signal.
 
 The following variables are chosen for optimization:
 \begin{itemize}
@@ -80,12 +80,12 @@ Additionally, the dijet separation $\detajj$ was included in early studies of th
 
 Two additional constraints are imposed on the optimal cut point:
 \begin{enumerate}
-\item At least 1000 signal events must survive in order to prevent the optimization from being too aggressive and unnecssarily reducing signal statistics.
+\item At least 1000 signal events must survive in order to prevent the optimization from being too aggressive and unnecessarily reducing signal statistics.
 \item The dijet invariant mass may only vary within a $50\gev$ range of the default value (from $450-550\gev$) due to the cut being physically motivated by the VBS event topology described in Section~\ref{ssww13tev:ssww_topology}.
 \end{enumerate}
 
 Lastly, the signal significance is calculated without taking into account the uncertainty of the background using Equation~\ref{eq:significance_without_error}.
-This is due to the fact that the statistical uncertainties of the fake electron and charge misidentification backgrounds are quite large, owing to poor MC statiscs in a few of the samples.
+This is due to the fact that the statistical uncertainties of the fake electron and charge misidentification backgrounds are quite large, owing to poor MC statistics in a few of the samples.
 If Equation~\ref{eq:significance_with_error} were used instead, the optimization would cut unreasonably hard against these backgrounds.
 Since Monte Carlo statistics is not expected to be a limiting factor when this analysis is performed at the HL-LHC, it is more realistic to simply ignore these large statistical uncertainties for the purpose of the optimization.
 
