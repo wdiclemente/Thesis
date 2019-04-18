@@ -46,11 +46,22 @@
 
 \ifthenelse{\boolean{boolVersionForPenn}}{
   % For the version to print, just include URL, which is pretty harmless.
-  \RequirePackage[colorlinks=true,breaklinks=true,linktocpage=true,backref,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black]{hyperref}
+  \RequirePackage[colorlinks=true,breaklinks=true,linktocpage=true,backref=page,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black]{hyperref}
 }{
   % For the electronic document, include hyperref.
-  \RequirePackage[colorlinks=true,breaklinks=true,linktocpage=true,backref,citecolor=blue,filecolor=black,linkcolor=blue,urlcolor=blue]{hyperref}
+  \RequirePackage[colorlinks=true,breaklinks=true,linktocpage=true,backref=page,citecolor=blue,filecolor=black,linkcolor=blue,urlcolor=blue]{hyperref}
 }
+
+% To format back references (*only* uncomment these when backref=page is used)
+% From https://tex.stackexchange.com/a/183735/1340
+%
+\renewcommand{\backref}[1]{}
+\renewcommand{\backrefalt}[4]{{
+  \ifcase #1 Not cited.%
+    \or Cited on page~#2.%
+    \else Cited on pages~#2.%
+    \fi%
+}}
 
 % Handling single/double spacing properly
 \RequirePackage{setspace}
