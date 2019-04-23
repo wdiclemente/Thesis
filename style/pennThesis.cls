@@ -13,8 +13,8 @@
 % True for the version you give to Penn, False for electronic version (e.g. for CDS)
 % The difference is the hyperlinks for references, citations, footnotes, etc.
 \newboolean{boolVersionForPenn}
-\setboolean{boolVersionForPenn}{false}
-%\setboolean{boolVersionForPenn}{true}
+%\setboolean{boolVersionForPenn}{false}
+\setboolean{boolVersionForPenn}{true}
 \newboolean{isDraft}
 
 
