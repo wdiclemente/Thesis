@@ -361,9 +361,9 @@
 
     {\Large \@author}
 
-    \vspace*{2cm}
+    %\vspace*{2cm}
     
-    All rights reserved.
+    %All rights reserved.
   \end{center}
 }
 
